@@ -1,0 +1,19 @@
+Context
+The Group Activity Scenario
+John, an undergraduate student with Multiple Sclerosis (MS), is undertaking an in-course assessment that requires him to work collaboratively with two other students to produce a joint piece of work. They are sitting together in a group around a computer workstation merging their individual efforts before submission.  
+Introduction
+Measuring Accessibility in Context
+Context Modelling
+Context dependent grammar
+Users as a Community of Practice
+Personas
+Metaphor and Rhetoric
+Use of the First Person
+Computational Linguistics
+Memetics
+Accessibility as a Collaborative Process
+User Agents as a Community of Practice
+Case Study (1): Metaphors in Tetris
+Case Study (2): Signwriting on Mobile Devices
+Conclusion
+References

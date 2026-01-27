@@ -1,0 +1,404 @@
+	•	 
+User Capability Set Templates
+
+These experimental capability templates were generated as part of the research effort for Chapter 4 of this thesis, considering how users of computer interfaces may be accurately expressed.
+
+
+	•	Overview
+The approach taken to testing and demonstration of  the capability model approach of Chapter 4, was to construct of  a small number of reasonably realistic user personas based on capability sets, designed to complement the Design Rationales used in Polymorphic Task Decomposition.  The word “reasonably” in this sense refers to the fact that the personas were created by a researcher with seven years general experience of accessibility, and not by subject area experts in vision, hearing, haptics, or cognition; and consequently,  any capability sets  created are likely to be flawed, naive, and lacking in some detailed respects. However, since the aim is to demonstrate how such capability sets can drive adaptation, the range  of capabilities identified are not required to be comprehensive, rather they need only be sufficient such that:
+	•	The scope of capability modelling can be appreciated.
+	•	The relevance (or not) of defined user capabilities to the Design Rationales can be appreciated.
+This appendix describes the templates used to express those personas.
+	•	Subject Ontologies
+For test and demonstration, subject ontologies and associated templates were created to cover all three physical design spaces, namely: visual; sonic; and haptic. In addition, separate ontologies were defined to encompass those properties related to the use of language, to the perception of colour, and to the perception and use of tabular content. In the case of the language ontology, cognitive skills associated with reading and writing are also included. 
+Of particular interest are the two alternative templates provided for colour perception; alternative 1 is a model based on perception of low, medium, and high frequency responses (approximating to red, green, and blue colour ranges);  and alternative 2 is an etiological model of colour impairment. The model of capability proposed in Chapter 4 allows for either alternative to be expressed without favour; debate over which is the preferred method of expression is covered in within the chapter.
+Also of interest is the tabular content ontology. The properties identified for tabular content are fundamentally cognitive in nature, dealing with memory retention; the concept of proximity of data between table cells; and to some extent, pattern recognition. The exact properties identified are also somewhat arbitrary, and are for illustration only; usability research into the correct identification of properties is considered outside of the scope of this research.
+Table 1: Subject ontologies
+Subject Name
+Description
+Visual
+Properties related to the visual design space.
+Sonic
+Properties related to the sonic design space.
+Haptic
+Properties related tactile and kinaesthetic capabilities in the haptic design space.
+Cognitive
+Properties related the cognitive design space.
+Language
+Properties related to the reading, writing, and understanding of textual content in visual, spoken, and haptic forms.
+ColourBlindness
+Properties related to colour perception. Two alternative ontologies offered.
+TabularContent
+Properties related to perception of, reading, and writing of tabular content.
+
+	•	Template:  Visual
+Table 2: Visual design space capability template
+Property Name
+Values
+Parent
+Description
+sight
+UNCONSTRAINED PARTIAL NONE
+None
+Top –level property for template. Remaining template properties only of interest for PARTIAL sight.
+stereo
+UNCONSTRAINED PARTIAL NONE
+sight
+Stereo vision. 
+focus
+UNCONSTRAINED PARTIAL NONE
+sight
+Can the user focus on a point?  PARTIAL would suggest blurred/double vision. Example of NONE would be a user who can distinguish light and dark, but not images.
+focusDuration
+Time in minutes
+focus
+Length of time user can continue to focus on a point (not necessarily the same point) before experiencing fatigue.
+tracking
+UNCONSTRAINED PARTIAL NONE
+focus
+Can the user visually track a moving item? This is not a measure of focus (the image may be blurred for instance) but it is related:  identifying and tracking an image.
+trackingDuration
+Time in minutes
+tracking
+Length of time user can continue to track an image visually before experiencing fatigue. Assuming that tracking a moving image is a greater cognitive load than simply watching static images, this value should be less than focusDuration.
+viewRectangle
+x, y, w, h in pixels
+sight
+A viewing rectangle within the user’s field of vision. Nominally a rectangle within a 1024x768 pixel screen on a 15” laptop mounted at  a normal viewing  distance from the user.  Anything less than 1024x768 would typically suggest tunnel vision.
+nonViewRectangle
+x, y, w, h in pixels
+sight
+A rectangle within the user’s field of vision not readable by the user. Nominally a rectangle within a 1024x768 pixel screen on a 15” laptop mounted at  a normal viewing  distance from the user. Any such centrally placed rectangle would suggest no poor or no central vision, perhaps only peripheral vision
+flickerOK
+TRUE FALSE
+sight
+Are flickering images OK? Aimed at covering users with epilepsy.
+
+	•	Template:  Colour Blindness (alternative 1)
+
+Table 3: Colour blindness capability template (alternative 1)
+Property Name
+Values
+Parent
+Description
+sight
+UNCONSTRAINED PARTIAL NONE
+None
+Top –level property for template. Remaining template properties only of interest for PARTIAL sight.
+colorLow
+Percentage
+Sight
+The effective low frequency colour perception of the user. 100% would be no impairment. 0% would suggest some form of colour blindness.  A mid-value of 50% would suggest a mild form of colour blindness.
+colorMedium
+Percentage
+Sight
+The effective medium frequency colour perception of the user. 100% would be no impairment. 0% would suggest some form of colour blindness.  A mid-value of 50% would suggest a mild form of colour blindness.
+colorHigh
+Percentage
+Sight
+The effective high frequency colour perception of the user. 100% would be no impairment. 0% would suggest some form of colour blindness.  A mid-value of 50% would suggest a mild form of colour blindness.
+intensityLow
+Percentage
+Sight
+The effective low frequency intensity perception of the user. 100% would be no impairment.  Non-zero would suggest some form of colour blindness.  
+intensityMedium
+Percentage
+Sight
+The effective medium frequency intensity perception of the user. 100% would be no impairment.  Non-zero would suggest some form of colour blindness.  
+intensityHigh
+Percentage
+Sight
+The effective high frequency intensity perception of the user. 100% would be no impairment.  Non-zero would suggest some form of colour blindness.  
+
+	•	Template:  Language
+
+Table 4: Language capability template
+Property Name
+Values
+Parent
+Description
+language
+UNCONSTRAINED PARTIAL NONE
+none
+Can the user understand language (in any medium)?
+fontLanguageSet
+ English, French, German, Rebus
+language
+Written languages understood by the user.
+signLanguageSet
+NONE, ASL, BSL
+language
+Performance based languages understood by the user.
+hapticLanguageSet
+Braille, ShoulderTapper, HapticMap
+language
+Tactile based languages understood by the user.
+spokenLanguageSet
+NONE, English, French, German
+language
+Spoken languages understood by the user
+readFontText
+UNCONSTRAINED PARTIAL NONE
+sight + fontLanguageSet
+Can the user read (and see) font based text?
+readSignText
+UNCONSTRAINED PARTIAL NONE
+sight + signLanguageSet
+Can the user read (and see) sign 
+readAudioText
+UNCONSTRAINED PARTIAL NONE
+hearing + spokenLanguageSet
+Can the user read (and hear) audio based text?
+readHapticText
+UNCONSTRAINED PARTIAL NONE
+haptic + hapticLanguageSet
+Can the user read (and feel) haptic  based text?
+writeFontSet
+CURSIVE, BLOCK, SELECTION,
+fontLanguageSet
+Modes of writing text. SELECTION means some form of technology e.g. keyboard, scanning, eye tracking etc.
+writeAudioSet
+SPEECH, NON-SPEECH-SOUNDS, SELECTION
+spokenLanguageSet
+Modes of creating speech based  text
+writeSignSet
+PERFORMANCE, ENCODED FONT
+signLanguageSet
+Modes of creating performance based text
+writeHapticSet
+SERIAL-ENCODING BRAILLE SELECTION
+hapticLanguageSet
+Modes of creating haptic based text. SERIAL would include Morse and equivalent methods.
+minReadFontSizeForFont
+Font size in points  + font name 
+readFontText
+Minimum readable font size for user defined in points when presented on a 1024x768 pixel 15” screen. 
+minReadKerningForFont
+Kerning in pixels + font name + font size
+readFontText
+Minimum kerning for the given font and font size
+maxFontLineWidthForSize
+Font name + font size + line width in pixels
+readFontText
+Maximum line length for the given font and size in pixels when presented on a 1024x768 pixel 15” screen. This is aimed at dealing with the cognitive problems users may experience in scanning from the end of a line back to the start of the next line. 
+multiColumnFont
+Number of columns as a counting number
+readFontText
+How many columns of text can the user handle on a 1024x768 pixel 15” screen?
+minWriteFontCursive
+Rectangle w, h  in cm
+fontLanguageSet
+Rectangular area needed for user to write cursive text
+minWriteFontBlock
+Rectangle w, h  in cm
+fontLanguageSet
+Rectangular area needed for user to write an individual character
+maxAudioRead
+Words per minute at a positive counting number
+readAudioText
+Maximum audio speed in words per minute understandable by the user.
+maxAudioWrite
+Words per minute at a positive counting number
+writeAudioText
+Maximum speed in words per minute that user can speak. Knowing this number would help adjust timing issues in applications.
+minInterWordGap
+Time in milliseconds
+readAudioText
+Minimum required gap in milliseconds between words required for the user to understand the spoken word.
+
+
+
+
+
+	•	Template:  Tabular Content
+Table 5: Tabular content capability template
+Property Name
+Values
+Parent
+Description
+oneDTable
+TRUE FALSE
+none
+User can understand a 1D representation of content i.e. a list.
+twoDTable
+TRUE FALSE
+none
+User can understand a 2D representation of content i.e. a 2D matrix. 
+threeDTable
+TRUE FALSE
+none
+User can understand a 3D representation of content e.g. their position in space, or which side of a Rubik cube they are viewing.
+embeddedTables
+UNCONSTRAINED PARTIAL NONE
+none
+User can understand one table embedded within the cell of another e.g. the grid-based layout of newspaper page.
+rememberList
+Time in seconds
+oneDTable
+Length of time a user can remember recently viewed (local) entries in a list when no longer observable e.g. list content scrolled off-screen.
+rememberColumnMeaning
+Time in seconds
+twoDTable
+Length of time a user can remember the meaning of a column when its description/heading is no longer observable e.g. when the heading has scrolled off-screen
+rememberRowMeaning
+Time in seconds
+twoDTable
+Length of time a user can remember the meaning of a row when its description is no longer observable e.g. when the heading has scrolled off-screen
+visualInterCellGap
+Distance in pixels
+oneDTable twoDTable threeDTable sight
+Max distance in pixels between cells that the user can still recognize the cells as related i.e. max cell padding. Assumes standard 1024x768 pixel 15” screen.
+visualCellheight
+Distance in pixels
+oneDTable twoDTable threeDTable sight
+Max height of a cell in pixels before the user no longer perceives it as a cell. Assumes standard 1024x768 pixel 15” screen.
+visualCellWidth
+Distance in pixels
+oneDTable twoDTable threeDTable sight
+Max width of a cell in pixels before the user no longer perceives it as a cell. Assumes standard 1024x768 pixel 15” screen.
+dynamicCellContent
+FULLY NONE WHILST OBSERVABLE
+oneDTable twoDTable threeDTable
+Can the user handle cell content dynamically changing?
+
+
+
+
+	•	Template:  Colour Blindness (alternative 2)
+Table 6: Colour blindness capability template (alternative 2)
+Property Name
+Values
+Parent
+Description
+sight
+UNCONSTRAINED PARTIAL NONE
+None
+Top –level property for template. Remaining template properties only of interest for PARTIAL sight.
+monochromacy
+TRUE FALSE
+sight
+User has no colour perception
+dichromacy
+TRUE FALSE
+sight
+User has no colour perception in one of low, medium, high sets of colour receptors.
+trichromacy
+TRUE FALSE
+sight
+User’s spectral sensitivity is altered on one of low, medium, high sets of colour receptors.
+protanopia
+TRUE FALSE
+dichromacy
+User has a complete absence of red retinal photoreceptors.
+deuteranopia
+FULL PARTIAL NONE
+dichromacy
+The user’s green retinal photoreceptors are absent or partially absent, moderately affecting red-green hue discrimination.
+tritanopia
+FULL PARTIAL NONE
+dichromacy
+The user’s blue retinal photoreceptors are absent or partially absent.
+protanomaly
+TRUE FALSE
+trichromacy
+The user has an altered spectral sensitivity in their red retinal receptors (closer to green receptor response).
+deuteranomaly
+TRUE FALSE
+trichromacy
+The user has an altered spectral sensitivity in their green retinal receptors.
+tritanomaly
+TRUE FALSE
+trichromacy
+The user has impaired blue-yellow hue discrimination.
+
+
+	•	Template:  Sonic
+Table 7: Sonic design space capability template
+Property Name
+Values
+Parent
+Description
+hearing
+UNCONSTRAINED PARTIAL NONE
+none
+Top –level property for hearing. Remaining hearing template properties only of interest for PARTIAL hearing.  Many  hearing properties are related to language and are expressed in the Language template.
+stereo
+UNCONSTRAINED PARTIAL NONE
+hearing
+Stereo hearing.
+reducedHearingBand
+Left or right ear + frequency range in Hertz + percentage of volume experienced
+hearing
+Frequency range for given ear that user has no usable hearing within. A user may have many reduced hearing bands.
+pointSourceDiscrimination
+TRUE FALSE
+stereo
+Ability to identify a point source of sound.
+cocktailParty
+TRUE FALSE
+stereo
+Ability to identify and follow a single conversation when surrounded by conversations.
+speech
+UNCONSTRAINED PARTIAL NONE
+none
+Top –level property for speech. Remaining hearing template properties only of interest for PARTIAL speech. Many speech properties are related to language and are expressed in the Language template
+
+	•	Template:  Haptic
+Table 8: Haptic design space capability template
+Property Name
+Values
+Parent
+Description
+tactileTouch
+TRUE FALSE
+none
+User can sense when they are touching a surface.
+tactilePress
+TRUE FALSE
+tactileTouch
+User can sense when they are pressing down on a surface.
+senseOfLimbPosition
+TRUE FALSE
+none
+User knows location of their limbs without looking e.g. can use a mouse without looking, can touch their nose with their eyes closed.
+constantTouching
+Time in milliseconds
+tactileTouch
+Typical length of time the user can constantly touch the same location.
+touchAStaticPoint
+UNCONSTRAINED PARTIAL NONE
+none
+Ability to touch a specific point within easy arm’s reach.
+touchAMovingPoint
+Pixels per second as an integer
+tactileTouch
+Maximum speed of a moving point that can be touched by the user  on a 15” screen of 1024x768 pixels.
+landing Zone
+Rectangle w, h as integers
+touchAStaticPoint
+Rectangle in pixels covered by a user attempting to touch a point on a 15” screen of 1024x768 pixels.
+guardZone
+Rectangle w, h as integers
+landingZone
+Rectangle in pixels typically needed for a finger to come to rest having correctly hit the landing zone, centred on the centre of the landing zone.
+stereoHandTouch
+TRUE FALSE
+tactileTouch
+User can touch with two hands simultaneously.
+multiFingerTouch
+Number in range 0 - 5
+tactileTouch
+Number of fingers and thumbs on one hand that the user can use for touch simultaneously.
+interTouchGap
+Time in milliseconds
+tactileTouch
+Minimum time in milliseconds needed between the user sensing a touch and the next sensing at the same location on the body.
+minTouchTime
+Time in milliseconds
+tactileTouch
+Minimum time in milliseconds for the user’s body to sense a touch.
+typicalButtonPressRate
+Presses per second in floating point 
+tactileTouch
+Typical rate a user can press buttons on a panel of buttons e.g. a keyboard.
+

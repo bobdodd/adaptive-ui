@@ -1,0 +1,16 @@
+Requirement Modelling
+
+
+
+Counterpoint
+The Requirement Model is the counterpoint of the Capacity Model in my profiling work. The Capacity Model describes the degree to which an entity expresses the range of capabilities in the Capability Model. The Requirement Model describes the range of settings that are acceptable to an entity for the given capabilities in the Capability Model.
+Such a model has all of the characteristics of the Capacity Model, including functionally dependent setting ranges. The likely complexity of the functionally dependent setting ranges is less than the Capacity Model as feedback from an active user interface has no foreseeable use-case (although the model would support the scenario).
+The big, notable difference between the Requirement and Capacity models is the change from sub-types to 1:M associate from the SettingRange to AllowedSettings.  This allows for groups of allowed settings, for example a NumericProperty may be broken into a number of acceptable ranges for the setting value.
+Usage
+The Requirement Model forms a big part of the mechanism used to select interaction modalities during rendering of content from the CISNA model. Interaction modalities are described in relation to Design Spaces in an abstract form (think meta-data for design patterns, which is the nearest equivalent design approach). Within the Design Space Model, a modality is expressed in terms of a number of renderable elements and their properties; the required properties of architectural elements of supporting devices; and the required properties of the associated spatial substrates. All description of those devices and properties result in an instance of the Requirement Model. 
+The Requirement Model is used to match the needs of interaction modalities with the capacity of the user, device, and environment to support them. Functional dependency is used to allow current environmental conditions to drive the acceptable ranges. So, for example, if a modality is designed for a touch screen, and the available device has no touch screen, then the modality can be removed from consideration. Similarly, if the modality depends upon the visual proximity of elements, and user vision is impaired, for example due to tunnel vision, then again the modality can be removed from consideration. It’s a simple but very powerful selection mechanism.
+
+
+
+
+

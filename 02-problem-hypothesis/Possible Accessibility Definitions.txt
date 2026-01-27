@@ -1,0 +1,47 @@
+Possible Accessibility Definitions
+
+Entailment-based
+Definition
+
+For user interface A to be considered a content accessible version of user interface B, then the graphs A and B must mutually entail each other when all information content (explicit and implicit) communicated, in both directions, between user and interface on each interface are expressed as directed graphs.
+Explanatory Note
+
+The notion of entailment comes from graph theory, and in particular it’s use in the RDF (and in Dublin Core for that matter).
+
+From:  HYPERLINK "http://www.ninebynine.org/RDFNotes/PuttingSemanticsInSemanticWeb.htm" http://www.ninebynine.org/RDFNotes/PuttingSemanticsInSemanticWeb.htm (viewed 15/03/2006)
+
+“When expressing a statement, we may not know what the words in that statement stand for, but we presume they stand for something. If we make another statement in the same context using some of the same words, we presume they stand for the same things. When we say that some collection of statements P entail another statement S, we mean that when the statements P are true for any given interpretation of the words they contain, statement S is also true for the same interpretation.”
+
+In other words, we are talking about equivalence of meaning, independent of the expression of that meaning.
+
+Discussion
+
+I’ve been looking for a while for a decent, measurable definition of accessibility in terms of user interface design. I need to know if an adapted user interface is accessible, and I kept getting stuck in the problem of “For whom is it accessible?” In the end, I split the definition into two parts:
+
+a)	A user interface is intrinsically accessible if the underlying abstract design is wholly inclusive, and the built-in process of tailoring to specific users is wholly evolutionary in nature. That is to say (i) the underlying design of the interface makes no assumptions about the capabilities of the user, and so in this sense is truly universally accessible, and (ii) the mechanism and rules to tailor the interface is not fixed in the design but change over time as a result of user experience. There are many factors that make a user interface intrinsically accessible, and not all are yet known, and hence “intrinsically accessible” is may be used only in a comparative sense, you cannot say any particular user interface is intrinsically accessible, only that it is more, or less, intrinsically accessible than another.
+
+b)	A user interface is functionally accessible if it is usable for specific user preference and capability sets (i.e. profiles). It is not possible to talk about a functionally accessible interface without reference to the supported user profiles that it supports. Since, by definition, all users have a user profile, all user interfaces are functionally accessible for specific users (and sometimes classifications of users) there is no such thing as a functionally inaccessible user interface. Further, since there are an arbitrary number of possible user profiles, it is impossible to use the term “functionally accessible” to compare one user interface with another. Whilst one user interface may cover a broader range of profiles than another, it is still only functionally accessible to those users who fit the supported profiles; breadth of coverage is not a measure of accessibility. In this sense, breadth of coverage is a measure usability, not accessibility.
+
+The definitions are ok in as far as they go, but I don’t really like the definition of “intrinsically accessible”. “Intrinsically accessible” is meant to be a relative term, but there is no clear way within the definition of measuring an interface design to make formal comparison. 
+
+I like the entailment-based definition because it supports formal comparison. It measures the accuracy of presented content compared with the original meaning in the default presentation, and hence measures the quality of the tailoring mechanism. There’s more to “intrinsically accessible” than that however, which is why I choose to say “content accessible”. And this leads to an updated definition of “intrinsically accessible” (changes in boldface):
+
+A user interface is intrinsically accessible if the underlying abstract design is wholly inclusive, and the built-in process of tailoring to specific users is content accessible and wholly evolutionary in nature. That is to say (i) the underlying design of the interface makes no assumptions about the capabilities of the user, and so in this sense is truly universally accessible, and (ii) the mechanism and rules to tailor the interface is not fixed in the design but change over time as a result of user experience. There are many factors that make a user interface intrinsically accessible, and not all are yet known, and hence “intrinsically accessible” is may be used only in a comparative sense, you cannot say any particular user interface is intrinsically accessible, only that it is more, or less, intrinsically accessible than another.
+
+Implications for my Research
+
+Directed graphs have been at the basis of my practical work since the beginning. Executable UML, the systems modelling method used for the practical investigation into modelling the interaction between user capability and UI interaction is itself underpinned by graph theory: UML is a collection stylized directed graphs. To be more precise, they are a collection of (potentially overlapping) cut-sets of a single graph of system behaviour.
+
+In terms of the definition of “content accessibility”, a populated Executable UML model rendered for a particular capability set on a particular device would represent the graph of a specific user interface. To compare for content accessibility for a specific user capability set would require two renderings, one for the “default” user interface, and one for the specified capability set. To compare for “intrinsic accessibility” would require predicate calculus to demonstrate that all information expressed in the populated “abstract UI” domain was contained within the rendered UI. 
+
+This means that, whilst I’m most interested in “content accessibility” in terms of “intrinsic accessibility”, in practical terms it mostly helps with “functional accessibility” evaluations. Well, unless I want to turn my PhD into an exercise in formal methods that is (which I don’t). However it is still a very useful foundation that helps support and justify the modelling approach I’m taking.
+
+This work also leads in nicely to Dublin Core and all the metadata work on user profiling. Cetis for example uses RDF for their profiling work , and a common implementation of Dublin Core is a rendering in RDF. And RDF of course links back into the Semantic Web, which gives me a link into my hypermedia model (the application domain of my original Executable UML models).
+
+Next Steps
+
+Find some decent RDF references to this work for the rego document. Probably some of the W3C inline docs and maybe the O’Reilly book on RDF. 
+Find a tame mathematician to sort out what I really mean (I’m an engineer, not a mathematical, and whilst I did a lot of maths on my BSc. That was 20 years ago). 
+Consider the impact on capability modelling. 
+Consider the impact on expressing hypermodels.
+ 

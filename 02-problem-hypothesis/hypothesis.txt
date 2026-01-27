@@ -1,0 +1,8 @@
+Possible Hyp for:
+
+The effectiveness of self-adapting user interfaces as assistive technology for hand-held mobile devices
+
+Dynamically reifying an abstract user interface in sympathy with a populated user capability model at point of delivery is an effective method of providing an accessible user interface on hand-held mobile devices.
+It is possible to measure that accessibility and its effectiveness.
+Such a measure is independent of specific user profiles.
+

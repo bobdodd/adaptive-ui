@@ -1,0 +1,84 @@
+Meta-Model
+
+Four stage thesis:
+
+Literature review and lead-in 	– 1 chapter
+Core 				– 5 chapters
+Analysis & lead out 		– 1 chapter
+Discussion of wider context 	– 1 chapter
+
+
+Style: 
+	Analytical 
+		Argumentative
+		Analytical 
+			Argumentative
+			Analytical (resolving)
+		Analytical
+		Analytical (resolving)
+
+In terms of numbering: n.n.n is maximum numerical indentation (normally n.n)
+
+Recurring/Linking Themes:
+
+Semantic decomposition of problems
+Measurability
+Directed graphs (for modelling and use-cases/scenarios)
+Abstraction
+Simulation
+
+
+
+Lit Review & Lead-in
+Accessibility in context of mobile devices
+User interaction and design spaces
+Metaphor
+User capability modelling
+User Interface design techniques
+Accessibility Definitions & Measurability
+Medical v. Social v. Usability
+A computer science view (my position)
+Metrics and metrics collection
+A practical system-modelling approach (resolution)
+Design Spaces & Metaphor
+Ontologies v. user interaction models
+The multi-sensory design space
+Metaphor & design patterns
+Modelling the design space (resolution)
+Capability Modelling & User Constraints
+Disability v. capability v. environment
+Modelling the senses
+Modelling the capacity to achieve
+Expressing capability through diagrams (resolution)
+User Interface Modelling & Assistive Technology
+Transliteration v. abstraction
+Elaborative v. translative development
+The glass box and semantic decomposition (resolution)
+Usability & Simulation Experiences
+Quantitative simulation v. qualitative evaluation
+Simulation strategies
+Use-cases and metrics
+Expected v. actual results (report)
+Analysis & Lead-out
+Thesis v. experience
+Measuring accessibility
+The quality of user profiles
+The effectiveness of the modelling process
+Assistive technology in mobile devices (resolution)
+Discussion (Widening-out)
+Accessibility definitions and standards
+Capability modelling and user profile dissemination
+User interface development methods
+Defining the meaning of Assistive Technology (resolution)
+A	Detailed Methodology
+B	Population Tables for Simulations
+
+
+PAGE  
+
+
+PAGE  1
+
+
+
+

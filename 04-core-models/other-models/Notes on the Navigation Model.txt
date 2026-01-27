@@ -1,0 +1,51 @@
+The CISNA Navigation Model & its XML notation  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+This short note related to the documents:
+“CISNA.pdf”
+“navigation example.pdf”
+
+The note is intended to help me to structure my thesis, and perhaps provide some of the text.
+
+Revisiting the Dexter & Amsterdam Models
+
+It is the Dexter and Amsterdam models of hypertext and hypermedia that were the beginning of my research into adaptable user interfaces. I looked towards them for an accepted model of an interactive document on which to build my ideas, but what I found was models that were too far away from the semantics of document content to allow me to properly describe how a document, and it’s navigation strategies may change.
+
+Figures 1 & 2 below show the Dexter and Amsterdam models. The Amsterdam Model is an extension of the Dexter Model; the extensions are shown in red. I’ve already written a great deal on these models, which I won’t repeat here except as part of the description of the Navigation Layer. 
+
+
+
+Figure  SEQ Figure \* ARABIC 1 - Dexter Model
+
+
+Figure  SEQ Figure \* ARABIC 2 - Amsterdam Model
+
+The Dexter & Amsterdam Models in Context
+
+ REF _Ref63399048 Figure 3 shows the Navigation Layer of the CISNA model. The elements shown in orange related to the Dexter/Amsterdam models to a greater or lesser degree. 
+
+
+Figure  SEQ Figure \* ARABIC 3 - Navigation Layer
+
+The Navigation Layer is primarily a collection of Nodes. A Node is something a user can navigate to or from, a Component in Dexter-speak. Nodes may also be collected form sub-groups of a Node (but not including itself), and this corresponds to the Composite Component of Dexter. Sub-groups are supported primarily to support multimedia grouping together video, audio and captioning. It is not intended to describe “pages” (of documents or websites), which are considered rather to be Views of content.
+
+A View is a collection of navigable Nodes that are presented contemporaneously to the user. Note, which the content may be presented to the user, it may not be visible/navigable at all times, for example when content is presented in a scrollpane. Views are how the CISNA model supports Dexter ‘s 1:M Link Components (represented by multiple Arcs for each Link Component in  REF _Ref63477166 Figure 2. A View may also represent something else: a “chunk” of document, a web page, a chapter of a book, a volume of an encyclopaedia; any level of document decomposition relevant to presentation to the user. Views are not inherently hierarchical, although they can be, and the same nodes may appear multiple times in different Views. The Dexter Model has just one View at this level of abstraction: the underlying content.
+
+Navigation between Nodes is described by Edges, where an Edge is a navigable path between two Nodes. Edges correspond to Link Components in Dexter. There may be multiple edges between the same two Nodes (because we may navigate between them for different reasons (e.g. the “back” button and “<a src=http://…”> may both lead to the same point on a web page).
+
+Both Nodes and Edges may have related Node or Edge Attributes. These attributes have a number of possible uses, one of which is timing synchronization. In a multimedia document for example, some edges are only available for navigation at particular times, and some nodes within a view may also be presented for a limited time. It is also possible to envision more complex synchronization issues; perhaps the visibility of certain Nodes in a View is controlled by the Edge by which the user arrives at the View. This corresponds to use of Synchronization Arcs in the Amsterdam Model. Detailed timing synchronization of multimedia elements, for example timing of captions on video, is assumed to take place in the lower layers of CISNA (unless the user can independently navigate to/from individual video/audio/caption elements.
+
+Inheritance within the Navigation Layer & XML
+
+Unlike the other layers of CISNA, the Navigation Layer model depends heavily on the OO concept of inheritance/sub-typing. Views, plain and collected content are all types of Node. This makes the choice of XML elements a less direct implementation of the model.
+
+I’ve chosen not to express the inheritance explicitly in the XML, rather there are <viewNode>, <contentNode>, and <collectedContentNode> elements with each taking <edge> and <nodeAttribute> elements.
+
+Because the same Node may be in multiple Views, and there are multiple Nodes in a View, the <nodeInView> element appears at the same level in the syntax tree and <viewNode>.
+
+
+

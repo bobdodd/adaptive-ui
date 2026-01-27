@@ -1,0 +1,31 @@
+The Sonic Design Space  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+This is one of a short series on notes covering the Application Model and its service domains. The notes will form the basis for the Runtime System chapters of my thesis.
+
+This particular note covers the Sonic Design Space, and describes a simple abstract model of how the sonic design space operates. The goal is not to produce a perfect model of the design space, but to create an illustrative example that allows me to show how the space is configured with respect to a user profile and interaction metaphors.
+Model
+
+ REF _Ref67132427 Figure 1 shows an abstract view of the Sonic Design Space. The key element in the model is Audio Clip, which specializes into a number of sub-types: music, synthetic audio, and natural audio. The specialization is important for two reasons. Firstly, speech, both synthetic and natural, is related to language, and potentially to scripts or to transcripts. Secondly, different types of audio play different roles within a user interface. For example, one would expect a difference in the treatment of speech and music, with speech emphasized over music if both are played contemporaneously.
+
+Audio Clips are considered to play out in Audio Streams. A stream is considered to play out clips in sequence, queuing where necessary. A stream is a logical construct, not a physical one, so an operating system for example could consider the audio output of each running application to be a stream. Within an application, there may be many streams, one for each element in a 3D soundscape for example. So, the meaning of a stream in the model is dependent upon the context of its use.
+
+Audio Streams map to Audio Channels. Channels represent “hardware” at this level of abstraction, with a channel considered analogous to a channel on a sound card/chip. Clearly the channel definition should also consider the mapping to mono and stereo left/right channels, and possibly, depending upon the level at which channels are considered, the split into 5.1 and 7.1 spatial audio is of interest. The model of the Sonic Design Space presented here does neither. What is considered important is that there is an assignment, and that the assignment is related to the current user profile.
+- 
+Figure  SEQ Figure \* ARABIC 1 – Sonic Design Space
+
+Audio Streams are assumed to play out at a Landmark – some notable location in space. Mono streams are assumed to be at the location of the listener, whilst stereo/spatial audio plays out at some position relative to the listener. Audio clips are considered to play out that the location of the stream. The Location of the Landmark is specified by its Coordinates, whose geometry is related to the properties of the assigned audio channel; this makes the coordinate geometry external to the device.
+
+Landmarks are either physical or virtual, with virtual landmarks predominating in existing user interfaces where audio is used largely to create virtual soundscapes in games. The exception to this rule is text-to-speech, which is typically mononaural, although research does exist to use spatial audio in teleconference applications. Physical landmarks exist in augmented reality systems, and examples exist of spatial audio projected over physical museum exhibits, and play out of audio triggered by proximity sensors (e.g. the talking bust stops in York).
+
+As with the Haptic Design Space, both clips and streams are assigned signifiers. A signifier in this sense is some arbitrary meaning associated with the clip or stream. For the stream, Stream Signifiers may represent characters in a game or elements in a spatial audio soundscape. For the clip, Clip Signifiers may include notification of a new email, feedback of a mechanical button being pressed, a user voice command, or a music track.
+
+Assignment of signifiers to clips and streams is considered to be under the control of the user interface. Not all assignments may be dynamic, as some may be fixed by the UI designer, for example those related to mechanical buttons and surfaces. In all cases there is, one hopes, some relationship between the elements of a user’s profile and the assignment of meaning to clips and streams, and to the assignment of streams to channels. At runtime, the user is represented by the assignments made.
+
+
+
+

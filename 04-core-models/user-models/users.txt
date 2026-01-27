@@ -1,0 +1,512 @@
+Users
+The Birthday Present Scenario
+Sarah, John’s girlfriend, is buying him a mobile phone as  birthday gift. John and Sarah both suffer from Multiple Sclerosis, and met at respite the previous year.  After an hour of experimenting with different phones, she chooses one to buy. John’s birthday arrives, and after help with unpacking and setting up his new phone, he attempts to use it. Some features work well for him, but not all. In fact, despite Sarah’s best efforts, some features are impossible for him to activate or use.  
+People, Context, and Assumptions
+“I remember looking down and planting my right foot on this brass rail for leverage, and then I came around and caught him with a tremendous right to the side of the head. The punch made a ghastly sound and he just flew off the stool and landed on his back in the doorway, about 15 feet away. And it was while he was in mid-air that I saw... that he had no legs.”
+Actor Burt Reynolds, recounting an incident in a bar, cited in Why We Make Mistakes (Hallinan, 2009, p.12)[x].
+Few of us are ever likely to be involved in a bar fight, let alone have the experience of Burt Reynolds as recounted above. What is interesting in this case, and of course is the point of the anecdote, is Reynolds' misreading of context, and his surprise that a disabled man would be sitting on a bar stool and picking a fight. There is also an unstated assumption that had Reynolds noticed the man's physical impairment, he would have behaved very differently.  
+That same misreading of context happens on a daily basis with existing computer user interfaces, and whilst one would hope that a faulty user interface won't throw a person fifteen feet across a room, they can still cause real physical discomfort, distress, and sheer frustration to the user. Simple example are key combinations and sequences on keypad input that stress the finger joints in a person with rheumatoid arthritis. Overly complicated menu structures can also cause problems for both visually and cognitively impaired users. The interface may even fail to work at all, for example most mobile phones have a purely visual interface to the user, causing significant problems for blind and visually impaired users, even though its core functionality is the spoken word.
+Assuming that the designers of user interfaces do not set out to deliberately exclude anyone from using their designs, the first question becomes:
+1.2.1	Why do user interfaces fail in certain contexts? 
+This chapter addresses one part of the question, examining how the potential physical and cognitive differences across all people can be described to a user interface such that informed decisions can be made in terms of how to communicate with the given user.  It uses the Birthday Present Scenario to ground the discussion in terms of a practical reality (in fact, it is the real-world scenario that gave birth to this research), and starts from a consideration of existing approaches to describing user interfaces and profiles. Against this background an alternative, novel, approach is argued for that describes people in terms of their physical and cognitive capabilities  to interact with user interfaces, allowing for that capability profile to update, potentially automatically, as a result of observed behaviour in particular contexts.
+Polymorphic Task Decomposition
+If the construction of a user interface is to be informed by knowledge of the context of its use,  then some reference model describing the range of interaction and rendering choices available, and the selection criteria to apply,  is required. One such candidate is the Polymorphic Task Decomposition (PTD)  used in the AVANTI project (Savidis et al, 1997). A summary of the relevant aspects of PTD is given here together with reproductions of key figures from Savidis' paper.  PTD is then used both within this chapter, and throughout the rest of the thesis, as a high-quality datum to refer to when discussing and offering alternative approaches and representations.
+Savidis’ use of PTD is an extension of standard task-action grammars. It is a view of User Interface (UI) design that focuses on the actions triggered by user activity. The example used in Savidis, 1997 is the action, “Delete File”. Having identified the core actions of “Delete File”, the actions are then functionally decomposed into simpler activities, with a notation to express sequence, repetition etc. as can be seen in Figure 1 (reproduced from Savidis et al, 1997). 
+Savidis would call Figure 1 multi-modal and polymorphic. It is multi-modal in that there are many ways to accomplish the same task, for example direct manipulation, or a guided modal dialogue. It is polymorphic in that some actions decompose into alternate representations and associated interactions. It is at this polymorphic level that adaptability for specific user impairment is noted, for example use of scanning versus point and click for ‘Select Delete’ in Figure 1.  Not directly mentioned by Savidis, is that this is also the case at modal level: a complex modal dialogue may be inappropriate for some users with cognitive impairment, especially on small screens where the dialogue may obscure the graphical context of the action.
+Figure 1: PTD file deletion example
+For each mode/style of a task in PTD, the properties the user and the action are identified, as shown in Figure 2 (reproduced from Savidis et al, 1997). Of most interest to this research is the list of properties the user must possess, or that are important in the effective use of the mode. Examples classes of properties given by Savidis are: “general computing expertise, domain-specific knowledge, role in an organizational context, motor abilities, sensory abilities, mental abilities”. Savidis does not define a finite list of properties, but simply states that “the broader the set of values, the higher the differentiation capabilities among individual end-users”. 
+Figure 2: PTD design rationale for "Delete File"
+The “design” logic subsystem in Error: Reference source not found applies the rules identified for each node in the task hierarchy, guided by the user information server. The “dialog” control subsystem is responsible for rendering the interaction specified in the tasks selected by the decision making module.
+Figure 3: PTD runtime model
+PTD is something of a hybrid systems modelling approach. At its core is a functional decomposition of activities that are a response to user stimuli so that, in essence, PTD begins with a verb as one would in Structured Analysis and Structured Design (SASD) methods where one describes a hierarchy of tasks that operate on some independently described data structure. Interleaved within that functional task decomposition is a decomposition into alternative interaction modalities. In terms of SASD, that is to say that any module in a structure chart may have multiple alternative decompositions. That decomposition into modalities begins with groups of related nouns, that is to say ontologies; in the case of Figure 1, PTD groups first by direct manipulation and by modal dialogs, and later by notions related to specific implementations of those groupings. Figure 1 shows a relatively shallow hierarchy, but even here it is possible to see how ontologies higher up the functional decomposition utilise the services of ontologies lower down; the polymorphism within PTD describes a client-server model of functionality.  That is to say, PTD consists of both a functional task decomposition, and a semantic decomposition of those tasks, interleaved within the PTD hierarchy.
+Semantic decomposition of a problem is not unique the PTD, and one of the main Object Oriented Analysis (OOA) methods developed contemporaneously with PTD in the early 1990s, was the Shlaer-Mellor method [x] discussed in detail in chapter 3 of this thesis. To summarise, Shlaer-Mellor decomposes complex problems by considering subject areas within the given problem independently within their own unique ontologies, and then looks at the relationships between ontologies, building building a client server hierarchy of ontologies. So, where PTD ties ontologies through interleaved functional decomposition, Shlaer-Mellor ties them by semantic counterparts. It was in part both this similarity (and the differences) that caused PTD to be chosen as the reference model for expression of user interfaces; it was not an arbitrary choice.
+PTD has a view of the UI as a giant tree of tasks and sub-tasks, some mutually exclusive, as can be seen in Figure 3  (reproduced from Savidis et al, 1997). 
+Figure 4: Levels of PTD hierarchy
+Taking “Send document to Excel” as our top-level action, the next level of task is a multi-modal choice between a direct keyboard short-cut, and modal menus (as in the ‘Delete file’ example of Figure 1): “Send by keyboard short-cut”, and “Send by modal menu”.
+Taking “Send by modal menu” as the task to decompose, Microsoft’s designers require the user to choose between different kinds of thing to send to. There are no short-cuts at this level – the user must stick with modal menus. To have selected “Send by modal menu”, the user must have first selected “Select perform actions on file”. So “Send by modal menu has 3 sub-tasks: “Select perform actions on file” then “Send by modal menu” then “Send document to Excel”. It is that order of task that drives the rendering of the interface.
+At each node in the PTD tree, the relevant user properties are then identified, particularly those where alternate modalities, for example keyboard short-cuts and sub-menus, are identified. It is the properties identified at this stage that are used to select appropriate renderings.  Returning to Microsoft Word, those properties would describe the likely characteristics of users that prefer keyboard short-cuts and modal menus and the skill level associated with each mode. In the case of “Send document to Excel”, the modalities are not mutually exclusive, and the default menus provided allow either sub-task to be initiated by the user.
+In practice, there is no specific evidence that Microsoft Word, or indeed that any other commercial user interface, was designed using PTD. However, as the Word example above shows, existing applications can be seen in such terms, allowing particularly the contextual properties of Figure 2 to be highlighted and considered in relation to how well the given interface deals with context.
+In terms of the Birthday Present Scenario above, PTD allows us to consider how the apparent task decomposition of the mobile phone that Sarah chooses, and the user properties associated with it, cause the selected phone to be inaccessible to John. It also provides a language to discuss why Sarah, who suffers from the same medical condition as John, chose the wrong phone.
+User Base
+Using the language of the PTD model described in Section 1.3 , question 1.2.1, “why do user interfaces fail in certain contexts?”, may be re-phrased to:
+1.4.1	Why do user interfaces sometimes select inappropriate modalities for particular contexts?
+Since PTD describes modality selection in terms of design rationale for individual tasks (see Figure 2), the fault must lie with either the breadth of modalities offered, or faults in the descriptions of “users”, “targets”, and “properties” associated with the supported modalities; this chapter, Chapter 4, deals primarily with the possibility of faults in the descriptions.
+Given an interest in user descriptions, the next question to be asked is:
+1.4.2	Who precisely are our users, and what would they require of us as designers in order to use our product successfully?
+That is to say, it is the capacity of each modality to support given users, and the range of supported modalities, that will define the effectiveness of the user interface for a given context. In even more general terms, it is similar in many respects to this research's thesis given in Section 1.3.1, and repeated here for convenience:
+1.3.1 	Accessibility is the outcome of the encounter between an entity’s capacity to interact and its users' physical and cognitive capabilities with capacity, capability, and accessibility all expressed as measurable and quantitative properties. 
+The concept of capacity to interact in Section 1.3.1 is equivalent to PTDs task rationale descriptions shown in Figure 2, and such descriptions are only as accurate as the rationale's understanding of users. A faulty understanding of users will make for faulty rationales and inappropriate modality selections. To that extent, one can say that John's mobile phone fails to understand his capabilities and the context of his use.
+If we consider the existing computer programs of common electronic devices such as John's mobile phone, they generally provide some means to personalize the product in terms of the modalities used when interacting with users. In each case I would argue that it is user preference that is recorded rather than any real understanding of the needs or capabilities of the user. Those preferences may be grouped, for example into “accessibility options”, with some guidance to support user choice, but essentially they remain preferences. Does this matter? After all, if we know what the user wants, then we can adapt the product i.e. select appropriate modalities, to match their wishes.
+In this chapter it is  argued that it does fundamentally matter, and that knowing preferred settings for particular modalities is insufficient to maximize the potential user base (presumably commercial devices are not designed for small numbers of specific users), and flawed in terms of the maintenance and portability of a user’s personal profile over time. Instead, what is proposed is a functional model of user capability that is used to describe a user’s individual capacity to interact with the available modalities of given user interfaces, that taken together with a user's own preferences and understanding of their capabilities, fully describes their requirements for successful interaction with a product.
+Personas
+Given that effective decision making in PTD is closely tied to the understanding of context, the next question to arise is:
+1.5.1	How can the user base for a given UI  be expressed such that informed decisions over rendering, based on task rationales, may be made?
+And to answer that question, an even more fundamental question needs to be addressed:
+1.5.2	Who, exactly, are the users of the interface?
+The more vague the answer to 1.5.2, the more difficult it becomes to make informed detailed decisions over modality selection in PTD. 
+One of the popular approaches to describing the users of computer systems in User Centred Design (UCD) is the use of personas. Junior and Filgueiras (2005) define personas as:
+ “...fictitious user representations created in order to embody behaviours and motivations that a group of real users might express, representing them during the project development process”.
+Such user representations are more than mere stereotypes of the technical skill and abilities of groups of individuals, although it does incorporate them, but expresses the user in context. For example,  Pruitt and Grudin (2003) describe an example  foundation document used to describe personas during the development of Microsoft Windows, reproduced as Figure 5.
+
+		Get to know Alan, his business, and family.
+	A Day in the Life
+		Follow Alan through a typical day.
+	Work Activities
+		Look at Alan's job description and role at work.
+	Household and Leisure Activities
+		Get information about what Alan does when he's not at work.
+	Goals, Fears, and Aspirations
+		Understand the concerns Alan has about his life, career, and business.
+	Computer Skills, Knowledge, and Abilities
+		Learn about Alan's computer experience.
+	Market Size and Influence
+		Understand the impact people like Alan have on our business.
+	Demographic Attributes
+		Read key demographic information about Alan and his family.
+	Technology Attributes
+		Get a sense of what Alan does with technology.
+	Technology Attitudes
+		Review Alan's perspective on technology, past and future.
+	Communicating
+		Learn how Alan keeps in touch with people.
+	International Considerations
+		Find out what Alan is like outside the U.S.
+	Quotes
+		Hear what Alan has to say.
+	References
+		See source materials for this document. 
+Figure 5: Example persona template
+a)	Computer Skills, Knowledge, and Abilities.
+b)	Demographic Attributes.
+c)	Technology Attributes.
+d)	Technology Attitudes.
+Even within this limited scope, the breadth of the subject areas such as demographic attributes and technology attitudes is potentially more broad than that defined in PTD. This mismatch between the information used by persona descriptions and PTD design rationales can mean one of two things: either there is information contained in the persona template that is not necessary to make informed decisions about modalities, or PTD does not fully understand the user and her context, and may make faulty decisions  due to lack of information. Whichever is the case, the key point is that, to some extent the description of users in context as a tool for making informed decisions is well understood and used in significant software projects, and the kind of information contained is an apparent superset of the information required by PTD.
+Figure 5 is illuminating in the qualitative nature of the information recorded about a persona. There is nothing in the template to exclude quantitative information, and one could reasonably expect to see that in “Computer Skills, Knowledge, and Abilities”, but  the persona as shown is largely a narrative on the life and times of the persona.
+The number of personas recommended to be used during the design of a computer application is also illuminating, with the recommendation across the literature being to keep the number of personas small and manageable; in the case of Microsoft Windows, a figure of three to six is quoted by Pruitt and Grudin (2003). The small number of personas reflects their expected use. To quote Pruitt and Grudin:
+“Personas focus attention on a specific target audience. The method helps establish who is and consequently who is not being designed for. Personas explicitly do not cover every conceivable user”.
+That is to say, personas express the typical expected characteristics of important target user groups to help guide designers and developers. If the information available to PTD  is limited to the number of UCD personas used for example at Microsoft, then the quality of decisions made using the design rationales of PTD is necessarily  limited. The farther a specific user is from one of the documented personas, the less likely that the user will be adequately supported. In practice, this may be what happened to John in the Birthday Present Scenario: the complexity and breadth of his multiple physical impairments is well outside the norm for the phone he was given.
+Given the complexity and variations of human physiology in terms of vision, hearing, and mobility, a significant number of users in the general case are not explicitly considered through UCD personas.  Pruitt and Grudin for example explicitly state that, “...we have not yet created full-on international or disabled Personas...”, although they do go on to state that international market and accessibility information is appended to the personas that were created. It is difficult however, to imagine quite how a richly described “life-and-times” persona could have alternative impairments added simply as footnotes to the story.
+There is also difficulty with the narrative format of personas in that PTD is describing alternative modalities provided within a given interface after the design process has completed, and consequently it is the interface itself, and its user that is being guided,  not the designers. In cases where it is the interface i.e. a computer program, that is attempting to act as an agent of the user, the information referred to by PTD needs to be in machine-readable (and understandable) form. In fact, this is also true of PTD design rationales which also require a formalism not evident in Figure 2 (how exactly does one quantify “naturalness”?).
+Personal Needs and Preferences
+The de facto industry approach to describing detailed variations in users is through user profiling and associated electronic user profiles. Such profiles do not typically contain the breadth and quality of information provided in personas, but rely on a narrowly defined view of personal needs and preferences (discussed below), and are functional in nature. A user profile will more likely say that a particular input modality is preferred/required, or that larger fonts are better than smaller fonts, than explanations of how the user has difficulty using a mouse or reading a screen; in effect, they provide a list of decisions made elsewhere based on the information content one would find in a persona. As such, the concept of personas also makes a for a useful reference model in that they describe the information designers and (profilers) use to inform their work. The Assessment Scenario in Chapter 2 for example describes the construction of a profile for John based on a “life-and-times” view of him in the context of education. Based on the reference persona he most resembles, the assessor creates John's profile. In the Birthday Present Scenario, that assessment is performed by his girlfriend Sarah and it fails to provide John with a usable phone. Given that both John and Sarah both suffer from Multiple Sclerosis (MS),  this is surprising as one would expect Sarah's personal experience to guide her to successfully select a phone. That she doesn't has at least two possible reasons: either her experiences with MS in her life are such that her perception of John's “persona” is distorted by her own experiences, or the phone she chose was simply the least-worst phone available. 
+Whilst Pruitt and Grudin at Microsoft Corporation did not create explicit personas to represent disabled users, the Aegis project did (Aegis, 2010). The persona created for Aegis is that of a 63 year old man with MS. MS is a progressive disease, and not all sufferers experience the same symptoms or experience them at the same level of severity, so the profile created may, or may not, effectively represent John, or to some extent, Sarah. This demonstrates one of the dangers of detailed personas: the more detail and precision added, that is to say the more realistic that they become, the less generally representative of their user group they necessarily become. It is for this reason that the scenarios throughout this thesis express a class of scenario and a user with multiple possible impairments (hence the choice of MS) without providing details.
+Whilst the thesis scenarios do not elaborate on John's persona, as part of the work on users for this research, a more formalized electronic persona was created for a representative user with MS, Mike Smith, and can be found in Appendix B. The rationale for the structure of that electronic persona/profile is described below.
+Detailed consideration of the quality of personas used in UCD, and of the process of assessment of users with disabilities is outside of the scope of this research, and is not pursued further; however, it is clearly one future direction in which this research can  be extended.
+Access for All
+In addition to the many sets of highly-specific and non-portable preference options observable in commercial products, significant work has been done in the education field to create application-independent Personal Needs and Preference profiles, culminating in the creation of International Standard ISO/IEC 24751 [1] which aims to describe, functionally, a user’s needs and preferences in a given operating context. This standard builds on the work of the IMS Global Learning Consortium’s Access For All Meta-data Specification [2] which describes user needs and preferences in a standardised way using the World Wide Web’s XML notation [3]. The ISO standard makes it clear in section 5.2 that the XML formatted profile is expected to be generated by a software tool that is holding the user’s information rather than something created and maintained by hand, but in practical terms, it is the generated XML document that forms the user’s profile, and it is the XML document that the user presents to applications and devices in order to construct or adapt content presentation. 
+Note that the original IMS Access For All specification is currently under major review with the first draft of version 2.0 due for imminent release.  The comments made here refer to version 1.0, and may, at least to some extent, be addressed by version 2.0. How, and if, these changes will influence the ISO specification at this stage is unclear.
+The underlying Access for All meta-data model is a hierarchy of containers that describe accessibility, so for example accessibility is defined as a collection of resource descriptions; resource descriptions are defined as a primary resource description and a collection of equivalent resource descriptions; primary resource descriptions are defined as “EARL” descriptions [4] of transformability and flexibility and a collection of equivalent resources; and so on. A practical example of this hierarchy taken from a live project at Teesside University [5], and using the Access for All XML notation, is shown in fFigure 6. For economy of space, only a fragment of the complete profile is given, with some sections, attributes and values removed or truncated. 
+<accessForAll... >
+
+<context identifier = "ID000002" lang = "en"> 
+   <!-- Blind user using screen reader and Braille output
+        device in a classroom 
+   -->
+<display>
+  <screenReader>
+    <screenReaderGeneric>
+      <link usage = "required" value = "speakLink"/>
+      <speechRate usage = "preferred" value = "180"/>
+    </screenReaderGeneric>
+    <application name = "Jaws" ... >
+    </application>
+  </screenReader>
+  <braille>
+    <brailleGeneric>
+      <numDots usage = "preferred" value = "8"/>
+    </brailleGeneric>
+    <application name = "Duxbury..." version = "10.6"
+      priority = "2">
+    </application>
+  </braille>
+</display>
+		
+<control>
+  <keyboardEnhanced>
+    <keyboardEnhancedGeneric>
+      <stickyKeys usage = "required" value = "true">
+        <playSound usage = "required" value = "true"/>
+      </stickyKeys>
+    </keyboardEnhancedGeneric>
+  </keyboardEnhanced>
+</control>
+		
+<content>
+  <alternativesToVisual>
+    <audioDescription ... lang = "en" type = "expanded"/>
+  </alternativesToVisual>
+</content>
+	
+</context>
+</accessForAll>
+ 
+Figure 6: Example Access for All profile
+The XML in Figure 6 was generated by a user profiling tool, but remains human-readable, with the container hierarchy evident. 
+Figure 6 represents a blind user, using a screen reader application and a Braille output device, with the user’s needs and preferences organized by section: display; control; and content. This is a common means of grouping user interface information in software engineering, exemplified by the Model-View-Controller pattern [7]. The pattern separates content to be presented from the means of presentation, and also from the means of interaction during presentation. That separation allows for alternative means of presentation and interaction to be described for the same content. In this case, two means of presentation are defined: a screen reader; and a Braille device. Access for All goes beyond a simple separation of concerns by allowing for alternative content structures in addition to the alternative means of presentation. To give a Web analogy, multiple views of the same web page are possible by changing the Cascading Style Sheet (CSS) [6] related to that page, but changing content on the page requires the core HTML of the page itself to be re-written; Access for All allows for reference to those HTML changes to be made indirectly.
+Polymorphic Profiles
+What is evident in Figure 6, is that Access for All is predominantly a hierarchy of settings and options that are, with the exception of the <content> element, literal values. There are no references to other contexts, or to elements within a particular context. There is no equivalent of polymorphism such as “Fred is like Jim except…” anywhere within the XML, or indeed within the underlying information model. Consequently, were the context to vary (perhaps the blind student is on a field trip) resulting in, say, different pitch and volume levels better suited to a noisy external environment, then every single element of the profile would be repeated to express even these minor changes.
+A similar problem occurs with the <application> element. What happens if the student uses a different application when studying at home? Everything else may remain the same, there may even be no difference in configuration parameters between the applications, for example a screen magnifier, yet the Access for All model requires a different context, or a re-definition of context from “in a classroom” to, say, “in a quiet room” so that both applications are defined within the same context.  In practical terms this makes management of a profile covering multiple contexts cumbersome; it also explains the emphasis on generation of the profiles using a software tool, rather than maintenance by hand. However, this in itself raises questions about the approach:
+1.8.1	Assuming that the tool generating the Access for All profiles is well written, so that the same information is held only once and referred to as necessary, why is that data model not the user profile rather than a cumbersome container format that is potentially full of duplication? 
+Only the authors, IMS, can fully answer that question, but experience of following this alternative strategy, and which is the basis of  models of capability, capacity, and preference elaborated later in this chapter, does provide clues. Most notably, there is a loss of clarity when reading the new version of XML content  (the new model is also expressible in XML) compared to Access for All, and is an entirely impractical format for manual construction and maintenance – it requires tool support. For simple profiles with only one or two contexts, the Access for All XML format is by comparison, capable of manual construction and maintenance. So, the context of a profile’s use does fundamentally affect how it is described. Access for All is good for small simple profiles with a minimal number of contexts; the alternative presented in this chapter targets the more complex general case. In particular, the complexities of mobile contexts are considered where user need varies dramatically depending upon the environmental context, and upon the physical properties of the device being used.
+User Need
+User need is referred to in section 5.2 of the draft ISO/IEC standard [1]:
+ “The information collected as an Access For All Personal Needs and Preferences (PNP) statement is associated with the user’s functional abilities and the assistive technology or other non-standard technology in use as well as other user preferences (a functional approach), rather than with the name and other details of a human impairment (a medical approach)”.
+But what exactly does the user need? Returning to the example in Figure 6, we have a blind user who requires a screen reader, Braille output, and a modified keyboard. Does the user need a screen reader, or does she simply wish to use one? Isn’t it more likely that the user needs access to text and an understanding of the menus she is navigating on the computer, and that her preferred (and perhaps only available) choice is to use a screen reader to achieve this? Such a need is still functional in nature, not medical, but how that need would be met is quite different. Certainly with Access for All, users may express their preference, or requirement, for screen readers, and identify their preferred settings for particular products, but that does not necessarily describe need. There is something missing, and that is the description of the person one finds in personas.
+Capability
+One way of describing the person, and similar to the description of users and targets in PTD design rationale shown in Figure 2, is in terms of their physical and cognitive capability to interact with a particular modality. This view reflects the core thesis of this research, and repeated below for convenience:
+1.3.1 	Accessibility is the outcome of the encounter between an entity’s capacity to interact and its users' physical and cognitive capabilities with capacity, capability, and accessibility all expressed as measurable and quantitative properties.
+This capability is specifically excluded by the ISO specification, in the explicit rejection of the “medical model” of user impairment in favour of a functional approach, but such rejection confuses impairment and capability. That difference is best described by example. There are many ways of describing colour-blindness. It is possible, for example, to take an etiological approach as shown in Table 1, which describes a hierarchy of medical terms that fully describe most forms of colour-blindness. 
+A functional approach, from the future work section of the IMS specification [2] identifies a number of “functional” elements related to colour. One, “colorAvoidance”, requires that colour is not used as the sole discriminator for information; all of the others directly reflect some form of colour-blindness. Of these, only “colorAvoidance” appears to have made it into the ISO specification. The full list is: avoidGreenYellow; colorAvoidance; useMaximumContrastMonochrome; avoidRed; avoidRedBlack; avoidGreen; avoidBlueYellow; avoidOrange; avoidPurpleGray.
+Such a list is certainly more appealing to a web designer than trying to remember the meaning of protanopia and how to compensate for the impairment when designing a web page. The list however is not complete, as not all colour-blind people are wholly colour-blind. Many, such as the main author of this paper, experience forms of mild colour-blindness that shifts the neutral point within the high, medium, or low frequency ranges. In my case, this results in mild deuteranomalia, which affects colour perception in the green-yellow-red section of the spectrum, but without the dimming that can occur with, for example protanopia. 
+Table 1: Etiological model of colour-blindness
+Property Name
+Values
+Parent
+Description
+sight
+FULL
+PARTIAL
+NONE
+None
+Top –level property for colour-blindness.
+Remaining template properties only of interest for PARTIAL sight.
+monochromacy
+TRUE
+FALSE
+sight
+User has no colour perception
+dichromacy
+TRUE
+FALSE
+sight
+User has no colour perception in one of low, medium, high sets of colour receptors.
+trichromacy
+TRUE
+FALSE
+sight
+User’s spectral sensitivity is altered on one of low, medium, high sets of colour receptors.
+protanopia
+TRUE
+FALSE
+dichromacy
+User has a complete absence of red retinal photoreceptors.
+deuteranopia
+FULL
+PARTIAL
+NONE
+dichromacy
+The user’s green retinal photoreceptors are absent or partially absent, moderately affecting red-green hue discrimination.
+tritanopia
+FULL
+PARTIAL
+NONE
+dichromacy
+The user’s blue retinal photoreceptors are absent or partially absent.
+protanomaly
+TRUE
+FALSE
+trichromacy
+The user has an altered spectral sensitivity in their red retinal receptors (closer to green receptor response).
+deuteranomaly
+TRUE
+FALSE
+trichromacy
+The user has an altered spectral sensitivity in their green retinal receptors.
+tritanomaly
+TRUE
+FALSE
+trichromacy
+The user has impaired blue-yellow hue discrimination.
+
+
+Table 2:  Capability model of colour-blindness
+Property Name
+Values
+Parent
+Description
+sight
+FULL PARTIAL NONE
+None
+Top –level property for colour-blindness. Remaining template properties only of interest for PARTIAL sight.
+colorLow
+Percentage
+Sight
+The effective low frequency colour perception of the user. 100% would be no impairment. 0% would suggest some form of colour blindness.  A mid-value of 50% would suggest a mild form of colour blindness.
+colorMedium
+Percentage
+Sight
+The effective medium frequency colour perception of the user. 100% would be no impairment. 0% would suggest some form of colour blindness.  A mid-value of 50% would suggest a mild form of colour blindness.
+colorHigh
+Percentage
+Sight
+The effective high frequency colour perception of the user. 100% would be no impairment. 0% would suggest some form of colour blindness.  A mid-value of 50% would suggest a mild form of colour blindness.
+intensityLow
+Percentage
+Sight
+The effective low frequency intensity perception of the user. 100% would be no impairment.  Non-zero would suggest some form of colour blindness.  
+intensityMedium
+Percentage
+Sight
+The effective medium frequency intensity perception of the user. 100% would be no impairment.  Non-zero would suggest some form of colour blindness.  
+intensityHigh
+Percentage
+Sight
+The effective high frequency intensity perception of the user. 100% would be no impairment.  Non-zero would suggest some form of colour blindness.  
+
+Clearly, the list of functional solutions to apply for colour-blindness in the IMS specification does not perfectly address such a condition. This is the fundamental problem with the functional approach: a model of specific solutions for specific conditions is unwieldy and unquantifiable.
+A capability approach to colour-blindness is shown in Table 2 In this approach, it is the effective capability to perceive particular parts of the colour spectrum that is modelled. So it is less a model of impairment, and more a model of capacity to interact with the visual design space, expressing colour-blindness within the ontology of colour perception, not the ontology of medical diagnosis. It is what the user can do, not why she cannot.
+It is this subtle difference between capability and impairment that defines this novel approach to user profiling; it describes what a user can do within each of Nesbitt’s physical design spaces [8]. 
+Similar capability properties are possible for vision more generally. Some example properties are shown in Table 3. Note that while they do reflect some underlying medical condition, they describe particular user capabilities of interest to a user interface designer. The example properties are derived from evaluating the real-life experiences of a person with Multiple Sclerosis. Note the differences with the details in the Aegis Multiple Sclerosis persona (Aegis, 2010) [x], where the Aegis persona has no vision impairment whereas the test subject of this work did (double/blurred vision is a typical symptom in MS but is not present in every case).
+Table 3: Example capability model of vision
+Property Name
+Values
+Parent
+Description
+sight
+FULL PARTIAL NONE
+None
+Top –level property for vision. Remaining properties only of interest for PARTIAL sight.
+stereo
+FULL PARTIAL NONE
+sight
+Stereo vision. 
+focus
+FULL PARTIAL NONE
+sight
+Can the user focus on a point?  PARTIAL would suggest blurred/double vision. Example of NONE would be a user who can distinguish light and dark, but not images.
+focusDuration
+Time in minutes
+focus
+Length of time user can continue to focus on a point (not necessarily the same point) before experiencing fatigue.
+tracking
+FULL PARTIAL NONE
+focus
+Can the user visually track a moving item? This is not a measure of focus (the image may be blurred for instance) but it is related:  identifying and tracking an image.
+trackingDuration
+Time in minutes
+tracking
+Length of time user can continue to track an image visually before experiencing fatigue. Assuming that tracking a moving image is a greater cognitive load than simply watching static images, this value should be less than focusDuration.
+viewRectangle
+x, y, w, h in pixels
+sight
+A viewing rectangle within the user’s field of vision. Nominally a rectangle within a 1024x768 pixel screen on a 15” laptop mounted at a normal viewing distance from the user.  Anything less than 1024x768 would typically suggest tunnel vision.
+nonViewRectangle
+x, y, w, h in pixels
+sight
+A rectangle within the user’s field of vision not readable by the user. Nominally a rectangle within a 1024x768 pixel screen on a 15” laptop mounted at a normal viewing distance from the user. Any such centrally placed rectangle would suggest either poor or no central vision, perhaps only peripheral vision
+
+
+ Property groupings are also identifiable for the sonic and haptic design spaces, and it is possible to imagine other groupings, not related to specific design spaces, with use of language one obvious candidate. A small edited fragment of such a language-based grouping is shown in Table 4. That there can be multiple views of the same properties, each relevant to the different tasks and design spaces that a user encounters, and which appear to have some hierarchy of importance embedded within them, suggests a radically different approach to representing context than in a purely hierarchical set of containers such as the information model of Access for All.
+Table 4: Example language based properties
+Property Name
+Values
+Parent
+Description
+language
+FULL PARTIAL NONE
+None
+Can the user understand language (in any medium)?
+hapticLanguageSet
+Braille, HapticMap
+Language
+Tactile based languages understood by the user.
+readSignText
+FULL PARTIAL NONE
+sight + signLanguageSet
+Can the user read (and see) sign 
+writeFontSet
+CURSIVE, BLOCK, SELECT
+fontLanguageSet
+Modes of writing text. SELECT means some form of technology e.g. keyboard, scanning, eye tracking etc.
+minReadFontSizeForFont
+Font size in points  + font name
+readFontText
+Minimum readable font size for user defined in points when presented on a 1024x768 pixel 15” screen.
+minInterWordGap
+Time in milliseconds
+readAudio Text
+Minimum required gap in milliseconds between words required for the user to understand the spoken word.
+ The “minReadFontSizeForFont” property in Table 4 is of particular interest. Font size and face are both frequently offered configuration options, often at great levels of detail as is the case with CSS driven web pages. Font size is also a property in Access for All. The problem with this approach is that usually there is only one setting allowed per property, yet properties such as font size are functionally dependent on context; text on a noisy background may need to be larger than the same text on a high contrast, plain background to be readable. Further, the physical stability of the screen also plays a part, so that a person with hand tremors may find that the readable size of text depends on whether the screen is placed on a Table, or is held in their hand. This is resolved in Access for All by the use of multiple contexts, but at a cost of potentially multiplying the number of contexts. Similarly, the “minInterWordGap” property may vary between noisy and quiet environments, and between different qualities of speech synthesis. 
+Modelling User Capability
+One alternative modelling approach to Access for All’s hierarchy of containers, with the problems of duplication and multiplication as described above, is to banish hierarchy entirely, replacing it with data-base like views of properties and property settings. To this end, two Shlaer-Mellor information models are presented, one (Figure 7) describing the organization of capability properties, and one (Figure 8) describing the organization of a specific user’s settings for different contexts. The relationship of such settings to user preference is modelled separately, and is described later in this chapter.  The models reflect hypothesis 1.4.1 of this thesis, repeated below for convenience:
+1.4.1	The general case of the encounter between an entity’s capacity to interact and its users physical and cognitive capabilities is capable of expression through a framework of relational models.
+Since the specific, Shlaer-Mellor [x], notation used for the models is no longer widely used, a brief summary is given here. The models describe (very loosely) a collection of noun-verb-noun relationships that describe a particular subject matter. Nouns are represented by text boxes, and verbs by the lines connecting them. On a complete Shlaer-Mellor model, the verbs are explicitly stated as text attached to the lines, and nouns are further described by additional text within the boxes; given the page size constraints of a Ph.D. thesis, this detail is omitted. Two forms of verb are expressed within the models: association (lines with arrows); and sub-type (lines with a crossbar). For example, a Boolean Property is a sub-type of Property, and many Properties (double-headed arrow) are associated with a single Subject Ontology (single-headed arrow) as can be seen in Figure 7. Sometimes there are specific aspects of an association that are emphasized, for example, many Properties are associated with a single Composite Property, and they each have a specific Composition Order.
+Describing an object model purely in terms of the associations between elements on the model is not new, and has existed as part of the Shlaer-Mellor method [9] since 1988, and exists today as Executable UML [10]. Note that UML, the notation underlying UML, and widely used, allows for expression of more relationship types than are used in Executable UML.
+
+Figure 7: Capability Model
+A Property, whatever it represents, is characterized by the data type associated with its related settings. Five intrinsic data types are suggested in Figure 8, covering Boolean values, numbers, numeric ranges, text, and discrete lists of alternative values (e.g. FULL, PARTIAL, NONE in Table 4). In practice, numbers, ranges, and text require further sub-typing.
+A Property may also be a CompositeProperty. This deals with properties such as the usable audio frequency range for a user, which may be described as a collection of numeric ranges measured in Hertz, with gaps between the ranges. Formalization by the CompositionOrder element allows for a natural order to be applied to the composition, for example ordering the usable frequency ranges from lowest to highest.
+Properties are assumed to have a natural hierarchy of importance described by the Precedence element. That hierarchy relates to the “parent” columns in Tables 1 to 4, and describes the logical order to acquire user settings, for example it makes no sense to acquire a setting for “minReadFontSizeForFont” if the user has no sight. As is clear from the “parent columns”, Properties may sometimes appear in multiple precedence trees.
+Properties may be grouped into Capability Templates. These templates represent views of Properties that reflect grouping such as those of Tables 1 to 4. The same Property may exist in many templates, again reflecting the overlaps of Tables 1 to 4. This mechanism aims to help in the acquisition of user settings, grouping properties for presentation to the user in accessibility wizards, whilst reflecting the fact that the same settings may need to be presented in different combinations for different users. One example of such overlaps would be between basic and expert set-up options in an accessibility wizard.
+CapabilityTemplates are themselves grouped into TemplateSets. This reflects the fact that there may be several related CapabilityTemplates, for example vision may have been described in terms of colour, layout, and animation. Again, this ability to group is targeted at acquisition and maintenance of user settings.
+Example populations for capability are given in Appendix B.
+The Capacity Model, shown in Figure 8, describes settings for multiple contexts. Regardless of the its logical meaning, a Setting is characterized by the data type it holds. Consequently there is a direct mapping between, for example, Boolean Setting and Boolean Property.
+Settings themselves refine the characteristics of an Entity. An entity in terms of a user profile is either a user, or a group of users. This reflects that, in some circumstances, more than one user may be represented within a single user profile. This would happen for example when users collaborate to use the same computer, say a group of students in a group exercise. In this case users require “highest common denominator” settings for the interface to allow them all full access, but they may still require personalized settings for certain activities such as text input. Access for All solution for this scenario provides a single group profile without the ability to also identify the individuals. 
+Settings are organized into SettingGroups, where an instance of a SettingGroup is the peer of a CapabilityTemplate. There may be many SettingGroups for a template. A SettingGroup performs the same role as the <context> element in Access for All, although a single <context> may be described by more than one SettingGroup depending upon the chosen grouping of Properties into CapabilityTemplates.  The key difference between <context> and SettingGroup is that the same settings may appear in more than one group. So one setting of say, “writeFontSet” in Table 4, may appear in multiple contexts without duplication; the individual Setting is referenced in every case. Note that whilst a SettingGroup is the peer of a CapabilityTemplate, there is no requirement for there to be a Setting for every Property in the CapabilityTemplate; this reflects the fact that not all Properties are necessarily relevant to a specific user in every context; this helps remove redundancy from the contexts.
+Where the Capacity Model steps well beyond Access for All, is in the provision of functionally dependent Settings. These aim to represent situations such as users having a mobility impairment that affects their visual capacity for particular devices or under certain environmental conditions; it is particularly hand-held mobile devices that have driven this particular modelling choice. 
+Figure 8: Capacity Model
+Functional dependency is expressed through Actions. An Action is a mini program that can read and write Settings. A single action may access many Settings. Actions trigger as a result of ExternalInfluences. A trigger may be the initial construction or maintenance of a SettingGroup for example, or it may be the result of user behaviour. This latter case allows for fully adaptive user interfaces, where the user interface, or underlying program, monitors user behaviour to detect problems or errors in utilizing particular interaction modalities, and adjusts the user’s settings to better reflect their capacity. One example would be a word processor noticing that the user regularly presses the letter “d” and then corrects it to an “e”, suggesting that the user’s finger is slipping on a keyboard (“e” is above “d” on a QWERTY keyboard).  Haptic properties related to the landing zone of keys, and use of a software “guard rail” between keys could then be updated in the user’s profile. The ExternalInfluence in this latter case would be the running application.
+User Preference
+User preference, in the general sense, is personal intervention in the choice of alternative outcomes for a given activity. That choice may be guided by personal capability and the context of intervention, but it remains an arbitrary personal selection. Those choices may not appear sensible to others, nor may it always be possible to satisfy what could be highly contradictory requests.
+Within the narrow confines of user interfaces, user preference manifests itself in the choice of configuration settings over a diverse range of subject matter, with the Microsoft Windows control panel a very good example; covering everything from “accessibility” options, to user account management, to printer installation.
+The distinction between capability and preference is similar to the definition of an abstract user interface. Just as an abstract user interface separates what is to be represented from the manner of its representation, so we choose to separate the model of the user’s physical and cognitive capabilities from their arbitrary personal intervention into how those models are applied.
+The effect of that distinction on existing profiling techniques is illuminating. When inspecting the Access For All model, it is difficult to find anything other than preferences expressed in the model. But for the comment in Figure 1, “Blind user using screen reader and braille output device in a classroom”, it would be difficult to identify specific capabilities at all. There is an echo of capability in the “usage” attribute that identifies whether an element is required or merely preferred, but “required” is detached from why the element is required.
+Given the decision to fully separate capability from preference, it is then necessary to ask where preference modelling lies within the overall approach to user modelling.  The answer must be that it exists wherever the user needs to express their preference for particular configuration settings, or in direct selection and of interaction modalities, or selection of alternative computer programs. However, it may well be that not all configuration settings need to be user configurable. This is resolved in our approach through a context-independent model of preference shown in Figure 9, and use of Shlaer-Mellor bridges to relate preferences and settings scattered throughout the disparate problem domains that make up a user interface; this implies that there is a missing abstract model of the underlying application.
+Figure 9: User Preference Model
+Bridges provide a mechanism to describe relationships between elements in different models, for example ConfigurationSetting in the Preference Model and SettingGroup in the Capacity Model; and to Property in the Capability Model if the user can define or modify the general capability set. Overall, this provides a powerful and flexible approach to the management of user preference. If we consider bridges to “belong” to users, rather than to the “system”, then it is possible to describe different User Preferences for different categories of user; such as administrators and standard users. The ability to express preference for the manner of construction of the user interface becomes context sensitive in the same way as capability profiles.
+The model of Preference centres on ConfigurationItems which are instantiated as ConfigurationSettings, and grouped to make cognitive sense to the user. Such Setting Groups may reflect groupings found in the target domains, for example SettingGroup in the Capacity Model, but not necessarily. It may be that not all settings in a Profile SettingGroup should be offered for configuration, for example in a split between novice and expert user; in this case it may be that the settings in the SettingGroup are a subset of those provided by the Capacity Model.
+Note that the Preference Model is quite different from the Capacity Model in that the Preference Model is an organization of content, not a container of values; ConfigurationSetting in the Preference Model refers to a value, it does not hold any value.
+Versioning of Profiles
+One objection to the Access for All model, is the inflexibility of its container-based model to describing small differences between contexts. The novel solution proposed here replaces containers with an information model describing the associations between properties, settings, and groupings; in doing so, it removes duplication within the model and allowing more flexibility in group definition. 
+Less evident in the models of Capability, Capacity, and Preference is how the models are initially populated, maintained over time, and delivered to the device that requires them; a subject discussed in more depth in Chapter 6 (Context).  The Adaptation Model, shown  in     Figure 10, describes how Instances of data models are combined to create a single view of data; “Instance” in this case corresponds to a version of data populating Capability, Capacity, or Preference models. Each element of each model is considered to be a Table of entries for that element, with columns of the Table representing attributes of the element. Some attributes will be explicit values; others will be references to attributes of other Tables recording the relationships between the elements.
+Each instance adds, modifies, or deletes rows in the Tables. The concept followed here is that of a database transaction where a number of changes are defined and grouped together with a specific meaning, for example updating a bank account record. Using this approach, it is possible for a number of versions of the final merged system to be described. For example, a default model of a user interface may be modified to change the language used; or restructured to make content read better when using a screen reader; or input modalities modified to support a user with mobility impairment; or a combination of them all. Which InstanceApplication is valid (the merged instances) is dependent upon external EventTriggers, for example “New User”.
+The practical consequence of this approach is that it is possible to say “Fred is like Jim except...”, i.e. to apply polymorphism to profiles,  and starting with Jim’s profile (which is an Instance of each of the Capability, Capacity, and Preference models) to create new Instances describing only the differences between the users. Fred’s profile would contain only those Settings that are different to Jim. Whilst variations of a specific user are not the most common way of defining user profiles, variations from default templates are. This mechanism can support standard templates for blind, deaf, or indeed any other recognizable archetype, that can then be modified accordingly. Note that the mechanism also supports smaller incremental templates, for example modifying visual settings for a user with tunnel vision, and this leads to effective support for users with spiky profiles, such as users with Multiple Sclerosis who experience varied and multiple impairments. The template system is one of the ways to initialize a user profile with data.
+The Adaptation Model also provides a mechanism for automated construction and maintenance of group profiles, where an InstanceApplication can be defined to hold a group Entity; that Entity is created in the Capacity Model. The settings of the group Entity are created as functionally dependent upon user settings, with a resolution to identify the “highest common denominator” settings defined in Actions expressing dependence. An InstanceAction then defines a sequence that merges the users’ profiles, and then finally adds the new group Instance.
+Figure 10: Adaptation Model
+
+The ability to describe capability, capacity, and preference in relational terms, and to be able to formally describe variations between users and particular devices or interfaces (capability versus capacity) relates back to the core thesis, repeated below for convenience:
+1.3.1 	Accessibility is the outcome of the encounter between an entity’s capacity to interact and its users' physical and cognitive capabilities with capacity, capability, and accessibility all expressed as measurable and quantitative properties.
+The model of instances proposed in Section 1.13 above, is directly related to the concept of “encounter” found in 1.3.1; an instance encapsulates a specific encounter between entity and user described in terms of capability, capacity, and preference.  This encapsulation corresponds the the supporting hypotheses, repeated below for convenience:
+1.4.1	The general case of the encounter between an entity’s capacity to interact and its users physical and cognitive capabilities is capable of expression through a framework of relational models.
+1.4.2	Specific populations of the relational framework express portable user and device profiles.
+1.4.3	The difference in accessibility between two entities that are expressing the same content, for the same user, and in the same operating context, is measurable and quantitative.
+Hypothesis 1.4.1  refers to to the form of the proposed capability, capacity, and preference, and adaptation models; the Shlaer-Mellor Information Model semantics upon which they are based is formally a relational model.
+Hypothesis 1.4.2 refers to the proposed adaptation model, and the instances that it describes. A single instance, or an instance built from an ordered list of instances to apply may express capability, capacity, or preference. An instance of capability  describes a portable user profile independent of context. An instance of Capacity (and through a Shlaer-Mellor style bridge, an instance of Capability) describes the effect of a given context on a given user. Claims for portable device profiles  based on the proposed models is deferred to later chapters of this thesis.
+Hypothesis 1.4.3 refers to the polymorphism built into the proposed adaptation model. The adaptation model describes instances of the capability, capacity and preference models, which taken with the Shlaer-Mellor style bridges describes a single populated relational model for a given user and context. Since a relational model may be represented by a graph with objects as nodes and relationships as edges (since an Information Model describes the connectedness of objects) the difference between instances is directly measurable in terms of differences in population tables for each object. This goes some way towards asserting the hypothesis. To make that assertion however, it must also be possible to identify the properties of the entity (interface or device) and the properties of content involved in the interaction. These areas are covered in later chapters of this thesis.
+In terms of making any claims relating to the capacity model, one area remaining to be addressed is that of the Action object in Figure 8, and how such actions can be encapsulated in such an object. A proposal for reference model describing such an encapsulation is given below.
+Action language – Closing the loop
+One of the challenges in creating adaptable material is in precisely capturing those adaptations . It may be the content of a user interface that is to adapt; or it may be a specific interaction modality, say the details of how a list is represented, that is to adapt; or it may be the content of a user/device/environment profile that is to adapt.  It is this last possibility that is of interest here, and in particular, the Action object of the Capacity Model shown in Figure 8.
+Such adaptations may be captured  in terms of explicit configurations of the material being described, either as  directly selectable instances, or by construction through add/modify/delete transactions encapsulated in an instance upon a standard initial configuration. The values of the properties to be configured may  be either literal (e.g. 14dB, 30%, 5s) or formulaic and depending upon other configurable properties, or upon external stimuli at the time of use of the material, for example, varying settings to handle user fatigue over time;  or changes in the physical environment, say changes in ambient lighting conditions. The current Setting of a property may also be dependent upon previous experience in use of the entity, which is the case in adaptive environments; a trivial example would be hiding unused icons in Microsoft Windows.  It is also possible for one Setting to be functionally dependent on one or more Settings, for example, changes in stability of a computer screen may affect the minimum usable font size for a particular user.
+In each example above, the problem is expressible algorithmically. For example, in the case of functionally dependent settings,  “Update related Settings when a given Setting changes until no setting changes as a result of the previous update”, will iteratively update dependent settings. A similar approach is applicable to changes over time: “At a given time, update this/these settings, and then update related settings until no setting changes as a result of the previous update”. The initial triggering update may itself be a function of two or more Settings.
+The challenge is therefore to encapsulate such actions with an Action object instance in the capacity model. A proposed reference model for such a system is shown in  Figure 11. 
+
+Figure 11: Action Language Model
+A Java-based implementation following the reference model in  Figure 11 was constructed to help validate the approach.  The model is best described by example, using that Java implementation. 
+The example program chosen is the original application used to help formulate the model: the generation of Fibonacci numbers. Fibonacci was chosen simply because an implementation in almost any commercial programming language will fit on a single side of A4 paper, which is useful for demonstration, yet requires iteration, termination conditions, constants, and variables.
+The Fibonacci series describes a sequence of numbers where the next number in the sequence is the sum of the two previous numbers, and begins with 0, 1.  The sequence then plays out as  0, 1, 1, 2, 3, 5, 8, 13, and so on. 
+Figure 12is an expression of the Fibonacci number algorithm as an executable Java program following the action language model shown in  Figure 11. Note the word, “expression”.  The program is a Java data structure representing the action language model populated with the Fibonacci series algorithm. To ease understanding, the population of the data structure is indented as if it were a block structured programming language in its own right.
+Each of the classes beginning with the characters “AL”, for example,  ALDeclareConstant, are expressions of ActionType in the model, so that the Action  
+	new ALDeclareConstant<Integer>("maxCount", ...)  
+is coloured with ActionType ALDeclareConstant . The action has one ActionAttribute, the string "maxCount",  of AttributeType constantName, which is of AttributeDataType  string. Similarly the child action 
+	new ALLiteral<Integer>(10))  
+is coloured with ActionType ALLiteral, and has one ActionAttribute, the integer 10, of AttributeDataType integer. 
+package uk.ac.tees.carnforth.actionlanguage;
+import uk.ac.tees.carnforth.actionlanguage.block.*;
+import uk.ac.tees.carnforth.actionlanguage.control.*;
+import uk.ac.tees.carnforth.actionlanguage.math.*;
+
+public class ActionLanguageTest {
+    public static void main(String[] args) {
+        System.out.println("Fibonacci Series Application Starting");
+           AL Action fib = 
+                new ALSeq(
+                  new ALDeclareConstant<Integer>("maxCount", new ALLiteral<Integer>(10)),
+	    new ALDeclareVariable<Integer>("n-1", new ALLiteral<Integer>(0)),
+	    new ALDeclareVariable<Integer>("newFib", new ALLiteral<Integer>(0)),
+	    new ALDeclareVariable<Integer>("fib",   new ALLiteral<Integer>(1)),
+	    new ALFor(
+	        new ALDeclareVariable<Integer>("count", new ALLiteral<Integer>(0)), 
+	        new ALLt(
+	            new ALReadVariable("count"),
+	            new ALReadConstant("maxCount")
+	        ),
+	        new ALPostInc("count"),
+	        new ALSeq(
+	            new ALPrintVariable("fib"),
+	            new AssignVariable(
+	                "newFib", 
+		new ALAdd(new ALReadVariable("n-1"), new ALReadVariable("fib"))
+	            ),
+	            new AssignVariable("n-1", new ALReadVariable("fib")),
+            	            new AssignVariable("fib", new ALReadVariable("newFib"))
+	        )
+	    )
+	);
+        ALConstantStack rootConstantStack = new ALConstantStack();
+        ALVariableStack rootVariableStack = new ALVariableStack();
+        ALSetStack      rootSetStack      = new ALSetStack();
+        fib.execute(rootConstantStack, rootVariableStack, rootSetStack);
+			
+    } // main
+			
+}
+Figure 12: Fibonacci numbers example expressed  in Java 
+The for loop which iterates through the steps that construct the Fibonacci numbers is similar to the constant declaration described above. This time however, there are no ActionAttributes, but there are four child Actions, one to initialize the loop counter, one to test the loop condition, one to perform the count modification at the end of each loop, and one to contain the body of the loop. Similarly to the constant declaration, the for loop is of type ALFor. 
+Sequences of Actions are contained by an Action coloured with  ActionType  ALSeq. Similarly, parallel actions, were they required, would be contained in an ActionType ALPar.
+In total, there are twelve ActionTypes required to describe the algorithm:
+a)	Seq
+b)	DeclareConstant
+c)	Literal
+d)	DeclareVariable
+e)	For
+f)	Lt
+g)	ReadVariable
+h)	ReadConstant
+i)	PostInc
+j)	PrintVariable
+k)	AssignVariable
+l)	Add
+There are eight AttributeTypes required:
+a)	DeclareConstant.constantName
+b)	DeclareVariable.variableName
+c)	ReadVariable.variableName
+d)	ReadConstant.constantName
+e)	Literal.number
+f)	PostInc.variableName
+g)	PrintVariable.variableName
+h)	AssignVariable.variableName
+There are two AttributeDataTypes required:
+a)	Integer
+b)	String
+In order to test the validity of the populated data structure, the Java implementation in Figure 12 was hosted on a runtime system, also developed as part of this research, that allowed for execution of a populated data structure. The Fibonacci application, when executed, produced the output in Figure 13.
+	Fibonacci Series Application Starting
+VAR fib = 1
+VAR fib = 1
+VAR fib = 2
+VAR fib = 3
+VAR fib = 5
+VAR fib = 8
+VAR fib = 13
+VAR fib = 21
+VAR fib = 34
+VAR fib = 55
+Figure 13: Output from Fibonacci series application
+ The execution engine developed in order to execute the structure is described in Appendix D. Additionally a small compiler/decompiler capable of exceeding the limited functionality of the Fibonacci numbers example was successfully constructed as a proof of concept of the practicality of the approach. This is also described in Appendix D.
+The Java example shown above is a hard-coded example that implements the entire program as calls to class constructors, and is designed to be human-readable, and to resemble the pseudo code for generation of Fibonacci numbers. The next stage of investigation was to consider how such programs might look like in practice, and to that end a representation of the Fibonacci program was implemented as an XML fragment. No formal DTD or Schema were produced: the goal was simply to get a feel for the practicality of the approach. The resulting XML is given in full in Appendix C. A cursory inspection of the XML  demonstrates the voluminous nature of the semantics chosen: a general model of a populated Shlaer-Mellor Information Model, using the adaptation model shown in Figure 10 to describe variations in program structure. More optimal, specialized semantics are of course possible, and were implemented (see Appendix D) however this example does demonstrate that sequential programs can be represented in terms of a “standard”, generic population table semantics. 
+Formally, the relationship between the Action object in the capacity model, and objects in the action language model, is provided by a Shlaer-Mellor style bridge that counterparts Action in the Capability model with root Actions in the action language model; that is to say, Actions representing the top of  program trees. Given that bridge, and a sufficiently rich set of ActionTypes to allow for navigation and modification of the populations of the capability, capacity, and preference models by Actions, then functionally, and time-dependent Settings can be fully supported. 
+Since the Actions and their associated programs in the action language model form part of the same enlarged relational model, hypothesis 1.4.3 is further strengthened in that the functional behaviour of the encounter between entity and user is incorporated within the relational model. Also, since sequential and dynamic behaviour is expressed as a Shlaer-Mellor Information Model, the adaptation model can also formally describe variations in behaviour between encounters in terms of add/modify/delete to the program trees.
+ Positioning of the Capability Approach
+The capability modelling approach to expressing user profiles falls somewhere between a purely medical model of impairment characterized by the etiological model of colour-blindness, and the purely functional model of preference for particular interaction modalities and applications characterized by the Access for All standard. It is perhaps best described as a model of how impairment presents itself, not to doctors, but to user interface designers; giving a paradigm shift from the ontology of medicine to the ontology of design.
+The argument given in favour of the purely functional approach defined in Access for All, is stated in section 5.1 of the ISO specification [x]: 
+“If the structure were based on information about users' impairments it would still need to address their functional abilities at some stage, as it is this information that is needed by learning systems to adapt content and navigation.” 
+Quite, but there is a distinction between describing ability, and identifying and configuring specific modalities that are effective for the user; the two concepts are related, but they are not equivalent. Capability modelling would seem  a much better fit to section 5.1 than the ISO specification in this respect. In support of this statement, Appendix A presents exemplar detailed capability templates, and Appendix B presents two capability-based Personas based on the templates  of Appendix A.
+Workflow
+There is, however, merit in the argument that at some point it is necessary to configure the device or program to the user’s needs. If the underlying assumption is that this is achieved through the use of third party applications and equipment, as is also stated in section 5.1 of the ISO standard [x], then configuration of that technology becomes central to rendering content to the user. Such configuration issues are entirely absent from the Capability and Capacity models presented here, and it is necessary to question why that might be.  The answer appears to be associated with the workflow by which the configuration settings acquire their values. The implication of a capability-based model is that the target system utilizes a description of the user, given in terms of design ontology, to configure itself through some rule-based intelligence to match user need; selection and configuration of appropriate applications becomes local to the target system.  
+In comparison, in the Access for All functional model, the user profile is equipped with pre-selected accessibility solutions garnered with their configuration settings, essentially pre-defined decisions for modality selection in the PTD reference model. It is in construction of the Access for All XML content that all decisions are made. Given that the Access for All XML is expected to be generated by a tool, it is this off-line tool that makes all accessibility decisions, not the target environment, moving the design rationale in the PTD tree out to an external offline tool. This gives us a distinction between an off-line static model of user accessibility, and an on-line dynamic model with decisions about rendering made on-demand by the target system.
+Whether the off-line or on-line approach is the most appropriate to managing adaptation of a user interface to match user need is dependent upon the use-cases considered. In a highly controlled, highly managed environment, such as school or college, with large number of individuals operating within a defined environment, an offline system may well appeal. This is essentially the use-case from which Access for All evolved. In the more general case of adults and children interacting within the broader social context of work and play, where the range of equipment and applications is almost unquantifiable, and where the number of environmental factors is broad, the on-line dynamic approach of capability modelling may well be the only effective approach.
+Adaptivity
+When adaptivity based on experience of user behaviour is introduced into the argument, the workflow by which feedback from the device or application is received is critical. Clearly, the localized on-line approach is likely to be more responsive to user behaviour than an approach that requires the feedback to an off-line tool for regeneration of a profile that is then transported back to the device or program where the user is working. In practical terms, this means that only the on-line model is suitable for adaptive systems. This is of particular interest in terms of accessibility when dealing with progressive diseases such as Multiple Sclerosis, or where user context may change frequently; both John and Sarah would likely benefit from such an adaptive and supportive environment.
+The functional dependencies that exist in user capability, for example the impact on vision of environmental conditions, and potentially of mobility impairments such as hand tremors when using mobile devices, also impacts upon the choice between the purely functional and the capability approach. With Access for All’s approach, functional dependency within a profile is handled by separation into multiple contexts where all dependencies have been resolved, but what is not discussed is how selection between potentially significant numbers of contexts is made in the target environment. The Access for All model only provides for a single context code for each context, with no human-readable equivalent, which means either that in reality there can be only one context defined in each Access for All XML profile, or that the target (or presumably the user) understands all possible codes and either selects the appropriate context, or offers a choice to the user; none of which appear to be ideal once the number of contexts expands beyond a trivial number. In comparison, the Actions built into the Capacity Model, resolved automatically and dynamically as the profile is accessed by the target system appears to be a more effective and scalable solution.
+Conclusion
+This research has raised question regarding the acquisition and transport of user settings in general. Where exactly are the properties and settings that are found within a user profile created? How are they stored? How are they maintained and updated? Where exactly is the profile located? Is it in the information stored in some off-line tool; or is it the content stored in the file presented to the target environment? These questions raise more general questions regarding workflow, and the impact that a particular choice of workflow has on the character of the properties chosen to profile. This chapter discussed two potential workflows: the static off-line model represented by Access for All, and a dynamic on-line model represented by our capability model. Which is the most appropriate for a particular situation appears to depend on the scalability required in terms of the number of contexts to be handled; how much user behaviour is required to feed back into the profile, and how quickly that must happen; and the degree to which the target environment can be expected to infer application choice and to derive appropriate configuration settings.  Access for All, and our proposed capability models exist at opposite ends of the spectrum for answers to those questions.
+Looking purely at the capability modelling approach, the most interesting and exciting aspects of the approach relate to the support for functionally dependent settings in the Capacity Model. This allows for significantly more sophisticated user support, for example: dynamic adjustment of colour, intensity and font size in response to changing environmental conditions without user intervention to select a different context; describing changes in settings over time to account for user fatigue, and for that adjustment to be calibrated by feedback from the program or device on current user performance; or describing the impact on one setting caused by the values of others, such as the impact of stability of a display.
+Taken together, this functionality describes a new generation of user profile, more closely related to UCD's personas than to Access for All's functional user profiles,  that transforms the static data structures of existing approaches, and replaces them with the concept of an autonomous agent (expressed as Actions in the capacity model) acting on behalf of the user ,that is able to adjust Settings over time to reflect both user experience and the passage of time during a user’s session on a specific device or program.
+This concept of agent itself leads to further consideration of how the decisions on rendering the user interface may be made. If the user’s capabilities may be represented by an autonomous agent, can the same not also be said of the capabilities of the device in use, and the capabilities of the environment to support the user? Given that the demands of the user and of the device, and the constraints of the environment, may be in competition to drive selection of interaction modality, then perhaps standard Game Theory can be applied to resolve the competition issues. This leads to the fascinating possibility that the definition of accessibility (through adaptation) lies within the mathematical formalism of computer science. These ideas are taken up in later chapters of this thesis.
+References
+Junior, P.T.A. & Filgueiras, L.V.L. 2005, User modeling with personas, Proceedings of the 2005 Latin American conference on Human-computer interaction, ACM Press, pp. 277-282.
+Pruitt, J. and Grudin, J. 2003. Personas: practice and theory. In Proceedings of the 2003 Conference on Designing For User Experiences (San Francisco, California, June 06 - 07, 2003). DUX '03. ACM, New York, NY, 1-15. DOI= http://doi.acm.org/10.1145/997078.997089 
+Savidis, A., Paramythis, A., Akoumianakis, D. & Stephanidis, C. 1997, Designing user-adapted interfaces: the unified design method for transformable interactions, Proceedings of the conference on Designing interactive systems: processes, practices, methods, and techniques, ACM Press, pp. 323-334.
+http://www.aegis-project.eu/index.php?option=com_content&view=article&id=63&Itemid=53
+http://www.aegis-project.eu/images/docs/Personas/PeterHQacc.pdf
+ISO, ISO Access for All Standard ISO/IEC 24751-2:2008
+[2]		IMS, IMS AccessForAll Meta-data Overview, Version1.0, 	http://www.imsglobal.org/accessibility/accmdv1p0/imsaccmd_oviewv1p0.html, 	accessed 24 June 2009.
+[3]		W3C, Extensible Markup Language (XML), Fourth Edition 	http://www.w3.org/TR/REC-xml/, accessed 24 June 2009.
+[4]		W3C, Evaluation and Report Language (EARL) 1.0 Schema,  	Working Draft 28 April 2009, 	http://www.w3.org/TR/2009/WD-EARL10-Schema-20090428/,  	accessed 24 June 2009.
+[5]		Gkatzidou, G. and Pearson E., The potential for adaptable accessible learning 	objects: A case study in accessible vodcasting, In AJet, 	http://www.ascilite.org.au/ajet/ajet25/gkatzidou.html, accessed 24 June 2009.
+[6]		W3C, Cascading Style Sheets, level 2 CSS2 Specification, Fourth Edition, 	http://www.w3.org/TR/2008/REC-CSS2-20080411/, accessed 24 June 2009.
+[7]		Gamma E. et al, Design Patterns: Elements of Reusable Object-Oriented 	Software, Addison-Wesley, Reading, MA, 1994.
+[8]		Nesbitt, K. V. 2001. Modeling the multi-sensory design space. In Proceedings 	of the 2001 Asia-Pacific Symposium on information Visualisation - Volume 9 	(Sydney, Australia). ACM International Conference Proceeding Series, vol. 16. 	Australian Computer Society, Darlinghurst, Australia, 27-36. 
+[9]		Shlaer S. and Mellor S.J., Object-oriented Systems Analysis – Modeling the 	World in Data, Yourdon Press, NJ, 1988 
+[10]	 Mellor S.J. and Balcer M.J., Executable UML: a foundation for model-driven 	architecture, Addison-Wesley, Reading, MA, 2002.
+[11]	Dodd, R., et al 2008. The CISNA model of accessible adaptive hypermedia. In 	Proceedings of the 2008 international Cross-Disciplinary Conference on Web 	Accessibility (W4a). (Beijing, China, April 21 - 22, 2008). W4A '08, vol. 317, 	vol. 317. ACM, New York, NY, 27-36.  	DOI= http://doi.acm.org/10.1145/1368044.1368052
+Sunyé, G., Guennec, A. L., and Jézéquel, J. 2002. Using UML Action Semantics for model execution and transformation. Inf. Syst. 27, 6 (Sep. 2002), 445-457. DOI= http://dx.doi.org/10.1016/S0306-4379(02)00014-5 

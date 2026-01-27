@@ -1,0 +1,26 @@
+Content
+The Journey Homeward Scenario
+It is the end of term at university, and John is planning his journey home by train. He accesses an on-line timetable to select his trains, and book his tickets. As part of this process, he chooses to have his chosen train times sent by text message to his mobile phone. Journey planning is quite complex for John. Whilst he is mobile, he finds stairs a problem, and cannot rush between trains, so he must choose connecting trains, and stations, carefully. 
+Introduction
+With the growth of script-intensive web pages, particularly those using AJAX technology, the adaptation of Web content to match the needs and capabilities of individual users has become increasingly problematic. New versions of well-known websites, including for example Google Select, which is an AJAX driven variant of their standard search page, are now largely opaque to screen reading technology such as Jaws. Taken together with the trend to surf the Web on small hand-held devices, which causes its own accessibility problems, a new approach to expressing heavily scripted content is needed. This research returns to first principals, and considers the underlying Dexter Model of Hypertext, and how that may be placed within a broader model of document content that is amenable to adaptation of content to user needs either through configuration, or through dynamic self-adaptation. The model proposed consider a document in terms of five individual abstractions: content, inventory, semantics, navigation, and adaptation. A simple (fully working) example, taken from a small fragment of Google Maps, is presented to demonstrate how such a model may operate in practice, adapting between two different user profiles on demand.
+Polymorphic Task Decomposition
+Content and the Web
+Rich Client Web Pages and Ajax
+Dexter Model
+Amsterdam Model
+CISNA Five Layer Document Model
+CISNA Navigation Layer
+CISNA Semantics Layer
+CISNA Inventory Layer
+CISNA (External) Content Layer
+Bridges and Counterparts
+CISNA Adaptation Layer
+Adaptation Subsystem
+Adaptation and Exceptions
+Adaptivity Subsystem
+An XML  Notation for CISNA
+Rendering CISNA Models
+Case Study: Google Maps
+Conclusion
+References
+

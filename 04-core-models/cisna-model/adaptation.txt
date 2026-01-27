@@ -1,0 +1,31 @@
+Adaptation
+The Respite Care Scenario
+John, a mature student with Multiple Sclerosis (MS), is spending a week at a specialist respite care centre. It’s a busy week for him, and for the other residents. They have medical examinations with specialists in MS where their progress is reviewed, and their capabilities re-assessed. They have intensive, daily, physiotherapy sessions to help evaluate and improve their mobility using specially adapted video games. They have planned social events and outings, shopping, eating, and sightseeing.  Today they are in a pub, chatting, exchanging phone numbers, and in the process, comparing each others phones. 
+The Model-View-Controller Approach to User Interfaces
+Bridging the Design Space
+Matching Modalities to People
+Element Properties
+View Nodes
+Device Capability and Requirement
+User Capability and Requirement
+Content Choices
+Content Driven Modality Selection
+Reflection
+The Source of Content
+Workflow Overview
+Workflow as Data Flow
+Design Language
+Modality Sets
+Design Language Sets
+Appropriateness
+Design Language
+Patterns
+Design language Sets
+Impact on the CISNA Model
+Design language Selection
+Revisiting Capability
+Discussion
+Case Study: Implementing Tetris
+Conclusion
+References
+

@@ -1,0 +1,50 @@
+<actionLanguage>
+
+<dataType name="String" />
+<dataType name="Integer" />
+
+<actionType name="seq" />
+<actionType name="const" />
+<actionType name="literal" />
+<actionType name="var" />
+<actionType name="for" />
+<actionType name="lt" />
+<actionType name="readVar" />
+<actionType name="readConst" />
+<actionType name="postInc" />
+<actionType name="printVar" />
+<actionType name="assignVar" />
+<actionType name="add" />
+
+<attributeType name="const.name" dataTypeName="String" />
+<attributeType name="literal.number" dataTypeName="Integer" />
+<attributeType name="var.name" dataTypeName="String" />
+<attributeType name="readVar.name" dataTypeName="String" />
+<attributeType name="readConst.name" dataTypeName="String" />
+<attributeType name="postInc.name" dataTypeName="String" />
+<attributeType name="printVar.name" dataTypeName="String" />
+<attributeType name="assignVar.name" dataTypeName="String" />
+
+<seq>
+	<const at="const.name" av="maxCount"> <literal at="literal.number" av="0" /> </const>
+	<var at="var.name" av="n-1"> <literal at="literal.number" av="0" /> </var> 
+	<var at="var.name" av="newFib"> <literal at="literal.number" av="0" /> </var> 
+	<var at="var.name" av="fib"> <literal at="literal.number" av="1" /> </var>
+	<for>
+		<var at="var.name" av="count"> <literal at="literal.number" av="0" /> </var>
+		<lt> <readVar at="readVar.name" av="count" /> <readConst at="readConst.name" av="maxCount" /> </lt>
+		<postInc at="postInc.name" av="count" />
+		<seq>
+			<printVar at="printVar.name" av="fib" />
+			<assignVar at="assignVar.name" av="newFib"> 
+				<add> <readVar at="readVar.name" av="n-1" /> <readVar at="readVar.name" av="fib" /> </add>
+			</assignVar>
+			<assignVar at="assignVar.name" av="n-1" > <readVar at="readVar.name" av="fib" /> </assignVar>
+			<assignVar at="assignVar.name"  av="fib" > <readVar at="readVar.name" av="newFib" /> </assignVar>
+		</seq>
+	</for>
+</seq>
+
+</actionLanguage>
+	
+	

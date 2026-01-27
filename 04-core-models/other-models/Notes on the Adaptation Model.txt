@@ -1,0 +1,56 @@
+The CISNA Adaptation Model & its XML notation  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+This short note related to the documents:
+“CISNA.pdf”
+“adaptation example.pdf”
+
+The note is intended to help me to structure my thesis, and perhaps provide some of the text.
+
+Instances and Transactions
+
+The lower layers of the CISNA model (Content, Inventory and Navigation) describes possible of content, semantics and navigation within a document. What makes the document renderable/concrete is the specific selection of instances of each layer, where an instance is a transaction that expresses change to the layers in terms of add/modify/delete. Because an instance is a kind of transaction, the order of application of instances is important, and this explains the relationships in the Adaptation model between Instance and InstanceApplication.
+
+Passive and Dynamic
+
+In creating a model of a document, there are two types of document to consider, namely passive and dynamic. 
+
+A document is passive if no new instances are realized within the document during a single session with a user.  A newspaper is passive because once printed (i.e. rendered), no further modification is made. Of course it can be pulled apart and shared between users, but that is still within the navigation and semantic models of “NEWSPAPER”. Similarly, a pure HTML web page is passive, because once rendered by the browser (possibly with reference to a style sheet) no further change is made beyond possibly scrolling the content.  Note that the ability for a user to change a style sheet in the browser does not make a document dynamic as in practical terms browsers will (or at least should) re-render the complete page, restarting the session with the user.
+
+A document is dynamic if new instances are realized within the document during a single session with a user. An HTML web page becomes dynamic if it includes any scripting. Using onMouseOver=“…” to implement a button rollover for example, makes the page dynamic since what is rendered is modified during presentation. Similarly, some MS Word documents become dynamic if they include interactive macros, or embed interactive content within them (note that adding a sound file to a Word document does not make it dynamic, but adding a sound that plays when a button is clicked or the mouse is over some text does make it dynamic).  Even such simple actions as rollovers are important to consider as there will be equivalent behaviour to consider if/when content is adapted to other design spaces, for example moving from the visual to the sonic design space, button rollovers tend to become changes in pitch of the avatar’s voice as it reads the “alt text” related to the button.
+
+Perhaps the most common form of dynamic document encountered is, of course, a computer program: Windows, Word, Excel, PowerPoint, Tomb Raider, Myst, and Big Brain Academy to name a few. The challenge in creating a generic model of a document is being able to express both a newspaper’s semantics and navigation, and a computer program’s semantics and navigation, efficiently within the same model.
+
+Adaptation vs. Adaptivity
+
+The model of adaptation presented in the Adaptation Layer describes how instances are selected and applied to a document as a result of defined events. Note that these are pre-defined instances that can, for example, add/change a language, or map content between design spaces. The example shows one possible EventType: NEW USER, with two possible users: Default User and Low Vision User.  The Low Vision User requires the default model to be adapted for text-to-speech. Other possible EventTypes include START-UP (which presumably would set the system to a default condition), INSTALLATION (if the document is a computer program), ENTER ADMIN MODE (in a database application), SYSTEM FAULT (on a piece of industrial automation), and USER LOGGED OUT.
+
+A more interactive example is when documents dynamically adapt in response to user interaction, with button rollovers on a web page as a trivial example. To express this with the Adaptation Layer, we would need USER ENTERS PROXIMITY OF NODE (i.e. “onMouseOver” events in HTML) and USER LEAVES PROXMITY OF NODE. What occurs in this instance is the bridge between the Inventory Layer and the Semantics Layer is modified to change the associated image. 
+
+These sorts of simple, stateless, isolated dynamic adaptations are perhaps typical of traditional web pages: button rollovers, cursor rollovers, tab page selection. The problem comes with the adaptation is not stateless, but depends upon previous event history; a trivial example is changing the colour of visited hyperlinks on a web page. These state-based adaptations break down into two sub-categories: explicit pre-defined adaptations, and rule-based on-the-fly adaptations.
+
+The hyperlink colour change is an example of a pre-defined adaptation in that it only depends upon the history of user selection: the change to apply in that case is fixed. The knowledge of the user selection forms part of the semantics of the document, and shows that we lack a “user has visited” attribute in the semantics Layer. The required elements are shown in  REF _Ref64009204 Figure 1 below. With that semantic information available, the event “USER SELECTS Images”, becomes a modification of the “user has visited” attribute in the Semantics Layer, and can be handed by the existing Adaptation Layer model presented here.
+
+
+Figure  SEQ Figure \* ARABIC 1 - SEM modified for visit history
+
+A breadcrumb trail is an example of rule-based, on-the fly adaptation. Breadcrumb trails expand and contract, and typically get truncated to a maximum length. So, whilst adding to an empty/short breadcrumb trail may be possible to be described using a pre-defined adaptation, in the general case it is not. Essentially such adaptations lead us into the realm of computer programming rather than traditional web pages and (typical) word processing documents. This is not so surprising as HTML 5 is heading that way anyway, with increasing reliance on scripting within web pages (and a script is a program).  Ajax based web pages take this even further, with significant scripting used to provide additional interaction modalities beyond those of HTML.  
+
+The breadcrumb trail example, and Ajax applications such as Google Maps, raise questions about the boundary between what is considered “program” and what is considered “user interface”.  Certainly, it would be possible to describe adaptation of a breadcrumb trail as an adaptation “event” BREADCRUMB UPDATED, with the instance referenced externally in the form:
+
+<semantics instance=”BREADCRUMB UPDATE” src=”http://mywebaddress” transientContent=”true” />
+
+An some external entity would be responsible for identifying and making the changes (e.g. a server-side script in a web site). This would still allow assistive technology to know what is changing and when, assuming that the external entity is away of the current status in terms of existing applied instances. So, it would sometimes be possible to make thinks work in terms of modifying the Semantics Layer, which should be relatively stable. The Inventory and Navigation Layers however, may change/extend radically under adaptation between design spaces (e.g. visual to sonic), and the approach would have limited success in such a situation.
+
+Taking the breadcrumb trail again as the example, what goes into a breadcrumb trail will depend upon how content is chunked. Smaller screens (or bigger text) may require more chunks during adaptation than for a standard PC screen, so an external entity would need detailed knowledge to know how and what to put in the trail. For this reason, some level of Adaptivity is required within the document model.
+
+Adaptivity and adaptation are clearly closely related. Both express changes to the document layers based on triggered events, and both apply their changes using add/modify/delete; the difference is that the adaptive system requires some form of algorithmic behaviour. Adding adaptve behaviour to the Adaptation Layer is covered by “adaptivity example.pdf” and “Notes in the Adaptivity Syubsystem.doc” (to be delivered later).
+
+
+
+
+

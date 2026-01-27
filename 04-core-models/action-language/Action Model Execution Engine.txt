@@ -1,0 +1,1513 @@
+ 
+Action Model Execution Engine
+
+This execution engine for the action language model generated as part of the research effort for Chapters 4 and 7 of this thesis.
+
+
+Overview
+A number of aspects of the research for this Ph.D. thesis  required modelling of algorithms, either for describing changes to user capability over time, or for describing how a user interface responds to external stimuli when interacting with the user. Further, there was a need to be able to describe the differences between versions of algorithms, for example changes in timing and sequencing necessary to support user need in particular contexts. The novel solution proposed by this thesis is a combination of the adaptation model, first described in Chapter 4; and an action language model, also first described in Chapter 4. For convenience, both models are repeated in Figure 1 and Figure  2 below.
+
+
+Figure 1: Adaptation model
+
+
+
+
+Figure  2: Action language model
+The action language model describes the semantics of a block-structured computer program or algorithm, and this is described in Chapter 4, whilst the adaptation model describes how something, an “instance” such as a relational model, may be successively modified. The adaptation model is used to describe changes to, or differences between, populations of the action language model. An example of this is shown in Appendix C which populated the action language model to represent a program that generates Fibonacci numbers.
+To gain confidence in this approach, a prototype compiler/decompiler was developed that would allow human-readable algorithms to be input into the action language model, and for the purpose of testing, regenerated from the model back into human-readable form. Further, an execution engine was developed that was capable of executing the programs/algorithms input directly from the populated model. This appendix summarises that design effort.
+A human-readable Population
+Appendix C presents a means of describing populations of the action language model that sues the concepts from the adaptation model to describe variations and differences. A cursory inspect of the XML in Appendix C easily demonstrate the unreadability of the XML, and the voluminous nature of the output.
+Initially a simple Java-based approach was developed to populate the action language model. The model is tree-based, and Java classes were created to represent the different types of nodes in that tree. The tree was then populated by calls to the class constructors. The Java source-code for this is shown and described in Chapter 4. The source-code is repeated here as Figure 3 for convenience.
+On inspection, it became clear that the Java source code could be formatted to appear to be a post-fix style programming language in its own right. Since the Java represented the population of a tree structure, one obvious and simple approach to creating a human-readable programming population of the model, would be to use a well-understood tree-based notation: XML. The result of this, using the Fibonacci example, is shown in Figure 4.
+ Whilst the XML in Figure 4 is perhaps not as easily readable as conventional programming languages such as C or Java, it is still obviously understandable as an algorithm to a computer programmer.  One would not wish to write particularly large programs in such a style, but it is possible, and it was considered sufficient for the purposes of validating the action language model.
+Having a programming language that mirrors the action language model tree so precisely, made parsing of the language (plain XML) a trivial exercise, with compilation simply a matter of navigating the XML document model. Similarly, de-compiling the model back into the XML is equally trivial, and the output of decompilation is shown in Figure 5.  
+Note that the decompiled version has additional XML attributes in some elements:
+	•	Attribute  “id”  is the unique identifier for Actions in the action language model.
+	•	Attribute “seqNum” describes the order of actions, expressing object SequencedAction in the model. 
+The attributes are added partly to allow easier comparison with the Java data structure during debugging, and partly to reflect the needs of the adaptation model. Having the “id” of each Action, and access to the “seqNum” for the action, allows for a list of add/modify/delete instruction to be defined to describe changes in the program. The expectation was that to change action “2”, which defines the number of iterations from the stated 10 to 20,
+	<literal id="2" seqNum="10" acId="2"attrId="1" at="literal.number" av="10" />
+the XML would take the form 
+	<modifyAction refId=”2” av=”20” />
+Given that use of the adaptation model was already tested in the more general case described in Appendix C, compilation of add/modify/delete in this alternative format was not implemented.
+The Java source-code for achieving compilation and decompilation is given below.
+package uk.ac.tees.carnforth.actionlanguage;
+import uk.ac.tees.carnforth.actionlanguage.block.*;
+import uk.ac.tees.carnforth.actionlanguage.control.*;
+import uk.ac.tees.carnforth.actionlanguage.math.*;
+
+public class ActionLanguageTest {
+    public static void main(String[] args) {
+        System.out.println("Fibonacci Series Application Starting");
+           AL Action fib = 
+                new ALSeq(
+                  new ALDeclareConstant<Integer>("maxCount", new  ALLiteral<Integer>(10)),
+	    new ALDeclareVariable<Integer>("n-1", new ALLiteral<Integer>(0)),
+	    new ALDeclareVariable<Integer>("newFib", new ALLiteral<Integer>(0)),
+	    new ALDeclareVariable<Integer>("fib",   new ALLiteral<Integer>(1)),
+	    new ALFor(
+	        new ALDeclareVariable<Integer>("count", new ALLiteral<Integer>(0)), 
+	        new ALLt(
+	            new ALReadVariable("count"),
+	            new ALReadConstant("maxCount")
+	        ),
+	        new ALPostInc("count"),
+	        new ALSeq(
+	            new ALPrintVariable("fib"),
+	            new AssignVariable(
+	                "newFib", 
+		new ALAdd(new ALReadVariable("n-1"), new ALReadVariable("fib"))
+	            ),
+	            new AssignVariable("n-1", new ALReadVariable("fib")),
+            	            new AssignVariable("fib", new ALReadVariable("newFib"))
+	        )
+	    )
+	);
+        ALConstantStack rootConstantStack = new ALConstantStack();
+        ALVariableStack rootVariableStack = new ALVariableStack();
+        ALSetStack      rootSetStack      = new ALSetStack();
+        fib.execute(rootConstantStack, rootVariableStack, rootSetStack);
+			
+    } // main
+			
+}
+Figure 3: Fibonacci numbers example expressed  in Java 
+
+<dataType name="String" />
+<dataType name="Integer" />
+
+<actionType name="seq" />
+<actionType name="const" />
+<actionType name="literal" />
+<actionType name="var" />
+<actionType name="for" />
+<actionType name="lt" />
+<actionType name="readVar" />
+<actionType name="readConst" />
+<actionType name="postInc" />
+<actionType name="printVar" />
+<actionType name="assignVar" />
+<actionType name="add" />
+
+<attributeType name="const.name" dataTypeName="String" />
+<attributeType name="literal.number" dataTypeName="Integer" />
+<attributeType name="var.name" dataTypeName="String" />
+<attributeType name="readVar.name" dataTypeName="String" />
+<attributeType name="readConst.name" dataTypeName="String" />
+<attributeType name="postInc.name" dataTypeName="String" />
+<attributeType name="printVar.name" dataTypeName="String" />
+<attributeType name="assignVar.name" dataTypeName="String" />
+
+<seq>
+	<const at="const.name" av="maxCount"> <literal at="literal.number" av="10" /> </const>
+	<var at="var.name" av="n-1"> <literal at="literal.number" av="0" /> </var> 
+	<var at="var.name" av="newFib"> <literal at="literal.number" av="0" /> </var> 
+	<var at="var.name" av="fib"> <literal at="literal.number" av="1" /> </var>
+	<for>
+		<var at="var.name" av="count">
+			<literal at="literal.number" av="0" /> 
+		</var>
+		<lt> <readVar at="readVar.name" av="count" /> 
+			<readConst at="readConst.name" av="maxCount" /> 
+		</lt>
+		<postInc at="postInc.name" av="count" />
+		<seq>
+			<printVar at="printVar.name" av="fib" />
+			<assignVar at="assignVar.name" av="newFib"> 
+				<add> <readVar at="readVar.name" av="n-1" /> 
+					<readVar at="readVar.name" av="fib" /> 
+				</add>
+			</assignVar>
+			<assignVar at="assignVar.name" av="n-1" > 
+				<readVar at="readVar.name" av="fib" /> 
+			</assignVar>
+			<assignVar at="assignVar.name"  av="fib" > 
+				<readVar at="readVar.name" av="newFib" /> 
+			</assignVar>
+		</seq>
+	</for>
+</seq>
+
+Figure 4: Fibonacci algorithm in XML
+
+<dataType name="String" />	<dataType name="Integer" />
+
+<actionType name="seq" />	<actionType name="const" />	<actionType name="literal" />
+<actionType name="var" />	<actionType name="for" />	<actionType name="lt" />
+<actionType name="readVar" />	<actionType name="readConst" />	<actionType name="postInc" />	
+<actionType name="printVar" />	<actionType name="assignVar" />	<actionType name="add" />
+
+<attributeType name="const.name" dataTypeName="String" />
+<attributeType name="literal.number" dataTypeName="Integer" />
+<attributeType name="var.name" dataTypeName="String" />
+<attributeType name="readVar.name" dataTypeName="String" />
+<attributeType name="readConst.name" dataTypeName="String" />
+<attributeType name="postInc.name" dataTypeName="String" />
+<attributeType name="printVar.name" dataTypeName="String" />
+<attributeType name="assignVar.name" dataTypeName="String" />
+
+<seq id="0" acId="0">
+	<const id="1" seqNum="10" acId="1"attrId="0" at="const.name" av="maxCount">
+		<literal id="2" seqNum="10" acId="2"attrId="1" at="literal.number" av="10" />
+	</const>
+	<var id="3" seqNum="20" acId="3"attrId="2" at="var.name" av="n-1">
+		<literal id="4" seqNum="10" acId="4"attrId="3" at="literal.number" av="0" />
+	</var>
+	<var id="5" seqNum="30" acId="5"attrId="4" at="var.name" av="newFib">
+		<literal id="6" seqNum="10" acId="6"attrId="5" at="literal.number" av="0" />
+	</var>
+	<var id="7" seqNum="40" acId="7"attrId="6" at="var.name" av="fib">
+		<literal id="8" seqNum="10" acId="8"attrId="7" at="literal.number" av="1" />
+	</var>
+	<for id="9" seqNum="50" acId="9">
+		<var id="10" seqNum="10" acId="10"attrId="8" at="var.name" av="count">
+			<literal id="11" seqNum="10" acId="11"attrId="9" at="literal.number" av="0" />
+		</var>
+		<lt id="12" seqNum="20" acId="12">
+			<readVar id="13" seqNum="10" acId="13"attrId="10" at="readVar.name" av="count" />
+			<readConst id="14" seqNum="20" acId="14"attrId="11" at="readConst.name" 					av="maxCount" />
+		</lt>
+		<postInc id="15" seqNum="30" acId="15"attrId="12" at="postInc.name" av="count" />
+		<seq id="16" seqNum="40" acId="16">
+			<printVar id="17" seqNum="10" acId="17"attrId="13" at="printVar.name" av="fib" />
+			<assignVar id="18" seqNum="20" acId="18"attrId="14" at="assignVar.name" 							av="newFib">
+				<add id="19" seqNum="10" acId="19">
+					<readVar id="20" seqNum="10" acId="20"attrId="15" 								at="readVar.name" av="n-1" />
+					<readVar id="21" seqNum="20" acId="21"attrId="16" 								at="readVar.name" av="fib" />
+				</add>
+			</assignVar>
+			<assignVar id="22" seqNum="30" acId="22"attrId="17" at="assignVar.name" av="n-1">
+				<readVar id="23" seqNum="10" acId="23"attrId="18" at="readVar.name" av="fib" />
+			</assignVar>
+			<assignVar id="24" seqNum="40" acId="24"attrId="19" at="assignVar.name" av="fib">
+				<readVar id="25" seqNum="10" acId="25"attrId="20" at="readVar.name" av="newFib" />
+			</assignVar>
+		</seq>
+	</for>
+</seq>
+Figure 5: Decompiled Fibonacci program
+Compilation of XML formatted program
+Compilation of the XML is achieved by first parsing the XML to create a Document Object Model (DOM), and then walking the DOM, populating the Action tree. XML parsing is well understood and the implementation is not presented here. What is presented are the Java methods used to populate the Action tree. The top level method is “compile()” which calls the recursive method “populate()”, with the root node of the DOM.
+	public void compile(StringXMLParser parser) {
+
+		XMLElement domRootNode;
+
+		domRootNode = parser.getDOMRoot();
+
+		// Check for valid tree root before we begin
+		if (!domRootNode.getElementName().equals("_ROOT")) {
+			this.parentPanel.errorPanel
+				.append("ERROR: DOM must start with a _ROOT node.\n");
+		}
+
+		// Do compile
+		populate(domRootNode, null, 10);
+
+		// Decompile for testing purposes
+		decompile();
+
+	}
+Figure 6: compile() method for XML source code compilation
+Method “populate()” inspects the given node in the DOM and processes accordingly. In terms of the program XML, the node may only be one of four types: dataType, actionType, attributeType, or an action. Only action nodes may contain child nodes, and these nodes are recursively called.
+	private void populate(XMLElement node, String parentActionId, int seqNum) {
+
+		// Process this node
+		this.parentPanel.errorPanel.append("Processing node: "
+				+ node.toString() + "\n");
+
+		if (node.getElementName().equals("dataType")) {
+			populateAttributeDataType(node);
+		} else if (node.getElementName().equals("actionType")) {
+			populateActionType(node);
+		} else if (node.getElementName().equals("attributeType")) {
+			populateAttributeType(node);
+		}
+
+		else {
+			// must be an action
+
+			String actionId = populateAction(node, parentActionId, seqNum);
+
+			// Loop through any child nodes
+			Iterator<XMLElement> childNodeIt = node.getChildElements()
+					.iterator();
+			int localSeqNum = 10;
+			while (childNodeIt.hasNext()) {
+				XMLElement childNode = childNodeIt.next();
+
+				populate(childNode, actionId, localSeqNum);
+				localSeqNum += 10;
+			}
+		}
+	}
+Figure 7: populate() method for XML source code compilation
+Method “populateAction()”  is responsible for populating the Action, ActionColoring, ActionAttribute, and SequencedAction objects. The source-code presented is less than optimal and uses some (now) deprecated Java methods.  Node types dataType, actionType, and attributeType, are populates in similar fashion, so their source-code is omitted for brevity.
+	public String populateAction(XMLElement node, String parentActionId, int seqNum) {
+
+		// Only interested in node if it is not the _ROOT or a _TEXT element
+		if (node.getElementName().equals("_ROOT"))
+			return null;
+		if (node.getElementName().equals("_TEXT"))
+			return null;
+
+		// Gather attributes of dataType
+		Enumeration<String> fnKeys = node.getAttributeKeys();
+		String at = null;
+		String av = null;
+		while (fnKeys.hasMoreElements()) {
+			String attr = fnKeys.nextElement();
+			if (attr.equals("at")) {
+				at = URLDecoder.decode(node.getAttributeValue(attr));
+			} else if (attr.equals("av")) {
+				av = URLDecoder.decode(node.getAttributeValue(attr));
+
+			} else {
+				this.parentPanel.errorPanel
+					.append("Error: Unsupported attribute for <fieldname>. 
+					Attribute name: " + attr);
+			} // end if
+		} // end while
+
+		// //////////////////////////
+		// First create the Action
+		// //////////////////////////
+
+		PopulationTableField aFld = null;
+		PopulationTablePlainField aIdFld = null;
+		PopulationTable aTable = this.parentPanel.parentActionLanguagePanel.
+			PopulationTablePanel.tableGroup.getTable("Action");
+		LinkedList<PopulationTableField> newActionFields = 
+			new LinkedList<PopulationTableField>();
+		newActionFields.addLast(aIdFld = new PopulationTablePlainField(Integer
+				.toString(actionUniqueId++),
+				(PopulationTableFieldname) aTable.fieldNames.get(0)));
+		aIdFld.containsData = true;
+
+		newActionFields.addLast(aFld = new PopulationTableShadowingField(null, null,
+						null, (PopulationTableFieldname) aTable.fieldNames
+								.get(1)));
+		aIdFld.containsData = true;
+
+		newActionFields.addLast(aFld = new PopulationTableBooleanField(
+				new String("false"),
+				(PopulationTableFieldname) aTable.fieldNames.get(2)));
+		aFld.containsData = true;
+
+		PopulationTableInstance aInst = new PopulationTableInstance(aTable,
+				newActionFields);
+		aTable.appendInstanceFirst(aInst);
+
+		// ///////////////////////////////////
+		// Second create the ActionColoring
+		// ///////////////////////////////////
+
+		PopulationTable acTable = this.parentPanel.parentActionLanguagePanel
+			.populationTablePanel.tableGroup.getTable("ActionColoring");
+		LinkedList<PopulationTableField> newActionColoringFields = new 						LinkedList<PopulationTableField>();
+
+		newActionColoringFields.addLast(aFld = new PopulationTablePlainField(
+				Integer.toString(actionColoringUniqueId++),
+				(PopulationTableFieldname) acTable.fieldNames.get(0)));
+		aFld.containsData = true;
+
+		newActionColoringFields
+				.addLast(aFld = new PopulationTableShadowingField(null, null,
+						null, (PopulationTableFieldname) acTable.fieldNames
+								.get(1)));
+		aFld.containsData = true;
+
+		newActionColoringFields.addLast(aFld = new PopulationTableBooleanField(
+				new String("false"),
+				(PopulationTableFieldname) acTable.fieldNames.get(2)));
+		aFld.containsData = true;
+
+		PopulationTable atTable = this.parentPanel.parentActionLanguagePanel.
+			populationTablePanel.tableGroup.getTable("ActionType");
+		PopulationTableLink atRef = new PopulationTableLink(
+				new PopulationTableReference(acTable,
+						(PopulationTableFieldname) acTable.fieldNames.get(3)),
+				new PopulationTableReference(atTable,
+						(PopulationTableFieldname) atTable.fieldNames.get(0)));
+		PopulationTableSameAsField atFld = new PopulationTableSameAsField(
+				atRef, node.getElementName(),
+				(PopulationTableFieldname) acTable.fieldNames.get(3));
+		atFld.containsData = true;
+		newActionColoringFields.addLast(atFld);
+
+		PopulationTableLink aRef = new PopulationTableLink(
+				new PopulationTableReference(acTable,
+						(PopulationTableFieldname) acTable.fieldNames.get(4)),
+				new PopulationTableReference(aTable,
+						(PopulationTableFieldname) aTable.fieldNames.get(0)));
+		PopulationTableSameAsField actFld = new PopulationTableSameAsField(
+				aRef, aIdFld.getFieldValue(),
+				(PopulationTableFieldname) acTable.fieldNames.get(4));
+		actFld.containsData = true;
+		newActionColoringFields.addLast(actFld);
+
+		PopulationTableInstance acInst = new PopulationTableInstance(acTable,
+				newActionColoringFields);
+		acTable.appendInstanceFirst(acInst);
+
+		// ///////////////////////////////////
+		// Third create the ActionAttribute
+		// ///////////////////////////////////
+
+		if (at != null) {
+
+			PopulationTable aaTable = this.parentPanel.parentActionLanguagePanel
+				.populationTablePanel.tableGroup.getTable("ActionAttribute");
+			LinkedList<PopulationTableField> newActionAttributeFields = new 						LinkedList<PopulationTableField>();
+			newActionAttributeFields
+					.addLast(aFld = new PopulationTablePlainField(Integer
+							.toString(actionAttributeUniqueId++),
+							(PopulationTableFieldname) aaTable.fieldNames
+									.get(0)));
+			aFld.containsData = true;
+
+			newActionAttributeFields
+					.addLast(aFld = new PopulationTableShadowingField(null,
+							null, null,
+							(PopulationTableFieldname) aaTable.fieldNames
+									.get(1)));
+			aFld.containsData = true;
+
+			newActionAttributeFields
+					.addLast(aFld = new PopulationTableBooleanField(new String(
+							"false"),
+							(PopulationTableFieldname) aaTable.fieldNames
+									.get(2)));
+			aFld.containsData = true;
+
+			PopulationTableLink aRef1 = new PopulationTableLink(
+					new PopulationTableReference(aaTable,
+							(PopulationTableFieldname) aaTable.fieldNames
+									.get(3)),
+					new PopulationTableReference(aTable,
+							(PopulationTableFieldname) 						aTable.fieldNames.get(0)));
+			PopulationTableSameAsField actFld2 = new PopulationTableSameAsField(
+					aRef1, aIdFld.getFieldValue(),
+					(PopulationTableFieldname) aaTable.fieldNames.get(3));
+			actFld2.containsData = true;
+			newActionAttributeFields.addLast(actFld2);
+
+			PopulationTableLink aRef3 = new PopulationTableLink(
+					new PopulationTableReference(aaTable,
+							(PopulationTableFieldname) aaTable.fieldNames
+									.get(4)), new 												PopulationTableReference(
+							atTable,
+							(PopulationTableFieldname) atTable.fieldNames
+									.get(0)));
+			PopulationTableSameAsField actFld3 = new PopulationTableSameAsField(
+					aRef3, at, (PopulationTableFieldname) aaTable.fieldNames
+							.get(4));
+			actFld3.containsData = true;
+			newActionAttributeFields.addLast(actFld3);
+
+			newActionAttributeFields
+					.addLast(aFld = new PopulationTablePlainField(av,
+							(PopulationTableFieldname) aaTable.fieldNames
+									.get(5)));
+			aFld.containsData = true;
+
+			PopulationTableInstance aaInst = new PopulationTableInstance(
+					aaTable, newActionAttributeFields);
+			aaTable.appendInstanceFirst(aaInst);
+
+		}
+
+		// ///////////////////////////////////
+		// Fourth create the SequencedAction
+		// ///////////////////////////////////
+
+		if (parentActionId != null) {
+
+			PopulationTable saTable = 											this.parentPanel.parentActionLanguagePanel.populationTablePanel
+					.tableGroup.getTable("SequencedAction");
+			LinkedList<PopulationTableField> newSequencedActionFields = new 						LinkedList<PopulationTableField>();
+			newSequencedActionFields
+					.addLast(aFld = new PopulationTablePlainField(Integer
+							.toString(sequencedActionUniqueId++),
+							(PopulationTableFieldname) saTable.fieldNames
+									.get(0)));
+			aFld.containsData = true;
+
+			newSequencedActionFields
+					.addLast(aFld = new PopulationTableShadowingField(null,
+							null, null,
+							(PopulationTableFieldname) saTable.fieldNames
+									.get(1)));
+			aFld.containsData = true;
+
+			newSequencedActionFields
+					.addLast(aFld = new PopulationTableBooleanField(new String(
+							"false"),
+							(PopulationTableFieldname) saTable.fieldNames
+									.get(2)));
+			aFld.containsData = true;
+
+			PopulationTableLink aRef1 = new PopulationTableLink(
+					new PopulationTableReference(saTable,
+							(PopulationTableFieldname) saTable.fieldNames
+									.get(3)),
+					new PopulationTableReference(aTable,
+							(PopulationTableFieldname) 										aTable.fieldNames.get(0)));
+			PopulationTableSameAsField actFld2 = new PopulationTableSameAsField(
+					aRef1, parentActionId,
+					(PopulationTableFieldname) saTable.fieldNames.get(3));
+			actFld2.containsData = true;
+			newSequencedActionFields.addLast(actFld2);
+
+			PopulationTableLink aRef2 = new PopulationTableLink(
+					new PopulationTableReference(saTable,
+							(PopulationTableFieldname) saTable.fieldNames
+									.get(4)),
+					new PopulationTableReference(aTable,
+							(PopulationTableFieldname) 										aTable.fieldNames.get(0)));
+			PopulationTableSameAsField actFld3 = new PopulationTableSameAsField(
+					aRef2, aIdFld.getFieldValue(),
+					(PopulationTableFieldname) saTable.fieldNames.get(4));
+			actFld3.containsData = true;
+			newSequencedActionFields.addLast(actFld3);
+
+			newSequencedActionFields
+					.addLast(aFld = new PopulationTablePlainField(Integer
+							.toString(seqNum),
+							(PopulationTableFieldname) saTable.fieldNames
+									.get(5)));
+			aFld.containsData = true;
+
+			PopulationTableInstance saInst = new PopulationTableInstance(
+					saTable, newSequencedActionFields);
+			saTable.appendInstanceFirst(saInst);
+
+		}
+
+		return aIdFld.getFieldValue();
+	}
+Figure 8: populateAction() method for XML source code compilation
+Decompilation of the action language model into XML
+The XML is regenerated from the action language model by systematically navigating the mode to build, in order, attributeDataType, actionType, and finally action elements.
+	private void decompile() {
+
+		generatedCode.clear();
+
+		// Generate the AttributeDataType entries
+		PopulationTable adtTable = this.parentPanel.parentActionLanguagePanel
+			.populationTablePanel.tableGroup.getTable("AttributeDataType");
+		for (CarnforthLinkedListItem adtIt = adtTable.instances.tail; adtIt != null; 
+			adtIt = adtIt.prev) {
+			PopulationTableInstance adtInst = (PopulationTableInstance) adtIt.content;
+			String line = "<dataType name=\""
+					+ ((PopulationTablePlainField) adtInst.fields.get(0))
+							.getFieldValue() + "\" />\n";
+			generatedCode.add(line);
+		}
+		generatedCode.add("\n");
+
+		// Generate the ActionType entries
+		PopulationTable atTable = this.parentPanel.parentActionLanguagePanel.
+			populationTablePanel.tableGroup.getTable("ActionType");
+		for (CarnforthLinkedListItem atIt = atTable.instances.tail; atIt != null; 
+			atIt = atIt.prev) {
+			PopulationTableInstance atInst = (PopulationTableInstance) atIt.content;
+			String line = "<actionType name=\""
+					+ ((PopulationTablePlainField) atInst.fields.get(0))
+							.getFieldValue() + "\" />\n";
+			generatedCode.add(line);
+		}
+		generatedCode.add("\n");
+
+		PopulationTable attTable = this.parentPanel.parentActionLanguagePanel
+			.populationTablePanel.tableGroup.getTable("AttributeType");
+		for (CarnforthLinkedListItem attIt = attTable.instances.tail; attIt != null; 
+			attIt = attIt.prev) {
+			PopulationTableInstance attInst = (PopulationTableInstance) attIt.content;
+			PopulationTableSameAsField fld = (PopulationTableSameAsField) attInst.fields
+					.get(3);
+			String line = "<attributeType name=\""
+					+ ((PopulationTablePlainField) attInst.fields.get(0))
+							.getFieldValue() + "\" dataTypeName=\"" + 								fld.refId
+					+ "\" />\n";
+			generatedCode.add(line);
+		}
+		generatedCode.add("\n");
+
+		// Generate the actions
+		decompileAction("", "0");
+
+		// Add generated code to panel
+		this.parentPanel.decompilerPanel.setText(generatedCode.toString());
+
+	}
+Figure 9: decompile() method for XML source code reconstruction
+The Action tree is decompiled recursively, building the XML string as method “decompileAction()” recurses.
+
+
+	private void decompileAction(String indent, String actionId) {
+
+		PopulationTable aTable = this.parentPanel.parentActionLanguagePanel
+			.populationTablePanel.tableGroup.getTable("Action");
+		for (CarnforthLinkedListItem attIt = aTable.instances.tail; 
+			attIt != null; attIt = attIt.prev) {
+			PopulationTableInstance attInst = (PopulationTableInstance) attIt.content;
+			PopulationTablePlainField instIdFld = (PopulationTablePlainField) 						attInst.fields.get(0);
+			String instId = instIdFld.getFieldValue();
+			if (instId.equals(actionId)) {
+				// found our action
+
+				// Find the coloring for the action
+				String actionType = null;
+				String coloringId = null;
+				PopulationTable acTable = this.parentPanel.parentActionLanguagePanel
+					.populationTablePanel.tableGroup.getTable("ActionColoring");
+				for (CarnforthLinkedListItem acIt = acTable.instances.tail; 
+					acIt != null; acIt = acIt.prev) {
+					PopulationTableInstance acInst = 
+						(PopulationTableInstance) acIt.content;
+					coloringId = ((PopulationTablePlainField) acInst.fields
+							.get(0)).getFieldValue();
+					PopulationTableSameAsField aFld = 
+						(PopulationTableSameAsField) acInst.fields.get(4);
+					if (aFld.refId.equals(actionId)) {
+						// found our coloring (only one per action in this
+						// version)
+						actionType = ((PopulationTableSameAsField) acInst.fields
+								.get(3)).refId;
+						break;
+					}
+				}
+
+				String sequenceNum = null;
+				PopulationTable saTable = this.parentPanel.parentActionLanguagePanel
+					.populationTablePanel.tableGroup.getTable("SequencedAction");
+				for (CarnforthLinkedListItem snIt = saTable.instances.tail; 
+					snIt != null; snIt = snIt.prev) {
+					PopulationTableInstance saInst = 
+						(PopulationTableInstance) snIt.content;
+					PopulationTableSameAsField aFld = 
+						(PopulationTableSameAsField) saInst.fields
+							.get(4);
+					if (aFld.refId.equals(actionId)) {
+						sequenceNum = ((PopulationTablePlainField) saInst.fields
+								.get(5)).getFieldValue();
+						break;
+					}
+				}
+
+				this.generatedCode.add(indent + "<" + actionType + " id=\""
+						+ actionId);
+
+				if (sequenceNum != null)
+					this.generatedCode.add("\" seqNum=\"" + sequenceNum);
+
+				this.generatedCode.add("\" acId=\"" + coloringId + "\"");
+
+				// find the ActionAttribute for this action (if any)
+				String attributeType = null;
+				String attributeValue = null;
+				PopulationTable aaTable = this.parentPanel.parentActionLanguagePanel
+					.populationTablePanel.tableGroup.getTable("ActionAttribute");
+				for (CarnforthLinkedListItem aaIt = aaTable.instances.tail; 
+					aaIt != null; aaIt = aaIt.prev) {
+					PopulationTableInstance aaInst = 
+						(PopulationTableInstance) aaIt.content;
+					PopulationTableSameAsField aFld = 
+						(PopulationTableSameAsField) aaInst.fields
+							.get(3);
+					if (aFld.refId.equals(actionId)) {
+						attributeType = 
+							((PopulationTableSameAsField) aaInst.fields
+								.get(4)).refId;
+						attributeValue = ((PopulationTablePlainField) 								aaInst.fields.get(5)).getFieldValue();
+						String attributeId = ((PopulationTablePlainField) 								aaInst.fields.get(0)).getFieldValue();
+						this.generatedCode.add("attrId=\"" + attributeId
+	•	+ "\" at=\"" + attributeType + "\"" + "
+	•	 av=\"" + attributeValue + "\"");
+						break;
+					}
+				}
+
+				// if there are no child actions then close the tag
+				boolean childActionsExist = false;
+				CarnforthLinkedListItem saIt; // wider scope than usual as we
+				// may pause the iteration
+				for (saIt = saTable.instances.tail; saIt != null; saIt = saIt.prev) {
+					PopulationTableInstance saInst = 
+						(PopulationTableInstance) saIt.content;
+					PopulationTableSameAsField aFld = 
+						(PopulationTableSameAsField) saInst.fields.get(3);
+					if (aFld.refId.equals(actionId)) {
+						// there are child actions
+						childActionsExist = true;
+						break;
+					}
+				}
+				if (!childActionsExist) {
+					this.generatedCode.add(" />\n");
+					return;
+				}
+
+				// We have child actions so process them
+				this.generatedCode.add(">\n");
+
+				// resume iteration from where we found a child action
+				for (; saIt != null; saIt = saIt.prev) {
+					PopulationTableInstance saInst = 
+						(PopulationTableInstance) saIt.content;
+					PopulationTableSameAsField aFld = 
+						(PopulationTableSameAsField) saInst.fields.get(3);
+					if (aFld.refId.equals(actionId)) {
+						PopulationTableSameAsField childFld = 									(PopulationTableSameAsField) saInst.fields
+								.get(4);
+						decompileAction((indent + "\t"), childFld.refId);
+					}
+				}
+
+				this.generatedCode.add(indent + "</" + actionType + ">\n");
+
+				// this.generatedCode.add(line);
+
+			}
+		}
+	}
+Figure 10: decompileAction() method for XML source code reconstruction
+User interface to compiler/decompiler
+The XML compiler/decompiler was incorporated into a prototype Integrated Development Environment (IDE) designed to explore how adaptable user interface might be constructed and maintained. Fig Figure 11 shows the Fibonacci numbers program after decompilation. 
+
+Figure 11: XML action language compiler embedded within IDE
+Execution Engine
+The execution engine was designed to operate on the action language model directly without further compilation. The action language model was treated as if it were the stored program of a Threaded Interpreted Language (TIL) such a Forth [x].  In this case however, it is only the semantic structure of the language that has, to use Forth terminology, been compiled to words; even literal numbers are maintained in their textual form.
+Actions
+The engine is implemented in Java, with supported Actions from the model implemented as a Java class. All Actions inherit from the base class “Action” as shown in  Figure 12.
+ Each Action is defined to be “Runnable”, which is to say that it may execute as a separate thread within the Java runtime environment in order to support multi-threading, and in a broader context massive parallelism. Whether an Action executes as a separate thread is determined by it's parent Action, not by the Action itself. 
+Related to the issue of threading, the execution engine is heavily dependent upon a collection of stacks to hold in-scope  constants, variables, and context. The visibility of constants and variables is dependent on the position of the Action in the Action tree of the model; If the Action tree describes a nested block structure, then the visibility of individual variable is dependent on the current depth of nesting, and the branch of the tree –  sibling branches are not visible. Figure 13 shows the code for the constants stack
+Further, any Action when executed may execute on the current stack, a new (linked) stack, or a completely separate stack. Linked stacks are used to implement variable scoping within blocks of block structured languages – when the block terminates, the stack is unlinked. Whilst liked the currently executing action has visibility down the whole link chain of the stack. Completely separate stacks are used to sandbox Actions, for example running two or more independent programs, but it is also available to sandbox specific actions within a single Action tree- essentially allowing for untrusted code to run safely within a trusted environment.  This aspect was considered important if the approach was to be used in practical environments such as web browsers, where tight control of web scripts for security purposes is required. 
+public abstract class Action implements Runnable {
+
+	public String name;
+	protected ALConstantStack parentConstantStack = null;
+	protected ALVariableStack parentVariableStack = null;
+	protected ALSetStack      parentSetStack = null;
+	
+	protected ALConstantStack localConstantStack = null;
+	private ALVariableStack localVariableStack = null;
+	private ALSetStack      localSetStack = null;
+	
+	public boolean runComplete = false; 
+	public boolean requestBreak = false; // allows actions to request break
+	public boolean switchValueMatched = false; // flag if successful match
+	public Object  returnValue =null; // return value from SeqWithReturn
+	
+	// attributes to optimise the Switch statement
+	public Integer switchValue; // evaluate value of test expression in parent switch statement
+	public Boolean executeAnyway = false; // used by case statement to enable fall-through
+	
+	public Action(String name) {
+		this.name = name;
+	} // constructor
+
+	// trick to handle multi-threading - threads start on 'run()', as we have to bodge
+	// the execute()
+	public void setParentStacks(ALConstantStack parentConstantStack, 
+			ALVariableStack parentVariableStack,ALSetStack parentSetStack ) {
+		this.parentConstantStack = parentConstantStack;
+		this.parentVariableStack = parentVariableStack;
+		this.parentSetStack = parentSetStack;
+	}
+	
+	// Method execute() to be implemented by all leaf classes
+	public Object execute(ALConstantStack constantStack, ALVariableStack variableStack, 			ALSetStack setStack, ArrayList<ALExpression>... lateBindings) {
+		// System.out.println(this.name);
+		
+		// These need resetting for each run
+		this.runComplete = false; 
+		this.requestBreak = false; // allows actions to request break from control structures
+		this.switchValueMatched = false; // flag if successful match
+		this.returnValue = null; // return value from SeqWithReturn
+		
+		return null;
+	}
+ 
+
+	// All actions are Runnable - BUT YOU MUST SET THE parentRunStack FIRST !!!
+	// If you don't, then the thread will have no visibility of the parent stack
+	// and will run on a completely separate stack
+	public void run() {
+	
+		localConstantStack = new ALConstantStack();
+		localVariableStack = new ALVariableStack();
+		localSetStack      = new ALSetStack();
+	
+		if (parentConstantStack != null) {
+			localConstantStack.linkStack(parentConstantStack);
+		} // if
+		
+		if (parentVariableStack != null) {
+			localVariableStack.linkStack(parentVariableStack);
+		} // if
+
+		if (parentSetStack != null) {
+			localSetStack.linkStack(parentSetStack);
+		} // if
+
+		execute(localConstantStack, localVariableStack, localSetStack);
+		
+		runComplete = true;
+		
+	} // method run()
+	
+}
+Figure 12: Action class of execution engine
+public class ALConstantStack extends CarnforthStack  {
+	
+	private ALConstantStack parentStack = null;
+	
+	public ALConstantStack() {
+		super();
+	} // constructor()
+	
+	public ALConstantStack(int stackSize) {
+		super(stackSize);
+	} // constructor(int)
+	
+	public ALVariable findConstant(String constName) {
+		for (int i=0; i < ( stackPointer+1); i++ ) {
+			ALVariable constVar = (ALVariable) elements[i];
+			if (constVar.name.equals(constName)) {
+				return constVar;
+			} // if
+		} // for
+		
+		// If we get here, then not found in local stack.
+		// Check the parent stack (if any)
+		if (parentStack != null) {
+			return parentStack.findConstant(constName);
+		} else {
+			return null; // if we get here then not found anywhere
+		} // if
+		
+	} // method findVariable()
+	
+	public ALVariable findConstantCurrentStack(String varName) {
+		for (int i=0; i < (stackPointer+1); i++ ) {
+			ALVariable constVar = (ALVariable) elements[i];
+			if (constVar.name.equals(varName)) {
+				return constVar;
+			} // if
+			
+		} // for
+		
+		return null; // if we get here then not found anywhere
+		
+	} // method findVariable()
+	
+	
+	public void linkStack(ALConstantStack parentStack) {
+		this.parentStack = parentStack;
+	}
+	
+} // class AlConstantStack
+Figure 13: ALConstantStack class of execution engine
+
+All Actions operate in two distinct phases. 
+The first phase is the call to the class constructor, which is equivalent to Forth's compilation of programs into individual words; this happens as the action language model is populated by the XML language compiler.
+The second phase is the call to the “execute()” method, either directly, or via the “run()” method if the Action is to run as a separate Java thread. The “execute()” method is overridden by child classes of Action, which by default, simply clears some processing flags used by control Actions that deal with Java-style switch statements, and that deal with end of thread and function return values.
+The absolute bare minimum implementation for any class is shown in Figure 14, the implementation of a null-transform. This exists to allow for empty statements, for example in the Java for loop:
+	for ( ; ; );
+which is often used to describe an infinite loop within a Java program. 
+public class ALNullTransform extends Action {
+
+	public ALNullTransform() {
+		super("Null Transform");
+	} // constructor
+
+	@Override
+	public Object execute(ALConstantStack constantStack, 
+		ALVariableStack variableStack, ALSetStack setStack, 					ArrayList<ALExpression>... lateBindings) {
+		
+		super.execute(constantStack, variableStack, setStack);
+		return null;
+	} // method execute()
+
+} // class
+Figure 14: ALNullTransform class of execution engine
+Expressions
+A sub-class of Action is ALExpression, shown in Figure 15. An expression in this case is any Action that when executed results in some value (number, string, Boolean, set etc.). many, but not all Actions are sub-classed as ALExpression; the simplest example being class ALDeclareConstant shown in Figure 16. In the case ALDeclareConstant, a constant is declared together with an expression to define its value. That expression is evaluated on execution (remember that the action language model is a model of the program specification, not the program) and the new constant pushed onto the constant stack. 
+public class ALExpression extends Action {
+
+	public ALExpression(String name) {
+		super(name);
+	}
+}
+Figure 15: ALExpression class of execution engine
+
+
+public class ALDeclareConstant<E> extends ALExpression {
+
+	String constantName;
+	ALExpression expression;
+	
+	public ALDeclareConstant(String constantName, ALExpression expression) {
+		super("DECLARE-CONSTANT " + constantName);
+		
+		this.constantName = constantName;
+		this.expression = expression;
+		
+	} // constructor
+
+	@Override
+	public Object execute(ALConstantStack constantStack, ALVariableStack variableStack,
+ 		ALSetStack setStack, ArrayList<ALExpression>... lateBindings) 
+
+	{
+		super.execute(constantStack, variableStack, setStack);
+		
+		if (constantStack.findConstantCurrentStack(constantName) != null) {
+			throw new RuntimeException("DuplicateConstantDeclarationException");
+		} // if
+		
+		Object value = expression.execute(constantStack, variableStack, setStack);
+		
+		ALVariable<E> newConst = new ALVariable<E>(constantName, (E) value);
+		constantStack.push(newConst);
+		
+		return value;
+	}
+	
+Figure 16: ALDeclareConstant class of execution engine
+}
+Conditional execution
+Conditional execution is supported as sub-classes of ALExpression. As an example, the “if-then-else”  construct of block-structured programming languages such as Java and C/C++ is shown in Figure 17. The in-then-else Action requires three child Actions in the action language Action tree: one for the test clause, and one each  for action on true and false respectively. The test clause is an ALExpression that, as with ALDeclareConstant, is evaluated at execution time, with the Boolean result identifying which child action to execute. 
+
+public class ALIfThenElse extends Action {
+
+	private ALExpression boolExpr;
+	private Action actionOnTrue;
+	private Action actionOnFalse;
+	
+	public ALIfThenElse(ALExpression boolExpr, Action actionOnTrue, Action actionOnFalse) {
+		super("IF-THEN-ELSE");
+		
+		this.boolExpr = boolExpr;
+		this.actionOnTrue = actionOnTrue;
+		this.actionOnFalse = actionOnFalse;
+		
+	} // constructor
+
+	@Override
+	public Object execute(ALConstantStack constantStack, ALVariableStack variableStack, 
+		ALSetStack setStack, ArrayList<ALExpression>... lateBindings) 
+		throws TestExpressionReturnedNullException, TestExpressionNotBooleanException
+	{
+		super.execute(constantStack, variableStack, setStack);
+		
+		// calculate result of condition
+		Object res = boolExpr.execute(constantStack, variableStack, setStack);
+		
+		if (res == null) {
+			throw new TestExpressionReturnedNullException();
+		} // if
+		
+		if (!( res instanceof Boolean)) {
+			throw new TestExpressionNotBooleanException();
+		} // if
+		
+		if ((Boolean) res) {
+			actionOnTrue.execute(constantStack, variableStack, setStack);
+		} else {
+			actionOnFalse.execute(constantStack, variableStack, setStack);			
+		} // if
+		
+		return null; // no return value from an ALAction (only from ALExpression)
+		
+	} // method execute()
+
+	public class TestExpressionReturnedNullException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+		public TestExpressionReturnedNullException() { 
+			super("Test in IF returned Null"); 
+		} // constructor
+	} // inner class TestExpressionReturnedNullException
+
+	public class TestExpressionNotBooleanException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+		public TestExpressionNotBooleanException() { 
+			super("Test in IF does not return a Boolean type"); 
+		} // constructor
+	} // inner class TestExpressionNotBooleanException
+
+} // class
+Figure 17: ALIfThenElse class of execution engine
+Control Actions were developed beyond the basic needs of the Fibonacci numbers program in order to stress the model and engine. This included a Java-style switch statement as shown in Figure 18.
+
+public class ALSwitch extends Action {
+
+	private ArrayList<Action> cases;
+	private ALExpression intTestExpr;
+	private Action defaultAction;
+	
+	public ALSwitch(ALExpression intTestExpr, Action defaultAction,  ALCase... cases) {
+		super("SWITCH");
+		 this.cases = new ArrayList<Action>(Arrays.asList(cases));
+		 this.intTestExpr = intTestExpr;
+		 this.defaultAction = defaultAction;
+		 
+	} // constructor(varargs)
+	
+	public ALSwitch() {
+		super("SWITCH");
+		cases = new ArrayList<Action>();
+	} // constructor()
+
+	@Override
+	public Object execute(ALConstantStack constantStack, ALVariableStack variableStack, 
+		ALSetStack setStack, ArrayList<ALExpression>... lateBindings) 
+		throws TestExpressionNotIntegerException
+	{
+		super.execute(constantStack, variableStack, setStack);
+		
+		// Evaluate the switch expression
+		Object switchValue = this.intTestExpr.execute(constantStack, variableStack, 
+			setStack);
+		
+		if (! (switchValue instanceof Integer)) {
+			throw new TestExpressionNotIntegerException();
+		} //
+		
+		boolean fallThrough = false;
+		boolean doDefaultAction = true;
+		for (Action smCase : cases) {
+			smCase.switchValue = (Integer) switchValue;
+			smCase.executeAnyway = fallThrough;
+			smCase.execute(constantStack, variableStack, setStack);
+
+			// Handle the break statement.
+			if (!smCase.requestBreak) {
+				fallThrough = true;
+			} // if
+			
+			// Record whether we need to run the default action
+			if (smCase.switchValueMatched) {
+				doDefaultAction = false;
+			}
+		} // for
+		
+		if (doDefaultAction) {
+			this.defaultAction.execute(constantStack, variableStack, setStack);
+		} // if
+		
+		return null;
+	} // method execute()
+	
+	public class TestExpressionNotIntegerException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+		public TestExpressionNotIntegerException() { 
+			super("Test in SWITCH does not return an Integer type"); 
+		} // constructor
+	} // inner class TestExpressionNotIntegerException
+
+	
+} // class
+Figure 18: ALSwitch class of execution engine
+
+
+The switch statement is a multi-way branch that allows for control to “switch” to any of the given “cases” depending upon the result of an expression, or a default case if no “case” has been selected.  
+One unique aspect of the switch statement is is that the order of “cases” listed in a program definition is significant. Once action has switched to the selected “case”, and those actions have completed, program control moves to the next action in the immediately below the “case” in the program file. Literally, program execution “falls through” to the next visible Action. If the programmer wishes to make the switch statement behave in a more block structured manner, each list of actions associated with the “case” must end with a “break” action (class ALBreak in the execution engine). Given the greeting “hello”, the  following pseudo-code fragment for example would execute beFriendly(), then beAnnoyed() and finally beStartled(). This is unlikely to have been the programmer's intention.
+switch (greeting) {
+	case  “hello”:  beFriendly();
+	case “hey!”: beAnnoyed();
+	default: beStartled();
+}
+Fall-throughs are, however, useful in some contexts. For example we would probably wish to beFriendly() not only on the greeting 'hello”, but also on “good morning”, “hi”, and “excuse me”.  Taken with correct use of “break”, the pseudo-code would read:
+switch (greeting) {
+	case  “hello”:  
+	case “good morning”:
+	case “hi”:
+	case “excuse me”:
+		beFriendly();
+		break;
+	case “hey!”: 
+		beAnnoyed();
+		break;
+	default: beStartled();
+}
+The execution engine implements this behaviour by providing actions ALSwitch, ALCase, and ALBreak; the default action is given as a parameter to ALSwitch. The result is  that class ALSwitch may contain an arbitrary number of child Actions within the Action tree: one for each case; one for the default case; and one for the test expression. The order of cases in the constructor represents the order of cases in the program structure.
+Class ALBreak is responsible for determining whether override the default fall-though case, shown in Figure 19. At construction time, it sets the “requestBreak” flag in the “Action” supertype class, which is then read by ALSwitch to determine weather to break out of the switch or to fall through.
+public class ALBreak extends Action {
+
+	
+	public ALBreak() {
+		super("BREAK");
+		
+		// The only thing ALBreak needs to do is ensure that requestBreak 
+		// is set when executed.
+		this.requestBreak = true; 
+		
+	} // constructor
+
+	@Override
+	public Object execute(ALConstantStack constantStack, ALVariableStack variableStack,  		ALSetStack setStack, ArrayList<ALExpression>... lateBindings) 
+	{
+		return super.execute(constantStack, variableStack, setStack);
+	}
+}
+Figure 19: ALBreak class of execution engine
+Testing of the test expression against individual “cases” is delegated to class ALCase, shown in Figure 20. On execution, ALCase executes the test expression to determine whether or not to execute its child Action. If necessary, the child Action is executed and the child's “requestBreak” flag is checked in case program control breaks from a more deeply nested block of source code, and passes the result back to ALCase's parent ALSwitch.
+This need to be able to break, not only out of switch statements, but more generally out of looping constructs such as “Do While” and “While Do” (also implemented but not shown in this overview) is related to how the execution engine handles groups of Actions that must occur in sequence or in parallel. This is handled by a number of similar classes; the example chosen here is class “ALSeqWithBreak”, and is shown in fig xxx.
+public class ALCase extends Action {
+
+	private ALExpression intExpr;
+	private Action actionToDo;
+	
+	public ALCase(ALExpression intExpr, Action actionToDo) {
+		super("CASE");
+		
+		this.intExpr = intExpr;
+		this.actionToDo = actionToDo;
+		
+	} // constructor
+
+	@Override
+	public Object execute(ALConstantStack constantStack, ALVariableStack variableStack,  		ALSetStack setStack, ArrayList<ALExpression>... lateBindings) 
+		throws TestExpressionReturnedNullException, TestExpressionNotIntegerException
+	{
+		super.execute(constantStack, variableStack, setStack);
+		
+		// test if we need to evaluate the test condition or if we can just fall through
+		boolean doAction = false;
+		if (! this.executeAnyway) {
+		
+			// calculate result of condition
+			Object res = intExpr.execute(constantStack, variableStack, setStack);
+		
+			if (res == null) {
+				throw new TestExpressionReturnedNullException();
+			} // if
+		
+			if (!( res instanceof Integer)) {
+				throw new TestExpressionNotIntegerException();
+			} // if
+		
+			if ((Integer) res == this.switchValue) {
+				doAction = true;
+				this.switchValueMatched = true;
+			} // if
+		} 
+
+		if (this.executeAnyway || doAction) {
+			
+			this.requestBreak = false; // init the break request flag
+			actionToDo.execute(constantStack, variableStack, setStack);
+			
+			// Handle the break statement.
+			// (See comments in ALSeqWithBreak)
+			if (actionToDo.requestBreak) {
+				this.requestBreak = true;
+			} // if
+
+		} // if
+		
+		return null; // no return value from an ALAction (only from SMExpression)
+	
+	} // method execute()
+
+	public class TestExpressionReturnedNullException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+		public TestExpressionReturnedNullException() { 
+			super("Test in IF returned Null"); 
+		} // constructor
+	} // inner class TestExpressionReturnedNullException
+
+	public class TestExpressionNotIntegerException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+		public TestExpressionNotIntegerException() { 
+			super("Test in IF does not return an Integer type"); 
+		} // constructor
+	} // inner class TestExpressionNotIntegerException
+
+} // class
+Figure 20: ALCase class of execution engine
+
+public class ALSeqWithBreak extends Action {
+
+	protected ArrayList<Action> sequence;
+	
+	public ALSeqWithBreak(Action... actions) {
+		super("SeqWithBreak");
+		 sequence = new ArrayList<Action>(Arrays.asList(actions));
+	} // constructor(varargs)
+	
+	public ALSeqWithBreak() {
+		super("SeqWithBreak");
+		sequence = new ArrayList<Action>();
+	} // constructor()
+
+	@Override
+	public Object execute(ALConstantStack constantStack, ALVariableStack variableStack,  		ALSetStack setStack, ArrayList<ALExpression>... lateBindings) {
+		super.execute(constantStack, variableStack, setStack);
+		
+		this.requestBreak = false; // init our break request flag
+		
+		for (Action action : sequence) {
+			action.execute(constantStack, variableStack, setStack);
+			
+			// Handle the break statement.
+			// First test if the current action has requested a break
+			// (Note: this is a static thing: the flag is set to false by default
+			// and normally only the break element's constructor sets it to true).
+			// Breaking out of the block is only part of the story though: break would
+			// normally break you out of a loop or a switch statement. So, to propagate
+			// the break upwards, we set out own requestBreak to true to notify the loop/
+			// switch statement. (Note: his flag must be reset at the beginning of our
+			// execute method, otherwise the results of a previous run may influence our
+			// behaviour!!)
+			if (action.requestBreak) {
+				this.requestBreak = true;
+				break;
+			} // if
+		} // for
+		
+		return null;
+	} // method execute()
+	
+} // class
+Figure 21: ALSeqWithBreak class of execution engine
+Action ALSeqWithBreak contains an arbitrary number of child Actions, with the order of the actions in the constructor significant, and reflecting the order of Actions in the program source-code.  After execution of each action in the sequence,  the child Action is interrogated to see if its “requestBreak” flag has been set. If so then this is propagated to the sequence's parent Action. In terms of the model presented this may seem unnecessary, however, there is nothing in to stop a block structured language from nesting “execute always” blocks within a block. In fact, from a programmer's perspective, it may even be considered a “good thing” in that  automatic variables may be better scoped. 
+A number of different variants of ALSeq were developed, including ALPar to handle multi-threading. In the case of ALPar, the child Action's “run()” method is called rather than its “execute()” method.
+Another variant on ALSeqWithBreak, is Action ALSeqWithReturn, which as its name suggests, is related to functions and return values. This specialization of sequencing Actions related program validation and to security.  If a block of source-code is not part of a function, for example in-line JavaScript [x] on a Web page, then formally, a “return” statement should be impossible to compile. Separate version of ALSeq... help support the compiler in this task, particularly if the actions come from an untrusted source: a specialized version of ALSeq... for example could feature reduce a programming language such a JavaScript or Java to support a security model . An example would be to remove reflection from Java to stop untrusted code from accessing and navigating security critical areas of a program.
+Functions
+The structuring of source-code into reusable functions able to return values was also implemented within the execution engine. This was felt necessary in order to demonstrate the practicality of the engine for “real-life” programming scenarios.  There are two aspects to functions: function declaration and function call. The declaration aspect of functions is the result of the action model describing the textual structure of programs rather than their behaviour. Class “ALDeclareFunction”, shown in fig Figure 22, implements function declaration.
+What is most immediately apparent about ALDeclareFunction, compared tot he classes that preceded it, is its length and the sudden leap in the number of stacks used to support functions in the execution engine.  This reflect that the execution engine was significantly enhanced during implementation of functions to also support object oriented paradigms. Object orientation is described later in this chapter.
+With functions comes parameters and return values. With parameters comes the question of typing. Should the execution engine be strongly or weakly typed? Since the action language model is requires to support all existing programming languages (or at least those in common usage) the answer must be: both. Consequently functions may be either weakly or strongly typed, and two separate call Actions are provided.  Class ALCallWeaklyTypedFunctionByName, shown  in Figure 23, provides a weakly typed call.  Strongly typed parameters, and strongly typed variables in general is discussed later in this chapter.
+public class ALDeclareFunction extends Expression implements Evaluatable {
+
+	// Attributes
+	public String functionName;
+	public DataTypeInstanceAction functionBody;
+	public ArrayList<DeclareParameter> params;
+
+	// Constructors
+	
+	public DeclareFunction(String id, String functionName, DataTypeInstanceAction functionBody, 		DeclareParameter... params) {
+
+		super("DECLARE-FUNCTION", id);
+	
+		this.functionName = functionName;
+		this.functionBody = functionBody;
+		this.params = new ArrayList<DeclareParameter>(Arrays.asList(params));
+		
+	} // constructor(varargs)
+	
+	
+	public DeclareFunction(String id) {
+		super("DECLARE-FUNCTION", id);
+		
+		this.functionName = null;
+		this.functionBody = null;
+		this.params = new ArrayList<DeclareParameter>();
+		
+	} // constructor(varargs)
+
+	// Methods
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object execute(ConstantStack constantStack, VariableStack variableStack, 
+		ListStack listStack, ArrayStack arrayStack, ObjectStack objectStack, 
+		CallingContextStack callingContextStack, InterfaceStack interfaceStack, 
+		AliasStack aliasStack, FunctionStack functionStack, DataTypeStack dataTypeStack) {
+		super.execute(constantStack, variableStack, listStack, arrayStack, objectStack, 
+		callingContextStack, interfaceStack, aliasStack, functionStack, dataTypeStack);
+		
+		// Check for duplicate names, bug ignore empty strings, they are just anon fns
+		if (!functionName.equals("")) {
+			if (functionStack.findFunctionCurrentStack(functionName) != null) {
+				throw new RuntimeException(
+					"Duplicate function declaration in current block");
+			} // if
+		} // if
+		
+		functionStack.push(this);
+		
+		// Functions don't execute, only function calls do
+		return this;
+		
+	} // method execute()
+	
+
+	public void generateXML(int treeDepth) {
+		super.generateXML(treeDepth);
+		
+		String padding = new String();
+		for (int i=0; i < treeDepth; i++) {
+			padding += "    ";
+		} // end for
+		ScriptOutput.bigXmlBuffer.add(padding + "<DECLARE-FUNCTION functionName=\"" + 
+			this.functionName + "\">\n");
+		this.generatePropertiesXML(treeDepth+1);
+		ScriptOutput.bigXmlBuffer.add(padding + "    <BODY>\n");
+		this.functionBody.generateXML(treeDepth+2);
+		ScriptOutput.bigXmlBuffer.add(padding + "    </BODY>\n");
+		ScriptOutput.bigXmlBuffer.add(padding + "    <PARAMS>\n");
+		for(int i=0; i < params.size(); i++) {
+			params.get(i).generateXML(treeDepth+2);
+		} // for
+		ScriptOutput.bigXmlBuffer.add(padding + "    </PARAMS>\n");
+		ScriptOutput.bigXmlBuffer.add(padding + "</DECLARE-FUNCTION>\n");
+	} // end method generateXML()
+
+	public void generateJavascript(int treeDepth, boolean startOnNewline) {
+		if (startOnNewline) {
+			String padding = new String();
+			for (int i=0; i < treeDepth; i++) {
+				padding += "    ";
+			} // end for
+			ScriptOutput.javascriptBuffer += "\n" + padding;
+		} // end if
+		ScriptOutput.javascriptBuffer += "function " + this.functionName + " ( " 
+			/* params here */ + " ) {";
+		this.functionBody.generateJavascript(treeDepth+1, true);
+		if (startOnNewline) {
+			String padding = new String();
+			for (int i=0; i < treeDepth; i++) {
+				padding += "    ";
+			} // end for
+			ScriptOutput.javascriptBuffer += "\n" + padding;
+		} // end if
+		ScriptOutput.javascriptBuffer += "}";
+	} // end method generateJavascript()
+
+
+	public Object evaluate(ConstantStack constantStack, VariableStack variableStack, 
+		ListStack listStack, ArrayStack arrayStack, ObjectStack objectStack, 	
+		CallingContextStack callingContextStack, InterfaceStack interfaceStack, 
+		AliasStack aliasStack, FunctionStack functionStack, DataTypeStack dataTypeStack) {
+	
+		// Create a stack for the function call
+		ConstantStack seqConstantStack = new ConstantStack(constantStack);
+		VariableStack seqVariableStack = new VariableStack(variableStack);
+		ListStack      seqListStack      = new ListStack(listStack);
+		ArrayStack    seqArrayStack    = new ArrayStack(arrayStack);
+		ObjectStack   seqObjectStack   = new ObjectStack(objectStack);
+		CallingContextStack seqCallingContextStack = 
+			new CallingContextStack(callingContextStack);
+		InterfaceStack seqInterfaceStack = new InterfaceStack(interfaceStack);
+		AliasStack seqAliasStack = new AliasStack(aliasStack);
+		FunctionStack seqFunctionStack = new FunctionStack(functionStack);	
+		DataTypeStack seqDataTypeStack = new DataTypeStack(dataTypeStack);
+		
+		// Load up the variable stack with the input params
+		for(int i=0; i < this.params.size(); i++) {
+			DeclareParameter param = this.params.get(i);
+			DeclareVariableTypeless dv = new DeclareVariableTypeless("", 
+			param.parameterName, param.expression);
+			dv.execute(seqConstantStack, seqVariableStack, seqListStack, seqArrayStack, 			seqObjectStack, seqCallingContextStack, seqInterfaceStack, seqAliasStack, 			seqFunctionStack, seqDataTypeStack);
+		} // for
+		Object ret = this.functionBody.execute(seqConstantStack, seqVariableStack, 
+			seqListStack, seqArrayStack, seqObjectStack, seqCallingContextStack, 
+			seqInterfaceStack, seqAliasStack, seqFunctionStack, seqDataTypeStack);
+	
+		// Handle actions requesting a retry (which means seq is finished)
+		if (functionBody.requestRetry) {
+			this.requestRetry = true; // promote the retry request to the try block
+			return null;
+		} // if
+
+		// Handle actions requesting a throw (which means seq is finished)
+		if (functionBody.requestThrow) {
+			this.requestThrow = true; // promote the retry request to the try block
+			this.requestedExceptionName = functionBody.requestedExceptionName;
+			this.requestedExceptionParams = functionBody.requestedExceptionParams;
+			return null;
+		} // if
+		
+		return ret;
+	} // end method evaluate()
+
+	
+} // class
+Figure 22: ALDeclareFunction class of execution engine
+
+public class ALCallWeaklyTypedFunctionByName extends Expression {
+
+	// Atributes
+	public Expression functionName;
+	public ArrayList<Expression> callParams;
+
+	// Constructors
+	
+	public CallWeaklyTypedFunctionByName(String id, Expression functionName, Expression... callParams) {
+		super("CALL-WEAKLY-TYPED-FUNCTION", id);
+		
+		this.functionName = functionName;
+		this.callParams = new ArrayList<Expression>(Arrays.asList(callParams));
+			
+	} // constructor
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object execute(ConstantStack constantStack, VariableStack variableStack, ListStack 
+		listStack, ArrayStack arrayStack, ObjectStack objectStack, CallingContextStack 			callingContextStack, InterfaceStack interfaceStack, AliasStack aliasStack, 
+		FunctionStack functionStack, DataTypeStack dataTypeStack) 
+		throws RuntimeException 
+	{
+		super.execute(constantStack, variableStack, listStack, arrayStack, objectStack, 
+		callingContextStack, interfaceStack, aliasStack, functionStack, dataTypeStack);
+
+		// Get function ref
+		String functionName = (String) this.functionName.execute(constantStack, 
+			variableStack, listStack, arrayStack, objectStack, callingContextStack, 
+			interfaceStack, aliasStack, functionStack, dataTypeStack);
+	
+		DeclareFunction functionRef = functionStack.findFunction(functionName);
+			
+		// Evaluate call param expressions.
+		for(int i=0; i < callParams.size(); i++) {
+			functionRef.params.get(i).expression = callParams.get(i);
+		} // for
+			
+		// return the result of exectuting the body of the funtion on a local stakframe
+		ConstantStack seqConstantStack = new ConstantStack(constantStack);
+		VariableStack seqVariableStack = new VariableStack(variableStack);
+		ListStack      seqListStack      = new ListStack(listStack);
+		ArrayStack    seqArrayStack    = new ArrayStack(arrayStack);
+		ObjectStack   seqObjectStack   = new ObjectStack(objectStack);
+		CallingContextStack seqCallingContextStack = 
+			new CallingContextStack(callingContextStack);
+		InterfaceStack seqInterfaceStack = new InterfaceStack(interfaceStack);
+		AliasStack seqAliasStack = new AliasStack(aliasStack);
+		FunctionStack seqFunctionStack = new FunctionStack(functionStack);			
+		DataTypeStack seqDataTypeStack = new DataTypeStack(dataTypeStack);
+		
+		Object ret =  functionRef.evaluate(seqConstantStack, seqVariableStack, seqListStack, 
+			seqArrayStack, seqObjectStack, seqCallingContextStack, seqInterfaceStack, 
+			seqAliasStack, seqFunctionStack, seqDataTypeStack);
+				
+		// Handle actions requesting a retry (which means seq is finished)
+		if (functionRef.requestRetry) {
+			this.requestRetry = true; 
+			return null;
+		} // if
+	
+		// Handle actions requesting a throw (which means seq is finished)
+		if (functionRef.requestThrow) {
+			this.requestThrow = true; /
+			this.requestedExceptionName = functionRef.requestedExceptionName;
+			this.requestedExceptionParams = functionRef.requestedExceptionParams;
+			return null;
+		} // if
+
+		// Handle actions returning a value
+		if (functionRef.returnValue != null) {
+			// something is trying to get us to return
+			this.returnValue = functionRef.returnValue; 
+			return returnValue;
+		} // end if
+
+		return ret;
+		
+	} // end method execute()
+	
+	public void generateXML(int treeDepth) {
+		super.generateXML(treeDepth);
+		
+		String padding = new String();
+		for (int i=0; i < treeDepth; i++) {
+			padding += "    ";
+		} // end for
+		ScriptOutput.bigXmlBuffer.add(padding + "<CALL-WEAKLY-TYPED-FUNCTION-BY-NAME>\n");
+		this.generatePropertiesXML(treeDepth+1);
+		ScriptOutput.bigXmlBuffer.add(padding + "    <FUNCTION-NAME>\n");
+		this.functionName.generateXML(treeDepth+2);
+		ScriptOutput.bigXmlBuffer.add(padding + "    </FUNCTION-NAME>\n");
+		ScriptOutput.bigXmlBuffer.add(padding + "    <FUNCTION-PARAMS>\n");
+		for(int i=0; i < callParams.size(); i++) {
+			callParams.get(i).generateXML(treeDepth+2);
+		} // for
+		ScriptOutput.bigXmlBuffer.add(padding + "    </FUNCTION-PARAMS>\n");
+		ScriptOutput.bigXmlBuffer.add(padding + "</CALL-WEAKLY-TYPED-FUNCTION-BY-NAME>\n");
+	} // end method generateXML()
+
+	public void generateJavascript(int treeDepth, boolean startOnNewline) {
+		if (startOnNewline) {
+			String padding = new String();
+			for (int i=0; i < treeDepth; i++) {
+				padding += "    ";
+			} // end for
+			ScriptOutput.javascriptBuffer += "\n" + padding;
+		} // end if
+		//ScriptOutput.javascriptBuffer += this.variableName + " = ";
+		//this.initialExpression.generateJavascript(treeDepth, false);
+	} // end method generateJavascript()
+	
+Figure 23: ALCallWeaklyTypedFunctionByName class of execution engine
+
+Whilst the execution engine was extended to test support for functions, the XML language was not, and testing of the new features was carried out by instantiating the Java data structure explicitly. One of the test programs for function calls is shown in Figure 24 with the test output shown in fig Figure 25. 
+The test program declare a function called “MyFunction”, which takes two parameters. The body of the function prints the value of the parameters received. It is then called with parameter values “hello” and “world”. The test program also prints the reference value of the function (its reference in Java) which corresponds to a pointer to a function in C/C++. The concept of pointers to functions becomes important when implementing object oriented paradigms, which is discussed next.
+public static void main(String[] args) {
+		
+		System.out.println("Function Call Application Starting");
+			
+		 DataTypeInstanceAction fib = 
+			new Seq("1",
+				new EnableTrace("2"),
+				new DeclareVariableTypeless(
+						"3", 
+						"myFunctionRef",
+						new DeclareFunction(
+							"4",	
+							"MyFunction",
+							new Seq(
+									"5", 
+									new PrintVariable("6", "param1"),
+									new PrintVariable("7", "param2")
+							),
+							new DeclareWeaklyTypedParameter("8", "param1"),
+							new DeclareWeaklyTypedParameter("9", "param2")
+						)
+					),
+				new CallWeaklyTypedFunctionByReference(
+					"10", 
+					new ReadVariable("11", "myFunctionRef"), 
+					new LiteralString("12", "hello"),
+					new LiteralString("13", "world")
+				),
+				
+				new PrintVariable("14", "myFunctionRef")
+		);
+	
+	
+		ConstantStack rootConstantStack = new ConstantStack();
+		VariableStack rootVariableStack = new VariableStack();
+		ListStack      rootListStack      = new ListStack();
+		ArrayStack    rootArrayStack    = new ArrayStack();
+		ObjectStack   rootObjectStack   = new ObjectStack();
+		CallingContextStack rootCallingContextStack = new CallingContextStack();
+		InterfaceStack rootInterfaceStack = new InterfaceStack();
+		AliasStack rootAliasStack = new AliasStack();
+		FunctionStack rootFunctionStack = new FunctionStack();
+		DataTypeStack rootDataTypeStack = new DataTypeStack();
+
+		fib.execute(rootConstantStack, rootVariableStack, rootListStack, rootArrayStack, 
+			rootObjectStack, rootCallingContextStack, rootInterfaceStack, rootAliasStack, 
+			rootFunctionStack, rootDataTypeStack);
+		
+		new ScriptingTest(); // Present result
+
+	} // main
+Figure 24: Test program for function calls in execution engine
+
+
+VAR param1 = hello
+VAR param2 = world
+VAR myFunctionRef = uk.ac.tees.carnforth.scripting.engine.function.DeclareFunction@1bf216a
+Figure 25: Test output for function call in execution engine
+
+
+
+Object Oriented Paradigms
+If the action language model is to be effective, then in addition to supporting structured programming, it must also be able to embrace object oriented paradigms found in programming languages such as C++ and Java. Of these, it is C++ that is the most challenging as it supports multiple inheritance. Both C++ and Java are, to some extent, considered strongly typed languages (although the use of integers to represent Boolean values, and implicit promotion of data types in C++ leaves something to be desired). There are, however,  some weakly typed object oriented, or object based, programming languages, the most notable of which is JavaScript (or more formally ECMAScript [x]). So, as with the implementation of functions, both strong and weakly typed data must be supported.
+Data types
+Data types in the execution engine are supported by sub-classes of class “DataType”, shown in fig xxx.
+

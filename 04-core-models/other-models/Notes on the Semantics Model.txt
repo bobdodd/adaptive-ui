@@ -1,0 +1,134 @@
+The CISNA Semantics Model & its XML notation  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+This short note related to the documents:
+“CISNA.pdf”
+“semantics example 080118.pdf”
+
+The note is intended to help me to structure my thesis, and perhaps provide some of the text.
+
+A Rule-based Semantics Layer
+
+The model of the Semantics Layer I’ve chosen is a rule-based meta-model, along the lines of Prolog; Prolog has ‘facts’ and ‘rules’ whilst I have ‘rules’ and ‘statements’. I also have nouns, verbs, ontologies, and notions.
+
+The idea behind this approach is to create a model of the Semantics Layer that can express anything from a word processing document, to a website, to an interactive game, to an augmented reality system. Each of the document types, for want of a better expression, has differing semantic rules about how information is organized, and yet they all have ‘model’ and ‘content’ subsystems (see previous note on CISNA) that can be expressed by a common abstract Information Model of only nine objects.
+
+Those nine objects group information into themes/ontologies (the Concept Ontologies in the diagram). Example ontologies include Container, Coordinate System, Media and Menu. Foe each ontology there exists a set of nouns that describe relevant entities within that ontology, for example Menu and Menu Item are both ‘nouns’ that describe entities within a Menu ontology. Similarly, Title, Protagonist, and Director may be ‘nouns’ in a Media ontology. Whilst verbs can also be considered part of an ontology, I’ve deliberately left them outside the definition. Verbs in this model should have the same conceptual meaning for all ontologies. (This is a bit of short-hand really: the original, more complex version of the Semantics Layer had the verbs grouped into their own ontologies and mappings between noun & verb ontologies; I’ve take this out to simplify understanding of the presented model, as I consider that reducing the precision of the model does not affect the underlying principles of the model). Example of ‘verbs’ include: is a, contains, scopes, expands upon, follows.
+
+
+Nouns and verbs are used to make simple non-verb-noun rules that describe underlying semantics. Simple example are; “Menu contains Menu Item”, “Menu Item follows Menu Item”, “Heading scopes Section”. These rules are my analogue of “facts” in Prolog.
+
+One verb stands out from the rest: “is a”. A Menu is (sometimes) a List, a List Item is (sometimes) a List, and a Menu Item is (sometimes) a List Item. Logically therefore, if a List contains List Items, them a Menu contains Menu Items, and it is this type of conditional rule-based logic I want within the Semantics Layer. Conditional because of the “sometimes” cardinality is the rules above.
+
+A notation for the Rules
+
+ REF _Ref62287081 \h Figure 1 is copied from the “semantics example” document for convenience. 
+
+
+
+Figure  SEQ Figure \* ARABIC 1 - Rules from Google Maps example
+In the figure:
+
+Black rectangular boxes represent nouns
+Black solid lines with arrows represent “A is a B”
+Black dotted lines with arrows represent “A is sometimes a B”
+Red lines with arrows represent all other non-verb-noun associations
+The text on a red line is the verb, and the multiplicity
+Green rounded boxes represent attributes of the related noun
+Blue rounded boxes represent the range of values for the related attribute
+
+I have taken the inheritance/sub-typing approach of OOA for the notation, which is why such emphasis is put on the “is a” relationship. However, I have also extended the principle a little rather. Not only do I allow for multiple inheritance, for example Menu inherits from both List and Viewport Element, but I allow for conditional multiple inheritance, which I show with the dotted lines.  An object may inherit from any combination of its super-types, or from none of them. Which inheritance paths are valid depends on the use to which the object, Menu in this case, is put. This conditionality is needed to handle the fact the rules are complicated; a menu is not always a list it may be a grid layout, or a random collection of hyperlinks in a paragraph of a document say. 
+
+The nouns and verbs selected for the example are entirely my own personal choice as analyst of the Google Maps page, and it is entirely possible to create a different set that can express that particular example. The only verb that must be maintained is “is a”. The selection of ontologies is similarly free-form.
+
+Whilst the ontologies play no active part in the notation above, they form an important role in the overall CISNA model.  The Runtime System (and the Development System for that matter) must understand the nouns contained within the ontologies in use to be able to render the content. So, in the same way XML uses schemes and DTDs, I use ontologies to identify the kind of semantic structures in use in the Layer. So, the first task of the Runtime system is to validate that only supported ontologies are used by the document to be rendered.
+
+The notation itself is designed to be relatively simple to draw by hand, and easy to implement as a tool within the Development System. The small number of symbols and connectors make it a simple matter to create a drag and drop (or right click and select) validating editor application. 
+
+Describing Content using Statements
+
+Describing the abstract rules of a document is only half the job, we also need to describe the content that uses it. For this, the Semantics Layer uses notions and statements.
+
+A notion expresses some renderable concept, such as a specific menu, menu item, viewport, indicator (e.g. a message to a user). As such, notions are a specialization of nouns. So the Search Menu is a specialization of Menu, and Site Title is a specialization of Title. 
+
+A statement links two notions together with a rule describing the relationship. The rule may be any rule valid between the nouns that have been specialized following any part of the inheritance tree for the nouns that make a valid rule. As such statements are my analogy of rules in Prolog.
+
+A Notation for Statements
+
+
+Figure  SEQ Figure \* ARABIC 2 - Statements from Google Maps example
+
+
+
+
+
+ REF _Ref62289606 \h Figure 2, copied from the “semantics example” document, extends the notation describing the rules. Added to the notation:
+
+Rectangular orange boxes represent notions
+Blue lines with arrows represent statements other than “is a”
+Green rounded boxes may also represent notion attributes
+Red rounded boxes represent notion attribute values
+
+Missing from  REF _Ref62289606 \h Figure 2 are the relationships between notion attributes and the noun attributes that they represent. I’ve left them off for clarity. I would expect an editing tool to be able to turn the visibility of all relation types on and off as required in the same way as Argo UML allows the user to control whether or not attributes, methods, and relationship names are shown when editing UML class diagrams.
+
+In practice, for full documents a single diagram would be almost unreadable, and certainly difficult to maintain. Rather, I would expect to be able to draw separate parts of the diagram as separate diagrams, differently scoped views of the same relational model as is provided by relational database tools.
+
+Validating the Statements
+
+One of the idea behind the model of rules and statements is the idea of being able to validate statements Rules are common across many documents, statements describe specific content in a document. Validating rules is analogous to validating XML using DTDs and Schemes.
+
+For a statement to be true, the notions on each side of the rule to be applied must inherit from Nouns for which the rule is true. 
+
+An example is “Site Title scopes Google Maps”. “Scopes” is a 1…n rule from Title to Content Notion. For Site Title to scope Google Maps, Site Title must inherit from Title (it does), and Google Maps must inherit from Content Notion (it does: Google maps inherits from Viewport Notion and Viewport Notion inherits from Content Notion).
+
+For an inheritance relationship to be true, a notion must contain a notion attribute for each noun attribute in the inheritance tree, and for no others. Further, it must contain exactly one attribute, however many times the noun appears in the inheritance tree. This is needed to make the multiple inheritance work; we would not want two sets of attributes for Content Notion (if it had any).
+
+ Taking notion Search Menu as an example, Search Menu inherits from Menu, which conditionally inherits from Viewport Element and/or List. Viewport Element contains noun attribute Viewport Element State, so for Search Menu to inherit from Viewport Element, it must contain a notion attribute that references Viewport Element State. We know it must inherit from Viewport Element because “Google Maps presents Search Menu” requires it.
+
+So, the algorithm to validate non-inheritance statement ‘A rule B’ is:
+
+‘A’ and ‘B’ must be notions.
+‘A’ must inherit a noun on the left-hand side of the ‘rule’.
+‘B’ must inherit a noun on the right-hand side of the ‘rule’.
+The implied inheritance trees for ‘A’ and B’ must be valid.
+
+The algorithm to validate inheritance statement ‘A is a B’ is:
+
+For each attribute noun between ‘A’ and ‘B’ there must exist a counterpart notion attribute in ‘A’.
+Each counterpart notion attribute must be in the same attribute range as the noun attribute and must hold a valid value for that range.
+There must be no duplicate notion attributes in ‘A’.
+Any other ‘orphan’ notion attributes in ‘A’ must be counterpart attributes in another valid inheritance statement for that involves a non-inheritance statement either from, or to, ‘A’.
+
+
+Origin and Originality of the Notation
+
+The rule-based idea came from the Prolog programming language; the origin of the notation is less clear in my mind. 
+
+There must be a notation for describing ‘Progloggy’ style rule-based systems, I assume from AI research, but I certainly don’t remember looking at one in particular. 
+
+A more likely source to have influenced me is my work at Nokia in Ulm. We developed a notation there for component-based UI development that mixed inheritance and associations on the same navigation chart, and that included simple multiple inheritance: a component could inherit one style (view) and one state machine (controller).
+
+A further source of inspiration is Javascript’s model of OO, in which objects “grow” their inheritance trees at runtime. Javascript is designed for single inheritance, rather than multiple, but it is certainly capable of coping with conditional inheritance.
+
+Multiplicity
+
+The noun-verb-noun relationships come complete with “multiplicity”, as does notion-rule-notion relationships. This provides only for 1:M relationships: “one A contains many B’s”. I have yet to find an example of M:M or M:1 that would fit my  unidirectional relationships. 
+
+Also, so far, I have only found 1:1 relationships for notion-rule-notion relationships. This is probably because my model forces notions into being single instances. It is possible though, I think, for them to become 1:M, and this will happen if and when I consider the practical problem of templates for document design. In those cases, a list may contain an arbitrary, and unknown, quantity of list items. If I added the Google search box to the example we would also get an example of this, since the input space allows for space and bracket separated search terms of unlimited number (although a limited number are actually allowed: type too many and you get an error message from Google).
+
+Running Example
+
+As with the Inventory Layer, I have coded up a running example of the Semantics Layer, capable of reading an XML formatted version of the notation. This works but is missing some validation code. It checks that there are no dangling references but it does not validate that statements are valid for the inheritance tree defined by the rules. I’ll add this next week when I get back to the UK.
+
+There are currently a number of small syntax errors in the XML that exist to allow my missing validation code to find – missing attributes on the Search Menu notion for example: the notion must inherit the Viewport Element attribute that controls visibility.
+
+Next Steps
+
+As noted, I need to add the validation coded to the worked example. I will then crack on with the Navigation Layer and the two missing bridges.
+
+
+

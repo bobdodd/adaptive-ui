@@ -1,0 +1,130 @@
+Glossary
+Accessibility layer
+An accessibility layer is an Application Programming Interface (API) provided by some computer operating systems/ user interfaces, and some programming languages to allow Assistive Technology to inspect, and potentially modify, the content currently presented to the user.
+Action Data Flow Diagrams (ADFDs)
+An Action Data Flow Diagram is a notation within the Shlaer-Mellor method used to describe the behaviour of state actions in a state model.
+Adaptable system
+A system able to be configured using a priori knowledge before use.
+Adaptive system
+A system able to dynamically change in response to events.
+Archetype
+In terms of this research, an archetype is a generic pattern used to automatically generate a computer program from a Shlaer-Mellor analysis model.
+Aspect Oriented Software Development (ASOD)
+Aspect Oriented Software Development is a software design technique that aims to separate supporting functionality from the core behaviour of complex computer systems, describing subject matters independently and then synchronizing each “aspect” of that supporting functionality with the main body of the program.
+Assigner state model
+An assigner state model is a state model that describes, and controls, the formation of associations between two ore more specified objects on a Shlaer-Mellor Information Model.
+Assistive Technology (AT)
+Assistive technology refers to computer hardware and software that provides specific affordances to disabled users who are interacting with a computer user interface.
+Bridge
+A bridge is a term in the Shlaer-Mellor method that describes the relationships between two problem domains. For example the concept of a menu of user selectable options in a user interface has counterparts to pop-up menus and drop-down menus used in  graphical user interfaces to represent them.  The detailed description of the relationship between the concept of a list, and those renderings of a list is called a bridge.
+Computer Aided Software Engineering (CASE)
+Computer Aided Software Engineering is a general term for computer programs that help automate the production of computer software. The term is most typically encountered in terms of tools that allow diagrammatic representations of requirements and design specifications, and in terms of tyools that automatically generate computer programs from such diagrams.
+Design space
+A medium, physical or abstract, through which a user and device may interact.
+Design space properties
+The properties of information within a design space are characterized according to the degree of processing required by the human brain, that is automatic processing and controlled processing, Those properties related to automatic processing are considered direct properties related to perception. Those properties related to controlled processing are considered indirect properties related to cognition. In the visual design space, colour is considered as a direct property, text as an indirect property.
+Design space structure
+Nesbitt characterizes raw information conveyed within the multi-sensory design space as nominal, quantitative, and ordered. Quantitative information is further sub-categorized as temporal, spatial, and geographical. Each category of information is considered to be a structure composed of a spatial substrate augmented with marks, properties, and temporal encodings.
+Directed graph
+A directed graph is a mathematical concept to describe the connectedness of things where the connectedness is not associative. For example a route to work is a directed graph because the order of locations visited on the way to work is in a defined order.
+ Domain Chart (DC) 
+A Domain Chart describes the client-server relationships of problem domains when using the Shlaer-Mellor object orientated analysis and design method. 
+Executable UML 
+Executable UML is a profile of the UML Model Driven Architecture based on the Shlaer-Mellor method of object oriented analysis and design. As such, it is a view of Shlaer-Mellor from a UML perspective.
+Fidelity
+Fidelity, in terms of this thesis, is an expression of how accurate a copy is to its source. 
+Finite state machine
+A finite state machine describes the behaviour of a system in terms of discrete steps, defining the order in which those steps may occur and the rules governing the timing and choice of the next step.
+Game theory
+Game theory is a branch of applied mathematics that expresses strategic decision making in competitive environments.
+Graph theory
+Graph theory is a branch of mathematics that expresses the connectedness of things in an abstract sense. For example roads connect to each other at intersections, books in a library are arranged by subject and author, computer chips are connected by a multitude of wires.
+Haptic design space
+The physical medium, related to human mobility, through which a user and device may interact. Nesbitt sub-divides this space into temperature, pain, tactile, chemogenic, kinaesthetic. Of these, only the tactile and kinaesthetic design spaces are considered practical and usable for the transmission of information.
+Hypermedia
+Hypermedia is an extension of the concept of Hypertext, and is a way of expressing multimedia content in a non-linear manner. With Hypermedia, both text and audio-visual content is described in non-linear form, with the audio-visual content also potentially decomposed into fragments; a common example is video which may contain a mix of image sequences, audio clips, and closed captioning for hearing impaired users. What makes Hypertext unique in concept compared to Hypertext is the implied sequencing necessary for audio-visual content.
+Hypertext
+Hypertext is a way of expressing textual content in a non-linear manner by fragmenting the text into fragments and then describing the relationships between the fragments. For example a book consists of chapters, and those chapters follow a specific order. Within each chapter, there may be headings, sub-headings, lists, and tables. The lists and tables in turn may have captions associated with them. This model of text is most commonly found in the structure of Web pages.
+Hypertext Mark-up Language (HTML)
+Hypertext Markup Language is the default mark-up language of Internet Web pages. It is a subset of the features generally ascribed to hypertext systems.
+Inheritance
+In terms of this research, inheritance refers to the polymorphic properties of objects in object oriented programming and design.
+Intelligent agent
+In terms of this thesis, an intelligent agent is an autonomous computer program or algorithm working on behalf of some other “entity”. Typically that entity is the user of a user interface, but it may be another agent. An agent works to a set of rules that may change over time as the result of experience by the agent.
+Interaction modality
+An interaction modality describes the protocol that occurs between the user of a computer user interface, and and the program represented by that user interface.
+Jackson Structured Programming (JSP)
+Jackson Structure Programming is a programming design technique that decomposes problems functionally, and represents that decomposition in diagrammatic form.
+Java
+Java is an object-oriented computer programming language heavily geared towards the production of graphical user interfaces and Web applications in general.
+Join point
+A join point in Aspect Oriented Software Development describing a point of synchronization between different aspects of a program and the main program.
+Mark
+A mark is an elementary entity capable of perception within a spatial substrate. In the visual design space, this may be a point, a line, a circle etc.
+Meta-model
+In terms of this research, a meta-model is a model of a language or an ontology. For example, an object oriented analysis model of object oriented semantics is a meta-model, as is an object oriented model of user profiling (as opposed to a model of a specific user's profile).
+Metaphor
+A metaphor is an analogy of ideas. In terms of this research, the terms metaphor, metonymy, and synecdoche are used interchangeable to mean the use of analogy in user interfaces to inform and support user interaction.
+Method
+In terms of this research, a method expresses a specific notation and process used in developing computer software. In contrast methodology is the study of methods.
+Model Driven Architecture (MDA)
+A Model Driven Architecture describes a computer software architecture that is largely independent of the underlying computer hardware, providing a general abstract view of hardware.
+Moore state model
+A Moore state model is a representation of a finite state machine in which behaviour is associated only with entry to the state, and not with the transition between states.
+Multiple Sclerosis (MS)
+Multiple Sclerosis (MS) is a progressive disease of the central nervous system caused by the build up of deposits of the outside of nerve tissue. This build-up causes the nerves to fail or misfire. The randomness of the deposits means that the effects felt by a person with MS vary widely in symptoms and severity. Symptoms include blurred/double vision, a complete loss of touch (tactile and kinaesthetic), and limb tremors. These symptoms are progressive in severity, but are also intermittent; in the early stages of the disease it is quite possible to be able to walk in the morning, but not in the afternoon and vice versa. The disease is terminal and there is currently no known cure.
+Multi-sensory design space
+An aggregate of all the physical design spaces through which a user and a device may interact. Nesbitt defines this to be visual, sonic, and tactile.
+Object Constraint Language (OCL)
+OCL is the declarative language used by UML to describe rules and behaviour that cannot be represented by UML diagrams.
+Object Oriented Analysis and Design (OOA/OOD)
+Object oriented analysis and design is a software engineering approach to describing complex problems in terms of related, and potentially, cooperating entities. For example a computer user interface may be described as a relationship between the content to present, the manner of its presentation, and associated interaction modalities between the interface and the user. 
+Ontology
+In terms of this research, an ontology is the collection of concepts or ideas related to a particular subject matter.
+Perceptualization
+A multi-sensory display of abstract information. For Nesbitt, Perceptualization is inferred to be a human quality.
+Quality assurance
+Quality assurance in this thesis, is the checking of the process by which a product is made and tested against a guide to best practice for that category of product. It is a largely qualitative process.
+Quality control
+Quality control in this thesis, is the checking of a product and/or its components against a test specification. It is a quantitative process.
+Real-time software
+Real-time software is computer software that reacts to its environment in a timely fashion. That reaction may be to the actions of people, for example through a user interface, or in response to sensor information in system control applications.
+Recursive design
+Recursive design is a term used in the Shlaer-Mellor object oriented analysis and design method to describe the process of translating object oriented models of program specifications directly into computer programs by applying translation rules to a meta-model of object oriented analysis.
+Reification	
+Reification in terms of this thesis, is the process of making concrete that which is abstract. A photograph is a reification of time and place, with all of the lens distortion and selectivity implied.  The fidelity of a reified concept may very widely.
+Scanning
+In terms of this research, scanning is a term associated with Assistive Technology where user options are presented as a timed sequence of options, with the user making their choice as that option is presented in turn.
+Screen reading
+In terms of this research, screen reading is a term associated with Assistive Technology where a computer user interface is described to a user audibly. Typically this takes the form of a synthetic human voice reading text and menu options.
+Sonic design space
+The physical medium, related to human hearing, through which a user and device may interact.
+Spatial substrate
+A spatial substrate describes the orientation of information expressed within a physical design space, describing that information using axes and a coordinate system of a precision appropriate to how a user perceives content within that design space.
+State transition table
+A state transition table is a Shlaer-Mellor term for a complete tabular description of a finite state model that describes not only the intended state transition seen on a state transition diagram, but also exception conditions.
+Structured Query Language (SQL) 
+SQL is an international standard for describing manipulation of a relational database in terms of human readable text.
+Structured analysis and design
+Structured analysis and design refers to software methods that functionally decomposes a computer systems problem into smaller and more manageable problems. It is an elaborative approach that first decomposes the given problem and then augments that decomposition with additional design detail until the computer program and hardware are fully specified.
+Subtyping
+Subtyping is closely related to the concept of inheritance. In this research, subtyping refers to the use of polymorphism in Shlaer-Mellor Information Models to describe variation in objects.  In this case the inheritance hierarchy is considered to be disjoint complete, and that an object may migrate subtype whist retaining its identity. 
+Tcl/Tk
+Tcl/Tk is an interpreted programming language often used for systems programming tasks, and which is strongly linked to the Tk graphics API.
+Temporal encoding
+A temporal encoding describes the position of one or more marks within a spatial substrate over time. In the visual design space this corresponds to the animation of a point or line on a display. As described by Nesbitt, temporal encoding occurs within a single substrate.
+Transcoding
+Transcoding is the direct digital-to-digital conversion of encoded data between data formats. In terms of this research, the term is used to refer to the direct conversion of protocols between interaction modalities.
+Unified Modelling Language (UML) 
+UML is a collection of diagram semantics aimed at supporting a wide range of object oriented methods. It is not a method in itself, it is only notation. Typically a method uses a subset of UML.
+Universal accessibility
+Universal access is generally taken to mean the right of all people to have access to goods and services. In terms of this research, universal accessibility refers to the concept of maximizing the usability of a user interface to support universal access.
+Use-case
+A use-case describes the expected behaviour of a system in response to an external stimulus. “User places a call” is an example of a use-case on a mobile phone.
+Visual design Space
+The physical medium, related to human sight, through which a user and device may interact.
+WCAG
+Web Content Accessibility Guidelines. The guidelines of the Worldwide Web Consortium that describe established best practice in the construction of Web content to improve access to disabled users (see quality assurance).
+Yourdon Structured Analysis and Design
+Yourdon Structured Analysis and Design is a specific implementation of the ideas of Structured Analysis and Design that defines both a diagrammatic notation to describe decomposition, and the particular process to follow in constructing those diagrams.
+

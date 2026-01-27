@@ -1,0 +1,110 @@
+The CISNA Runtime System and its User Model  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+The note is intended to help form the first part of the content of chapter 5 of my thesis. It introduces the User Model, and relates it to the Adaptation Layer of the CISNA Model. It also places the User Model in a broader context, considering it’s relationship to learner profiles.
+
+Google Maps Revisited
+
+The Carnforth GUI presented as part of chapter 4, was shown rendering a fragment of Google Maps for two possible users: a default user, and a low vision user; the rendered (visual) output for the low vision user is shown in  REF _Ref65645969 \h Figure 1. 
+
+
+Figure  SEQ Figure \* ARABIC 1 - Rendered Output for Google Maps Example
+
+Selection of users in the GUI relates to Event Triggers in the Adaptation Layer of the CISNA model; the Adaptation Layer is shown in  REF _Ref65657533 \h Figure 2, with it’s XML representation in  REF _Ref65657839 \h Figure 3. Selecting a user from the “Users” is in the GUI generates the “New User” event described in the XML. That “new User” event causes the defined Instances to be applied to the CISNA model, causing the document structure to change.
+
+The five-layer CISNA Model describes an abstract view of a document, not the concrete rendering shown in  REF _Ref65645969 \h Figure 1. In the Google Maps example from Chapter 4, each design space, visual and sonic, had pre-defined rules in terms of how such content was to be realized for a given Event Trigger. Observation of how Windows, Apple OSX  “Accessibility Wizards” work suggests that their underlying model follows precisely this approach: they ask simple questions to select adaptations.
+
+
+
+Figure  SEQ Figure \* ARABIC 2 - CISNA Adaptation Layer
+
+
+Figure  SEQ Figure \* ARABIC 3 - Adaptation Layer as XML
+The User Model
+
+To know which instances to apply to a document in order to adapt it to a specific user, requires a detailed understanding of the capabilities and preferences of that user; whilst not published, one presumes such models, in some form, must exist within Microsoft and Apple (and amongst other providers of user interfaces), and that these models influence their accessibility wizards.  REF _Ref65659049 \h Figure 4 shows the User Model usecreated for the CISNA Runtime System.
+
+
+Figure  SEQ Figure \* ARABIC 4 - User Model
+
+The User Model contains three key, interlinked, concepts: User, Preference, and Capability. A User in this sense may be a specific individual, or a prototypical user that represents a category of very similar individuals. 
+
+A user is characterized by their preferences for particular interaction modalities and styles of presentation. User capability guides user preference. Device capability constrains user preference.  Capabilities belong to particular ontologies, for example visual, sonic, haptic, and cognitive. In a broader context, capability ontologies extend to other subject such as learning (e.g. learner profiles).
+
+User capability within the User Model is not explicitly a medical view of an individual. A visual capability for example, may be the smallest font readable by the user, or the minimum amount of space required around a mathematical formula; clearly capability is related to human physiology, but always not an explicit measure of any aspect of it. This leads quickly into questions of what constitutes a valid user capability. In terms of the CISNA User Model, we don’t care, so long as the render engine that reads them understands the capabilities; the User Model uses ontologies to identify groups of related capabilities for this purpose.
+
+The user model makes a distinction between capability and capacity. A capability is a general property, a capacity is a measure of how that capability affects the user’s preferences. 
+
+Devices appear in the user model because the capabilities of a particular device constrain the user’s preferences; it would be meaningless to for the user to be able to select handwriting input if the device has no stylus or touch-screen. Consequently, it makes no sense to have a Model that does not include a full model of the device the user is using.
+
+User Profiles
+
+I define a user profile to be an instance of the User Model. So in the same way that an instance of the five-layer model describes a particular version of a document by comparing it with other instances, a user profile describes the user in terms of other users; if we have already defined a default user, then I may be described as the Default Instance adapted to my personal preferences, guided by my personal user capacities, for a given set of device profiles.
+
+That a user profile is defined in terms of adaptation is a difference to most, if not all user profiling approaches that I’ve come across. Normally they are defined independently and only with reference to an ontology describing the properties of the user. My definition and model allows me to say, “I’m like Fred except that I prefer larger text”, and “I am blind, but I do have some useful residual vision”.  So, user profiles can build on archetypes for particular conditions or operating environments (e.g. low attention, noisy, unstable) adapted to the personal preferences of a specific user.
+
+The use of Instances in user profiling leads back to the CISNA five-layer model – it is the Adaptation Layer behaviour the describes the application of Instances, and this leads in turn to the first step toward a layered model or the CISNA Runtime system as shown in  REF _Ref65745220 \h Figure 5.
+
+
+Figure  SEQ Figure \* ARABIC 5 - CISNA Runtime System (Step 1)
+Adaptivity
+
+The User Model given in  REF _Ref65659049 \h Figure 4 defines a user in terms of their preferences and capabilities with respect to specific devices. Whilst this is true, it is only part of the picture since a user interface also experiences the user’s behaviour over time. At a basic level, this may be a history of web pages visited during a browser session, used by the interface to render a breadcrumb trail. At a more sophisticated level, it is also possible for a user interface to learn user preferences, measure the apparent success/failure of particular tasks, and thereby to infer necessary changes to the interaction modalities for that user. In this more sophisticated case, such information may build over time, and potentially across different devices. 
+
+To support such adaptive behaviour, two abstractions are added to the Runtime System: the adaptivity subsystem belonging to the Adaptation Layer, and an event log abstraction to the User Model. The adaptivity subsystem is shown in  REF _Ref65736500 \h Figure 5, and the Event Logging in  REF _Ref65770803 \h Figure 7.
+
+
+Figure  SEQ Figure \* ARABIC 6 - Adaptivity Subsystem
+
+
+Figure  SEQ Figure \* ARABIC 7 - Event Logging
+
+Further, the definition of a user must be modified: a user is characterized by their preferences for particular interaction modalities and presentation styles, which in turn are informed by their capabilities, constrained by the device capabilities of the device they are using, and adapted in light of previous experience with specific modes of interaction.
+
+The Adaptivity Subsystem, shown in  REF _Ref65736500 \h Figure 5, is an event-based model, where events, such as “User Logs In”, “User Aborts Search” etc. may cause changes in the guidance given to the user when selecting their preferences. Those trigger events are a subset of all possible events generated as a result of user behaviour, and are counterparts to the Event Model i.e. there exists a bridge between them, resulting in a further layer within the Runtime System as shown in  REF _Ref65745513 \h Figure 8.
+
+
+Figure  SEQ Figure \* ARABIC 8 - CISNA Runtime System (Step 2)
+
+Three bridges exist in  REF _Ref65745513 \h Figure 8. Instances of the User Model, representing user profiles counterpart to Instance in the Adaptation Layer. Event Triggers in the Adaptation Layer have counterparts to Records in Event Logging. Archives of records in Event Logging counterpart to Users in the User Model. 
+
+There is however a “missing bridge”: An instance of the User Model + Event Logging represents a user profile, but there is no object named “User Profile” to map them to. This is because they appear to map to an instance of User in the User Model. Closer inspection of the problem leads to the question: what exactly is the User in the User Model? My answer to that is: it is a role played by a single person/archetype during user interaction. This happens commonly on computer systems where the same individual may be variously an administrator or a standard user, each with different privileges and differing visibility of system content. If this is true, then there must be another model that describes the relationships between the physical person/archetype and the roles taken by that person when interacting with the user interface. This is the User Role Model, as shown in  REF _Ref65769183 \h Figure 9.
+
+
+Figure  SEQ Figure \* ARABIC 9 - User Role Model
+
+The User Role Model does not constrain the number of contemporaneous roles played by a user, nor does it constrain what roles may be possible (set by the instances of Role Type).  The roles may be administrator and standard user, or skill level in a game, or learners at differing levels of achievement that require differing levels of scaffolding.
+
+ REF _Ref65770200 \h Figure 10 shows the User Role Model added to the Runtime System. The introduction of user roles, extends and modifies the bridges between the models:
+
+Event Triggers in Adaptation counterpart with Records in Event Logging.
+Archives in Event Logging counterpart to Users in the User Model.
+Users in the User Model counterpart to Roles in the User Role Model.
+Users in the User Role Model counterpart to Instances in Adaptation.
+Instances of the User Model, Event Logging and User Role Model counterpart to Instance in Adaptation.
+
+
+Figure  SEQ Figure \* ARABIC 10 - CISNA Runtime (Step 3)
+
+
+Dissemination of Profiles
+
+The User Role Model shown in  REF _Ref65769183 \h Figure 9, is a simple, static mapping of user to role played, with each role expressing a particular instance of the User Model, with the User Model populated with user preferences, capabilities, and interaction history. The natural question to ask is: where does this information come from, and how is it delivered to the user interface?
+
+In existing commercial user interfaces such as Microsoft Windows and Apple OSX, user preferences are associated with user accounts created within the operating system and configured through the control panel/system settings menus. A similar mechanism exists with Web browsers, though with most configuration of browser rendering done through local menus within the browser itself. Capacity/capability settings are input in similar fashion. There are some administrator and user-level tools available to help port a profile between machines, and between browsers. In all cases, these settings are on a per-user basis and do not refer to the settings of other users/archetypes.
+
+The CISNA Runtime System, in fact CISNA in general, assumes input and distribution of user profiles to be portable at model level, with the example system implemented using XML as the transport mechanism. How profiles become parsable XML fragments is formally a matter for the CISNA Development System, not the Runtime System, and discussion is deferred to chapter 7 of the thesis. However, it is notable that the scope of the Development System is taken to mean creation and maintenance of all information that influences the rendering of content and the selection of interaction modalities. Even though setting preferences is something (often) done by the user, it is considered to executed with the User playing the role of Developer, another Role within the User Role Model. This is analogous with the Dexter Model that allows for user constructed/adapted hypertext content.
+Interdependencies
+
+The User Model shown in  REF _Ref65659049 \h Figure 4, does not show or support dependencies between capabilities or between preference selections; it is perfectly possible with  REF _Ref65659049 \h Figure 4 to create a User Model where a user is blind with but tunnel vision. The dependency constraints needed to avert such cases depends upon additional capability and preference models. In the case of the CISNA model, I identify Sight, Hearing, Mobility, and Cognition as example of how such a constraint system would work. These models extend the Runtime System and are described in future notes.
+
+
+
+
+
+
+

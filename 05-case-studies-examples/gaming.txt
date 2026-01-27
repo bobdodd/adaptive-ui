@@ -1,0 +1,14 @@
+Title:
+Adapting classic games to the Sonic design space: Tetris as a case study
+Brief description:
+How do you take classic games like Tetris, and make them usable by blind and visually impaired users? Without any loss of features, and without distorting the game? A look at the design techniques and processes necessary to achieve this.
+Longer description:
+As designers, we work in three design spaces: visual, sonic, and haptic. Each of those spaces has its own characteristics in terms of information bandwidth
+3 takeaways:
+
+Skill level:
+
+Bio:
+Bob Dodd is the web developer for CNIB's Accessible Publishing unit in Toronto where his role covers design and implementation of the CELA library website, and provides web accessibility consulting across other business units. Bob joined CNIB in 2013 after ten years of academic research into adaptive user interfaces, that itself followed a career in UI design. He has published papers on techniques for adaptive user interfaces ('The CISNA model of accessible adaptive hypermedia'  https://doi.org/10.1145/1368044.1368052) and a model for profiling human capability ('User capability in an adaptive world ' https://doi.org/10.1145/1631097.1631110).
+
+

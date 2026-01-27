@@ -1,0 +1,34 @@
+Devices
+The Gadget Shopping Scenario
+John, because of his disabilities, is experiencing problems using his current mobile phone. Whilst he can use some features of the phone, there are others that he finds impossible to activate or use.  
+Introduction
+ The accessibility of mobile devices, such as mobile phones,Â is a unique problem domain. They present with a small form factor, constraining display size, and making serious demands on user mobility and cognition. Existing assistive technology tackles these problems through a combination of bespoke solutions and text-to-speech augmentation of the "standard" user interface, often leading to a bulking out of the device, or forcing visual metaphors upon blind users.
+Particularly with the expansion of value-added, downloadable, services in mobile telephony, we are fast approaching a crunch-point for user interface design. On the one hand, the new services require ever more sophisticated user interaction, and on the other, disability legislation and regulation covering e-commerce makes no distinction between browsing the web on a PC, and browsing the web on a mobile phone.
+To try and square the circle, this paper revisits the processes by which user interfaces are designed, constructing a model of user interface development that maximizes the capabilities of each device, matching them to the physical capabilities of individual users, and selecting a set of interaction metaphors appropriate to the content, to the device, and to the user. 
+Designing Hand-held Devices
+What makes a Hand-held Device Accessible?
+Entailment
+Scoping Accessibility
+Design Spaces
+Visual Design Space
+Sonic Design Space
+Haptic Design Space
+Modality Modelling
+User Capability Model
+Device Capacity
+Design Spaces
+Metaphor Sets
+Abstract User Interfaces
+Operational Context
+Choosing a User Base
+Measuring Accessibility
+Maximizing the User Base
+Revisiting the Development Process
+Specialization
+Case Study: Use of Sounds as Assistive Technology
+iPod Linux
+Captioning Interactive Content
+Conclusion
+
+References
+

@@ -1,0 +1,15 @@
+Statement of problem
+
+By the nature of the devices and their operating environment, hand-held mobile devices are constrained in their ability to communicate with users. Visual communication is limited by screen size and resolution, by potentially the mechanical instability of the supporting platform (e.g. when held by a shaking hand on public transport), and by ambient lighting conditions (e.g. a bright sunny day in a farmer’s field). Haptic communication is constrained by the ergonomics of devices being hand-held, and is usually restricted to vibration patterns (e.g. vibrate mode on a mobile phone) and sprung feedback for keys and case covers. Audio communication is constrained by the environment (e.g. external ambient noise) and in the case of mobile phones, by the ergonomics of devices designed to be held by one ear; stereophonic sound is sometimes possible, but usually only with addition equipment such as headphones. Audio input is also usually monoaural.
+
+Despite the constrained nature of user interaction on these devices, they are often required to express relatively large quantities of information. Taking a mobile phone as an example, there may be a requirement for a (relatively) complex phone book, capable of being browsed searched and modified, even during an ongoing call. In fact, many contemporaneous activities can occur on a mobile phone user interface e.g. notification of incoming text and multimedia messages, browsing and maintenance of received text messages, setting up and management of conference calls/call waiting, web browsing using WAP, alarm calls etc.
+
+In such a constrained environment, supporting relatively rich and complex user interface behaviour, is a challenge for the designer, requiring that the maximum benefit is made of each  multi-sensory design space (vision, hearing, haptic) within the capabilities of individual devices. 
+
+The question then becomes: what is the maximum benefit that may be derived from the capabilities of an individual device, for whom, and how do you measure it? This question is particularly interesting when phrased in terms of accessibility: what benefits must accrue from the organisation of the multi-sensory design space in a hand-held mobile device, and for whom, for the device to be considered accessible?
+
+The primary goal of my research is to try and answer that question, considering how information content may be expressed within a multi-sensory design space, and its relationship to the capabilities of individual users and devices within the context of their usage. In doing so, consideration will be given both to potential entities and work products associated with such benefits, and to the underlying design process through which the entities and work products are constructed.
+
+
+
+

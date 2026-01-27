@@ -1,0 +1,63 @@
+Design Language
+
+Patterns
+This note is entitled “Design Language” but it could equally have been entitled “Finding and choosing between patterns”. Somehow, when selecting modalities suitable for a given content accessed by a given user for a given device and environmental context, we need to select an appropriate design language which can support those choices. In very basic terms, we need to be able to make an informed decision, for a given content and context whether to choose a three frame web page; a two frame web page; immersive virtual/augmented reality; or a WIMP interface. And that’s not easy.
+The first small step on the road was the introduction of Modality Sets in the last note (on rendering). The relevant extension to the Design Space Model is shown below:
+
+A Modality Set describes which Elements can support a given Modality Ontology and it is a M:M:1 relationship. That relationship can rule individual ontologies in and out of the modality selection process, but it does not express which particular collection of elements best suit a particular circumstance, nor does it express how they are related within the Design Space. That requires Design Language Sets.
+
+Design Language Sets
+ A Design Language Set is in effect a template of known “good associations” between modalities. A single Modality Ontology may have many Design Language Sets associated with it. In terms of the Design Space Model (repeated below) this means that there exists a population within the Design Space of specific instances of these particular “good association” modalities.
+
+Being a template, the modalities cannot be described entirely absolute in their populations or positioning. For example, without knowledge of content, it would be impossible to know how many items are in a particular list. What this means for the Design Space Model is that one attribute of Element must be its potentiality of existence. Note: in terms of rendering, it is really ElementOnDevice that is of interest, rather than Element itself.
+Further, I would expect a template to show the relationships between elements in the template, for example a specific list modality may contain a maximum “n” menu items, with a default presentation of “m” items; in other words a list that “scrolls” if more than “m” items are to be presented. One look at the Design Space Model shows no such organizational capability, and I’d argue that it shouldn’t. We already have another model capable of expressing those relationships: the CISNA Model. As it stands though, the CISNA Model does not handle potentiality, and that needs to be addressed in the Semantics and Navigation Layers. 
+With the appropriate modification, specific Instances in the Adaptation Layer of the CISNA Model would express individual Design Language Sets. The final rendered interface would consequently become an Instance (or sequence of Instance Applications) that selects from a library of Design Language Set instances, which themselves are adapted to make their rendering concrete.
+That templates use instances of the CISNA model to describe Element relationships not a surprise, but what has been missing are the bridges between CISNA and the Design Space Model. These were discussed at the level of Nouns and Rules in an earlier note; in the case of templates, then Notions and Statements also play a part.
+
+
+Impact on the CISNA Model
+One of the rules/assumptions of the CISNA Model is that the Semantics Layer expressed the semantic meaning given to content referenced from the Inventory Layer. By its nature, a template has little or no content to reference. “Little” as a template for tree layout (as in Java’s JTree) may, for example, require certain icons and related text to symbolise opened or collapsed branches of the tree. “No content” as we know the structure of a list, but not the explicit items that populate it.
+
+So, do the rules/assumptions need to change? Well, they could, but I don’t think it’s necessary. What would be better would be for the Inventory Layer to have the capacity to express place-holder content. This is something CISNA needs to be able to do in any case to handle input fields, for example text boxes. 
+
+Looking at the Inventory Layer, that means being able to add place-holder Raw Media Elements and associated Formatted Media Elements. That an element is a place-holder would either be an attribute of the Element object (in OOA terms) or potentially as an instance of RawElementAttribute; both work.
+A similar problem would appear to exist with content grouping; it is possible to imagine a template that has the potential to express groups of content if that content existed. The maps presented on Google Maps would be a good example of this, as each map is a composite of images and text. However, the Navigation Layer in the CISNA model bridges to the Semantics Layer, not the Inventory Layer, and so in practice, it is only the bridges between Inventory and Semantics that experience the problem of place-holders.
+Design Language Selection
+Assuming that the CISNA Model can hold Design Language Sets, and that these bridge to the Design Space Model, we are still faced with the problem of choosing between different templates/look & feels. 
+The problem, well one of the problems we face, is choosing appropriate Design Language Sets for a given content and user context. Assuming that the filtering of modalities in stage one, plus the additional filtering that can be achieved through use of Modality Sets, has resulted in identification of a number of fully (or at least adequately) supported Modality Sets for the user, then stage two selection must be based upon characterization of application content.
+Examples of characterized of application content could include:
+Understanding that the UI manipulates a timeline – breadcrumb trails, history lists.
+Understanding that the UI manipulates tabular content – timetables, spreadsheets.
+Understanding that the UI manipulates proximal content – graphs, newspaper layouts, books.
+Understanding that the UI manipulates animated, state based content – games such as Tetris & Pacman, stock market feeds, wikis, and search engines.
+Understanding that the UI manipulates a decision tree – menus, wizards.
+Each characterization may be further refined. For example, transport timetables are different in character to postal charge tables in that there is an implied timeline through columns or rows. The better the characterization of the content, the easier it is to identify appropriate templates, and to associate elements of the templates with particular elements of the content. For that mapping, we have a familiar pattern: capability requirement and capacity to support a capability i.e. the Capability Model from chapter 4 (user profiling). The specific capabilities needed are of a different ontology to user/device/environment, but the model still fits:
+Taking a bus timetable as an example, there are specific properties of a timetable that need to be modelled. These include:
+The table is based on digraphs.
+ Nodes are sorted and listed vertically with the node name as the row name.
+Individual paths through the graph are expressed as columns, sorted by departure time.
+Not all paths include every node, and it is significant when they do not; it is even more significant if many nodes are missed between the first and last node of the graph.
+A complete timetable is made up of (potentially) multiple sets of tables (opposite direction, different days, seasons, morning/afternoon/evening etc).
+The number of properties is significantly greater than those listed above, but they make the point. The properties are likely to be abstract and (kind of) hierarchical; that the content is a digraph is considered before rules about nodes and paths for example.
+In comparison, it is possible to imagine a Design Language Set claiming to support representations of digraphs, with certain patterns of graph being supported; the Java library JGraph is one example. So, if the meta-data describing content, and the meta-data describing libraries such as JGraph can be described within the same ontology, then the Capability+Requirement Model can express them.
+The selection process for Design Language Sets under these conditions becomes a matching of content requirement and set capacity. The resulting filtering should leave a collection of Modality Sets that include sufficient Design Language Sets to correctly express content. There may still (one would hope) be multiple Design Language Sets for specific categories of content, allowing for further selection criteria to be applied.
+User/Device/Environment Capability Re-visited
+If we are lucky enough to still have sufficient Design Language Sets to allow further selection, then it is Capability Modelling that offers some guidance.
+A simple example is list modalities. It is more than possible to imagine a list modality that uses scrollbars to support presentation of lists if the screen acreage does not allow the full list to be presented. To know whether the modality is suitable for a user who struggles with scrollbars when it is embedded within a Design Language Set, we must consider its full expression within the Design Space Model where the Location and Element Properties describe whether scrollbars are required; a dry-run if you like. And that dry run is a rendering into the Design Space Model of content rendered into the CISNA Model. To summarize, to make final decisions on modality selection for a user and context, we need to test the Design Language Set (i.e. template) by rendering it as a concrete instance in the CISNA Model, and examine the resulting Element properties and Location properties in the Design Space Model. That examination reapplies the Requirement to Capacity mappings in this concrete situation, testing capabilities tied to content rather than the content independent mappings of stage one.
+Speculation
+How much of this note is speculative? Well, certainly I’ve not done a detailed investigation into describing content or templates, so the actual properties I pulled out are speculative in that I don’t know for sure which ones I’ve missed, or how important the ones I found actually are in describing tables. That said, I’m entirely happy arguing that we need to match the character of the underlying content with the character of individual templates to select appropriate templates for a user; after all, how else could it be done? I fully accept that there are for sure many different approaches to that process of matching, but again, I’m quite happy to recommend the Capability Model for consideration, and that is one of the things I want to show in the Tetris case study of chapter 8.
+Out of Scope
+A number of areas of Design Language are entirely out of scope for my research.
+Inventing new templates. 
+Inventing new modalities to put into the templates.
+Identifying specific content and template capabilities/capacities.
+Identifying the External Influences of the Requirement Model that cause capacity to change.
+These items are out of scope because they don’t add anything to my arguments about adaptation of an interface to support user need. Answers are needed to apply my work effectively, but those answers should not materially affect the arguments.
+
+
+
+
+
+
+
+

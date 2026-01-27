@@ -1,0 +1,33 @@
+Bibliography
+British Standards Institution, 1998. BS 7925-2:1998 Software testing. Software component testing. Milton Keynes: BSI.
+Freedom Scientific Inc., 2010 product catalogue [Online]. Available at: http://www.freedomscientific.com/products/fs/jaws-product-page.asp [Accessed: 6 February 2010].
+Fuentes, L. and Sánchez, P. 2007. Towards executable aspect-oriented UML models. In Proceedings of the 10th international Workshop on Aspect-Oriented Modeling pp. 28-34. Vancouver, Canada. New York, NY: ACM Press.
+Google Inc., 2010. Google search page [Online]. Available at: http://www.google.com/ [Accessed: 6 February 2010].
+Halasz, F. and Schwartz, M. 1994, The Dexter hypertext reference model. Communications of the ACM, vol. 37, no. 2, pp. 30-39.
+Hall, C. A. 2009. Web presentation layer bootstrapping for accessibility and performance. In Proceedings of the 2009 international Cross-Disciplinary Conference on Web Accessibility (W4a) pp. 67-74. Madrid, Spain. New York, NY: ACM Press. 
+Hardman, L., Bulterman, D.C.A. and Rossum, G.V. 1994, The Amsterdam hypermedia model: adding time and context to the Dexter model.  Communications of the ACM, vol. 37, no. 2, pp. 50-62.
+International Standards Office, 2007. ISO/IEC 13249-1:2007 - Information technology -- Database languages -- SQL multimedia and application packages -- Part 1: Framework. Geneva:ISO.
+International Standards Office, 2008. ISO/IEC 24751-2:2008 - Information technology -- Individualized adaptability and accessibility in e-learning, education and training -- Part 2. Geneva:ISO.
+Jackson, M.A., 1975. Principles of program design. London, United Kingdom: Academic Press.
+Kennedy Carter Inc., 2006. The UML Action Specification Language Reference Guide [Online]. Available at: http://www.kc.com/DOWNLOADS/browse.php [Accessed: 6 February 2010].
+Kindler, E. and Schmelter, D. 2008. Aspect-oriented modelling from a different angle: modelling domains with aspects. In Proceedings of the 2008 AOSD Workshop on Aspect-Oriented Modeling, p 7-12. Brussels, Belgium, April 01 - 01, 2008.  New York, NY: ACM Press.
+Kovalev V. and  Petrou M., 2005. Optimising the Choice of Colours of an Image Database for Dichromats. In Machine Learning and Data Mining in Pattern Recognition.  Berlin?/Heidelberg, Germany: Springer Verlag.
+Mellor S.J., 2004. A framework for  Aspect Oriented Modelling  [Online]. Available at: http://www.cs.iit.edu/~oaldawud/AOM/AOM2003/Stephen-AOSD.pdf.  [Accessed: 6 February 2010].
+Mellor S.J. and Balcer M.J. 2002. Executable UML: a foundation for model-driven architecture. Reading, MA: Addison-Wesley.
+Microsoft Corp., 2010.  Accessibility and Global Support [Online]. Available at: http://msdn.microsoft.com/en-us/library/dd371677%28VS.85%29.aspx [Accessed; 6 February 2010].
+Nesbitt, K.V., 2001.  Modeling the multi-sensory design space. In Australian Computer Society: Proceedings of the 2001 Asia-Pacific Symposium on information Visualisation - Volume 9 pp.27-36. Sydney, Australia.  Australian Computer Society:  Darlinghurst, Australia.
+Newman P.,  2004.TCL standard library specification [Online] Available at: http://wiki.tcl.tk/11299 [Accessed: 6 February 2010].
+Object Management Group 2010. MDA Specifications [online]. Available at: http://www.omg.org/mda/specs.htm [Accessed: 3 February 2010].
+Oracle Inc. 2010. The Java language specification, third edition [Online]. Available at: http://java.sun.com/docs/books/jls/third_edition/html/j3TOC.html [Accessed: 6 February 2010]
+Raistrick C. et al 2004. Model Driven Architecture with Executable UML. Cambridge, United Kingdom: Cambridge University Press.
+Ramloll, R. and Brewster, S.A. (2002) A generic approach for augmenting tactile diagrams with spatial non-speech sounds. In: Conference on Human Factors in Computing Systems, 20-25 April 2002, pp. 770-771, Minneapolis, MN. ACM Press: New York, NY.
+Shlaer S. and Mellor S.J. 1988. Object-oriented Systems Analysis – Modeling the World in Data. Englewood Cliffs, New Jersey: Yourdon Press.
+Shlaer S. and Mellor S.J. 1992. Object Lifecycles  – Modeling the World in States. Englewood Cliffs, New Jersey: Yourdon Press.
+Shlaer S. and Mellor S.J.  1997.  	Recursive design of an application-independent architecture. In IEEE Software volume 14, pp. 61-72. Piscataway, NJ: IEEE.
+Starr L. 2002. Executable UML – How to build class models. Upper Saddle River, NJ: Prentice Hall PTR.
+Ward P.T. And Mellor S.J., 1986. Structured Development for Real-Time Systems (Vol. 1: Introduction and Tools). Upper Saddle River,  NJ: Prentice Hall PTR.
+World Wide Web Consortium, 2008.Web Content Accessibility Guidelines (WCAG) 2.0 - W3C Recommendation 11 December 2008 [online]. Available at: http://www.w3.org/TR/WCAG20/ [accessed 31 January 2010]
+Shlaer S. and Mellor S.J.  1997.  	Recursive design of an application-independent architecture. In IEEE Software volume 14, pp. 61-72. Piscataway, NJ: IEEE.
+Starr L. 2002. Executable UML – How to build class models. Upper Saddle River, NJ: Prentice Hall PTR.
+Ward P.T. And Mellor S.J., 1986. Structured Development for Real-Time Systems (Vol. 1: Introduction and Tools). Upper Saddle River,  NJ: Prentice Hall PTR.
+Yourdon E., 1989. Modern structured analysis. Upper Saddle River,  NJ: Prentice Hall PTR.

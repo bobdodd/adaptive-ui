@@ -1,0 +1,32 @@
+The Visual Design Space  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+This is one of a short series on notes covering the Application Model and its service domains. The notes will form the basis for the Runtime System chapters of my thesis.
+
+This particular note covers the Visual Design Space, and describes a simple abstract model of how the Visual Design Space operates. The goal is not to produce a perfect model of the design space, but to create an illustrative example that allows me to show how the space is configured with respect to a user profile and interaction metaphors.
+Model
+
+ REF _Ref67132427 Figure 1 shows an abstract view of the Visual Design Space. The key element in the model is the Visual Element that specializes into a number of sub-types: text, image, and video. An image in this context is anything one can see that is not text or video. This rather strange definition exists to handle tangible and augmented reality user interfaces where one can “see” real physical three-dimensional objects; for the Visual Design Space, they are no different to virtual images such as JPEG or GIF images. Arguably, Visual Element could also specialize into “animation”, but the working assumption is that animation is a frame-based presentation of still images (even if made up from composed images) and is included within the definition of video.
+
+Any Visual Element is characterized by a number of Element Attributes, which describe, for example, its size and colour, and potentially distance from other elements where this has meaning. The element is considered to be presented at a Landmark within the coordinate system of the device on which it is presented. A Landmark may represent a visual element in on screen, or a physical location in a tactile or augmented reality system. It may also represent more abstract notions such as a window or canvas. In each case the Landmark is related to a set of coordinates in the appropriate geometry for the content described (for example a windowing system may include a z-order within the geometry).
+
+Visual Elements are associated to one or more devices. A simple example of a multiple devices would be the two-screen layout of a Nintendo DS handheld game station.
+
+Figure  SEQ Figure \* ARABIC 1 - Visual Design Space
+
+Image Elements specialize into Symbols and Plain Images. A symbol in this case is an image that has meaning within a grammar; Rebus symbols and Mandarin characters are examples of Symbols. 
+
+Text Elements specialize into Font-based and Symbol-based Text. As its name suggest, Font-based Text is text expressible using standard computer fonts, where text is considered to be a sequence of Characters. Symbol-based text differs in that it allows for any arbitrary sequence of symbols to be chained together. Both a sentence in Rebus Symbols and a breadcrumb trail are examples of Symbol-based text.
+
+Video Elements are unique in being, potentially, synchronized compositions of text and video clips; the captions provided in closed captioning being the obvious example. Note however, that the mode of the Visual Design Space allows also for Symbol-based Text to be used in captions, allowing for graphical annotation of video, for example identifying characters to the user as the enter a scene to help users with cognitive disabilities.
+
+Elements (when assigned to a Device), Landmarks, and Element Attributes are all assigned signifiers. A signifier in this sense is some arbitrary meaning associated with the Element, Landmark, or Attribute.
+
+Assignment of signifiers is considered to be under the control of the user interface. Not all assignments may be dynamic, as some may be fixed by the UI designer, for example those related to pained displays on mechanical buttons and surfaces. In all cases there is, one hopes, some relationship between the elements of a user’s profile and the assignment of meaning. At runtime, the user is represented by the assignments made.
+
+
+

@@ -1,0 +1,32 @@
+The Haptic Design Space  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+This is one of a short series on notes covering the Application Model and its service domains. The notes will form the basis for the Runtime System chapters of my thesis.
+
+This particular note covers the Haptic Design Space, and describes a simple abstract model of how haptics operate. The goal is not to produce a perfect model of the design space, but to create an illustrative example that allows me to show how the space is configured with respect to a user profile and interaction metaphors.
+Model
+
+
+Figure  SEQ Figure \* ARABIC 1 - Haptics Model
+
+ REF _Ref67132427 Figure 1 shows a simple abstract model of the Haptics Design Space. The central element of the model is the “Haptic Clip” which expresses a single piece of information within the Haptic Design Space. At its simplest, a clip may be feedback on a specific button press, confirming that it was depressed. A more complex clip may be a character or phrase expressed in 5-point Braille. The Haptic Design Space also includes the concept of user spatial awareness, so a clip may also be a gesture from the user to an input device (perhaps a VR glove, or a Wiimote); physical feedback that directly manipulates the position of the user body/limbs would also fall into this category.
+
+Clips occur on specific haptic channels, either as indications to the user, or as input from the user. A typical handheld device, say a mobile phone, will have a significant number of haptic channels: all of its keys, possibly a touch screen, possibly a cover, connection sockets, and the tactile feel of the device surfaces. Not all of these haptic devices are necessarily under the control of, or are visible to, the (software) user interface, although an increasing number are including even the shape of the device and the position of buttons in the case of the latest technology demonstrator from Nokia.
+
+Assuming the user interface may select what clips are expressed in which channels, it may be that the same channel represents different meaning at different times, with the Nintendo Wiimote being one example; depending upon the game being played, and the role played by the user (player/game administrator) Wiimote gestures have different meanings. This concept is expressed within the model by Haptic Streams. A Haptic Stream represents a group of related clips that must be expressed within a single channel. For example, the setup menu gestures on the Nintendo Wii would be considered as a single Haptic Stream independent of game gestures, even though both sets of gestures are expressed through the same channel.
+
+It is possible for a haptic channel to be capable of sub-division. A good example of such sub-division is the touch-screen display on some PDAs that allocate a limited screen acreage to handwriting input, and consequently handwriting gestures may be limited to a specific geometrical area of the screen. This is represented in the model by Stream Locations that identify the position of a stream by device geometry.
+
+Both clips and streams are assigned signifiers. A signifier in this sense is some arbitrary meaning associated with the clip or stream. For the stream, Stream Signifiers include menu gestures on the Wii, button press/release indication groups on a keyboard, or handwriting gestures on a touch-pad/screen. For the clip, Clip Signifiers may include text characters for Braille device, specific button feedback (pressed, released, still pressed etc), or tactile maps/graphs.
+
+Assignment of signifiers to clips and streams is considered to be under the control of the user interface. Not all assignments may be dynamic, as some may be fixed by the UI designer, for example those related to mechanical buttons and surfaces. In all cases there is, one hopes, some relationship between the elements of a user’s profile and the assignment of meaning to clips and streams, and to the assignment of streams to channels. At runtime, the user is represented by the assignments made.
+
+Not covered by the model in  REF _Ref67132427 Figure 1 is the synchronization of clips within a stream, or streams within a channel. Such synchronization issues are left to the parent Application Model, although it is arguable that a more complete Haptics Design Space would have counterparts to the Application Model’s synchronization scheme. I’ve left them off from this model for clarity.
+
+
+
+

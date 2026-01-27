@@ -1,0 +1,191 @@
+Measuring Accessibility
+
+What is “accessibility” and how do you measure it?
+
+The answer is wholly political. At one of end the spectrum it is the capacity to “insert” a disabled user into exiting society. At the other, it is a measure of how well a society ensures universal access to all facets of that society, both social and economic. Most, if not all, assistive technology exists towards the insertion-end of this spectrum, for the simple reason that you can write a program to “correct” physical impairment, but you cannot write one to “correct” society. If you only have a hammer, then everything looks like a nail.
+
+Sitting towards the middle of our accessibility spectrum is “design for universal access”. Despite the term “universal”, this part of the spectrum usually has a very narrow focus, attempting to provide universal access to specific goods and services. It does not focus, at least not directly, on access to cultural life or the political process. With universal access, we are looking to produce a common, shared experience in accessing those goods and services that matches as wide a range of user capabilities as possible, ideally all of them.
+
+A common, shared experience may be constructed in many ways: through the way we organise ourselves within society, and though the tools we use within that society. Design for universal access is framed by the former, and expressed through the latter. 
+
+Tools for universal access may be categorized as ones that are either static or dynamic in nature. 
+
+Static tools are exemplified by the disabled toilet with building furniture is organised to allow easy access to users with a wide range of physical capabilities. However, it also demonstrates the position of design for universal access in the accessibility spectrum: we provide “toilets” and “disabled toilets”. Even going to the loo is not truly a common, shared experience.
+
+Dynamic tools are exemplified by “accessible” websites. W3C accessibility guidelines are designed to ensure that, through a process of adaptation, the same web page is usable by both disabled and non-disabled users. The approach taken in this case is one of direct equivalence, with alternative representations of content provided within a fixed grammar, swapping an image for text, changing font size, glyph, or text colour. Assuming that you believe such an approach is valid (and I would strongly argue that it is flawed), it still does not make the content of the site accessible; for that you also need to be able to interact with the site: input text, select links etc. And that requires the device supporting website navigation to be “accessible”. And that requires the device to be positioned so as to be “accessible”. And that requires the location of the device to be “accessible”. And so on. To say that a web page is accessible is to make a great deal of assumptions about a chain of dependencies, and this is another problem when trying to define the meaning of accessibility: usually goods and services are only accessible in narrowly defined, tightly scoped environments. Design for universal access may produce a common, shared experience, but that experience may be severely constrained in the context of its use.
+
+If it is difficult to define accessibility, then it is even harder to measure it. Certainly no numerical scale exists. There are a myriad of laws, regulations and recommendations, from the Americans with Disabilities Act in the US, to the Disability Discrimination Act in the UK, to the W3C guidelines for web accessibility. These tend to define and measure disability in terms of the effect upon the person, occasionally in some depth. What they do not achieve, is any way of comparing the degree of accessibility of a particular good or service to any particular user profile. To resolve this, we need to return to the definitions of accessibility and redefine them in terms of quantifiable metrics.
+
+Functional Accessibility
+
+If we are going to measure accessibility, we need first to define who requires this good or service, and any constraints related to the mode of interaction between the individual and the provider of the good or service. Such constraints exist on either side of this interface. The user has physical capability constraints based on current context (in a room, on a bus, in the street), and so does the provider. The provider has constraints in terms of its own internal processes e.g. billing and payment systems, legal requirements when undertaking business, profitability constraints in terms of cost per interaction with the customer/client. The good or service will be accessible if the user and provider can successfully negotiate a transaction protocol that allows the user to gain the good or service required. This gives us our first observation:
+
+(1)
+Accessibility is the result of successful negotiation between a user and the provider of a good or service emanating from a transaction between them.
+
+Note: negotiation. Accessibility cannot be a one-sided affair. The perfect method of interaction for the user may simply not be possible for the provider given the context in which the transaction takes place. This is particularly true when that interaction involves third parties over whom neither user nor supplier have full control. An example of this is e-business on the World-Wide Web, where the underlying communications protocols are implicit in the transaction, and where the provider has no control over the computing capability of the user’s web browser and hardware. Clearly, this means that:
+
+(2)
+It is always possible for a specific negotiation between user and provider to fail, even when both sides exercise their best endeavours to make agreement.
+
+For us, this means two things. Firstly, since individual negotiations between user and provider may fail, a robust definition of accessibility requires that accessibility be defined in terms of the set of available negotiations, potentially involving a number of communications mediums, with a requirement that at least one succeeds, so (1) becomes:
+
+(3)
+Accessibility is the result of at least one successful negotiation between a user and the provider of a good or service emanating from a transaction between them within the context of all communications mediums available to them at that time.
+Secondly, we now have two things we can measure: success or failure to access the good or service, and the number of potentially accessible routes through the available communications mediums. A relative measure of accessibility might therefore be:
+
+(4)
+Functional Accessibility is the result of at least one successful negotiation between user and provider of a good or service emanating from a transaction between them within the context of all communications mediums available to them at that time and place.
+
+
+So, a naive measure of accessibility of a good or service would be: 
+
+(5)
+A provided good or service is accessible if and only if it is functionally accessible for every possible user at a particular given time and place.
+
+But what is “every possible user”? From the provider’s perspective, it is perhaps all of the target market, plus presumably any other user who successfully negotiate a transaction between them. From a legal perspective, it is all of the users who have the right to interact with the provider, regardless of the wishes of the provider. It is this latter legalistic view that permeates most definitions of accessibility. A provider may not care if hearing impaired users cannot contact them, it may be a very small segment of their possible market, but in terms of the accepted legalistic view (5) becomes:
+
+(6)
+A provided good or service is accessible if and only if it is functionally accessible for every possible user with the legal right to interact with the provider at a particular given time and place.
+
+User Capability
+
+Definition (6) still leaves us with “every possible user”, which may be accurate, but it is difficult to design and test for, to say the least. Fortunately, as human beings, we share many physical characteristics and it is often possible to approximate the shared characteristics of a group of users. Naively this gives us:
+
+(7)
+Every possible user with the legal right to interact with a provider at a particular given time and place, may be reduced to a smaller group of users that approximate to the physical capabilities of every possible user.
+
+Clearly, definition (7) introduces error into the definition of accessibility, with the degree of error depending upon the coarseness of the approximation compared to the full universal set of “every possible user”. So, how can we measure the error, and more importantly, control it? To answer that we need to consider what constitutes “physical capability”.
+
+Revising and extending Nesbitt’s multi-sensory design space, we can consider user capability in terms of sight, hearing, mobility, and cognition. Depending how we define cognition, we could also add “capacity to learn” to this list. So:
+
+(8)
+Physical capability == set of sensory capabilities == sight, hearing, mobility, cognition (,learning) capabilities
+
+This of course can be further decomposed:
+
+(9)
+Physical capability == set of sight capabilities + set of hearing capabilities + set of mobility capabilities + set of cognition capabilities  (+ set of learning capabilities)
+
+And so on, with each subdivision providing finer (and more complex) granularity.
+
+If, for the moment, we consider each possible capability as a Boolean flag, we can consider each discrete user’s capabilities in the universal set of “every possible user” as consisting of a discrete set of flags that are either true or false. If we also consider these flags to be independent of each other, then we can reduce our set of users to a subset that ensures that each flag is both true and false somewhere within our reduced set of users and still maintain full accuracy.
+
+Of course, in reality physical capabilities are not entirely independent. In the extreme, a user with no eyes cannot have double vision, nor can a user with one ear perceive any stereo effects. Testing the adaptation capability of a user interface with such artificial “users” may at the very least produce some bizarre and improbable results. For this reason, construction of artificial users to approximate to the universal set requires that individual “users” are physiologically sound. Revising (7) gives:
+
+(10)
+Every possible user with the legal right to interact with a provider at a particular given time and place, may be reduced to a smaller group of users that approximate to the physical capabilities of every possible user. Such users do not have to physically exist, but their physical capability set must be physiologically sound.
+
+
+This capacity to consider the physical capability of incorporeal pseudo-users, constructed from a discrete set of Boolean flags, where the dependencies between flags is known (it must be know in order to ensure physiological soundness) allows us to calculate the minimum number of pseudo-users required to fully evaluate the functional accessibility of any given transaction between a nominal user and a provider. Since we are dealing with permutations and combinations, and hence factorials, even without calculating it, the number is likely to be quite large; the more so as the more detailed the capability sets become. So:
+
+(11)
+Whilst large, for any given physical capability model, there is a specific and optimal number of pseudo-users for evaluating the functional accessibility of any given transaction, and that number, NPU is constant and independent of both the transaction and the provider.
+
+That’s quite significant. It means:
+
+(12)
+There is a single, discrete set, SPU of pseudo-users that can be used to calculate the functional accessibility of any individual transaction independent of both the transaction and the provider. 
+
+What is slightly misleading is that SPU is only as accurate as the capability model from which it is derived. Without a perfect model of human physiology, we cannot find the error-free set of pseudo-users that fully represent the universal set of “every possible user”. So we still have error in our approximation. How significant is that error? That depends on the sophistication of the other factors in the adaptation process: practical limitations in the operational context of individual transactions e.g. the display size of a mobile phone, or the stability of the “ground under foot” when using a phone on a bus, or the computing power available may in any case constrain the capacity to adapt, so that the granularity of the physical capability model of the user is finer than the adaptation process can use in that potential transaction.
+
+Intrinsic Accessibility
+
+So far we have reduced “every possible user”, which assuming UK use only, is approximately 50 million users, to the discrete and significantly smaller set SPU. But we have also noted that NPU, the size of SPU, is still likely to be a significantly large number for any reasonable model of human physiology. For sake of argument, let 
+
+NPU = 1000 pseudo-users.
+
+This means that if we wish to demonstrate that a particular transaction is functionally accessible then we need to demonstrate that all NPU users can successfully negotiate with the provider for that transaction. Assuming we do this by simulation, the total number of simulation runs is 1000.
+
+But what exactly is a transaction? 
+
+(13)
+A transaction is an attempt by a user to communicate with a provider of a good or service. Not all transactions will succeed. Some may fail because there is no available transmission medium to successfully support such a transaction in the context of the transaction. Some may fail because user and provider fail to negotiate an effective protocol between them. Some may fail because of “wilfulness” on the part of one or both parties.
+
+Examples of a transaction include: requiring interaction at a distance with others, requesting to pay a bill, participation in playing a game. Note:
+
+(14)
+A transaction describes what is communicated between user and provider, not the means of communication, nor the underlying transmission medium.
+
+Statement (14) follows directly from statement (4): Functional Accessibility is the result of at least one successful negotiation between user and provider of a good or service emanating from a transaction between them within the context of all communications mediums available to them at that time and place. For communications medium read transmission medium.
+
+If a transaction is about what is communicated, then a negotiation is about how it is communicated. This means our 1000 simulations above will increase to (worst case) 1000 x the number of potential forms of negotiation. It is worst case because the definition of Functional Accessibility requires only one successful negotiation, so our simulation can stop on the first instance of successful negotiation. 
+
+Taking a simple example: saying “Happy birthday” to a friend in another town, offers a number of possible transmission mediums on which to build such a negotiation. They include: posting a birthday card, visiting them in person, telephoning them, email, Internet chat, etc. Not all transmission mediums cause the user to interact with the same provider, and in some cases it may be difficult for the user to distinguish between cooperating providers (e.g. a mobile phone manufacturer and the telco). So:
+
+(15)
+It is possible for a transaction to potentially succeed, yet for the transactions between user and specific providers to be functionally inaccessible. It is not the transaction against which accessibility is measured, but the transaction in the context of a specific provider at a specific place and time.
+(16)
+It may be that some transactions require negotiation between the user and multiple providers operating in unison. Since Functional Accessibility is defined in terms of a single provider, it is possible for a transaction to fail whilst it is in part Functionally Accessible. 
+
+This leads to the concept of a pseudo-provider, the prime contractor if you will, in the negotiation between user and providers. As an example, making phone calls on the Vodafone mobile phone network may be considered Functionally Accessible if Vodafone provide a means for all pseudo-users in set SPU to successfully negotiate a successful transaction with all cooperating providers.  Note:
+
+(17)
+Since Functional Accessibility requires only that one form of negotiation between user and provider succeed, it does not require that the negotiation for each user in set SPU uses the same transmission medium. It is possible for each of the NPU users to utilize a different medium and yet be the transaction to be Functionally Accessible.
+
+Statement (17) seems intuitively correct: when one considers the breadth of variation in user capability (and disability) it seems unlikely that any one transmission medium can support all users.  But, what about “design for universal access”? Surely universal access implies a common transmission medium?
+
+Well, yes it does, or at least many transmission mediums in close physical proximity, but it also questions the scope and meaning of “design for universal access”. Better terms may be:
+
+(18)
+Intrinsic Accessibility is the capacity for successful negotiation between user and provider of a good or service emanating from a transaction between them within the context of a single transmission medium available to them at that time and place. 
+(19)
+Intrinsic Accessibility is measured as the subset SIA of pseudo-users of set SPU that have the capacity to have at least one successful negotiation with the provider.
+(20)
+Intrinsic Breadth, NIB, is the size of SIA and may be considered a comparable measure of the success of a particular “design for universal access”, compared to other “universal designs” that target the same time and place.
+(21)
+Full Intrinsic Accessibility means NPU == NIB and implies Functional Accessibility.
+Improbability and NIB
+
+Much of the work to this point has built upon the set SPU. The argument we have used is that there is one finite subset of “all possible users” that can represent the full range of capabilities of all the users, structured as a set of incorporeal pseudo-users whose capability sets are physiologically sound. Note: physiologically sound, not necessarily probable. Does this improbability cause a problem?
+
+Intuitively, yes. Say we have two mobile phones. Phone A has an NIB of 100. Phone B has an NIB of 80. Is phone A better than phone B from the point of view of universal access? If all users in set SIA are equally probable, then yes it is. If not, then perhaps a problem arises. There are few one-eyed, one-eared, one-handed dyslexic users of mobile phones, but there are many two-eyed, two-eared, two-handed non-dyslexic users. If phone A supports the former and not the latter, and phone B supports the opposite case, which is the more universally accessible phone?
+
+The answer, as usual, will depend on what we think we are measuring. Total categories of user? Total number of potential users? The ability to support minority cases in addition to the mainstream? In daily usage, the term “accessibility” is probably nearest to the latter definition, so taking this as a base:
+
+If we are looking for the quality of minority support, then we need to look at some form of weighting of each capability, searching out the supported minority cases. If we make the assumption that the default set of physical capability is all “true”, then we are particularly interested in users who have Boolean flags that are “false”. The more “false” flags, the more interesting the user is in measures of NIB. One simple model for NIB would therefore be to take the count of users in SIA that are in the upper quartile of the flag count. A simple measure of user improbability if you like; the greater the number of supported improbable users, the greater the Intrinsic Accessibility.
+
+Author’s note: All of the above (of this chapter at least) is the reduction to absurdity of the concept of weighting the importance of any particular user profile or capability set so as to measure accessibility. In what way does the number of people with a particular physical capability set make them more important to support than any other user? It doesn’t. In what way does having the most, or most complex, impairments make a person more important? It doesn’t. We are all equal members of society with the same right to access goods and services, and we should expect to have functional access to goods and services independent of our physical capability. That, in the end is what accessibility means. There is nothing wrong with our original definition of NIB, and phone A is more universally more accessible than phone B. Of course it may not sell so well.
+
+So why bother with the example above? Because in common usage, even within the “accessibility community”, we do talk about devices and web pages being more or less accessible. And we do that on the basis of how much we think a particular device or page supports, or fails to support, minority cases of physical capability sets (though we may not phrase it so). It happens, I suspect, because of confusion between usability and accessibility, and an implicit belief within western society of the Utilitarianism doctrine of “the greatest good of the greatest number”. 
+
+The thing that usability and accessibility share is the concept of user profiles. Exactly what goes into those profiles may differ, but certainly usability gurus such as Jacob Nielsen see accessibility in terms of their view of user profiles, and accessibility as additional the support for additional usability profiles. So far so good, but if we consider the definitions of Functional and Intrinsic Accessibility defined here, we arrive at a breadth of pseudo-users that is much larger than traditionally handled in usability. In fact, the current trend towards personas (well-rounded pseudo-users with personalities and preferences) concentrates user interface design on smaller and smaller capability models with Microsoft reporting that Windows XP is based on only six main personas. The difference in the number of pseudo-users between usability and (our) definitions of accessibility are quite reasonable: we have different goals. Usability is about effective use and experience of an interface and focuses on the target market for the good or service; it is a “commercial” view of the interface. Accessibility is about successful transaction between user and provider, and its focus is on the political and legal view of life within society. Consequently it is possible to have a wonderfully elegant and usable interface that will score low in terms of Intrinsic Accessibility Breadth, and a Functionally Accessible interface that is almost unusable. Both usability and accessibility are critical in the development of products and access to them, but they are not the same. This is why a usability expert may consider phone B the most usable, and an accessibility expert may consider phone A the most accessible.
+
+Equivalent Experience
+
+The differences between usability and accessibility highlight a problem with our accessibility definitions: if we are all equal in society, why should some users have good usability and others have bad usability based solely upon their physical capabilities? And this raises the fair question of equivalent experience, and how to measure it.
+
+Equivalent experience is a requirement in sphere’s outside accessibility: universities for example will usually only award the degrees in any academic year to students who took the same courses at the same time based on the same teaching material. The key here is shared content and shared timescale. The same could be said of Functional Accessibility: we expect the same access to goods and services, and we expect that access to be more-or-less within the same timeframe. It is timing that is currently missing from our definitions.
+
+Repeating Statement (4):
+
+(4)
+Functional Accessibility is the result of at least one successful negotiation between user and provider of a good or service emanating from a transaction between them within the context of all communications mediums available to them at that time and place.
+
+
+The only place for timing within this definition is within the negotiation between user and provider. So what really is “negotiation?
+
+TBC
+
+
+
+Tangibility
+
+What is the impact of tangibility on SIA when dealing with “design for universal access”? 
+
+We have with a single transmission medium, and therefore we are likely to need to optimise the means of interaction with that medium either through static generalization (e.g. the disabled toilet) or dynamic self-adaptation (e.g. changing the software behaviour within a mobile phone). In sheer practical terms self-adaptation is easier for the intangible elements in an interface than for the tangible ones; it is certainly easier to dynamically change the behaviour of software in a mobile phone, than to dynamically change the ergonomics of it. Depending upon the time and place of the transaction, this means we may wish to consider weighting the importance of designing for users in set SIA with respect to practicality 
+
+TBC
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,477 @@
+Tetris Case Study
+
+Overview
+
+This thesis is structured into six major subject areas covering: 
+Methodology.
+Profiling.
+Profiling Case Study.
+Hypermedia (CISNA Model).
+Modality Selection based on User Need.
+Modality Selection Case Study.
+This case study forms the body of section (f).
+The Tetris Cases study was created in order to evaluate some of the practical issues in adapting user interface content to match user need and operating context. The adaptation was to be based on the capability modeling work, and on the CISNA model of expressed adaptation that forms the basis of this thesis.
+The game of Tetris (ref) was chosen to provide a more challenging interaction environment than the classic static view of content embodied in the Web document models (ref) and operating system “accessibility layers” such as Microsoft Windows (ref). In particular, a dynamic, animated game was chosen to test the adaptation process for blind/visually impaired users where standard screen reading solutions such as Jaws (ref) become must to the majority of content. More specifically, a game with retained state, animation, proximal content, and random dynamic elements, is a challenge for assistive technology. There is a version of Tetris written for the Web in Javascript (ref), which has the potential to modify visual presentation through changing CSS, but even this is limited. What really defeats existing assistive technology (AT) is the proximal content inherent in the game – rotating and guiding falling shapes to match gaps on the “floor” of the grid. If the approach in this research to accessibility is truly better than existing AT, then one would expect to see it succeed in this proximal context.
+Two approaches to adaptation were envisioned: manual and automated. The initial manual approach would focus on construction of the basic game, with templates defined for a small number of representative user profiles that selected appropriate interaction modalities for those users. The second automated approach would consider the constraints and rules necessary to allow the game to self-adapt to user capability and operating context. Both approaches were to rely on the user of an abstract user interface description for Tetris, describing the dynamic operation of the game independent of how the game was rendered to the user, and independent of how user input was collected.
+Part of the reasoning for choosing Tetris was to select a game that required adaptation both within, and between, design spaces (visual, sonic, and haptic). Given that the target hardware environment was to be an unmodified laptop computer, haptic adaptation was constrained to user input and associated feedback, rather than the general case of content presentation.
+Separate sub-projects were planned to identify appropriate interaction metaphors for each design space. In particular, there was an expectation of problems in presenting time-critical contemporaneous information streams entirely within the sonic design space (type of tile, orientation of the tile, position relative to complex 2D landscape). 
+This difficulty in mapping time critical content between design spaces also meant that a degree of failure was expected when implementing the game for some users and contexts, particularly those who relied on the Sonic design space for interaction. The degree of failure in the adaptation process was expected to be higher in the automated approach compared to the manual approach because of the challenge of correctly selecting appropriate interaction modalities for the user.
+Two outcomes were of interest:
+The impact on user interface design of designing for adaptability.
+The ease of adapting content to match user capability and context.
+User interface design was expected to be impacted by the abstract model proposed for describing game behavior, resulting in more complex sequencing patterns between the game itself, and the rendering of the user interface.  Additionally, the design process was expected to be impacted by the construction of that abstract model and the resultant workflow.
+A number of different factors were expected to impact upon the ease of adaptation of content. The primary concern, as identified above, is where contemporaneous time-critical information streams meet low bandwidth design spaces. The effectiveness of available meta-data to guide selection of appropriate modalities and metaphors was also a concern, in particular, the availability and quality of meta-data associated with the abstract model of Tetris was likely to impact upon how well modalities/metaphors were grouped for selection in order to make a consistent and comprehensible user interface. 
+
+Tetris Game
+Game Description
+
+
+Figure  SEQ Figure \* ARABIC 1 – Tetris Screenshot
+There are many variations on the classic Tetris game from 1985. Modern, licensed versions are required to conform to the Tetris Guidelines controlled by the copyright owner, The Tetris Company (ref). It would appear that the guidelines are only available to licensees and not to the general public. However, a version derived from studying licensed games is available at:
+ HYPERLINK "http://tetris.wikia.com/wiki/Tetris_Guideline" http://tetris.wikia.com/wiki/Tetris_Guideline (ref)
+The version of the game in Figure 1 shows the essential elements of Tetris. The game is about managing falling bricks so that they form complete lines within the playing area. Each time a line is completed, it disappears from the playing area and the player scores points; if the player manages to complete multiple lines simultaneously then the score multiplies by the number of lines.
+The bricks that fall are one of seven defined shapes, each constructed within a 4x4 grid, and using exactly 4 squares of the grid. The shapes are shown in Figure 2 below:
+
+Figure  SEQ Figure \* ARABIC 2 – Tetris Shapes
+The playing area is a visible grid of 10 columns by 20 rows, with two hidden rows at the top of the playing area in which the bricks begin to fall. Each defined shape always begins at the same horizontal offset, and as close vertically to the visible grid as possible.
+As the bricks fall, the user is able to move them left and right within the playing area, and to rotate them. Rotation is constrained if the applied rotation rules would place part of the tile’s shape outside of the playing area; different versions of the game apply different rules.
+Tiles continue to fall until they either reach the bottom row of the grid, or are impeded by an already fallen tile. Having reached that position, the tile is still, for a short period, movable horizontally to either edge of the playing area, or until any part of the brick’s shape is impeded by an already fallen brick. Consequently, it is possible to slide one tile under another, and potentially for the tile to begin to fall once more.
+Once a tile has landed, and has timed out into the “locked” position, the next tile begins to fall. This pattern continues until the landed tiles pile up to reach the top of the visible playing area so that a newly falling brick cannot begin its descent. 
+The next tile shape to appear is randomly generated; although a brief reading online user chat would suggest that the “randomness” is suspect in some games, with players relying on the poor quality of game randomness to predict the likely next several shapes. 
+Which shape is next, once the current tile has fallen,  is always known to the user (a vertical bar in the example of figure 1). According to the Tetris Guidelines, there is also the possibility of “holding” the current falling tile. Only one tile may be held at any one time, and it is replaced with either the tile already in the holding box, or the next randomly generated tile if the hold box is empty.
+All modern licensed games are required to provide a “ghost” tile. The ghost tile shows the position that the currently falling tile will reach if it dropped immediately to the bottom of the playing area. This feature goes with the user’s ability to “hard drop” tiles, if the player is happy with that predicted location; the aim being to speed up the game. Notice that Figure 1 contains no “ghost” tile.
+Tile rotation is game version dependent, but modern licensed versions use the Super Rotation System (SRS) (ref) to describe rotation. Rotation for each tile in SRS is given in Figure 3.
+
+Figure  SEQ Figure \* ARABIC 3 - SRS rotations
+Notice that, again, tiles are shown within a 4x4 grid. This leads to a view of each tile as a 4x4 pixel sprite with three alternative bitmaps, and with the black areas of Figure 3 representing transparency. In this view, tiles move until progress of their visible tiles is impeded by a visible tile in existing sprite i.e. the transparent areas of a sprite may overlap other sprites.
+Tetris has ten levels of play, starting at level 1. The game level changes each time 10 lines of bricks have been completed. Once at level 10, the user remains there. Each step in level corresponds to an increase in the speed at which the bricks fall.
+For games running on a PC, control is defined to be through the keyboard, based largely on the arrow keys, reflecting the original 1980s mini-computer origin of the game. Special rules apply to “move left” and “move right” controls; pressing and holding those controls causes the lateral movement of the tile to accelerate. 
+Returning to rotation, there are specific game rules related to rotation of a tile perched on the corner of another tile. This is similar to the problem of rotating tiles that are too close to the side of the playing area, but in this case the rules describe how tiles can rotate around the surface of the tile next to it whilst falling. It is generally the “T” shaped brick that gets these special rules, and they are called “T-spins” and can score additional points. Recognition of T-spins is recommended by the Tetris Guidelines, but it is not mandated.
+
+Player Capability
+
+From the Game Description, it is clear that Tetris is a deceptively simple game that places significant cognitive load on the player, especially as game speed picks up. The player is expected to:
+Recognizing seven basic tiles.
+Follow the movement of one tile as it progresses down the playing area whilst assessing its landing position at the bottom of the playing area.
+Match the outline of a moving tile to gaps in a silhouette at the bottom of a playing area.
+Optimize that match to fill horizontal lines in order to score points.
+Optimize that match to take account of the known next tile to fall.
+Optimize that match to take account of how some tiles can rotate around the corners of obstacles. 
+Optimize that match to fill more than one line at the same time in order to score more highly (a multiplying factor).
+Optimizing that match by “holding” and later re-using currently unsuitable tile.
+Match not only vertical gaps in the silhouette formed by already fallen tiles, but also horizontal gaps related to the raggedness of that silhouette.
+To continue to succeed in achieving (a) to (i) whilst game speed increases.
+The game as specified is almost completely visual in nature, requiring visual pattern matching skills in a time-limited environment. Sound specification is limited to requiring particular Russian folk music be played during the game. Haptically, the game is optimized to key presses, with specific keys on the PC keyboard mandated by the Tetris Guidelines. 
+
+Contemporaneous Elements
+
+In terms of game design, there appeared to be a number of contemporaneous elements to handle:
+The current tile and its relationship to the playing area, and the time it has dwelled at the current position (for game speed and for the “lock” timeout).
+Previous tiles still (sometimes partially) visible in the playing area i.e. the current silhouette.
+The relationship of the current tile to its ghost position relative to the silhouette.
+The shape of the next tile.
+The shape of the “held” tile, if any.
+The current game level.
+The number of lines of bricks completed.
+The current score.
+Historic high scores.
+Clearly the importance of some elements varies during the game, with some elements rather more dynamic than others. In terms of handling the current tile, it is necessary to consider (a) through (e), whilst (f) through (i) are more relevant once a tile has “locked” in position on the playing area, and determination of line completeness has been made. That still leaves five contemporaneous information channels for the user to comprehend, some of which, such as the relationship of the tile shape and orientation relative to the landscape, are non-trivial.
+
+Timing Considerations
+
+There appeared to be five different timeouts to consider within Tetris:
+Dwell time for a falling tile as it passes through rows of the playing area grid.
+The lock timeout when a falling tile meets an obstruction (an already locked tile, or the bottom of the playing area).
+The time before the next tile appears after the current tile has locked.
+The auto-repeat rate for “move left” and “move right”.
+The key dwell time necessary to identify a user key press.
+Each of these is likely to be impacted by user capability, and by device capability.
+
+Design Language Sets 
+
+ Tetris was studied in order to provide a practical use-case of adaptation of content to match user and device capability. Tetris was chosen to be a challenge, in particular its animation and timing requirements. Part of the argument put forward within this thesis is that in order to to adapt content we need to understand the characteristics of the underlying content, and then match those characteristics to Design Language Sets (DLS) which describe coordinated groups of interaction modalities (similar in concept to design patterns and web templates).
+
+Metaphor
+
+The first observation when dealing with Tetris as a game was the lack of formally standardized metaphors to express computer games. As a developer so used to thinking in HTML for the Web, it felt almost naked to be without the familiar document metaphor of headings, paragraphs, pages, tables, divisions, and spans to support content description and rendering. Consequently, the first task was to identify common presentation metaphors in games that have usage within Tetris:
+“Cockpit”, and “Head-up display”.   The version of Tetris in Figure 1 above is a cockpit, in that the playing area is surrounded by instruments that help the user operate the game. With a head-up display, some part of the instrumentation would be overlaid on the visible playing area. If Figure 1 included the “ghost brick” that helps the user know where the current brick would land if left alone, then we would have a combination of cockpit and head-up display.
+“Immersive”, and “Observational”.   In an immersive game, the user would be at the centre of the action with a restricted field of view representing a “front” (or similar) view for the player; a first person shooter such as Duke Nukem (ref) would be a good example of this.  In an observational game, the user is an omnipotent observer of the playing area; the user may need for practical purposes to zoom in and out, and to pan the view, but essentially the entire playing area and all the elements within it are visible to the user. Games such as Tetris, Pac Man, and Manic Miner (a game for Sinclair computers in the 1980s) are good examples of observational games. I refer to Manic Miner in that whilst the game had many levels, the whole of the playing area for the current level is visible to the user.
+“Sprite-based animation”.  Sprite-based animation exists when individual elements or groups of elements are perceived by the user as appearing, moving within, or leaving the playing area. The tiles in Tetris are a good example of this. There appear to be a number of aspects of sprite-based behaviour (which are not mutually exclusive):  1.	Game-influenced sprites; the flying aliens in Space Invaders are one example. 2.	User-influenced sprites; the user-controlled gun in Spaces Invaders is one example. 3.	Sprite-influenced sprites; flying aliens destroyed on contact with missiles. 4.	Time-limited sprites; the high value flying saucers in Space Invaders. 5.	Morphing sprites; the up-down arms of the aliens in Space Invaders. 6. 	Translucent sprites; the “ghost-brick” in Tetris is one example. 7.	Opaque sprites; the falling and fallen bricks in Tetris are examples. 8.	Synchronized sprites; the movement of lines of aliens in Space Invaders. 9.	Handshaking sprites; tessellation of tiles in Tetris. 10.	Pregnant sprites; exploding aliens in Space Invaders. 11. Borg sprites; merging of Tetris tiles into the silhouette.  The identified aspects of behaviour are certainly not mutually exclusive: A falling tile in Tetris is: game influenced (starting position, speed, terminating position); user influenced (left/right, rotate, hold); sprite influenced (terminating position); morphing (rotate); opaque; handshaking (quality of tessellation); pregnant (separating into individual squares once “locked”); borg (individual squares forming part of the silhouette once “locked).   Each aspect has individual properties, and potentially a life-cycle describable as a finite state model. In essence, an individual sprite may take on any aspect of behaviour as is appropriate to the life-cycle state that it has reached, and by implication also lose them. So, the sprite has a state model, and so may each aspect of its behaviour.
+“Canvas-based”, “Grid-based” 2-D playing area.  A canvas-based 2-D playing area is one where the smallest movement of a sprite is the “pixel” resolution of the display; flying aliens, as the fall to earth in Space Invaders is one example of this.  A grid-based 2-D playing area is one where sprites jump a noticeable distance as they move, emphasizing the grid-based nature of the playing surface; horizontal (and potentially vertical) movement in Tetris is a good example of this.
+“Canvas-based”, “Grid-based” 3-D playing area.  The 3-D equivalent to (d) above. Duke Nukem is one easy example of the canvas-based 3-D playing area; whilst 3-D Tetris is an example of the grid-based model.
+“Gravity”.  The idea that things fall downwards, rather than simply move towards the bottom of a screen. Typically a user moves a cursor down a screen, but potentially across a map at the same time.  Tetris is another example where the tiles fall down the playing area; whilst you can play Tetris perfectly well with the grid rotated through 90 degrees, the metaphor is definitely one of falling tiles.
+“History”.  The effect of the last (n) user actions are remembered and potentially can be undone. For example being able to go back a move in Solitaire. The construction of the silhouette in Tetris is another example.
+“Elapsed time”.  Elapsed time is the time taken by the user since starting the game. It may be from selecting “start”, or from the user making the first move. An example of the former is Tetris, and of the latter is chess. Chess is a good example in that there are potentially multiple elapsed times to consider: for each player; and for the game as a whole.
+
+
+
+
+
+
+
+
+
+Domain Chart
+
+Figure  SEQ Figure \* ARABIC 4 - Tetris Domain Chart
+ REF _Ref244084130 Figure 4 describes the game of Tetris in terms of a classic Shlaer-Mellor Domain Chart (ref).   
+The abstract model of Tetris becomes the application domain in Shlaer-Mellor terms, with the user interface rendered by two service domain representing the visual and sonic design spaces. Determination of user input is delegated to the Input service domain, and models of capability to the User Capability service domain. 
+One implementation domain is chosen for expression within the domain chart: the keyboard event model of Java, the chosen implementation Language, representing the expected tight coupling between the input domain and the event-only model of Java keyboard access. 
+A bridge is shown between the Input domain, and the Sonic View domain. This bridge represents the audio feedback associated with mechanical input. Such feedback includes mechanically generated sounds from 
+
+Domain Charters
+ Game
+ 
+The abstract model of the Tetris Game used in the case study. Tiles of fixed shapes fall down a 22 x 10 grid (only the bottom 20 rows are conceptually visible to the user).Tiles may be rotated and moved horizontally by the user whilst they fall, and the currently falling tile may be saved in a "Held" state for future use. The aim is to land the tiles such that they form horizontal rows, at which point they disappear.  The next tile to fall is always known to the user.
+ 
+Visual View
+ 
+A visual rendering of all, some, or none of the abstract Tetris game. Which parts are rendered depends on the capability of the current user. The visual components available correspond to existing  Tetris Guidelines and implementations of the game as defined by the Tetris Company Inc.
+ 
+Additionally, the visual view also expresses the selection of user category (based on capability). This expression is independent of use capability, and is for testing purposes rather than part of the game.
+ 
+Sonic View
+ 
+A sonic rendering of all, some, or none of the abstract Tetris game. Which parts are rendered depends on the capability of the current user. The sonic components, and their interaction metaphors are almost entirely new to Tetris. They express abstract concepts such as gravity, orientation, topography, and relative distance.
+ 
+Input
+ 
+Provides user input modalities for the Tetris Game. For the running game these are key presses. For application termination, they are key presses and/or mouse clicks.  The exact settings of the input modalities depends upon the capability of the current user.
+ 
+User Capability
+ 
+An expression of a user's physical and cognitive capabilities. It describes, for example, how effective the user is at pressing a particular location with her fingers, and how easily she can hold her finger pressed.
+
+Game Algorithms
+
+One of the side-effects of having an asynchronous interface between game and UI is that game algorithms can become more complex and state driven. For comparison, an initial simple Java implementation of a Falling Tile object is shown in section  REF _Ref244708337 \r  \* MERGEFORMAT 1.3.7, with the final asynchronous state model shown in section  REF _Ref244707973 \r  \* MERGEFORMAT 1.3.6.
+Design of the abstract game
+The design of the abstract model of Tetris relies on two concurrent state models: Game and FallingTile. Game handles the main game start/stop sequence, whilst FallingTile handles the position of the current tile, and determines whether a new tile is needed or whether the game is over. The Shlaer-Mellor Object Communication Model summarizing their interaction is shown in section  REF _Ref244708555 \r 1.3.4.
+The original prototype model for FallingTile was an object which listened for a timer tick, set at the rate for a tile to fall one row of the grid, and then modified tile position and updated the UI when the timeout period elapsed.
+As soon as FallingTile has to communicate asynchronously with the UI, this simple model breaks as the algorithm needs to pause whilst the UI does its job. It is this more complex version that is shown in the state model.
+Alternative models
+In fact any number of alternative state models is possible, depending upon particular design decisions. One question in particular that influenced the presented state model was:
+Can the rendering of the user interface (UI) delay the fall of the tile? The decision taken within the case study was that, yes it can. The decision was based on the principle that the UI should adjust to the capabilities of the user, and if the user cannot receive information within the given tile timeout, then the game itself must adjust to the user. In the case of an augmented reality, or multi-user game, a different decision may be necessary in order to allow the game to “catch up” with real-world events.
+Internal decisions
+The FallingTile state model utilizes the Moore state model's capacity for internal transient states, indicated by triangles and simple state naming in section  REF _Ref244707973 \r 1.3.6.  They are used to illuminate the key decisions within the falling tile algorithm. The internally generated "goTo" events associated with the decisions are labeled with "D:" for "decision". This complements the request/answer event patterns used on other events (and described in detail later in this chapter).  "D:" events do not get queued with asynchronous events, but are acted on immediately.
+Synchronizing the User Interface
+
+Together, the Game State Model in section  REF _Ref244762639 \r \h 1.3.5, and the Falling Tile state model in section  REF _Ref244707973 \r \h 1.3.6 describe the abstract behaviour of Tetris as a game. As noted earlier, what is immediately apparent is the complexity of the state models, despite significant stylizing of those models to hide some of that complexity.   
+Complexity
+ In order to better understand the origin of this complexity, and the reasons for the stylization, an early draft of the Game state model is shown in  REF _Ref244763740 \h Figure 5. 
+Looking at  REF _Ref244763740 \h Figure 5, the main body is highlighted and relatively simple: tiles are created, and they keep falling until the game is over.  Added to this is an extension to handle the "hold" option in Tetris, where the current falling tile may be placed in a "Held" box for later use. All of the rest of the model exists to handle termination of the game; termination is complicated by the asynchronous nature of the bridge between game and user interface (UI).
+Synchronization
+ The interface between game and UI is entirely asynchronous, and must be in order to support the adaptation / automated rendering of the UI, as an abstract UI has no way of knowing how long a communication with the user may take for any given design space and interaction modality. Even something as mundane as notifying the user that the game is starting may take significant time, and did so in the case study; visually, the playing grid was rippled with colour prior to the first tile falling, and sonically a voice recording of "Game starting" was played. The two indications both take time, but are not of the same duration, and the game needs to synchronize with both modalities, in both design spaces, before dropping the first tile. 
+
+ INCLUDEPICTURE "C:\\DOCUME~1\\Bob\\LOCALS~1\\Temp\\msohtmlclip1\\01\\clip_image001.png" \* MERGEFORMATINET 
+ 
+Figure  SEQ Figure \* ARABIC 5 - Early draft of Game State Model
+ 
+ 
+Patterns
+ This repeated asynchronous behavior leads to a very simple identifiable pattern: a request-answer pair, with a rendezvous on the answer. Diagrammatically, that might look similar to the sequence diagram of  REF _Ref244765973 Figure 6.  The diagram style is similar to UML's sequence charts, but the request answer concepts refers back to the CCITT's and ITU's earlier message sequence charts (MSC) (ref) used to describe telecommunications protocols. The request/answer pair is also part of a set of MSC event patterns created to help design the Ascom PABX (ref) during the mid 1990s, a project for which I was Software Group Leader. 
+
+Figure  SEQ Figure \* ARABIC 6 - Request - answer event pair
+Ascom PABX
+The Ascom PABX (Private Automated Branch Exchange) was a small digital telephone exchange, targeted at office buildings and radio phone-in competitions. The version of the product in development in the mid 1990s was unique in PABX design in being developed almost entirely using the Shlaer-Mellor OOA/OOD method (with little historical source code included). The nature of a telephone exchange is one of asynchronous communications between telephone handsets, the exchange, and larger exchanges through which a PABX routes external calls, and this cause the project to rely heavily on sequence diagrams for product design.
+Ascom's Message Sequence Charts
+ 
+MSCs at Ascom were used to describe the bridges between Shlaer-Mellor domains, where the client domain was always higher up the domain chart. So for example, the Application Domain would be the client of the Routing Domain, which would be a client of the Numbering Plan Domain, and so on.  Many of those domains were also clients of the Layer Management Domain, which provided an administrative user interface to the PABX system which the domains represented. Some domains were also clients of the low-level communications system which provided the handset user interface. So, the system had multiple (user) interfaces, with each interface modeled as an asynchronous and concurrent entity.  
+Whilst the application is different, it has similarities with the model of UI adaptation used in the Tetris case study. 
+ The Shlaer-Mellor model of the PABX required each domain to be modeled independently without knowledge of how a particular service domain was implemented.  Consequently, it was necessary to be explicit over timing issues: where actions were required to complete; for example setting up an external trunk call before audio is supplied to a local telephone, explicit request/answer pairs to synchronize actions between client and server were required. Where a number of request/answer pairs were required to complete a client's request, perhaps across several server domains, then it was necessary to place those pairs within a database-style transaction in order to handle exception cases (much like the gem receiving the "q" key in Tetris). The complete set of event patterns is shown in  REF _Ref244931119 Figure 7. Note that in the Ascom work, rendezvous were not explicitly shown on the MSC in the way they are in  REF _Ref244765973 Figure 6. Such rendezvous certainly existed in the design, but were only traceable through the use of transactions and inference from event naming.
+
+Figure  SEQ Figure \* ARABIC 7 - MSC Event Patterns
+Impossible sequences
+Another reason for the stylizing of Ascom’s MSCs were the strange errors that crept into the sequences. Analysts created a number of sequences that, at first glance, seemed entirely reasonable until the thread of control through the domains was checked. In each and every case, the problem was caused when server domains effectively used the client as a server to them (a faulty use of the notification/response pairs).  Eventually, to eliminate the errors, notification/response was banned, and all transactions began at the client, and a client was only ever a client to particular domain, for that pairing of domains the client/server role was never reversed; a server could only instigate an indication (which may cause the client to begin a transaction with the server), never a request/answer style event pairing.
+ 
+Asynchronous events
+In addition to deadlock caused by faulty notification/response pairs, the original models also experienced deadlock because of the use of synchronous events between domains. When these events required further processing involving events to other domains, the parent client process became blocked for unacceptable periods of time. For this reason, all events between domains became asynchronous, with a client explicitly busy-waiting for answers if required. Synchronous events were allowed only for a small number of explicitly defined non-blocking events.
+Lessons learnt
+The parallels in asynchronous modeling of inter-domain communication between the PABX design and the Tetris case study were sufficient to take on board the Ascom event pattern model:
+No notification/response pairs.
+Client only ever the client between any  given pair of domains.
+Only the client ever starts a transaction.
+ 
+
+State Model Stylization of Request/Answer Patterns
+
+To simplify the representation of state models such as the Game and Falling Tile state models, the Moore state model notation used in Shlaer-Mellor was extended to effectively allow stereotyping of some events so that MSC Request/Answer pairs and Indications could be identified through the labeling of events. To demonstrate the impact of the change
+The use of this notation is visible in the two state models show in sections  REF _Ref244762639 \r 1.3.6 and  REF _Ref244707973 \r 1.3.7. In both state models, state transitions are shown with one of a number of prefixes:
+I: “I:” signifies an indication event. Such events may be sent between objects within a single domain, or between domains. An indication does not require a direct response, although it may trigger activity in the receiving object that causes further interaction. In terms of a game such as Tetris, an indication would, for example, include “key pressed”.
+R: or A: A prefix of “R:” or “A:” identifies the event as being one part of a request/answer pair between two object either in the same domain, or in different domains. Normal behavior assumes that there will always be exactly one “A:” answer for each “R:” event sent. Events carrying the “R:” or “A:” event prefix always have the same event name in order to help match the events, however, the event name starts with an abbreviation of either the target event, or (conceptual) target domain; conceptual in the sense that a game may require the service of a user interface, but it does not require to know which user interface service domains are involved in providing that service. 
+TS: or TE: A “TS:” or “TE:” prefix identifies the beginning and end of a transaction. No other information, other than the transaction ID is carried by such events. Only the object that starts a transaction may end the transaction. “I:”, “R:”, and “A:” events that form part of the transaction carry the transaction ID as a parameter of their events.
+D: A prefix of “D:” indicates an internal event generated within the state model that receives it. The letter “D” stands for “internal decision”. An event labeled with “D:” is the highest priority event within a Shlaer-Mellor state model and is acted on immediately upon generation. Its use is to allow transition between states without affecting any events waiting to be processed. If generated, it is the last action to occur within a state as actions listed after a “D:” prefixed event generation unreachable. “D:” events cannot form part of a transaction.
+In the same way that state transitions are labeled with prefixes, generation of events within state models is also prefixed with the same labels. There must be corresponding generation events for all events labeled on the state transitions somewhere within the modeling (a Shlaer-Mellor requirement), however for the Tetris case study, generation of “D:” events are not always shown, and meaningful event labels are used instead of detailed algorithms being shown in state actions This decision results from personal practical experience with Moore state models: full representation of state actions simply make many state model diagrams unreadable on A4, and sometimes A3 paper.
+State Model Styling for Exceptions
+
+Asynchronous request/answer pairs cause problems for exception events, for example the user choosing to quit the game whilst a user interface announcement/indication is in progress. To improve legibility of the state models, state model notation was further stylized to provide shorthand for the "await answer then exit". Two version of the Falling Tile state model are offered for comparison.  REF _Ref245013931 Figure 8 is an early, simplified version of the model, and  REF _Ref245020486 Figure 9 shows the impact of a stylization that represents "on this event, await this second event before completing transition".
+  INCLUDEPICTURE "C:\\DOCUME~1\\Bob\\LOCALS~1\\Temp\\msohtmlclip1\\01\\clip_image001.png" \* MERGEFORMATINET 
+Figure  SEQ Figure \* ARABIC 8 - Early version of Falling Tile state model
+ INCLUDEPICTURE "C:\\DOCUME~1\\Bob\\LOCALS~1\\Temp\\msohtmlclip1\\01\\clip_image001.png" \* MERGEFORMATINET 
+Figure  SEQ Figure \* ARABIC 9 - Early Falling Tile state model notation optimized for exception handling
+This is the meaning of state transitions that are shown with dotted lines, for example the state transition between states LandscapeUpdatingAfterTileLanded and TerminatingOnCancel in  REF _Ref245020486 Figure 9. In each case the (dotted) transition carries two events separate by a slash e.g. 
+R: FT.cancelFallingTile / A: FT.landscapeUpdate
+States that on event “R: FT.cancelFallingTile”, the state model should await event  “A: FT.landscapeUpdate”, and only that event, before completing the transition. That is to say, a dotted state transition represents a hidden state within the model.
+  Interruptability
+ 
+One of the issues that is apparent in the Game Domain, is synchronization. 
+When the Falling Tile state model was extended to handle "hard drop" (pressing the down arrow in Tetris causes the tile to land immediately) there was the possibility that the game may already be announcing the position of the falling tile. Should "hard drop" interrupt this, or should it sequence an announcement updating to the position to follow the current announcement?  Without knowing the character of the interaction modalities used to express position, the answer is un-knowable. 
+In the case study implementation, the falling tile was expected to be visually rendered by refreshing the playing grid, so there was (potentially) no problem in interrupting the rendering. Sonically, the position of the tile was to be described in terms of “dancing margins” that are related to the topography of the landscape to the left and right of the falling tile, and by musical sonar that described the quality of the potential tessellation between tile and landscape. Interrupting either modality is possible but potentially confusing for the user. This leads to the observation that there is inter-dependence between an abstract application, and the associated rendering decisions taken to support user capability. Having selected appropriate interaction modalities, the application/game must then itself adapt its synchronization policies to match the synchronization characteristics of the modalities.
+Without that feedback from modality to application, a conservative approach to synchronization is required such that serialization of announcements is considered preferable to interrupted announcements. If such feedback is available, it then becomes necessary to express the alternatives within the game’s state models. The decision made for the Tetris case study was to further stylize Moore state models to show the alternative strategies. This is visible in  REF _Ref245021815 Figure 10, a further modified version of the Falling Tile state model to which “hard drop” has been added.
+ INCLUDEPICTURE "C:\\DOCUME~1\\Bob\\LOCALS~1\\Temp\\msohtmlclip1\\01\\clip_image001.png" \* MERGEFORMATINET 
+Figure  SEQ Figure \* ARABIC 10 - Falling Tile state model with "hard drop"
+ Three additional states are added in  REF _Ref245021815  \* MERGEFORMAT Figure 10, highlighted by an enclosing box.  The apparent pattern of an internal state (state S5 in the figure) and two alternative states depending upon the rendering policy identifiable here, leads to a suggestion of further state model stylization.  REF _Ref245022422 Figure 11shows the three “hard drop” states replaced by one stylized meta-state representing alternative strategies, named “HARD DROPPING DURING UPDATE”. With this meta-state comes an extension to the event notation: the ability to cancel an outstanding request/answer4 pair (note the “X:” prefix to the event generation). This implies that the prefixes are not simply a visual notation for the designer, but supported by the underlying architecture on which the state model runs.
+
+ INCLUDEPICTURE "C:\\DOCUME~1\\Bob\\LOCALS~1\\Temp\\msohtmlclip1\\01\\clip_image001.png" \* MERGEFORMATINET 
+Figure  SEQ Figure \* ARABIC 11 - Stylizing interruptability in Moore state models
+
+ Parallelism
+
+There are times when an application such as Tetris requires a number of concurrent user announcements. For example as a tile falls, the tile’s ability to move left and right may vary depending upon the location of previous fallen tiles, so the tile’s height and two relative horizontal movement ranges may require announcement contemporaneously.
+This behavior is similar to the MSC request/answer/rendezvous model shown in  REF _Ref244765973 \h Figure 6  where multiple user interface domains are shown cooperating in order to complete a request/answer event pair. The difference is that  REF _Ref244765973 Figure 6 reflects cooperation as part of the bridge between domains, whilst in this case we are considering the impact on objects purely within the client domain.
+Contemporaneous announcements abound within the Falling Tile state model.  REF _Ref245013931 Figure 8 shows an earlier and simpler version of that model, with two clear examples of note:
+When a tile lands.  When the tile cannot fall any further, state S2 is exited, the landscape is updated with fallen tile, and the tile itself removed from display (since it is now part of the landscape). It is encoded within the state model as "update landscape then remove tile"; in reality, it would be more accurate to say that both updates to occur simultaneously if possible.
+When a tile falls one row.  When a tile falls one row down the playing area, a single request/answer pair is generated requesting a tile position update be announced to the user.  As described above, this update may be many different (potentially) simultaneous announcements, with no guarantee that they will complete simultaneously. 
+ The two extremes of explicit sequencing approach, and of the generalized “now we announce an update” approach, were coded into  REF _Ref245013931 Figure 8 to allow consideration of the two cases. From a Shlaer-Mellor modeling perspective, example (a) is clearly wrong in that at this most abstract of levels, the order of announcement to the user is not relevant to the operation of the game, as only that the announcement completes before the game moves forward is of importance (assuming the game is defined to busy-wait in this way).  On the other hand, if the metaphors and interaction modalities most suited to the current user mean that not all announcements can be contemporaneous, it may be that there is a preferred order of announcement for the abstract game. That is to say, there is the potential for entanglement between the requirements of the abstract game, and the capabilities of the rendered user interface to express them; and consequently announcement order and synchronization of announcements is important to the abstract game design in the same way as the interruptability of announcements is.
+ Looking specifically at example (a), we are left with a potential hierarchy of preferred renderings, each with their own impact on the state behavior of Falling tile:
+A preferred single event of "tile added to landscape”.
+Events of "landscapeUpdate" and "tileCleared" expressed simultaneously.
+Event "landscapeUpdate" followed by "tileCleared".
+Leaving aside option 1 for a moment (and the type of meta-data needed to describe such an event to an automated rendering engine), deciding between options 2 and 3 depends upon the capability of the currently selected interaction metaphors to express this information in parallel. The method chosen for the Tetris case study to express these alternatives was to further stylize Moore state models beyond the “on this event, wait for this event and then change state” stylizing, and stylizing of interruptability shown in  REF _Ref245022422 Figure 11. This stylizing can be seen in  REF _Ref245025856 Figure 12, with the state ‘LANDSCAPE UPDATING AFTER TILE LANDED” replaced with the meta-state UPDATING ON LANDING. 
+ INCLUDEPICTURE "C:\\DOCUME~1\\Bob\\LOCALS~1\\Temp\\msohtmlclip1\\01\\clip_image001.png" \* MERGEFORMATINET 
+Figure  SEQ Figure \* ARABIC 12 - Stylizing Moore state models for contemporaneous announcements
+The new meta-state describes common entry and exit behavior for the state, and a list of alternative state behaviors in order of preference. In this case, the preferred option is contemporaneous announcement, and the alternative a sequential play out of announcements.  An equivalent state model fragment for the meta-state is shown in  REF _Ref245026403 Figure 13; as the number of potential contemporaneous announcements grows, and the number of alternative combinations grows, the size and complexity of the fragment increases. 
+    INCLUDEPICTURE "C:\\DOCUME~1\\Bob\\LOCALS~1\\Temp\\msohtmlclip1\\01\\clip_image001.png" \* MERGEFORMATINET 
+Figure  SEQ Figure \* ARABIC 13 - Contemporaneous announcement meta-model equivalence
+
+A second, more complete stylized version of Falling Tile version is shown in  REF _Ref245026792 Figure 14, which applies the stylization to tile update and to update on a tile reaching the bottom of the grid. 
+Returning to Option 1 above, the single event of "tile added to landscape", adds a further dimension  to rendering of the game with the question: 
+At what level of abstraction is it acceptable to present an announcement to the user within an abstract description of an application/game? Position, movement, even absorption, are relatively common concepts, but is "Landed"? Arrived perhaps, but landed? Or is arrived equivalent to landed? The answer appears to lie in the meta-data/ontologies applied to abstract model events (without that meta-data, how would any rendering algorithm choose its metaphors?). This consideration formed the starting point for the bridge between Game and Capability in the domain chart.
+
+ INCLUDEPICTURE "C:\\DOCUME~1\\Bob\\LOCALS~1\\Temp\\msohtmlclip1\\01\\clip_image001.png" \* MERGEFORMATINET 
+Figure  SEQ Figure \* ARABIC 14 - Contemporaneous announcements applied to the whole of Falling Tile
+ 
+ 
+ 
+
+
+Object Information Model (OIM)
+
+Figure  SEQ Figure \* ARABIC 15 - Game OIM
+Object Communication Model (OCM)
+
+
+Figure  SEQ Figure \* ARABIC 16 - Game OCM
+Game State Model
+
+
+Figure  SEQ Figure \* ARABIC 17 - Game State Model
+Falling Tile State Model
+
+
+Figure  SEQ Figure \* ARABIC 18 - Falling Tile State Model
+
+
+Simple Synchronous Implementation of a Falling Tile
+
+package soundscape.tetris.game;
+ 
+import net.java.games.joal.AL;
+import soundscape.tetris.game.Game;
+import soundscape.tetris.sonic.Sonic;
+import soundscape.tetris.util.TetrisTimeout;
+import soundscape.tetris.util.TetrisTimer;
+import soundscape.tetris.visual.Visual;
+ 
+///////////////////////////////////////////////////////////////////////////////
+//Class: CurrentFallingTile
+//
+// Represents the behaviour of a falling tile in the game. It continues to
+// fall until obstructed by either the ground or a previous tile.
+//
+//
+///////////////////////////////////////////////////////////////////////////////
+ 
+public class CurrentFallingTile extends TetrisTimeout{
+ 
+//////////////////////////////////////////////////////////////////////////
+// Constants
+//////////////////////////////////////////////////////////////////////////
+ 
+// The delay before falling to the next row of the grid depends on
+// whether the game is configured for visual or sonic use.
+public final static int TIMEOUT_VISUAL = 300;
+public final static int TIMEOUT_SONIC =  4000;
+ 
+ 
+//////////////////////////////////////////////////////////////////////////
+// Static Attributes
+//////////////////////////////////////////////////////////////////////////
+ 
+public static int timeoutToUse = TIMEOUT_VISUAL;
+ 
+//////////////////////////////////////////////////////////////////////////
+// Attributes
+//////////////////////////////////////////////////////////////////////////
+ 
+private final Tile parentTile;
+ 
+//////////////////////////////////////////////////////////////////////////
+// Constructors
+//////////////////////////////////////////////////////////////////////////
+ 
+public CurrentFallingTile( final Tile parentTile) {
+super(TetrisTimer.REPEATING_TIMER, timeoutToUse);
+ 
+this.parentTile = parentTile;
+ 
+}        
+ 
+//////////////////////////////////////////////////////////////////////////
+// Methods
+//////////////////////////////////////////////////////////////////////////
+ 
+// Main purpose is to construct the notes to play on one-shot timers
+public void run() {
+super.run();
+ 
+// Find the bottom row of the current tile
+TileShape shape = null;
+switch (this.parentTile.orientation) {
+case Tile.NORTH:
+shape = this.parentTile.shape0;
+break;
+case Tile.SOUTH:
+shape = this.parentTile.shape90;
+break;
+case Tile.EAST:
+shape = this.parentTile.shape180;
+break;
+case Tile.WEST:
+shape = this.parentTile.shape270;
+break;
+}
+int lowestPopulatedRow = shape.lowestPopulatedRow;
+ 
+if (parentTile.yCoord + 1 + shape.lowestPopulatedRow >= GameGrid.NUM_ROWS) {
+// Tile has reached bottom, we can add the tile's squares to the ground                
+for (int ii = 0; ii < 4; ii++) {
+for (int jj = 0; jj < 4; jj++) {
+if (shape.grid[ii][jj] == TileShape.POPULATED) {
+int cellX = this.parentTile.xCoord+ii; 
+int cellY = this.parentTile.yCoord+jj;
+Game.gameGrid.grid[cellY][cellX] = this.parentTile.tileType;
+}
+}
+}
+ 
+Game.stateMachine.tileLandedOK();
+this.cancelTimer();
+return;
+ 
+} else if (!canTileFall(shape)) {
+// Tile can't fall, so add its squares to the landscape
+for (int ii = 0; ii < 4; ii++) {
+for (int jj = 0; jj < 4; jj++) {
+if (shape.grid[ii][jj] == TileShape.POPULATED) {
+int cellX = this.parentTile.xCoord+ii; 
+int cellY = this.parentTile.yCoord+jj;
+Game.gameGrid.grid[cellY][cellX] = this.parentTile.tileType;
+}
+}
+}
+ 
+// If tile is still in the hidden part of the grid, then game over
+if (this.parentTile.yCoord < GameGrid.FIRST_VISIBLE_ROW) {
+Game.stateMachine.gameOver();
+} else {
+Game.stateMachine.tileLandedOK();
+}
+this.cancelTimer();
+return;
+ 
+} else {
+parentTile.yCoord++;
+Visual.rootVisualView.refreshViews();
+Sonic.rootSonicView.refreshViews();
+}
+ 
+//Game.gameGrid.FIRST_VISIBLE_ROW
+}
+ 
+// Looks to see if tile can fall to the given yOffset
+// Generally this would be the next location down, but
+// it can be further, for example to test for a hard drop position
+private boolean canTileFall(TileShape shape) {
+ 
+// check each column of the shape for the lowest populated cell
+for (int i=0; i < 4; i++) {
+for (int j=3; i >= 0; j--) {
+if (shape.grid[i][j] == TileShape.POPULATED) {
+// Look to see if the cell below this on the playing grid is populated
+if (Game.gameGrid.grid[Game.currentPiece.yCoord + j + 1][Game.currentPiece.xCoord + i] != Tile.TETRIS_NONE) {
+// can't fall any further
+return false;
+} 
+break;
+} 
+}
+}
+return true;                
+}
+}
+
+Input Domain
+Sonic View Domain
+Audio Metaphors
+
+To construct an audio version of Tetris, it was first necessary to invent some audio metaphors to use. Those chosen were:
+Aside.   Literally an aside. A voice whispers the type of the next tile, and the content of the hold box into the player's right ear.
+Musical sonar.   One aspect of a falling tile is how well it will tessellate with the base silhouette upon landing, and musical sonar was invented within this project to describe that potential tessellation; within the Tetris Guidelines potential tessellation information is normally provided by the “ghost tile”. As implemented, the game played a single note for each column of the tile's width in sequence around the user with the tune repeating every few seconds, or when the user moved/rotated the tile; the higher the note, the better the fit. This worked surprisingly well at expressing the information, although it was rather slow and, within the limited user testing undertaken,  required notes of almost one second to be understood easily.
+Dancing margins. 
+As a tile falls down the playing grid, the user’s ability to move the tile left and right is constrained by the boundaries of the playing grid, and by previously fallen tiles.. The chosen solution was to place a sound to the left and right of the user, and to use the distance in 3D audio to express the grid distance. When initially implemented, the quality of the 3D audio engine available was rather poor, and consequently the implementation was modified to make the sound "dance" forwards and backwards slightly to help the user's ears pick up the locations better. Even this had limited success, and the “dance” became a dance in music, not location; again within the limited testing undertaken, this did appear to make the position of the margin clearer. 
+Talking scrollbar.   The talking scrollbar reprises XXX’s   idea of speaking text from left to right to indicate the current position within a fragment of spoken audio (ref) to locate the horizontal position of the falling tile. Again, the quality of the 3D audio tools interfered with the implementation causing noticeable jumps in position. Given this limitation, audio position was scaled back to only 3 locations, so that the sound played left/middle/right in front of the user. This, taken with the dancing margins, helped locate the tile in space.
+Direction as direction.   It was necessary to describe the four orientation of a falling tile; nominally north, south, east, west. Two possibilities were tried:  simply speaking the direction, and directional whistling wind sound, animating a sound passing the user in one of four directions; that is to say, direction as direction. Initially forward/back and left/right combinations were tried, but the forward/back worked poorly with the 3D audio (it was difficult for some users to tell front from back). To help overcome this, the directions were rotated by 45 degrees horizontally, making the combos NW/SE and SW/NE and vice versa. Since what is important is orientation, not real direction, this was not a significant conceptual problem. More of a constraint was the 3D audio library, which behaves oddly when sounds pass directly through the listener’s location in space (very loud, sudden silence, then very loud again) so that it was necessary to also move the intersection of the sound axes forward in front of the user. The practical problems with its implementation cause use of the metaphor to be abandoned.
+Gravity as waterfall.   One of the core metaphors within Tetris is that tiles fall down the playing grid unless obstructed by previously fallen tiles, requiring the game to express a form of gravity. In practice this means describing the action of falling for the tile, and a measure of how far it has fallen. Given that the information is of high priority to the user, the chosen solution was to use a continuous ambient background sound of falling water, rather than a point source of sound, and to manipulate the volume and pitch over time, so that the water feels nearer with time. However, after some experimentation, there seemed to be a noticeable qualitative difference between tweening volume and tweening location, and the waterfall became a point source directly in front of the user.
+Braided audio. 
+Braided audio is a technique that was used as part of Schmandt’s  “Audio Hallway” project (ref)  to allow navigation through large archives of audio tracks. The idea being that the play out of many tracks is spliced together, giving a second or so of one track, then a second of the next and so on, looping back to playing out the first track again.  The user would be presented with one or more braids to select from, with the selected braid then “exploded” to allow a more detailed examination and track selection, potentially to another, more specific braid, effectively tunneling down into an audio database.   For Tetris, braided audio was adapted to braid the play-out of the musical elements: the musical sonar and the dancing margins.  Playing out both tunes at the same time, even from radically different locations, is discordant and distracting, so a decision was taken to serialize them; the first margin, a scan of the sonar, and then the other margin. Since the margins are less important than the sonar when playing Tetris, sonar was prioritized over the margins, giving two scans of the sonar for one scan of the margins.  So, braided audio was used to both share a resource (musical play-out), and to express importance/priority.
+
+Visual View Domain
+User Capability Domain
+Discussion
+First and Third Person
+
+Tetris
+This rendering case study used the game of Tetris for its example. The commercial versions of Tetris were  written as a purely visual game, where the player looks at the playing surface, observing the position and shape of falling tiles, and the terrain of the “ground” the tile will eventually land upon; the goal being to land the tiles such that complete horizontal lines across the terrain are formed, thus scoring points and causing the complete line(s) to be removed from the playing area.
+Audio Metaphors
+To construct an audio version of Tetris, it was first necessary to invent some audio metaphors to use. Those chosen were:
+Aside.
+Musical sonar. 
+Dancing margins. 
+Talking scrollbar. 
+Direction as direction. 
+Gravity as waterfall. 
+Braided audio. 
+Voice
+What was interesting in the created audio metaphors was the effective change in the voice of the game. Tetris went from being a 3rd person observational game to a 1st person immersive experience. And this was not deliberate. The game became immersive because the player became the centre of all interaction modalities with: the tile moving relative to the user (and simultaneously, the distance of the margins from the tile were described relative to the position of the user); gravity ebbed and flowed towards the user; and the musical sonar playing out around the player.
+Realizing that the chosen metaphors had changed the nature of the game, time was taken to find and consider alternative observational audio metaphors to express gravity, tessellation, and relative position, but beyond a simple screen-reader approach, and perhaps using a number of different actors to help identify content, the search came up empty. 
+Perhaps it is in the nature of the sonic design space to be 1st person immersive for anything beyond a simple linear play-out of content?
+If the answer to that question is yes, it poses another: if a 3rd person observational game naturally becomes a 1st person immersive game when transferred to the sonic design space, what should happen to the classic WIMP interface? Windows, Mac OS, and Linux’s Gnome are all very much 3rd person observational visual interfaces, yet what is provided by current assistive technology is very much the descriptive, spoken, multiple actors, screen-reader approach. Experience with Tetris tends to suggest that this is an extremely limited set of metaphors, and that there is a much richer set of audio metaphors waiting to be explored. However, that, of course requires the UI to be described in abstract terms such that the underlying content and concepts can rendered using metaphors and modalities appropriate to the design spaces in use, which leads back to the model of adaptation discussed within this thesis.
+
+Immersion as the Default Modality
+
+Looking at what happens when Tetris moves from the visual to the sonic design space, opens questions on how often observational modalities are appropriate default settings for a user interface.
+Much of the assistive technology I, as a researcher, see applied, seem to be more immersive than observational:
+Scanning.   The use of scanners to roll through menus of letters of the alphabet, or menus of tasks (open door, close curtains, TV on/off, for example) is more immersive than observational. The user is either visually following the scanner waiting for “their” letter to be highlighted so that they can hit they can hit their jelly-bean switch (ref); or waiting for a spoken menu to reach their choice, again to allow selection from a jelly-bean. It becomes immersive as a result of the user having to follow a play-out, and then react within a given time.
+Zooming.   The whole Zoom-Text (ref) approach is immersive in that the user is placed at a location on the screen, and then navigates around, down, and up through content, and at varying levels of detail. They are no longer looking down on content, but rather they are looking around within the content.
+Page re-ordering.   The whole point of re-ordering web pages is to change the user’s perception of importance. For example, moving menus after the main body of content within a page when screen-reading, is to guide the user’s navigation to important content. It is perhaps less immersive than zooming, but it is certainly 1st person, with the user being led through the content.
+It is difficult think of any 1st person modalities becoming 3rd person observational as a result of using existing assistive technology; adaptation only seems to go in one direction. The area where 1st to 3rd may happen is with hearing or haptically impaired users. Taking computer games as an example, audio and tactile feedback tends to be used to convey emotion and immediacy to the game. If you have no sense of touch, the feedback in modern games controllers will be missing, and if you are hearing impaired then off-stage action may be missed, as may the movement of other players/game characters. The missing information may be provided visually through additional screen icons, turning 1st person to 3rd in this respect, but with, I would argue, a resultant loss of emotive content.
+
+Adaptation of Content for Deaf/Hearing Impaired Users
+
+Following on from the previous paragraph, if the change in rendering of content, for example of -stage action in games, reduces emotive expression, has any content been lost? Is the adapted interface actually accessible? 
+It is one of those questions that sit on the border of a very arbitrary split between accessibility and usability; but I would argue that answer must be that if timely information is lost, or is expressed less effectively, during adaptation then the interface cannot be described a wholly accessible. For adaptation to be successful the quality of the underlying abstract description of content becomes paramount as, in games at least, content may need to be described in terms of happiness: does the information convey good news or bad?  That requires we have visual metaphors capable of providing that emotive feeling, and a simple additional icon seems unlikely to cut it in terms of such expression (although an animated one might).
+
+
+
+

@@ -1,0 +1,25 @@
+Conclusion
+
+The Digital Library Scenario
+
+John, an undergraduate student is sitting in the university library working on an assignment about the history of computing. The library is modern and well equipped, and provides students with WiFi access. John is using this access to connect his mobile phone, which has WiFi and PDA capabilities, to the online version of Encyclopaedia Britannica (http://info.britannica.co.uk) in order to look up the entry on Alan Turning. John encounters problems in using the site that are related to his disabilities. 
+
+John often has such problems with commercial websites, particularly when accessing them through his PDA phone, and he has evolved a number of coping strategies to deal with the problem. Sometimes, as in the past, he still requests help for particular websites, or uses desktop personal computers fitted with additional assistive technology. However, his first line of defence is a transcoding service built into his mobile web browser, which attempts to adapt websites (sites not pages) to a form appropriate for him. The degree to which this is possible depends up design of the website, and sometimes he does have to fall back upon alternative means of access.
+
+
+Defining Accessibility
+
+It was xxx who said we are the sum of our experiences, and that is certainly true of my approach to this research. Before returning to academic life in 2000, I spent 14 years in the real-time software industry, progressing from programmer to systems analyst to consultant within the defence and communications industries, and was most recently employed creating user interface design methods for Nokia. Significantly, I was also employed in the 1990s as a quality assurance engineer, auditing large software development projects. Consequently, my professional my skills, and my worldview is one of systems, processes, and workflows; it is this worldview that I bring to my academic research.
+There is a distinction between quality control and quality assurance that is apposite when considering a working definition of accessibility.  With quality control, we measure the correctness of a manufactured item against an idealized model of that item. With quality assurance we measure the correctness of people’s actions in manufacturing an item against an idealized model of those actions, in the belief that we are increasing the likelihood of successfully quality control.  Generally speaking, I would argue that it is the quality assurance approach that is evident in the discipline accessibility, for example the World Wide Web Accessibility Guidelines [x], and Section 508 of the Americans with Disabilities Act [x] both of prescribe strategies to achieve a widening of the user base for computer systems. They do not define an accessible computer program or web page in terms of explicit measurable criteria; a system is not defined accessible in terms of a defined list of who must be able use the system in a given operating context.
+
+In commercial product development one would expect to see evidence of both quality assurance and of quality control. For example, a user interface would be developed according to particular procedural guidelines, with the result tested by users representing the target user base, and this is the typical of the recommendations given by Nielsen [x], a usability expert. The problem in this approach is in identifying your target user base in the first place, particularly if you are aiming for a broad level of “accessibility”. Given the sheer range and combinations of physical and cognitive impairments that exist in the general population, identifying, let alone finding, representative users to test your system is near impossible, and consequently generalizations and approximations abound.
+
+For any particular combination of procedural guidelines and a declared user base, there is also the question of fidelity; how correct are the guidelines and declared user base? As a real-world example, in 1990 I audited a large military software project for Siemens Plessey Defence Systems [x] that was developed twice to the same technical specification, but with two different interpretations of AQAP-13 [x], the NATO [x] software quality assurance procedures at that time. The two interpretations produced two quite different levels of quality in terms of quality control (one version was notably slower and contained more bugs that the other). Both sets of developers believed they had followed the same guidelines.  Given that the same guidelines can produce different qualities of functionality and reliability (both within acceptable levels), it is reasonable to question whether any two interpretations of the WCAG Guidelines [x] would produce the same breadth of user base.
+
+
+
+This thesis began with a definition of accessibility:
+
+An entity is accessible if all people who need to interact with it can do so effectively for a given a time and place. 
+
+

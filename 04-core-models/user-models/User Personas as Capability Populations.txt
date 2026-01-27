@@ -1,0 +1,623 @@
+	•	 
+User Personas as Capability Populations
+
+These experimental personas were generated as part of the research effort for Chapter 4 of this thesis, considering how users of computer interfaces may be accurately expressed.
+
+
+	•	Overview
+The approach taken to testing and demonstration of  the capability model approach of Chapter 4, was to construct of  a small number of reasonably realistic user personas based on capability sets, designed to complement the Design Rationales used in Polymorphic Task Decomposition.
+Two users are presented:  Mike Smith who has Multiple Sclerosis; and David Furness  who is profoundly deaf and is also colour-blind. These are abbreviated to MS and DF in the text. 
+The most interesting of the two personas is MS, since Multiple Sclerosis is a complex progressive disease that can affect vision and mobility in a number of different ways, and users in the later stages of the disease are easily fatigued by activities that require concentration. The symptoms of Multiple Sclerosis also vary over time, even within a single day, and it is therefore possible to need multiple profiles for the same person, depending on whether they are having a good or a bad day.
+The DF persona is yet another spiky profile. In this case it is a user who is profoundly deaf, and consequently relies heavily on the visual design space, but who also experiences colour-blindness, requiring that not only must audio cues and speech be presented visually, but using a restricted colour palette. As with the MS profile, this is a realistic user model as the number of people reported by Kovalev and Petrou (2005)  in the general population who experience some degree of colour blindness is as high as 8%.  
+	•	Persona: Mike Smith (MS)
+Mike is 45 years old British male with two children. His first and only language is English. He has experienced the symptoms of Multiple Sclerosis for a number of years, with his vision and mobility progressively worsening. He has recently required the use an electrically powered wheelchair for mobility around his home, and an electric hoist to be lifted in and out of bed.  
+Mike’s dexterity is poor with caused by kinaesthetic and tactile impairments. To touch a specific location requires him to visually guide his hand or finger to the target location. He has no feeling in his limbs and does not know if he is touching a surface without looking (or audio feedback) and is unaware of how hard he is pressing upon the surface. Consequently he finds the concentration required to use a computer system quite fatiguing.
+Mike’s vision is generally poor, even when corrected by glasses, and he experiences some double/blurred vision. The degree of visual impairment is variable, and he has his good and his bad days. He finds closing one eye sometimes helps. On bad days, he finds the concentration needed to read a computer screen for mare than 15 minutes makes him fatigued. 
+With fatigue comes an increase in hand tremors. The tremors change Mike’s ability to reliably touch a specific location, such as a key on a keyboard.
+When Mike was assessed for assistive technology by the MS Society, he was assessed for voice activated input. However, it was found that Mike’s voice was quite weak, and that the number of errors made by the voice activation tools increased the longer Mike used the computer. So, it worked, but only for short periods.
+
+Table 1: Visual design space capabilities for Mike Smith
+Property Name
+Values
+Parent
+Description
+sight
+PARTIAL 
+None
+Mike has double/blurred vision.
+stereo
+PARTIAL 
+sight
+Whilst Mike does have stereo vision, he finds closing one eye helps him focus and read text.
+focus
+PARTIAL 
+sight
+Mike finds it difficult to focus, and can only do so for short periods of time without taking a rest.
+focusDuration
+Good day: 10 minutes Bad day:  2 minutes
+focus
+This depends on how fatigued Mike is, and how much he is concentrating. For example if he has to focus on the screen and then to the keyboard and back again, then a good day soon becomes a bad day.
+tracking
+PARTIAL 
+focus
+Mike can track an image, but the effort can fatigue him. His double vision makes it difficult to track a specific point on that image.
+trackingDuration
+Good day: 2 minutes Bad day: 0.5 minutes
+tracking
+On a good day, Mike can track an image (but not a point on the image) for 2 minutes plus, depending on how fatigues he is, and what other tasks he is performing. As he becomes fatigued that time drops.
+viewRectangle
+0, 0, 1024, 768
+sight
+The entire screen is viewable for Mike.
+flicker
+TRUE
+sight
+Flickering images are OK for Mike, although in poor lighting it can induce fatigue if used excessively. 
+
+
+Table 2: Colour blindness capabilities for Mike Smith (using alternative 1)
+Property Name
+Values
+Parent
+Description
+colorLow
+100%
+Sight
+Mike has no colour-blindness.
+colorMedium
+100%
+Sight
+Mike has no colour-blindness.
+colorHigh
+100%
+Sight
+Mike has no colour-blindness.
+intensityLow
+100%
+Sight
+Mike has no colour-blindness.
+intensityMedium
+100%
+Sight
+Mike has no colour-blindness.
+intensityHigh
+100%
+Sight
+Mike has no colour-blindness.
+
+
+Table 3: Language capabilities for Mike Smith
+Property Name
+Values
+Parent
+Description
+language
+UNCONSTRAINED
+none
+Mike’s in a native English speaker. Before MS set in, he was capable of reading and writing in English to high-school level.
+fontLanguageSet
+ English
+language
+English is Mike's native language.
+signLanguageSet
+NONE
+language
+Mike has no knowledge of sign languages.
+hapticLanguageSet
+NONE
+language
+Mike has no knowledge of haptic languages.
+spokenLanguageSet
+English
+language
+
+readFontText
+PARTIAL
+sight + fontLanguageSet
+Mike finds reading text difficult, partly due to his double vision, and (depending upon the medium) partly due to his poor dexterity when handling books and magazines.
+readSignText
+NONE
+sight + signLanguageSet
+ Mike has no knowledge of sign languages.
+hearSpeech
+UNCONSTRAINED
+hearing + spokenLanguageSet
+Mike’s hearing is unimpaired.
+readHapticText
+NONE
+haptic + hapticLanguageSet
+Mike has no knowledge of haptic languages.
+writeFontSet
+BLOCK, SELECTION,
+fontLanguageSet
+Mike can still (just) print individual characters, especially with handwriting recognition software found on the Nokia XXX mobile phone. He cannot however sign his own name. He can use a keyboard under certain conditions.
+spokenWordSet
+SPEECH, NON-SPEECH-SOUNDS, SELECTION
+spokenLanguageSet
+Mike’s voice is unimpaired when not fatigued. As fatigue sets in, his voice becomes weaker.
+writeSignSet
+NONE
+signLanguageSet
+Mike has no knowledge of sign languages.
+writeHapticSet
+NONE
+hapticLanguageSet
+Mike has no knowledge of haptic languages.
+minReadFontSizeForFont
+Good day:  24 point, Arial  Bad day:  32 point, Arial 
+readFontText
+Mike’s ability to read text depends very much on the background noise and lighting conditions. Below 32 point on a high-contrast quiet background, 32 point is acceptable.  The result is that he can read small illuminated characters on a phone keyboard in some circumstances.
+minReadKerningForFont
+2 Point kerning for 24 point Arial font.
+4 Point kerning for 32 point Arial font.
+readFontText
+
+maxFontLineWidthForSize
+UNCONSTRAINED
+readFontText
+No apparent constraint, but Mike complains of fatigue when reading long portions of text across full screen. 
+multiColumnFont
+1
+readFontText
+Mike can read multiple columns, but in practice the effort involved in scrolling with multiple columns, and the effort in scanning for and finding the top of the next column or the bottom of the previous column induce fatigue. Hence the 1 column value.
+cursiveWriting
+NONE
+fontLanguageSet
+Mike’s motor control is not good enough for effective cursive text.
+minWriteFontBlock
+2cm x 2cm
+fontLanguageSet
+The 2cm square was using a stylus and handwriting recognition software on a Nokia XXX (which also provides significant audio feedback).
+maxAudioRead
+NOT KNOWN
+readAudioText
+Mike’s ability to listen to text at speed has not been tested.
+maxAudioWrite
+NOT KNOWN, Estimate is nominal speed for English language
+writeAudioSet
+The rate of Mike’s speech has not been tested.
+minInterWordGap
+NOT KNOWN
+readAudioText
+
+
+Table 4: Tabular content capabilities for Mike Smith
+Property Name
+Values
+Parent
+Description
+oneDTable
+UNCONSTRAINED
+none
+Mike understands the concept of a column of information.
+twoDTable
+PARTIAL
+none
+Mike can understand a 2D table, but visually, the font size needed for him, makes text tables on a 15” screen difficult to read. Given his vision impairment and mobility problems, multi-column layout, in general, is a problem for him.
+threeDTable
+PARTIAL 
+none
+Mike can understand the concept of a 3D table, but his haptic impairments mean that the example of knowing your place in space is difficult for him; he needs to look just to see where his own hands are.
+embeddedTables
+PARTIAL 
+none
+Mike has no problem with embedded tables per se, but his visual impairment makes their use on-screen problematic.
+rememberList
+UNKNOWN
+oneDTable
+UNKNOWN, but no observed problems.
+rememberColumnMeaning
+UNKNOWN
+twoDTable
+Length of time has not been measured, but time taken and effort involved to navigate scrolled content is significant.
+rememberRowMeaning
+UNKNOWN
+twoDTable
+Length of time has not been measured, but time taken and effort involved to navigate scrolled content is significant.
+visualInterCellGap
+UNKNOWN
+oneDTable twoDTable threeDTable sight
+
+visualCellheight
+UNKNOWN
+oneDTable twoDTable threeDTable sight
+
+visualCellWidth
+UNKNOWN
+oneDTable twoDTable threeDTable sight
+
+dynamicCellContent
+FULLY
+oneDTable twoDTable threeDTable
+
+
+
+Table 5: Sonic design space capabilities for Mike Smith
+Property Name
+Values
+Parent
+Description
+hearing
+UNCONSTRAINED 
+none
+Mike has no hearing impairment.
+stereo
+UNCONSTRAINED 
+hearing
+
+pointSourceDiscrimination
+TRUE
+stereo
+
+cocktailPartyEffect
+TRUE
+stereo
+
+speech
+PARTIAL
+none
+The strength of Mike’s voice weakens as he becomes fatigued.
+
+
+
+
+Table 6: Haptic design space capabilities for Mike Smith
+Property Name
+Values
+Parent
+Description
+tactileTouch
+NONE
+none
+Mike has no sense of touch.
+tactilePress
+NONE
+tactileTouch
+Mike has no sense of touch.
+senseOfLimbPosition
+PARTIAL
+none
+Mike can identify limb position by visual inspection only.
+constantTouchingDuration
+300 ms
+none
+Hand tremors and no sense of touch cause Mike’s hand to shake and to slide off smooth surfaces.
+touchAStaticPoint
+PARTIAL
+none
+Mike can touch a specific point, but not reliably with any great accuracy as he relies entirely on sight and audio feedback.
+touchAMovingPoint
+PARTIAL
+none
+Not known, but Mike has poor kinaesthetic sensing and relies entirely on visual and audio feedback, so touching a moving target is likely to be difficult for him.
+landingZone
+30 x 40 pixels
+touchAStaticPoint
+Landing zone is slightly larger than Mike’s finger as he guides it by sight and audio feedback only.
+guardZone
+Good day: 60 x 50 pixels on a smooth surface e.g. a keyboard or touch screen.
+Bad day: 80 x 80 pixels
+landingZone
+Guard zone is very dependent on friction characteristic of surface. On a touch screen he tends to slip diagonally forward by approx 10 pixels. On a bad day it can be much worse.
+stereoHandTouch
+NONE
+tactileTouch
+Mike’s left arm is weak and is seldom used except to stabilize items he is touching with his right hand.
+multiFingerTouch
+1
+tactileTouch
+Because Mike guides his fingers by eye, it is difficult for him to correctly locate two or more fingers simultaneously. He can at a push, but he finds it very difficult.
+interTouchGap
+N/A
+tactileTouch
+No sense of touch.
+minTouchTime
+N/A
+tactileTouch
+No sense of touch.
+typicalButtonPressRate
+0.2 presses per second (i.e. one every 5 secs or so)
+tactileTouch
+Mike guides his hand and fingers by eye and audio feedback only.
+
+	•	Persona: David Furness
+David is 17 and has been profoundly deaf since birth. His first language is British Sign Language (BSL), although he can also read and write competently in English. David also suffers from protanopia, a form of colour-blindness that affects approximately 1% of the male population. Protanopia is caused by the lack of low-frequency receptors in the eyes, resulting in poor perception of red-based colours. In some cases, as in David’s, this results in the colour red being perceived as black/dark grey.
+David’s spiky profile affects his leisure time, and his ability to interact socially with his friends. Particularly, he finds that he is at a disadvantage when playing computer games where ear-cons are used to identify off-screen activity, for example the approach of monsters in adventure games, and temporary changes in scoring rules. He also experiences problems with any games that use red-based colours on dark backgrounds, or “noisy” photo-realistic backgrounds where his colour blindness can make it difficult to identify details such as symbols on maps. Even a simple games such as Tetris is a problem on versions with a black background as one of the standard shapes, a long red rectangle is essentially invisible to him.
+
+Table 7: Visual design space capabilities of David Furness
+Property Name
+Values
+Parent
+Description
+sight
+PARTIAL 
+None
+David experience some colour-blindness.
+stereo
+UNCONSTRAINED
+sight
+
+focus
+PARTIAL 
+sight
+Items that have a high red content on a black or noisy background are hard to identify and focus on.
+focusDuration
+UNCONSTRAINED
+focus
+
+tracking
+UNCONSTRAINED
+focus
+
+trackingDuration
+UNCONSTRAINED
+tracking
+
+viewRectangle
+0, 0, 1024, 768
+sight
+
+flickerOK
+TRUE
+sight
+
+
+
+Table 8: Colour blindness capabilities of David Furness (using alternative 1)
+Property Name
+Values
+Parent
+Description
+colorLow
+0%
+Sight
+David suffers from Protanopia.
+colorMedium
+100%
+Sight
+
+colorHigh
+100%
+Sight
+
+intensityLow
+0%
+Sight
+David suffers from Protanopia.
+intensityMedium
+100%
+Sight
+
+intensityHigh
+100%
+Sight
+
+
+
+Table 9: Language capabilities of David Furness
+Property Name
+Values
+Parent
+Description
+language
+UNCONSTRAINED
+none
+
+fontLanguageSet
+ English
+language
+
+signLanguageSet
+BSL
+language
+
+hapticLanguageSet
+NONE
+language
+
+spokenLanguageSet
+NONE
+language
+
+readFontText
+UNCONSTRAINED
+sight + fontLanguageSet
+
+readSignText
+UNCONSTRAINED
+sight + signLanguageSet
+
+readAudioText
+NONE
+hearing + spokenLanguageSet
+
+readHapticText
+NONE
+haptic + hapticLanguageSet
+
+writeFontSet
+CURSIVE, BLOCK, SELECTION
+fontLanguageSet
+tracking etc.
+writeAudioSet
+NON-SPEECH-SOUNDS, SELECTION
+spokenLanguageSet
+David can make some non-speech sounds, but is untrained.
+writeSignSet
+PERFORMANCE, ENCODED FONT
+signLanguageSet
+
+writeHapticSet
+NONE
+hapticLanguageSet
+
+minReadFontSizeForFont
+Arial, 6 Point 
+readFontText
+
+minReadKerningForFont
+Arial 6 point, 1 point kerning
+readFontText
+
+maxFontLineWidthForSize
+UNCONSTRAINED
+readFontText
+
+multiColumnFont
+UNCONSTRAINED
+readFontText
+
+minWriteFontCursive
+5cm x 1cm
+fontLanguageSet
+
+minWriteFontBlock
+1cm x 1cm
+fontLanguageSet
+
+maxAudioRead
+N/A
+readAudioText
+David is profoundly deaf.
+maxAudioWrite
+N.A
+writeAudioText
+David is profoundly deaf.
+minInterWordGap
+N/A
+readAudioText
+David is profoundly deaf.
+
+Table 10: Tabular content capabilities of David Furness
+Property Name
+Values
+Parent
+Description
+oneDTable
+TRUE
+none
+
+twoDTable
+TRUE
+none
+
+threeDTable
+TRUE
+none
+
+embeddedTables
+UNCONSTRAINED
+none
+
+rememberList
+10 s
+oneDTable
+
+rememberColumnMeaning
+10 s
+twoDTable
+
+rememberRowMeaning
+20 s
+twoDTable
+
+visualInterCellGap
+15 pixels
+oneDTable twoDTable threeDTable sight
+
+visualCellheight
+10 pixels
+oneDTable twoDTable threeDTable sight
+
+visualCellWidth
+400 pixels
+oneDTable twoDTable threeDTable sight
+
+dynamicCellContent
+FULLY
+oneDTable twoDTable threeDTable
+
+
+
+
+
+Table 11: Sonic design space capabilities of David Furness
+Property Name
+Values
+Parent
+Description
+hearing
+NONE
+none
+
+speech
+PARTIAL
+none
+David can make some non-speech sounds but is untrained.
+
+
+
+Table 12: Haptic design space capabilities of David Furness
+Property Name
+Values
+Parent
+Description
+tactileTouch
+TRUE
+none
+
+tactilePress
+TRUE
+tactileTouch
+
+senseOfLimbPosition
+TRUE
+none
+
+constantTouching
+UNCONSTRAINED
+tactileTouch
+
+touchAStaticPoint
+UNCONSTRAINED
+none
+
+touchAMovingPoint
+200 pixels/second
+tactileTouch
+
+landing Zone
+10 x 15 pixels
+touchAStaticPoint
+
+guardZone
+20 x 25 pixels
+landingZone
+
+stereoHandTouch
+TRUE
+tactileTouch
+
+multiFingerTouch
+5
+tactileTouch
+
+interTouchGap
+300 ms
+tactileTouch
+
+minTouchTime
+100 ms
+tactileTouch
+
+typicalButtonPressRate
+0.5 presses per second on a keyboard.
+2 per second on a games console.
+
+tactileTouch
+
+
+
+	•	References
+Kovalev V. and  Petrou M., 2005. Optimising the Choice of Colours of an Image Database for Dichromats. In Machine Learning and Data Mining in Pattern Recognition.  Berlin?/Heidelberg, Germany: Springer Verlag.
+

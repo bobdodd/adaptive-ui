@@ -1,0 +1,123 @@
+The CISNA Runtime System and its Render Model  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+The note is intended to help form the first part of the content of chapter 6 of my thesis. It introduces the Render Model, and relates it to the Adaptation, Navigation and Semantics Layers of the CISNA Model.
+
+To arrive at the Render Model, I start with an arbitrary concrete Application Model of the rendered content using the Google Maps example  again, and then work backwards to identify what would cause that Application Model to be populated in this way. The goal is to demonstrate how the CISNA Document Model and User Model drive the presentation of content by relating the properties of interaction metaphors to Nesbitt’s multi-sensory design space, and to the abstractions within my document model.
+
+Google Maps Revisited
+
+The Carnforth GUI presented as part of chapter 4, was shown rendering a fragment of Google Maps for two possible users: a default user, and a low vision user; the rendered (visual) output for the low vision user is shown in  REF _Ref65645969 \h Figure 1. 
+
+
+Figure  SEQ Figure \* ARABIC 1 - Rendered Output for Google Maps Example
+
+Selection of users in the GUI relates to Event Triggers in the Adaptation Layer of the CISNA model; the Adaptation Layer is shown in  REF _Ref65657533 \h Figure 2, with it’s XML representation in  REF _Ref65657839 \h Figure 3. Selecting a user from the “Users” is in the GUI generates the “New User” event described in the XML. That “new User” event causes the defined Instances to be applied to the CISNA model, causing the document structure to change.
+
+The five-layer CISNA Model describes an abstract view of a document, not the concrete rendering shown in  REF _Ref65645969 \h Figure 1. In the Google Maps example from Chapter 4, each design space, visual and sonic, had pre-defined rules in terms of how such content was to be realized for a given Event Trigger. Observation of how Windows, Apple OSX  “Accessibility Wizards” work suggests that their underlying model follows precisely this approach: they ask simple questions to select adaptations.
+
+
+
+Figure  SEQ Figure \* ARABIC 2 - CISNA Adaptation Layer
+
+
+Figure  SEQ Figure \* ARABIC 3 - Adaptation Layer as XML
+The Application Model
+
+The Application Model provides a generalized view of how content is rendered within a user interface. Many models of rendered content are available, the one presented as the Application Model reflects the Amsterdam Model in terms of synchronization and navigation through content. It was chosen to make comparison with the CISNA Document Model easier to express.
+
+The working definition of Application used here, is any self-contained content presented to the user. Examples are the Microsoft Windows desktop, the Firefox web browser, and Microsoft Word. Other examples are the Windows control panel, Apple Desktop widgets, and the Windows printer setup screen. The key difference between the first and second set of examples it that the second set are commonly considered to part of other applications. In terms of the Application Model, it doesn’t matter – they are self-contained fragments of user interface that appear and disappear on demand as if they were navigable web pages. This is the core of the Application Model: it views renderable content as pages of hypermedia.
+
+
+Figure  SEQ Figure \* ARABIC 4 - The Application Model
+
+ REF _Ref65842697 \h Figure 4 divides neatly between content and presentation/navigation. 
+
+An Application contains many Content elements, and that content may be collated into multiple groupings, with potentially the same content in more than one group (to handle cases such as split-screen editing). 
+
+Content is presented in Interaction Spaces, for example visual, sonic, and haptic. More precisely, it is instances of Content In Groups  that are presented as the same content may be presented using different Interaction Spaces depending upon their grouping, for example an “incoming chat message” notification in a chat application, may be presented visually and as an ear-con. Presented Content may also represent Amsterdam Model style anchors, with potential navigations described through Content Link elements. Each Content Link has at least two Link Contexts: a departure, and a landing context.
+
+Presented content may be synchronized, for example synchronizing video captions with video play-out, as at a higher level, can content groupings, for example modal dialogues.
+
+Two metaphor elements are used within the model to instruct the presentation of content: Grouping Metaphor, and Presentation Metaphor; these are analogous to the Presentation Specifications of the Dexter/Amsterdam models, with the exception that that Presentation Specifications, despite their unfortunate name, are only hints to the runtime system whilst Metaphors specify actual rendering and interaction modalities. 
+
+This difference between hint and specification illustrates the use of the Application Model and its relationship to the CISNA five-layer model. A populated Application Model describes a concrete realization of the CISNA five-layer model for a specific User and context.
+
+Populating the Application Model Semantics
+
+A populated Application Model represents the realized CISNA Document Model for a specified user and context. This section looks specifically at the relationships between the Application Model and the Document Model’s Semantics Layer.
+
+The Application Model has counterparts (i.e. bridges) between itself and the Semantics Layer that identify the nouns, rules, notions and statements expressed. It also has counterparts between itself and User Profiling that identifies the capabilities and preferences of that user. This leads to an updated model of the CISNA Runtime System as shown in  REF _Ref65898238 \h Figure 5. For convenience, the Semantics Layer is repeated in  REF _Ref65898544 \h Figure 6, and the population diagram for the Google Maps example in  REF _Ref65898685 \h Figure 8.
+
+In terms of the Google Maps example, it is the Nouns “Menu”, “Menu Item”, “Title” and “Viewport Notion”, and their related Rules, that direct the population of the Application Model. The hard-coded rendering in  REF _Ref65645969 \h Figure 1 was constructed by mapping ‘Menu’ to a Content Grouping, and then Content Grouping to class JPanel in Java. ‘Menu Items’ were similarly mapped to Content In Grouping, and then Content In Grouping to class JLabel in Java. The Viewport Notion “Google Maps” was mapped into a JPanel that held two elements: a JLabel for the Site Tile at the top of the panel, and the Menu embedded in the centre of the panel. The schematic for this mapping is shown in  REF _Ref65911436 \h Figure 7.
+
+
+
+
+Figure  SEQ Figure \* ARABIC 5 - CISNA Runtime System (Step 1)
+
+
+Figure  SEQ Figure \* ARABIC 6 - Semantics Layer
+
+
+Figure  SEQ Figure \* ARABIC 7 - Schematic of Google Maps Example
+
+Figure  SEQ Figure \* ARABIC 8 - Semantics content for Google Maps example
+
+The schematic shown in  REF _Ref65911436 \h Figure 7 presents the visual presentation of the Google Maps example; rendering for the Sonic interaction space is considered later.
+
+ REF _Ref65911436 \h Figure 7 is interesting more for the questions it raises than for those it answers:
+
+Why is the content rendered in the Visual interaction space?
+Why is a Viewport mapped to a JPanel with a Border Layout?
+Why is the Menu laid out horizontally?
+
+The answer to all three questions is that it is the choice of grouping and presentation metaphors in the Application Model that drives presentation style. In this hard-coded example, anonymous menus i.e. menus with no titles, are assumed to be visually presented as a horizontal list of menu items. Similarly, a top-level Viewport with a Title is assumed to be presented visually with the title above the Viewport’s content. So each Grouping Metaphor and Presentation Metaphor in the Application Model represents a rule, or set of rules that describe organization and presentation of the related content/content grouping. 
+
+There are many approached to describing such rule-based rendering, and it is out of scope of my thesis as to which is the best approach to take. Whatever implementation is taken however, the working assumption is that the Concept Ontologies of the Semantics Model scope the meaning of the Nouns, and that the Nouns together with the Verbs, drive a rule-based system. In terms of the Runtime System, a Composition Model is nominally added to express this abstraction, which has counterparts to the Metaphor elements of the Application Model. In doing so, I am replicating the “Within-component Layer” concept of the Dexter Model, where an inventory of “anchors” to internal content are made public, while internal structure is kept hidden. It is also an approach taken when Shlaer-Mellor OOA models meet existing code libraries, with dummy “Implementation Domains” describing those aspects of the existing code needed in order to interact with it. The modified Runtime System is shown in  REF _Ref65916371 \h Figure 9.
+
+
+Figure  SEQ Figure \* ARABIC 9 - CISNA Runtime System (Step 2)
+
+Returning to the Application Model itself, an instance of Presented Content in  REF _Ref65842697 \h Figure 4, represents one expression of content, and more particularly, an instance of content when it appears in a particular Content Grouping. Presented Content is described in terms of the relationship between content and Interaction Space, with the presentation relating to exactly one Interaction Space, consequently there is a many-to-one relationship between Presented Content and Notions in the Semantics Layer.
+
+Even within a single Interaction Space, there is a many-to-one relationship between Presented Content and Notion. Referring back to  REF _Ref65911436 \h Figure 7, a single Notion may require multiple Presented Content elements to express it. As implemented, the hard-coded Google Maps example actually requires that each JLabel is contained within it’s own JPanel in order to more easily control background colors, and to allow menu item selection from a wider grid. In terms of populating the Application Model, the related JLabel and JPanel form a Content Grouping, and it is the Content Grouping is the true counterpart to Site Title, and the Menu Item in the Semantics Layer.
+
+The original Google Maps search page fragment, shown in  REF _Ref65918539 \h Figure 10, looks slightly different to the rendered version. The position of “Maps” in particular stands out compared to the concrete rendering in  REF _Ref65645969 \h Figure 1. The difference between the two versions is partly the result of the chosen composition rules in the hard-coded example, and partly a naivety in the Rules and Statements given for the Semantics Layer.
+
+
+
+Figure  SEQ Figure \* ARABIC 10 - Original Google Maps search page
+The second big difference between the two versions is the triangle symbol after the “more” menu item in  REF _Ref65918539 \h Figure 10. The triangle does not feature in the content given for the Semantics Layer, or for the Inventory Layer, despite it being a major feature of the menu. This reflect the CISNA abstract user interface view of a document; the triangle represents the same navigation to the “more” sub-menu, and its meaning is tied up with the visual metaphor used to express drop-down menus. The triangle is an artefact of the Composition Model, and not of the Semantics Layer, and this leads to the observation that the Runtime System also requires inventory support, as does the Application Model itself (the rest of the content can be found by navigation through the Semantics Layer). The further amended model of the Runtime System shown in  REF _Ref65929613 Figure 11.
+
+
+Figure  SEQ Figure \* ARABIC 11 - CISNA Runtime System (Step 3)
+
+This gives us a Composition Model with two bridges, one to the Application Model, and one to the Inventory Model, as shown in  REF _Ref65929524 Figure 12.
+
+
+Figure  SEQ Figure \* ARABIC 12 - Composition Model and bridges
+
+Metaphor Selection
+
+ REF _Ref65929524 Figure 12 shows how the Composition Model’s rule-sets map to the metaphors of the Application Model, and identifies the additional inventory items required in presenting content and interacting with the user.  Following the relationships from Presentation Metaphor and Grouping Metaphor in  REF _Ref65842697 Figure 4, there is a composite relationship to Interaction Space. Considering this in more detail, the relationship is between metaphor and the properties of the Interaction Spaces utilized by the metaphor.  REF _Ref66156182 Figure 13 expresses this concept by adding an additional model, the Interaction Model, and bridge from it to the Composition Model.
+
+
+
+Figure  SEQ Figure \* ARABIC 13 - Metaphor and Interaction Properties
+
+Interaction Spaces
+
+Nesbitt’s work on multi-sensory design spaces identifies three “design spaces”, which in my terms are “Interaction Spaces”. These are: visual, audio, and tactile, which he also considers in terms of metaphor. Those three design spaces are closely related to the five senses of sight, hearing, touch, taste, and smell. However, I would argue that there is a significant difference between design/interaction space and the senses: perception. A person perceives the world through their senses and acts accordingly; it is their capacity to perceive and to act that forms the Capability Model in my user profiling, not directly the physical properties of the design space. So, they are related but not equivalent.
+
+I would also argue that interaction spaces are not quite the same as Nesbitt’s design spaces. What are the properties of the visual design space in an augmented reality system? Within the user’s field of view there may be different elements, each with their own presentation attributes. Taking the relational database metaphor of views of content, an Interaction Space is a view of potentially many design spaces. This gives rise to an extension of the Interaction Model, shown in XXX.
+
+
+
+Navigation
+
+
