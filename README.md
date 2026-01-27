@@ -3,6 +3,9 @@
 **Author:** Robert Dodd
 **Period:** Circa 2006-2010
 **Location:** University of Teesside, Accessibility Research Centre
+**Status:** Unpublished and undefended thesis work
+
+> **Note:** This repository contains draft materials from an unpublished and undefended PhD thesis. The work represents research conducted at the University of Teesside but was not formally submitted for examination or publication.
 
 ## Thesis Summary
 
