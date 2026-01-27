@@ -110,7 +110,21 @@ organized_phd/
 ├── 06-images/                   # Supporting images
 │   ├── rendering.png
 │   └── modality ontologies.png
-└── converted_files.txt          # List of all converted files
+├── 07-publications/             # Conference papers & proposed publications
+│   ├── README.md                # Publication summaries
+│   ├── 20yearsOn.doc/.txt       # Dexter Model 20-year review
+│   ├── 923-RobertDodd.pdf/.txt  # Conference paper (ID 923)
+│   ├── A Vision of Future Accessible Mobile Technology.doc/.txt
+│   ├── Accessibility Through Adaptation(1).doc/.txt
+│   ├── User Capability in the Adaptive World.pdf/.txt
+│   ├── User Profiles for the Mobile World.doc/.txt
+│   ├── alt.doc/.txt            # Alternative text paper
+│   ├── atnac-4.doc/.txt        # ATNAC conference paper
+│   ├── hoc.doc/.txt            # HOC workshop abstract
+│   └── w4a-blind.doc/.txt      # W4A conference paper
+├── LICENSE                      # CC-BY-4.0 license
+├── .gitignore                   # Git ignore rules
+└── README.md                    # This file
 ```
 
 ## File Organization
@@ -132,6 +146,7 @@ Original Microsoft Word (.doc, .docx) and OpenDocument (.odt) files were convert
 3. **`02-problem-hypothesis/Statement of problem.txt`** – Problem statement
 4. **`03-methodology/methodology.txt`** – Detailed research methodology
 5. **`04-core-models/cisna-model/theCISNAModelOfAccessibleAdaptiveHypermedia.txt`** – Core CISNA model paper
+6. **`07-publications/README.md`** – Conference papers & proposed publications summary
 
 ## Research Context
 

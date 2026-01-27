@@ -1,0 +1,357 @@
+Accessibility Through Adaptation
+
+The Assessment Scenario
+
+John, an undergraduate student, is experiencing problems using computing equipment necessary for his course and approaches the university’s support services for help. They arrange for John’s computing needs to be assessed. Through a combination of questionnaire and interview, a number of possible solutions are identified for John to personally evaluate and select from.  When doing so, he discovers that with additional hardware and software he can successfully use a personal computer to the level necessary for his course work, but that mobile computing is still a problem for him and he will sometimes require a paper-based solution for use in fieldwork.
+
+
+Defining Accessibility
+
+One of the most interesting aspects of the discipline of accessibility is the difficulty faced in defining the term ‘accessibility’. A starting definition would be to say:
+
+An entity is accessible if all people who need to interact with it can do so effectively for a given a time and place. 
+
+The problem is in the details of that context: it is difficulty in defining an ontology for accessibility such that it accurately and precisely covers all aspects of the built environment, all aspects of access to goods and services, and all aspects of timely access to content available through human-computer interaction; consequently, the ontology surrounding the term ‘accessibility’ is entirely context dependent. 
+
+So, in choosing the accessibility context for a case such as the assessment scenario, a number of questions would need to be considered:
+What are the problems that John faces? Are they ones of timely access to content, or ones of participation in a collegiate environment, or both?
+Are the problems that John faces, a problem of accessibility or usability? 
+Is the medium of John’s problems tangible or intangible?
+How much of the “problem” computing technology must exist in the solution to John’s problems, for the solution to be called accessible?
+Can John’s computing needs, and the identified solutions, be generalized to relate to groups or classes of computing user?
+Question (a) demonstrates the problem in scoping accessibility problems. Delivery of content is largely a technical problem based upon ensuring that modes of interaction between user and content exist that are appropriate to the user’s physical and cognitive skills for that environment. If the question is one of validity, in ensuring that all students on a course experience the same learning outcomes, and if that course uses say, a Virtual Learning Environment (VLE) including discussion boards, to provide support to students outside of teaching hours, any solution becomes substantially more complex than a simple substitution of content medium. Substitution of paper for electronic content arguably provides accessibility of content for John, but only solutions that would allow the John use of the VLE are likely to be considered accessible in that context.
+
+Question (b) relates to user experience when interacting with mechanical and electronic devices. Substitution of the electronic version of Encyclopaedia Britannica with the paper version may conceivably resolve some of John’s problems with his course, but the quality of that user experience varies in terms of speed of access, restrictions on physical location of the paper copy, and the search tools available to find, collate, and follow content within the encyclopaedia. Yes, john has gained access to content, but the usability of the content is poorer for him than for a student able to use the electronic version. Similarly, it may be technically possible to provide John with access to the VLE, but that does not mean his user experience is guaranteed to be as good as that of his cohort. What the definition of accessibility merely requires, is that any interaction is effective for that time and place.
+
+Question (c) relates to the characteristics of the media through which John communicates with computing devices. There are tangible, physical aspects to those media, for example mechanical buttons, digital displays, and device surfaces and textures. There are also more intangible characteristics to consider, for example information and understanding can come from relative positioning of content within, to use Nesbitt’s [x] term, a spatial substrate, and its temporal encoding. Another important intangible characteristic is the availability of interaction modalities for the given media in a particular context. Even if john has some capacity to interact with tangible elements of a device, use of, say, a standard graphical user interface may be beyond his capabilities if the bandwidth for communication is too low.
+
+Question (d) relates to how we perceive accessibility in particular contexts, and legal frameworks that support that perception. Potential accessibility solutions to John’s problems break down into three categories: substitution, augmentation, alteration. Substitution, for example of paper content for electronic content as discussed earlier is a potential solution for John, but it would not necessarily be a solution in the USA if content was being supplied online by a government agency as Section 508 of the Americans with Disabilities Act [x] defines minimum accessibility requirements for electronic content supplied by government and its agencies. That is not to say that substitution cannot be offered, but that steps must be taken to broaden access to the standard electronic content. So, for legal reasons, an accessibility solution for John in the UK, may not be a solution for John in the USA.
+
+Question (e) relates to the way accessibility as a discipline considers user need.  In commercial applications such as Microsoft Windows XP [x] the user is invited to self-identify as disabled (the accessibility options require selection using a button drawn as a wheelchair icon) and is presented with possible adaptations to the standard interaction modalities grouped around the communications media supported by the application namely, keyboard, sound, display, mouse. Those options allow for adaptation and augmentation within individual design spaces, and synchronized duplication of information across design spaces. Similarly with web browsing with Internet Explorer, the default web browser for Windows, accessibility is considered in terms of pre-defined adaptations of the standard browser interaction modalities. Apple’s OSX platform takes a similar approach, with similar sub-headings, but with different sets of solutions under each heading.  This grouping-by-media approach is sometimes taken in education, notably the Access for All initiative [x], and the follow-on work by the Dublin Core Accessibility Working Group [x] who characterize content in terms of available substitutions, augmentations and adaptations to course material, and more generally to documents. CETIS in the UK, xxxxx. All of these examples in some way make assumptions about a user’s capability to operate in particular circumstances, either implicitly in the choices offered to the user, or more explicitly in the case of CETIS through use of user profiles. In John’s case however, user profiling is likely to be more explicit with a formal or semi-formal assessment of his physical capabilities by a member of the university staff, with that assessment leading to a trial-and-error experimentation with specific assistive technology available within the university setting for the specific equipment used. 
+
+To summarize, accessibility as a term depends entirely upon the context of its use. The related ontology, measures, and solutions enabling accessibility, depend upon the perception of the problem to be solved, and any legal framework associated with that context. They also depend upon a product designer’s perception of a user’s capability to operate within the supported media and related interaction modalities for the given context. Different perceptions of capability and user need lead to different offered solutions.
+
+Scoping accessibility in these terms, this thesis focuses upon computing devices, particularly hand-held computing devices, the media and modalities through which the user interacts with the device, the physical and cognitive capabilities of the users involved, and the legal framework of UK accessibility legislation unless otherwise stated.
+
+Measuring Accessibility
+
+The definition of accessibility given in section  REF _Ref95539722 \r \h 1 states:
+
+An entity is accessible if all people who need to interact with it can do so effectively for a given a time and place.
+
+Assessing whether this goal of accessibility has been reached requires a clear understanding of the population of the user base for that given time and place.  It also requires a clear understanding of the capabilities of the entity itself to interact with users at that time and place.
+
+To fully understand the user base is to understand the capabilities of the individual users to operate within the constraints of the given media and supported interaction modalities at that time and place. This is surprisingly difficult to know with any real precision. Similarly, it is equally difficult it identify, for a given entity, who exactly is the user base, as the following example demonstrates.
+
+
+
+Example  REF _Ref95543428 \r 2.1
+Exactly, who can use the HB pencil shown in  REF _Ref95541106 Figure 1?
+
+
+Figure  SEQ Figure \* ARABIC 1 - an HB pencil
+
+The initial naïve response to such a question is perhaps is someone who can see and hold the pencil. But such an answer immediately raises more questions: how well must you be able to see? Does the ambient lighting conditions affect the this`/ dose the reflectivity of the drawing surface affect this? How well must you be able to hold the pencil? Do the surface and its position in space affect use? Is it necessary to read the text to know that it is an HB pencil? Is it necessary to know whether the point is sharp enough? Is it necessary to also be able to sharpen the pencil? Is it necessary to be able to also use an eraser when using the pencil? How much feedback must there be to know that the pencil in on the page? And so on. It is also true that there are blind artists who can paint and draw [x].  Another series of question that arise is about content: what is the pencil to be used for? Does it change the user base if the use is handwriting rather than drawing? Does it change the user base if the handwriting is only for the user and not for others? How small is the surface to be written or drawn on? How does the pencil have to be held for the actions to be taken (point down, side down etc.)? 
+
+As with the definition of accessibility, the definition of the potential user base of a pencil is extremely context sensitive, and a similar argument can be made for the potential user base of any computing device.
+
+
+Example  REF _Ref95543428 \r  \* MERGEFORMAT 2.2
+Exactly, who can use the mobile phone shown in  REF _Ref95544424 Figure 2, and is this different to the user base of the mobile phone shown in  REF _Ref95544545 Figure 3?
+
+
+
+Figure  SEQ Figure \* ARABIC 2 - Apple iPhone
+
+
+Figure  SEQ Figure \* ARABIC 3 - Nokia Series 60 mobile phone
+
+Again, the naïve answer would be to say that, for both phones, the user must be able to see, hear, touch and hold the phone. But again, that simply raises more questions. For each phone, how good must be your vision to use the phone? How does ambient lighting conditions affect this? Does the reflectivity of the device surfaces affect this? How much mobility is necessary to manipulate the touch screen? How much mobility is necessary to press the buttons? How much mobility is required to use the built-in camera? Do ambient lighting conditions affect the user base? Does the application in use affect the user base? Is the phone considered usable if the user cannot connect the battery charger? How much hearing is required to use the phone, and at what definition of hearing loss would the phone be considered unusable? Would using a standard hands-free accessory change the user base? How stable must the device be for these users? Is there a difference between being hand held and placed on a solid surface? If there a difference in usability between  left and right-handed users?
+
+As with the pencil example, the answer is extremely context sensitive. We have to understand the capabilities and operating context of the device, and the content the user is accessing, in addition to quite detailed information about the user’s physical and cognitive capabilities when operating in that specific context.
+
+The Nokia Series 60 phone is chosen to show another aspect related to the user base: configurability. It is possible to download an (expensive) application, called Talks [x], to any Series 60 phone that provides screen-reading functionality on Series 60 phones similar to that found on personal computers. Clearly, with screen reading technology incorporated, the potential user base again changes.
+
+
+Both examples asked who could use an existing entity, which is a superset of the more limited situation in the Assessment Scenario, where a single individual, John, is assessed to see if he has the capacity to use any of the available computing technology needed for his course.  It is also the starting point for developing assistive technology for existing products, for example: exactly, who can use Microsoft Windows XP, in what context, and which additional users do we need to support? In the case of Windows XP, Microsoft reported that they develop for xxxxx personas  (fictitious target users) that they believe represent their core user base [x]. Each of these users is described in detail in terms of their approach to computing, lifestyle, hobbies, and environment in which they interact with computers. That is to say that Microsoft’s personas are social models of their users, and not physiological ones. In terms of the reported personas, no physical impairment is considered, other than those implied by the ageing process. A target user base is, of course, not the same as the actual or the potential user base.
+
+Designers of computing devices and (new) software start with different questions: who are our target users, and what are their capabilities? The personas approach described above is one approach, but that, at leas at the level reported by Microsoft is is a social model, and whilst it helps answer some questions about some context, for example what applications does the user, and in what locations, it says little about user capability in that location. A second approach is to make broad generalizations about a range of user groups in terms of capability to read specific fonts and sizes, discriminate between colours, focus on a point on a screen etc, and then to add apply a work-flow to the design process to increase configurability of the product in order to broaden access to the device or program; an example of such a work flow is that required by Section 508 of the US American with Disabilities Act, and that recommended by the Web Accessibility Initiative (WAI) [x] when developing web pages. 
+
+What is interesting to note here, is that the accepted measures of “accessibility” of electronic content in the case of Section 508, and web pages in the case of the WAI, is the perceived degree of conformance to the prescribed workflow, and not a list of target users or supported users, nor a list of supported operating contexts for those users. That is to say, quality assurance, not quality control.
+
+Given accessibility and measured  in such terms, this thesis is primarily about quality control.
+
+Identifying The User Base
+
+Typically within the accessibility discipline, users are considered as members of sets of individuals who are grouped by similar physical and cognitive impairments, which is expressed as subsets of the human senses: sight, hearing, touch, smell, taste. Typical terms include blind, visually impaired, deaf, hard of hearing, deaf-blind, motor impaired. Of these, deaf-blind is noticeable as being one of the few commonly used terms that express impairments that span more than one sense.
+
+This impairment approach to describing users is a subtractive view of human capability, subtracting ‘faulty’ capabilities from the universal set of human capability in order to arrive at the capabilities of the specific person. 
+
+There are a number of concerns to be considered in such an approach:
+The fidelity of any model of capability or impairment.
+The character of an individual capability or impairment.
+The coupling that exists between capabilities across the senses.
+
+Any model of human physiology is only as good as the fidelity of the copy made. That fidelity is composed both of general accuracy of function, and the precision of measurement. Taking hearing for example, a simple model of hearing might be the frequency response of the user in each ear, a more sophisticated model may also include the Head Related Transfer Function (HTRF), and an even more comprehensive model may include the capacity to identify the location of a point source of a sound. Having created such a model, one then must consider how to group individual users based upon that model. What does it mean to say someone is “hearing impaired”? Does it mean they are impaired in one of the modelled areas? Is it meaningful to group people with poor frequency response in the same group as people who cannot locate a point source of sound? Does it make sense to group people who have poor upper frequency response with people with low frequency response? How should people with a mix of hearing impairments be grouped? As with the more general problem of measuring accessibility, the answers depend upon the context in which sound is being used.
+
+Similar examples are possible for each sense. 
+
+
+Example  REF _Ref95647546 \r  \* MERGEFORMAT 3.1 
+
+A simple example of the impact of fidelity on accessibility is the accessibility control panel in Microsoft Windows XP for hearing impaired users as shown in figure xxx. Two solutions to hearing impairment are offered: SoundSentry, and ShowSounds.  SoundSentry provides a visual warning when Windows plays a sound. ShowSounds requests that application programs running on Windows provide captions for speech and earcons. So, by implication, the user is considered to be either deaf  or to have ho hearing impairment. There is no option to adjust for particular frequency response, no option to support a user who has mono-aural hearing, no option the request adaptation or augmentation for impairment of 3D perception.  Whether such limitations are considered to be failings depends upon the context. In this case Windows XP is a relatively old version of the Windows operating system that has a very limited use of sound as earcons, and had available at inception a very limited number of third party virtual reality applications that could make use of high quality 3D sound. In this context, such a low fidelity model of hearing is perhaps acceptable.
+
+
+Example  REF _Ref95647546 \r  \* MERGEFORMAT 3.2
+
+Model fidelity also affects the outcome of academic research. For example, a small study into a method, “Steady Clicks”, to reduce accidental mouse clicks [x] was based upon a sample of eleven users, all of whom had some form of motor impairment. One of those users suffered from Multiple Sclerosis (MS), which is a disease of the central nervous system. MS is a complex disease which is progressive in its severity, with a broad range of symptoms including muscle spasms, kinaesthetic problems caused by losing the sense of touch, and double or blurred vision. Not all sufferers experience all of the symptoms, and those symptoms vary in severity from person to person, and vary in severity for an individual over time, even during the course of a single day. My own experience in researching MS as part of my Masters dissertation in 2003 found that experiments had to be repeated for an individual with MS over a number of sessions in order to gain a valid measure of capability. In the case of Steady clicks, the experiment was carried out over 90 minutes on a single day for each user. The MS user happened to be experiencing some motor problems at that specific time. No detailed evaluation of the condition of the user against a user model of MS was made, so it is unknown what combination of symptoms, or their severity, the user actually experienced during the experiment, nor which symptoms they experienced previously (the subjects were questioned about previous experience with a mouse). Consequently the results of the research are only able to say how well the test subject did on that specific test day, and that the results suggest that “steady clicks” may help users with MS. Because the Steady Click research was only a preliminary study, the low fidelity of the user model did not significantly affect the validity of the results, although it did constrain what statements could be made in the discussion and conclusion of the paper.
+
+
+The fidelity of a model of user capability is also influenced by the selection of the user characteristics to be modelled. Jacko’s investigation into sight [x] for example, includes consideration of colour perception, stereo perception, field of vision, and ability to focus. Such capabilities would be considered by Card-Mackinlay [x], and subsequently by Nesbitt [x] as properties of a design space that are automatically processed by the brain during perception of the external world. Other, more abstract user capabilities related to sight, and not considered by Jacko, require a larger cognitive load. The capability to read text is perhaps the most obvious example, where that capability is dependent not only upon cognitive capacity, but upon visual capability to read particular sizes of digitized characters (text drawn using discrete pixels on a display), the kerning between characters, the length of ascenders and decenders on the character, and so on. These are certainly related to colour perception, field of vision, and the ability to focus, but are of more immediate interest to a computer program attempting communication with a user. For example Cascading Style Sheets (CSS) are used in web pages to guide user preference, and by implication potentially capability,  of  text size, colour, and general font metrics. So, the fidelity of a user capability model is also governed by the relevance of the selected criteria for the context of its use.
+
+The capability to read text is one example of how individual user capabilities are sometimes coupled and grouped both within, and across, design spaces (here extending Nesbitt’s view of design spaces to also include cognition). In this case, it is a dependency relationship between capabilities involved in controlled processing, and those involved in automatic processing. There are, however, examples of coupling purely between capabilities involved in automatic processing.
+
+
+Example  REF _Ref95647546 \r  \* MERGEFORMAT 3.3
+
+The capability to focus on a point depends on proper functioning of the eye. The capability to focus on a point on a computer screen depends also on the stability of the screen relative to the eye, since the eye must then track the relative movement. If the user experiences muscle spasms that cause the head or hand to jerk, the capability to focus on a specific point on the screen diminishes. If the platform on which the user is situated is unstable, for example in a moving vehicle, then the capability to focus on a specific point on the screen diminishes. If the device has a reflective screen and is situated in poor ambient lighting conditions, again the capability to focus on a point on the screen may diminish. So, even the effective capability of something as simple as focussing on a point is influenced by the user’s haptic capabilities, and by the context in which the device is used.  This is particularly true of the world’s most ubiquitous computer, the mobile phone.
+
+
+The starting point for this research, was to express the user base of computing devices by using the conventional practice of identifying, and grouping, individual users by their the capabilities/impairments relative to a perceived norm, whilst addressing each of the concerns identified in this section. 
+
+Expressing the User Base
+
+Starting with the assumption that a user base can be expressed by identifying, and grouping, individual users by their the capabilities/impairments relative to a perceived norm for an individual user, one first needs a mechanism to express that norm. 
+
+One natural approach to modelling normative human capability is to begin at the clinical level, and to consider what physical properties related to the senses may be used to convey information between a user and some external entity, for example a computing device; this was the approach taken to vision by Jacko [x] who evaluated “partially sighted computer user performance (PSU) on basic identification and selection tasks within a graphical user interface, to compare PSU performance with fully sighted user (FSU) performance, and to link task performance to specific aspects of visual impairment”. In particular Jacko chose to consider visual acuity, contrast sensitivity, visual field, and colour perception. A user’s visual capability was defined as a set of specific values for each of these aspects. Jacko went further, and identified particular data combinations in terms of their clinical diagnoses such as Retinitis
+Pigmentosa, Albinism, and Optic Neuritis. User performance was then compared to identification and manipulation of icons within a Graphical User Interface (GUI). The icons were varied in size and colour combinations in order to identify which clinical properties most affected the ability to interact with the spatial and colour properties of the GUI. In essence, this was attempting to map between user capability and device capability at the clinical level.
+
+Pixel size (expressed in terms of icon size) and colour variation used in Jacko’s experiments form a small part of Nesbitt’s visual design space [x].   To summarize and simplify, a design space is related to a particular sense (sight, hearing, touch, smell, taste) and comprises a spatial substrate (a physical geometry) appropriate to human perception using that sense, marks which represent elemental entities located at a point within the coordinates of the geometry, properties associated with each mark that express perceivable characteristics related to human physiology, and temporal encodings for each mark that describe the change in location and properties of a mark over time. 
+
+The approach Nesbitt takes to expressing the structure of design spaces is to use the Unified Modelling Language (UML) [x], a notation used normally to describe software systems in terms of composition, association, polymorphism, and interaction over time. It is UML’s class diagram that Nesbitt relies upon to express the structure a design space, is essentially an organized collection of tabular content. 
+
+As it stands, Jacko’s visual user capability table (table 2 in her paper) would represent potentially one table in UML. Given that the table represents only the clinical model of vision, it is possible to envisage user capability as an organized collection of related tables described in terms of composition, association, and polymorphism similar to Nesbitt’s modelling of design spaces.  Further with both user capability and device capability (through design spaces) both expressed in the same structured form, it is possible to further envisage the causal associations between user capability and device capability to be expressed using the same tabular notation to produce a comprehensive model of capability. This was the approach taken as part of my research.
+Expressing the Accessibility of Content 
+
+In section  REF _Ref95539722 \r 1, accessibility was defined as:
+
+An entity is accessible if all people who need to interact with it can do so effectively for a given a time and place. 
+
+Given models of user and device (i.e. entity) capability in terms of a user’s perception through the senses as in section  REF _Ref95786194 \r 4, accessibility becomes a question of how the interaction modalities available for the device can support the user’s capabilities for a given context. 
+
+Specifically, taking computing devices as the example, interaction modalities inhabit one or more the physical design spaces associated with sight, hearing, and haptics. Those interaction modalities may utilize allegory, metaphor, metonym, and synecdoche, to help aid a user’s understanding of the protocol involved in communicating through that modality. One simple example of such an approach is managing content on computers as document files contained within folders. 
+
+For brevity, unless otherwise stated, when this thesis refers to metaphor in the context of interaction, it is used as a general term for allegory, metaphor, metonym, and synecdoche. 
+
+Not all metaphors will be appropriate to all users. The visual metaphor of a scrollbar for example, used to express both position within a document or canvas, and to express the relative quantity of that document or canvas that is visible, is not particularly suited to a user who is blind, or in some instances who is visually impaired; understanding the relative position and relative quantity of content expressed is useful, but not necessarily accessible by using the scrollbar metaphor. So, one of the tests of accessibility for a computing device or program, is whether the necessary physical capabilities required by metaphors used in interacting with a user, match the capabilities of the defined user base for the given operating context. 
+
+Tagging, particularly of computer programs, to identify needed user capability is an approach to accessibility taken up by international standard ISO/IEC 24751 [x] to describe the accessibility educational materials. The standard is based on the work of the Dublin Core Accessibility Working Group [x], which itself is based on the Access for All specification [x]. 
+
+
+Example  REF _Ref96223511 \r  \* MERGEFORMAT 5.1
+
+ISO/IEC 24751 takes the Dublin Core Accessibility Working Group’s definition of accessibility. 
+
+“Accessibility: the ability of the learning environment to adjust to the needs of all learners.”
+
+Note, this is an example of the contextual nature of accessibility and its ontology discussed in  REF _Ref95539722 \r 1 above.  Also note the use of the word “adjust” in the definition; this is a standard focussed on describing adaptations of the learning environment to suit individual users, and it does so by tagging content with metadata to identify particular needed user capabilities for effective use, and to identify equivalent duplicate content such that a selection based on individual user capability can be accomplished. So, there are two types of metadata tagging in use:
+Tagging of content to identify needed user capabilities.
+Tagging of content to identify equivalence.
+The standard also intends to describe user capabilities in terms of metadata, but at the time of writing, this section of the standard is yet to be published.
+
+The metaphor used to describe the learning environment (essentially content) is that of classification of documents, a librarian’s view of the world [some of the key personnel involved in creating the standard are trained librarians]. 
+
+Librarianship is also the underlying metaphor Dublin Core itself from which the standard is drawn. Dublin Core metadata standard describes itself as a “small language for making a particular class of statements about resources” [x] and goes on to describe its semantics in terms of nouns and adjectives. For example a document may be, trivially, described in terms of its author, title, and publication date.  In the same way, it is possible to describe it in terms of utilized design spaces (say visual, sonic, haptic) that immediately helps scope the user base. The finer the granularity used to describe needed user capabilities, the more precise the definition of user base.  It is this aspect of Dublin Core that is at the heart of the ISO standard. In order to identify and group capabilities in this way, the Dublin Core Working Group on Accessibility also extended the Dublin Core set of keywords to include the term “accessibility”.
+
+[needs checking, things have moved on…] The Dublin Core Working Group on Accessibility, and the Access for All standard both use the same idea of describing resources in terms of nouns and adjectives to describe equivalence for example, “relation:is-version-of”, “relation:replaces”, and “relation:has-equivalent” to describe the three key approaches to accessible content, namely:
+Substitution.
+Augmentation.
+Adaptation.
+Whilst the granularity of the entities to be described for all three approaches, and the selection of user capabilities associated with those entities, are specific to education, the annotation of entities with their required user capabilities, and the semantic organization of an inventory of alternate or equivalent entities in terms of user capability, have broader application within accessibility. Such an organization of annotated entities to express aspects of accessibility is used within this thesis. 
+
+
+One of the challenges for this approach of annotating entities with their required user capabilities, and in organizing them to reflect the options of substitution, augmentation, and adaptation, is to identify the entities in question.
+
+In the case of ISO/IEC 24751, the accessibility ontology involved is one of educational material that, at first glance,  involves sets of related, discrete, entities targeted at some defined learning outcomes. 
+
+In the case of computing devices and programs, which is the focus of this thesis, the answer is more complex because of the intangible, and configurable, nature of computer programs and their associated user interfaces. 
+
+
+Example  REF _Ref96223511 \r  \* MERGEFORMAT 5.2
+
+Applying the annotation concepts of the ISO standard to mobile phones and PDAs raises a number of questions. 
+Is it the device as a whole that is being annotated for accessibility, or is it the programs that execute on it? If it is the device as a whole, is it the factory-settings configuration that is being annotated, or one that requires additional downloads for say text-to-speech, as is the case on Nokia Series 60 phones?
+What configurations of the phone or program are to be considered? 
+Should use of provided accessories (battery charger, headphones, hands-free blue-tooth headset etc) be included in the annotation?
+Do the required user capabilities remain constant across all operating contexts? In the case of educational use say, are the user capabilities required in a classroom the same as those required for fieldwork?
+How equivalent are the chosen annotated configurations/devices when used in particular contexts? For example, some interaction modalities may be significantly slower and more cumbersome than others for particular users raising concerns over the use of programs for online ‘live’ discussions. 
+
+
+As always with accessibility, it is the question of context that repeatedly surfaces in the questions. So, in the same way that it is almost impossible to consider defining user capability without referring to operating context, it is equally true when attempting to annotate the entities to be used by that user. Further, when we consider questions such as (a) and (d), we also must return to the question of the fidelity of the model of the user. Considering the complexity of user capability discussed in previous sections of this chapter, it is difficult to imagine a simple tagging scheme for entities, as proposed by the ISO standard, which could effectively accommodate a high-fidelity user model. That the Access for All standard, upon which the ISO work is based, has been found to be useful, again demonstrates the context-dependent nature of accessibility; presumably the level of annotation for teaching materials used in Access for All matches a low-fidelity model of the user found appropriate to the given teaching contexts considered.
+
+So, whilst this thesis builds upon the concept of annotation of entities to help express accessibility, the fidelity of user capability models drives the investigation of annotation techniques for these entities. More formally, user capability modelling must entail (in the mathematical sense) the user capability requirements models used in annotating the entities.
+
+Adapting Content
+
+The goal of annotating content discussed in section  REF _Ref96307105 \r 5 above, is one of describing needed user capabilities for use of particular entities in order to allow for a matching process between potential users and available entities, which corresponds to the process of evaluation undertaken in the Assessment Scenario given at the beginning of this chapter. To go further requires us to step beyond the “librarianship” model of accessibility where we annotate and catalogue, and consider how that matching process may be automated. Again, context is all-important, and the approach to automating the matching process depends on the entities involved and their context of use. 
+
+
+Example  REF _Ref96312204 \r  \* MERGEFORMAT 6.1
+
+An example of automation based on Dublin Core style annotation is on-going work at the University of Teesside into [ lotti project… ] [x]. 
+
+
+In terms of computing, automated adjustment of entities and their use in order to accommodate individual users is seen in how computer programs adapt their user interfaces to match user preferences and capabilities; the sound options in the “Accessibility” control panel of Microsoft windows shown in figure xxxx is one example of this approach.   More generally, the accessibility control panel allows the user to influence the “accessibility layer” [x] of the Windows operating system. This “accessibility layer” guides individual programs both within the Windows operating system itself, and within third party programs running on it, in how they interact with the user. As an approach, this is not unique to Microsoft, and is found in user interfaces produced by Apple Inc. [x] and in graphical user interfaces that operate on the Linux operating system such as GNOME [x]. The technique even extends to some computer programming languages such as Java [x] whose GUI libraries are also built upon an accessibility layer, although in this case, it is at the level of individually executing computer programs rather than at operating system level.
+
+[check this] In each case, the accessibility layer performs three separate functions; it provides a view of currently presented content in terms of operating system level graphical elements; it provides a mechanism for programs to amend the source of user input through simulating key strokes and mouse movement; it provides a general mechanism, at operating system level, to influence the look and feel of presented content, guiding the presentation and interaction strategies of running programs. The ability to select high contrast for text and use of large fonts are typical of this latter function within the layer.
+
+In some instances, adaptation of user interaction may occur at a finer level, as is the case with by far the most ubiquitous of user interfaces today: the Web page.
+
+
+Example  REF _Ref96312204 \r  \* MERGEFORMAT 6.1
+
+To properly understand the accessibility issues surrounding Web pages requires an understanding of the context of their use. Web pages are presented to a user by a Web browsing program, which typically executes on an operating system of a computer that may, or may not, be a mobile device such as a mobile phone. 
+
+Clearly, the capabilities of the computing device, and its operating context, across all design spaces, impacts upon the accessibility of the Web page. The operating system, which may, or may not, have an accessibility layer, further constrains the user base. The Web browser executing on the operating system, that presents the page may further constrain the user base by its selection of both input and presentation modalities, and by limits on user configuration options.  The Web page itself constrains the user base in two ways. Firstly, the selection of the underlying web technology such as HTML [x], XHTML [x], SMIL [x], JavaScript [x], Flash [x], Java, constrains how content can be accessed, presented, and configured. Secondly, the effective use of that technology by the page designer affects the usability of the page for the remaining, constrained, user base. Of this very long chain of constraints and potential adaptations, it is only the final page design on the chosen Web technology that is covered by web accessibility guidelines [x].  
+
+Different Web technologies take different approaches to adjusting to user preference and capability. The Java programming language, as mentioned earlier, provides its own accessibility layer similar to that found in operating systems, as do newer variants of Flash. The XML [x] family of Web mark-up notations, including HTML,  XHTML, SMIL, and newer variants of Flash offer the designer Cascading Style Sheets (CSS) [x] as a means of allowing configuration of presentation details within individual design spaces, and substitution/augmentation between design spaces.  All other aspects of user configuration are, generally, left to the designer to implement using programming languages, or to scripts (mini-programs) embedded within the mark-up. 
+
+The ability to configure mark-up to suit user preference is further reduced by the current trend to replace static web mark-up with dynamically generated web pages that act as computer programs similar to Java, but without the associated accessibility layer; the most commonly encountered of these approaches during this research were Ajax Web pages such as Google’s World, Maps, Mail, and Docs applications [x]. Whilst CSS is still heavily used within Ajax applications, the direct mapping between mark-up elements and defined styles found in traditional mark-up is lost.
+
+The impact of operating context and user capability on accessibility across the mechanical, electrical, and software aspects of presenting a simple Web page, as can be seen in example  REF _Ref96312204 \r 6.1, is substantial. With any model of user capability impacting to such a degree, the fidelity of the model becomes acutely important, as does the consistency of the model across all aspects. Consider the current situation with commercial computing products; there is no single user capability model, nor any single model for user preference that is used across each of the design aspects. Industrial designers and ergonomics experts have rules of thumb for the mechanical aspects of a device. Operating systems designers have their own in-house models of accessibility layers and options. Web technologies have their own means of expressing user preference and needs through styles and/or additional accessibility layers. We designers offer users options, potentially utilise CSS, and record user preferences in cookies [x] or on their servers. There is no coordination, and no common model of user capability.
+
+Considering the adaptation of content across all of these areas is too large a task for one research project, and this thesis concentrates on considering adaptation of Web content, specifically Web pages to match user need, looking at how a general model of user capability can be used in this specific circumstance to drive adaptation, and then drawing conclusions about the usefulness of the techniques in other areas of user interaction.
+
+Adapting Web Content for User Capability
+
+Historically, web content has been associated with models of hypertext [x], and more recently with hypermedia [x]. In a hypertext, content is considered as static pages of related content, navigated by hyperlinks. In hypermedia, content is considered as pages of metadata representing elements of content, where the associated elements have a defined lifespan that may be synchronized with other elements. In short, hypermedia adds time, and adds a degree of referencing of content, to hypertext.
+
+Modern Web pages interfere with this purist view of hypertext and hypermedia by adding significant quantities of scripting that dynamically modifies the current page, turning the page into a mini, and sometimes rather more than mini, program; many of Google’s Web applications, for example, take this approach. The models of hypertext and hypermedia are preserved in this case, but only in terms of snapshots of the current page. In essence, scripting adds time to the description of hypermedia’s meta-model, creating a meta-model of a meta-model.
+
+Commercial technologies such as Java and Flash operate within the overall hypertext/hypermedia but provide their own content metaphors for the pages or page elements that they represent.
+
+For the purposes of this thesis, examples and discussion of Web content adaptation are constrained to the well-known, and standard, hypertext and hypermedia models of content, and associated implantations, rather than the commercially specific content metaphors used by Java and Flash.
+
+
+Example  REF _Ref96347380 \r  \* MERGEFORMAT 7.1
+
+Historically Web page content has been expressed using mark-up language that utilize subsets of the general model of hypertext/hypermedia. The most prevalent mark-up language was, and to some extent still is, Hypertext Mark-up Language (HTML). Over the years since its creating HTML has undergone a number of major revisions, with HTML 5 being the latest incarnation. HTML is a meta-model of the Web page structure, and a notation to populate specific instance of the meta-model for an individual page. The HTML notation also allows for embedded or externally referenced scripts that may dynamically modify the populated meta-model; the most widely supported scripting language is historically, and currently, ECMAScript [x] colloquially and widely referred to as JavaScript, the scripting language developed by Netscape Inc. [x] from which ECMAScript emerged as a European standard. 
+
+This thesis uses the better-known colloquial term JavaScript to mean ECMAScript.
+
+The structure of an HTML page was, until recently largely a version of hypertext with hypermedia style references to external elements, usually images. HTML 5 [x] brings the content meta-model much closer to hypermedia, although with limited explicit timing synchronization, preferring to rely on scripting in this area. Each page is considered to be nested containers holding text content, or meta-data referencing external, usually multimedia, elements, or executable script. Both the containers and the content of the containers are considered elements which themselves may be annotated with meta-data, and that meta-data may also contain script that activates on specific events related to that element.
+
+Particularly the embedding of script fragments and script activation in meta-data associated with page elements complicates the conceptual model of HTML, but essentially even HTML 5 conforms to the scripted hypermedia model described above.
+
+
+Given that the task in hand is to adapt Web content to match user capability, Web mark-up languages such as HTML described in example  REF _Ref96347380 \r 7.1, immediately raises a number of questions:
+At what granularity do we choose substitution, augmentation, and adaptation? At the page? At the container? At the individual element?
+Is it the element or its meta-data that is to be adjusted?
+How do we identify the fragment of HTML that needs to be altered? 
+Where is the annotation and organization of alternative content stored relative to the page? In the page? As meta-data stored with the elements? As externally referenced content?
+What mechanism causes the content to be altered for the given user?
+How do you reference content that may be dynamically generated through scripting, and hence does not have a static element to refer to?
+Are the answers to these questions specific to HTML?
+
+The approach taken within this research was to attempt consideration of the questions in relation to the scripted hypermedia meta-model discussed earlier, rather than the specifics of HTML with the goal of adapting and extending the model to help resolve these questions, before returning to consider the impact of such changes on HTML.
+
+Adaptation and Adaptivity
+
+So far three approaches to adjusting content to match user capability have been discussed: substitution, augmentation, and adaptation. The third of these, adaptation, needs further discussion.
+
+There are two ways a system may adapt to a given user. One is a passive approach, where the system is initially presented with a description of the user, and the system uses that description to select, or offer, appropriate design spaces and interaction modalities. The second approach is reactive, with the system observing the effectiveness of the underlying protocols used in communicating with the user, and adjusting its interaction modalities to improve and optimize communication. This second, reactive, approach requires some form of event history to be recorded for each user. The passive approach is commonly understood to be the meaning of adaptation in relation to accessibility; the adaptation options given in operating systems such as Microsoft’s Windows and Apple’s OSX conform to this view. The reactive approach is commonly referred to as adaptivity, reflecting the dynamic nature of the adjustments. Adaptivity is more commonly associated with usability issues, with Microsoft for example, monitoring frequency of application use to optimise user navigation, and the user experience, in their Windows operating system, but examples of reactive systems in accessibility also exist such as xxxxxxx [x] and xxxxxxxxx [x].
+
+Reflecting the differences between passive and reactive adjustment, this research argues for four, rather than three, strategies for adjustment to user capability:
+Substitution.
+Augmentation.
+Configuration.
+Reaction.
+
+Identification of the reaction strategy impacts on both how we annotate content for accessibility, and how we annotate a user’s capability model with historical data. It also raises a number of concerns about how a user’s capability model is recorded and presented to computer systems.  
+
+One starting point to consider reaction is to study it in another context. One existing context within this research is the model of scripted hypermedia, which by its nature is a reactive system. In considering how to annotate scripted hypermedia for accessibility, a more general solution to annotating  reaction in accessibility might be found, and this is the approach taken for this thesis.
+
+Notation
+
+Throughout this research, consideration of accessibility has focussed on various abstract models of design spaces, user capability, device capability, document structure, and external annotation of content to guide selection for accessibility.  In a number of cases, referenced material  expresses those models, in full or in part, using the Unified Modelling Language (UML) [x].
+
+UML is by far the most prevalent system-modelling notation currently used in computing, and is the result of the merging of three separate notations in the 1990s: Booch [x] , Rumbaugh [x], and Jacobsen [x].  It is only those three notations that are unified, not all system modelling notations, and was initially capable of expressing only the modelling concepts existent in those notations; subsequent updates to the notation have to some extent improved upon this. It is also important to understand that UML is a notation and not a method, a method being notation plus process. 
+
+There are many methods that have adopted subsets of the UML notation, including Executable UML [x]. Executable UML is the latest incarnation of the Shlaer-Mellor Object Oriented Analysis and Design Method [x] [x] which is a software method dating from the late 1980s and early 1990s.  
+
+There are a number of aspects of the original Shlaer-Mellor method that are of use in a research project such as this including:
+Semantic decomposition and counterparting.
+Emphasis on noun-verb-noun associations.
+A defined runtime event model.
+Subtype migration.
+Elegant handling for resource competition.
+
+Semantic decomposition and counterparting is of particular use. There are a number of separate, but related, problem domains surrounding my research into accessibility, notably design spaces, user capabilities for each sense, device capability, operating context, hypermedia, and general document structure; it is useful to be able to consider each in isolation within its own ontology, and to then identify and model commonality and relationships between the areas, which is the basis of semantic decomposition and counterparting.
+
+The emphasis on non-verb-noun associations means that Shlaer-Mellor models are able to concentrate on the information contained within a problem domain, rather than data composition; my research is a consideration and analysis of accessibility, not a programming exercise.
+
+For systems with dynamic behaviour, Shlaer-Mellor models are assumed to run on a virtual machine in much the same way as Java applications do, but at analysis level. The Shlaer-Mellor virtual machine guarantees a particular order in which objects communicate information, significantly simplifying descriptions of those objects.
+
+Sometimes objects identified during analysis behave differently and have different characteristics at different times during their lives. The classic example of this is an industrial robot, which may be a working robot, a failed robot, or a robot under test. In each of these cases the desired behaviour may be different, and the information about that robot will vary, yet it is very obviously still the same robot. Shlaer-Mellor handles this with the concept of subtype migration to allow the robot to be described by snapshots of its properties and behaviour over time. An example in term of this research is an element of content that may be sometimes presented visually and sometimes audibly. The properties and behaviour of the element may vary between design spaces, for example in duration, but it is still clearly the same content.
+
+When one considers presenting content on devices with, for example, limited screen acreage and limited sound channels, there is the possibility of competition for resources between items of information. Shlaer-Mellor directly allows for resource assignment, allowing relationships to contain a special form of state model.
+
+Personal experience in working with Executable UML on a commercial project for Nokia between 1998 and 2000, and significant commercial experience with Shlaer-Mellor between 1989 and 1998 gave confidence in the modelling technique, but not in the Executable UML notation that was cumbersome to use. So, for this research, the original Shlaer-Mellor notation was selected. A summary of the notation is given in Appendix xxxxxx.
+
+Abstraction
+
+One common thread running through both research and commercial implementations of user interfaces, is that of abstracting presentation aspects from underlying content. Commercial examples include the Document Object Model (DOM) [x] that supports the XML family of mark-up languages, including HTML mentioned earlier, the “accessibility layers” provided by many operating systems, and more recently, Web browser support for the XForms standard [x] which attempts to separate the layout aspects of electronic forms from the underlying content. Research into the usefulness of  XForms and similar technologies to accessibility was made by Trewin [x] who concluded xxxxxxx. [ Xxxx also…. ].
+
+
+Example  REF _Ref96477595 \r  \* MERGEFORMAT 10.1
+
+Modern versions of the mark-up language HTML, previously discussed in example  REF _Ref96347380 \r 7.1, approaches the separation of content from presentation largely through the use of meta-data to describe graphical and layout properties of a Web page as a whole, and of individual elements within the page. The meta-data can be explicitly attached to the page or element, or be described in more general terms either separately within the HTML page, or in an external file referenced from the page. Externally referenced style content is contained within Cascading Style Sheets (CSS) and is an object-based notation to describe variations in a standard style. Styles themselves are associated with presentational attributes such as font size and colour, background colour, relative positioning of the element on the page, border visibility and so on. More advanced versions of CSS (there are three major revisions [check…]) also allow for audio-based style information such as “voice-family” and “volume” to help guide text-to-speech engines during page rendering. Generally, Web browsers allow users to replace externally defined CSS with their own versions; how much impact this has on the rendered content depends on how styles have been used within the Web page itself.
+
+HTML describes page content as a nested hierarchy of containers of information. For example, a page may be described as containing a number of headings and paragraphs, and a table grid as rows of cells within the table. This hierarchy is expressed as an explicit static structure describing the hierarchy, all text elements, and references to multimedia content contained elsewhere. 
+
+Navigation between pages is through the user of hyperlinks, which refer to other Web pages, or locations within pages including the current page. A hyperlink is stored as part of the content structure. In HTML such links are considered unidirectional (the standard model of Hypertext [x] allows for bidirectional links).
+
+User input is described in terms of elements within the Web page, for example the “<input>” element, and is stored in the content structure along with presentation elements.
+
+
+What is noticeable in example  REF _Ref96477595 \r 10.1 above, is that there is no mention of metaphor in any form. Some presentation metaphors, and some input metaphors, are explicitly supported such as visual scrollbars for when presented content is too large to fully display, but they are not part of a general model of metaphors that may be added, removed, or amended.  HTML is not alone in this, and is common across the XML family of mark-up languages.  Consequently, except for a few defined metaphors embedded within the notation, expression of metaphor is fragmented across page elements and their supporting meta-data, and indeed embedded within scripts as is the case with Ajax based Web pages [x]. 
+
+Given that one of the methods to adjust content to suit user capability is to adapt that content, passively or reactively, and that user capability is related to the interaction modalities and metaphors in use, some additional organization of content and presentation is needed beyond that found in HTML and other XML family mark-ups.
+
+This thesis considers the problems of identifying and adapting interaction modalities through detailed consideration of HTML and its underlying hypertext/hypermedia models, revisiting the division between content and presentation to create a more comprehensive abstract model of content. In doing so, it relies heavily on the Shlaer-Mellor notation and parts of the associated method, to express the model, in particular the use of semantic decomposition.
+
+Fidelity
+
+Section  REF _Ref95647546 \r 3 discussed the importance of the fidelity of user capability models relative to the human physiology upon they are based. It was also noted that the required fidelity of the capability model depended upon the context of its use. 
+
+Similar arguments are also possible in terms of the fidelity in the annotation of content with requirements for user capability, where the fidelity of the user model must at least represent those physical capabilities that are meaningful to the physical context of the content and device being annotated. 
+
+The impact of fidelity on annotation is considered in the modelling content abstraction within this thesis.
+
+When one considers the complexity of human physiology, advances in medical research, and research into user interaction and novel user interfaces, the likelihood of an single capability model being correct seem rather slim, and this raises a major concern: how can high fidelity models be created, and how can they be assured? 
+
+Given the assumption that it is impossible to produce a single perfect capability model in a single pass, this thesis looks ahead to consider user capability models in terms of practical portable user profiles, and the evolution of their content and structure within user communities, drawing on the work of Dawkins [x] and Blackmore [x]. 
+
+Adaptation
+
+The repeated use throughout this research, and evident in the structure of the thesis, of a degree of semi-formalism in modelling each problem domain using Shlaer-Mellor notation, itself leads to a semi-formal approach to adjustment of content to match user capability. Since users capability, devices, and content, were to be modelled using Shlaer-Mellor, then the working presumption was that the solution to automated adjustment would be found within that particular view of semantic decomposition and counterparting. 
+
+When modelled as part of this research, the relationships between content, user, device and context could clearly be seen, but it raised more questions about the adaptation process that were considered and reflected upon in terms of future work.
+
+Of particular interest in this case, is how content is chosen for presentation to the user when the volume of content exceeds the bandwidth of the interaction media to express it. Looking at Web pages for instance, the amount of content one would choose to present on a small handheld device may be quite different to that on a large computer monitor; physical device characteristic may also affect choice of interaction modalities and navigation strategies. Currently Web content for mobile devices tends to be specially written, for example the content delivered from http://news.bbc.co.uk [x] varies depending upon device context – in this case the BBC read information provided by the Web browser to adjust content. Automated adaptation for user capability needs to make similar decisions, though not necessarily through that approach. 
+
+Further, if content is being augmented or transcoded between design spaces, there may be timing concerns and contention between competing content in a particular design space. To take an example from user interface design for mobile telephony, augmenting a visual indication of incoming text or email with earcons may conflict with indications of incoming calls or music play-out, with different resolution solutions in each case. Given the situation of unplanned (potentially at least, to the original designer of the interface) augmentation therefore throws up the possibility of computing deadlock if content is busy-waiting, and any adaptation strategy would need to consider this.
+
+Both forms of contention, from competing needs within a design space, and additional content injected into an already competitive design space, a natural direction to consider is game theory to help resolve this competition for interaction resources. 
+
+Treating content as a collection of competing, negotiating, entities also raises an interesting question for future research: what are the entities, and who or what owns and represent them during the negotiation. This thesis considers the impact of such a question upon adaptation schemes, and upon the structure of user capability models were  the owners of the entities to be considered autonomous user agents [x].
+
+One problem inherent in abstract user interfaces, is the potential loss of information when an abstract model is reified.  A simple example of information loss is happens with existing screen-reading technology for personal computers such as Jaws™ [x]. When Jaws transcodes a Web page into a spoken audio stream, it faithfully transcodes explicit content described as elements within HTML, but information normally provided visually by the Windows GUI in terms of relative length of the page or element, and current relative position in terms of play-out (information visually provided using spatial positioning on screen and scrollbars) is lost. 
+Information loss is therefore of two types: core explicit content, and implicit content encoded within the “default” rendering of the core. This raises questions about measures of accessibility, and how much information loss of each type is considered acceptable for something to be called “accessible” for the given operating context.
+
+This thesis considers the effect of such information loss and its impact on the definition of accessibility. Taken together with the consideration of game theory and autonomous user agents, a new more formal, measurable, definition of accessibility is suggested as the conclusion of the thesis.
+	
+
+ 
+
+
