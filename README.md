@@ -124,7 +124,8 @@ organized_phd/
 │   └── w4a-blind.doc/.txt      # W4A conference paper
 ├── LICENSE                      # CC-BY-4.0 license
 ├── .gitignore                   # Git ignore rules
-└── README.md                    # This file
+├── README.md                    # This file
+└── THESIS_PUBLICATION_MAPPING.md # Cross-reference mapping
 ```
 
 ## File Organization
@@ -147,6 +148,7 @@ Original Microsoft Word (.doc, .docx) and OpenDocument (.odt) files were convert
 4. **`03-methodology/methodology.txt`** – Detailed research methodology
 5. **`04-core-models/cisna-model/theCISNAModelOfAccessibleAdaptiveHypermedia.txt`** – Core CISNA model paper
 6. **`07-publications/README.md`** – Conference papers & proposed publications summary
+7. **`THESIS_PUBLICATION_MAPPING.md`** – Cross-reference mapping between thesis and publications
 
 ## Research Context
 
