@@ -122,6 +122,7 @@ organized_phd/
 │   ├── atnac-4.doc/.txt        # ATNAC conference paper
 │   ├── hoc.doc/.txt            # HOC workshop abstract
 │   └── w4a-blind.doc/.txt      # W4A conference paper
+├── 08-miscellaneous/            # Miscellaneous documents (empty)
 ├── LICENSE                      # CC-BY-4.0 license
 ├── .gitignore                   # Git ignore rules
 ├── README.md                    # This file
