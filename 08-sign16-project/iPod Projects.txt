@@ -1,0 +1,31 @@
+Accessibility Research Centre / e-Learning Project Number:  4
+
+Title
+Digital Inclusion and Mobile Technology
+
+Brief
+Description
+
+The project involves exploring the accessibility of mobile devices, focussing on creation of applications for Apple’s Video iPod to support active research within ARC (the Accessibility Research Centre). This is an area which currently has interest from both Microsoft and JISC (Joint Information Systems Council). Microsoft make the following quote:
+There has been growing recognition that the power of computing and information technology must be, and can be, extended beyond its traditional user base to reach people who until now have not had access to such technology. Being digitally connected has become ever more critical to economic, educational, and social advancement. The term “Digital Inclusion” is used in this document to describe the goal of expanding the capabilities of computing technology worldwide to better serve social and economic challenges of underserved communities, both rural and urban. (The term “Information and Communication Technology for Development (ICT4D)” is also often used in the academic research community to describe the same goal.)
+A number of sub-projects are offered, depending upon the student’s interests and backgrounds. Most projects are based on Embedded Linux running on an iPod and implemented in C/C++, with one project that is Java-based and executing on a web server.
+
+A note editor for a written form of sign language that uses the iPod thumbwheel for input.  iPod, C/C++ 
+A simple transcoder from JavaScript to an XML-based scripting notation to run as a proxy service. Just a subset to begin with. Can expand to match student capabilities.  Java-based.
+
+A basic text-to-speech implementation for the iPod. Essentially a very simple version of Festival. Just enough to demo the idea of automated adaptation of text content to audio on handheld devices. iPod, C/C++ 
+A simple game/quiz on the iPod using an iPod graphics framework designed for accessibility. iPod, C/C++
+
+Because of the nature and range of activities this project could also be split into a number of projects. 
+Location
+ARC laboratory, Victoria Road
+Hardware
+Video iPod, Apple iBook and Networked PC’s
+Software
+Java Toolkit
+uC Linux, GNU toolchain, Subversion
+Contact
+Steve Green or Bob Dodd
+
+
+

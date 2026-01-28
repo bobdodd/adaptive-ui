@@ -41,6 +41,10 @@ This PhD presents a novel systems‑modelling approach to **accessibility of han
 - Discussion of wider context (1 chapter)
 - Appendices (detailed methodology, population tables)
 
+### Related Projects
+
+**Sign16 – Sign Language Notation System:** Inspired by observing deaf students in lectures—reading slides in English, watching a sign language interpreter, and attempting to write coherent notes in English—this project created a form of signwriting for sign language. This work represents an extreme example of adapting to user need, where the communication medium itself must be transformed to bridge cognitive and sensory gaps.
+
 ## Directory Organization
 
 ```
@@ -116,13 +120,24 @@ organized_phd/
 │   ├── 923-RobertDodd.pdf/.txt  # Conference paper (ID 923)
 │   ├── A Vision of Future Accessible Mobile Technology.doc/.txt
 │   ├── Accessibility Through Adaptation(1).doc/.txt
+│   ├── AccessibilityThroughMVC.doc/.txt  # W4A 2007 paper
 │   ├── User Capability in the Adaptive World.pdf/.txt
 │   ├── User Profiles for the Mobile World.doc/.txt
+│   ├── User Interface as an Evolving Community of Practice.doc/.txt
 │   ├── alt.doc/.txt            # Alternative text paper
 │   ├── atnac-4.doc/.txt        # ATNAC conference paper
 │   ├── hoc.doc/.txt            # HOC workshop abstract
 │   └── w4a-blind.doc/.txt      # W4A conference paper
-├── 08-miscellaneous/            # Miscellaneous documents (empty)
+├── 08-sign16-project/             # Sign language notation project (Sign16)
+│   ├── sign16examples.doc/.txt    # Sign notation examples
+│   ├── sign16font.doc/.txt        # Sign font documentation
+│   ├── sign16font-2.doc/.txt      # Additional font notes
+│   ├── iPod Linux.odt/.txt        # iPod Linux assistive tech notes
+│   └── iPod Projects.doc/.txt      # iPod accessibility projects
+├── 09-miscellaneous/              # Miscellaneous documents & references
+│   ├── metaphor.pdf/.txt          # Paper on metaphor in UI
+│   ├── on selfish memes.pdf/.txt  # Paper on selfish memes
+│   └── ttk-api.pdf/.txt           # TTK API reference
 ├── LICENSE                      # CC-BY-4.0 license
 ├── .gitignore                   # Git ignore rules
 ├── README.md                    # This file

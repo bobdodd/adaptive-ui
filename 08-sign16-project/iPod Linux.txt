@@ -1,0 +1,85 @@
+Some Notes On iPod Linux for 5.5G
+Possible Assistive Technology Projects
+Robert Dodd,  Accessibility Research Centre, University of Teesside
+
+Introduction
+Apple's iPod comes in many flavours. In terms of the hardware/software bundle, it is now in its fifth generation. Generations are referred to as 1G, 2G, 3G etc. The generation number also increases by a minor version number, the video iPod for example is 5.5G. It is the 5.5G video iPod that is the subject of this note.
+Any individual iPod may be configured to be either a “MacPod” or a “WinPod”, referring to the 'owning' iTunes application. If the iPod songs are downloaded through iTunes on Windows, the device must be configured as a WinPod. If it iTunes is running on a Macintosh, it must be configured as a MacPod. As far as I can tell, the main difference is the file system used internally within the iPod. On a WinPod it appears to be a FAT32 disk partition, and on a MacPod it appears to be an ext2 partition. The upshot is that you can't plug a WinPod into a Mac without reconfiguring it, or a MacPod into a PC.
+This WinPod/MacPod difference is important if you want to install Linux on the iPod. A MacPod has a Unix based file system, and Linux can sit side-by-side on the same disk partition as Apple's software. For a WinPod, you must repartition the hard disk into two partitions, one for Apple, and one for Linux. This note is specifically about Linux on a MacPod only (I have a Mac).
+The version of Linux I have chosen to install is uClinux (http://www.uclinux.org/) which is a version of Linux that requires less sophisticated hardware to be able to run. In particular it does without hardware memory management. Whilst this allows Linux to run on small embedded devices such as the iPod, it does constrain the applications you can run: with uClinux all runing programs must fit in main memory at the same time, with no disk swapping.  You therefore have to think very carefully about how you structure your applications.
+My installation of uClinux is bundled with a user interface called Podzilla, and the whole package of files comes from http://www.ipodlinux.org/ It is this uClinux+Podzilla bundle that is the starting point for the investigation.
+To summarize: the investigation focusses on: uClinux+Podzilla on a 5.5G MacPod.
+Accessible Mobile Devices
+To determine if the existing Podzilla combo is accessible, we first need to determine what constitutes an accessible mobile device. For the purposes of this investigation, a definition chosen is:
+An accessible mobile device is one that is usable by a broader range of users than those users considered to have 'mainstream' physical capabilities. A user with low vision that is not easily corrected by glasses, or a user with poor motor skills, or a user with hearing impairment not easily correctable by the use of a hearing aid, would be considered non-mainstream. The broader the range of users, beyond those in the mainstream, the more accessible is considered the device.
+In these terms, the iPod's mainstream users are capable of reading the default font and font size, (as used by the default Apple-supplied interface) can hold it steady enough to view the screen, can manipulate all of the the controls, can hear the piezoelectric buzzer, and can hear the audio stereo output through the headphones provided.
+Existing Podzilla Interface
+Podzilla is a configurable and extensible user interface. By default it mimics the existing Apple look and feel, but there are also existing extension modules to provide a more graphical, icon-based, look and feel. In the following discussion Podzilla is assumed to be already installed and initialised to its default settings.
+Content Navigation
+Default content navigation is hierarchical and menu-based.
+  Each menu completely fills the entire screen, with one menu item per line. The first line of the display is the menu title, identified by font and font size. It is further identified (when configured) by text colour and background colour. 
+There is limited additional context provided, and this is in the form of forward referencing, so that,if a menu item navigates to a lower-level menu, it is identified with a right-chevron '>' on the end of the menu item line. The position of the menu within the menu hierarchy is not shown.
+Animation is used to highlight menu selections, with a  screen-panning metaphor used; the new lower-level menu/item appears from the right, as the current menu slides to the left. Navigating up the menu tree reverses the panning.
+Menu selection may be configured to produce an ear-con on the external piezoelectric buzzer (audible without headphones). 
+There is a notable delay between menu selection and screen animation (caused probably by processing overheads – it is not noticeable if the interface is run in test mode direction on a Mac). During the delay, there is no visible change to the screen.
+The currently selected menu item is identified by changing  background colour.
+Rendering of the menus is text-based by default, however an icon-based extension is available that provides icons to the left of menu items.
+The iPod has a wheel-based user input system comprising five buttons laid out as compass points, with the fifth button at the centre of the compass.  surrounding the fifth button, is a touch-sensitive 'wheel' which overlaps the four compass-point buttons.  Pressing the centre button selects the currently highlighted menu item. Moving a finger clockwise around the wheel scrolls forward through the menu, anticlockwise scrolls backwards. The North button moves the user back up the menu hierarchy. 
+By default Podzilla does not provide music playback. The playback mechanism is provided by plug-in modules. Currently two playback modules are available; the one selected for this evaluation is the MPD module which approximates to the player options of the default Apple interface.
+Podzilla's default behaviour is to terminate an application when the North button is pressed. In order to allow music to continue to play, the MPD player is independent of its user interface, and communicates with the interface via the Unix socket mechanism. Consequently the playback menu can be 'opened' and 'closed' at will, with Podzilla simply unaware of the current music play-out. From an accessibility point of view, this means that any assistive technology that requires audio play-out via the headphones must be aware of the MPD module and its current status – Podzilla cannot help you. 
+Text Input
+Podzilla provides a range of text input options, all based around the iPod's wheel buttons. This ranges from a simple scroll-wheel to scroll backwards and forwards through the alphabet, to morse-code input. All of the input mechanisms are supported through Podzilla's module structure, making it possible to add/remove text-entry modalities at will. Clearly some of the available options are more efficient t text input than others, and most are very much dependent on the motor skills of the user e.g. being able to move a finger slowly and deliberately around the wheel.
+Ear-cons
+The iPod has two sound systems. One is a piezoelectric buzzer used to provide clicks and beeps, the other, a high quality stereo output via the headphone socket.
+Podzilla uses the piezo to provide clicks as the user scrolls through, and selects, menu items. The volume of the click is not controllable by the user (as far as I can tell).
+Only the MPD music module uses the headphone output. NOTE: TEST IF CLICKS COME THROUH THE HEADPHONES...
+Podzilla provides no text-to-speech facility.
+User Settings
+Configuration of the interface is done primarily from the top-level 'Setting' menu option. This is a hierarchical menu that allows selection of fonts, layout styles, input modalities, and application-specific settings. Some options, such as the text input modality is also selectable from within applications e.g. from within the podWrite text editor.
+
+Areas of Opportunity
+There are a number areas of opportunity, where simple changes to the UI would allow the user base to expand.
+	(1)	Text entry modalities
+	(2)	Text-to-speech facilities
+	(3)	Font size selection
+	(4)	Menu context presentation
+	(5)	General click-wheel interaction
+Text Input Modalities
+Podzilla's wide range of text input modalities already pretty good considering the limited input device. However, it is possible to take almost any one of the available input modalities and identify small changes that would make it more usable, particularly for low vision and mobility impaired users. 
+Of the available input modalities, the most useful for this work is TUP (Transparent User Prediction). Partly because it is in any case as very efficient input method, but it also has the advantage of being relatively news and based on a a paper given at CHI 2006. 
+TUP is a clock-face (or compass) metaphor, with the alphabet mapped to physical positions on the click-wheel. TUP provides a character prediction algorithm so that finger placement requires less precision (in itself a good  assistive technology) and provides feedback on the current selection via a dynamically updated on-screen map of the wheel.
+TUP, as implemented, offers  a number of deficiencies to remove:
+	(1)	Tiny on-screen fonts (to show the whole character set at once on a small screen) would cause probes for anyone with low vision.
+	(2)	No ear-cons to notify 'finger-down' or moved to next char. If a user has no sense of touch (e.g. Paul), you don't easily know if you are pressing down sufficiently without looking, an moving your eyes from wheel to screen and back again can induce fatigue and vertigo in users such as Paul.
+	(3)	Auto selection is based on 'finger-up' (unless click on middle key to select option chosen) so someone such as Paul who experiences muscle tremors would have difficulty with the input method. For the same reason, moving a finger slowly and precisely to fix mistakes by the prediction algorithm would be very difficult.
+	(4)	Since the method relies so much on visual feedback, it is unusable by someone with no effective vision. A means of adding text-to-speech to the character selection would be a significant improvement.
+	(5)	The presentation of the wheel on-screen takes a huge amount of screen acreage, limiting the context of the input text to be viewed.
+	(6)	The method, as implemented, handles only text input, but some graphical applications also  require a mouse. Adapting the technique to handle mouse input as well, would provide a more consistent UI model.
+Text-to-Speech Facilities
+There is no text-to-speech provided by default on Podzilla, making the device unusable by blind users, at least where text input is concerned.
+There are two possible approaches to adding text-to-speech to the iPod. 
+
+Approach one is to add pre-recorded audio clips as is used by Rockbox.  This approach would work well for adding text-to-speech to individual character in TUP (but not to playback of input text).
+Approach two  is to port an existing TTS such as Flite/Festival to the iPod. The porting is certainly possible and has already been done for the Palm Treo, which is ARM-based like the iPod. The trick with Podzilla would be to make the TTS engine work like, and in conjunction with MPD, so that it runs as a separate process, allowing the UI to move  on and do other things during play-out of text Porting Flite in this way, uses Flite's ability to convert text to WAV files. The WAV file would then be passed to MPD to play.
+Font Size Selection
+Currently the font can be selected, but not the font-size. It is presumably a simple matter to add this facility. However, what happens when the text becomes too large to be fully displayed on the current line must be addressed since Podzilla uses only vertical scrolling.
+Another presentation option, related to font size is the RSVP technique of presenting text one word at a time with pauses between words to signify punctuation. This techniqge is used to present book text on small screens. It would be a simple matter to apply that technique to menus.
+Menu Context Presentation
+Currently there is limited menu context presented in Podzilla. 
+A number of different approach is possible to improve the situation:
+	(1)	Adding a breadcrumb trail to the menu title.
+	(2)	Adding a history option on the end of each menu to allow the breadcrumb trail to be listed out as a menu (current menu first line, oldest menu option bottom line)
+	(3)	Adding the history directly to the menu. With this approach, if you think of a menu as lines 0 to n then the history items are lines -1 to -m (where m is the depth of the history stack). Initial entry point is line 0.
+	(4)	Numbering menus dewy-decimal style. Some older mobile phones used to do this. A very 'techy' approach to the problem.
+Click-wheel Interaction
+The touch sensitive nature of  the click-wheel provides scope for improvement. 
+IBM have already done work on improving mouse interaction for users with motor impairment – called 'Steady Clicks' and given as a paper at ASSETS 2006. It should be possible to easily adapt their work to the click-wheel.
+In terms of the click-wheel specifically, there are a number of problems to overcome:
+	(1)	Wheel sensitivity.  Currently Podzilla allows you to set the sensitivity globally (the number of turns of the wheel to move selection). That doesn't really work for some applications anyway e.g. PodPaint, where you sometimes move menu selection, and sometimes move a mouse across the screen. When you consider TUP's need to move precisely around the wheel to fix prediction errors, clearly the sensitivity needs to be dynamic and context-sensitive.
+	(2)	If you have no sense of touch, you don't always know how hard you are pressing. Since the compass points on the wheel are under the touch-sensitive area, we need to be able to differentiate moving over the button as we slide by, and pressing it. This is a definite extension to steady clicks.
+	(3)	We need to handle tremors on both clicking and on sliding (I seem to remember that Steady Clicks didn't do much on mouse dragging).
+	(4)	People are left and right-handed. The current TUP is not configurable.
+	(5)	Because of mobility problems, some people might need to turn the iPod on its side to hold it steady whilst they use the wheel (e.g. Paul). Again TUD needs to handle this situation.
+	(6)	Again, related to the experience of users with MS, we need to audibly identify when a finger is in contact with the wheel and centre button. We also need to audibly differentiate between touch and press (so two types of beep on the piezo?).
+	(7)	Other interaction modalities are possible if the wheel has more intelligence than now e.g. Gestures. Gestures could be used as short-cuts for menu-items, speeding up interaction for blind users, would would not have to navigate the menu so often with TTS. Basically, this is applying the keyboard short-cuts expected for accessibility but without a conventional keyboard.
+

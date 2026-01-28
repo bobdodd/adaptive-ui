@@ -1,0 +1,42 @@
+Finger
+Claw
+Hand
+Wrist/
+Body
+Arm/
+Elbow
+Shoulder/
+Leg
+Head/
+Face/
+Eyes
+Cheek/
+Ear/
+Chin
+g
+h
+f
+e
+q
+s
+t
+k
+Forward
+Turn Left
+Turn Right
+Touch/
+Tap
+Perspective
+Upright/
+Away
+Discriminator
+Compound Word
+v
+i
+y
+r
+j
+c
+d
+x
+

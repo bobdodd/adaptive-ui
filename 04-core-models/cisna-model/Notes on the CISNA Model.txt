@@ -1,0 +1,148 @@
+The CISNA Model & its XML notation  
+Robert Dodd
+Accessibility Research Centre, University of Teesside, UK
+r.dodd@tees.ac.uk
+
+Introduction
+
+This short note related to the documents:
+“CISNA.pdf”
+“inventory example 080111.pdf”
+
+The note is intended to help me to structure my thesis, and perhaps provide some of the text.
+
+What is an Accessible Document?
+
+We glibly talk about accessibility guidelines for documents and web pages without ever really tying down what we mean by accessibility. How can an author create an accessible web page without knowing for whom it is intended, their physical and cognitive capabilities, and the properties of the mechanical aids that the intended user will utilise to interact with the page? Yet we still claim to be able to write “accessible web pages”. For this to be true, accessibility cannot be even remotely associated with device characteristics or user capabilities, as mad as that may sound.
+
+The answer, I believe, is that we confuse accessibility with usability. What makes a device usable for an individual is the correspondence between a device’s characteristics, including those of any mechanical aids that the user may attach, and a user’s capabilities to interact meaningfully through those characteristics. What makes the dialogue between user and a document accessible is the capacity of the device to understand the underlying semantic model of the document, and to be able to effectively map that semantic meaning to it’s own characteristics. In these terms usability is about the “how” of interaction, accessibility is about “what” is communicated.
+
+To describe how a user interacts with a document requires both the usability and accessibility disciplines, and it is almost impossible to consider one discipline without reference to the other; in terms of practical implementation, there is a strong coupling between them, as my own work will show. 
+
+Adaptable Content
+
+This note refers to my CISNA model of adaptable content. The model addresses the question of “what” is communicated, and does so by addressing five separate abstractions of the document: content, inventory, semantics, navigation, adaptation. Those five abstractions are considered as a layered structure from literal content at the bottom, to a very abstract model of adaptation at the top [see CISNA.pdf]. Each abstraction is expressed as a Shlaer-Mellor Information Model. A Shlaer-Mellor Information Model behaves very much as a relational database, but with the capability to say “this table extends that table”. As shown only the Objects/table names are shown; in more complete form, the boxes would also contain the table’s fields, primary and secondary keys, and referential fields as found in SQL style relational databases. Shaler-Mellor predates UML, which it closely resembles, but there are important, if subtle, differences in notation, which is why the older notation is preferred here.
+
+Each abstraction describes a document entirely independently of the other abstractions. Sometimes the same object names appear across the abstractions, but their meaning is specific to the ontology that describes that specific abstraction. What links the abstractions are the bridges. “Bridge” is another term adopted from Shlaer-Mellor (with no direct equivalent in UML) and describes the relationship between specific instances of objects in one abstraction, and those in another; that is to say a bridge expresses counterparts between two abstractions. A simple example is the bridge between Inventory and Semantics in CISNA; there is a counterpart between the text used to express a menu item, and the menu item itself. In a multi-lingual environment, many texts may express the same menu item at different times, but the semantic meaning of the menu item remains constant. In fact it may be that a sequence of images also expresses the same menu item, if the document was to be expressed using Rebus Symbols.  
+
+The two documents referenced here are from different iterations of the model. The “inventory layer example” is the later of the two documents, and provides a slightly more refined version of the Inventory Layer abstraction provided in CISNA.pdf. In particular, the example attributes have changed. Both documents express the example data shown on the model diagrams in XML form. Again, the “inventory layer example” is more refined, and grammatically correct (I now have a parser and syntax checker for the XML that validates to the “Syntax Tree” shown in the document.).
+
+Expressing “What”
+
+The CISNA model describes a document in terms of five abstraction layers and four bridges that are expressed as Information Models. The bridges allow for a single Information Model (an SQL “view” if you like) of the whole document to be created and navigated. 
+
+Within each Information Model, the objects/tables divide into one of two categories: model and content. 
+
+The model elements express meta-data that describes the context of the content; a simple example from the Inventory Layer is AttributeValueType which is used to constrain the values of CueAttribute, FormatAttribute, and RawElementAttribute. Typical values of AttributeValueType would be “URL-ENCODED”, “HTML-ENCODED”, “ASCII”, “PERCENTAGE”, “SECONDS”. A more complex example exists in the Semantics Layer, where Nouns and Verbs (model) are used to define rules that govern Notions and Predicates (content). 
+
+The content elements describe information specific to a particular document. Depending upon the use being made of the CISNA model, that may be all of the content of a document, for example a Word document, or a website. Alternatively, it may be a snapshot that describes a document at a particular moment in time. This latter user would, for example describe an Adobe Director or Adobe Flash frame. A full Flash or Director movie would be a CISNA modelled document containing individual CISNA models of each frame of the movie. (Alternatively, if the model elements described a frame-based view of content, one single event-driven description of the movie could be described within one single CISNA model).
+
+The CISNA model is also useful for describing adaptations of a single common “core” document. Because the document is described as one big relational database, standard database techniques become available, notably transactions, that can describe the necessary changes to a document in terms of patches to apply. So we can describe, say, adding a new language to a web page in terms of adding new RawMediaElements and FormattedMediaElement to the Inventory, and describe the changes to the Inventory-Semantics bridge necessary to identify that alternate text. An accessibility example would be text-to-speech, where additional RawMediaElements may be need to be added (“link”, “menu”, “top of page”), and existing text reformatted for audio play-out. In each of the cases, we can describe the changes to the CISNA model purely in terms of add, modify and delete. Further, because of the layered nature of the model, we can address content, inventory, semantics, navigation, and exception handling independently.
+
+The CISNA model also allows for a more sophisticated approach to document handling: self-adaptation. CISNA allows for content, inventory, and semantics to be treated independently of navigation and associated exception handling, which is the key splitting point between an abstract user interface, and a realized concrete one; there are may ways to navigate and group content, and to express its semantic meaning, but there is only one semantic meaning, and in practical terms there is only one inventory of content. It is for this use that I invented CISNA.
+Instances and XML
+
+It is one thing to have a layered model of abstractions, it is quite another to fill it with meaningful content. One obvious approach, since it is essentially a relational database, is to treat it as such and describe the content in terms of say, SQL “CRATE TABLE” and “INSERT INTO TABLE” commands. Such an approach is entirely valid and practical, and standard programming APIs exist to access and validate the resulting database. 
+
+A second approach provides an intermediate XML format that, when parsed, populates the relational database. I have chosen this latter approach for my example implementation, partly to keep things simple (it’s a smallish Java application) and partly in recognition of where most documents are found: on the web. And the default means of downloading documents is by HTTP in some flavour of HTML/XML. It is therefore possible to turn my example application into a Java applet, or standalone Java application that connects to the web/local file system, and renders content in the manner of an existing web browser.
+
+Having chosen XML/HTTP as the vehicle to transport the CISNA model, I needed a syntax tree to describe the XML; the result is shown in both referenced documents. The most accurate and complete is the one in “inventory example”. In principal, the syntax tree could be described using an XML Scheme and DTD. Again for simplicity,  and to reduce the knowledge set required to read and review this work, I’ve implemented it all in Java. The syntax tree tries to keep the resulting XML as humanly-readable as possible, allowing elements to contain their attributes for example.
+
+Simply describing a CISNA model using XML is not quite enough. In order to describe the differences/changes needed between different expressions of the same document, for example amending the “default” document for text-to-speech, requires transactioning equivalent to SQL commands such as “ALTER TABLE table-name” and “ADD column_name datatype”. My approach to this was to introduce instances. I know I’ve spoken about them before in terms of the CISNA model, talking about allowing multiple instances of a layer for example, but without giving any detail. It is this description of the differences between versions of a document (e.g. with/without text-to-speech) that I meant.
+
+We can have an instance of a layer: inventory, semantics, navigation, adaptation (although I’m not discussing the adaptation layer in this note) e.g.
+
+<cisna>
+ 	<inventory instance=”Default”>
+		<model>
+			<attributeValueType id=”STRING” />
+		</model>
+	</inventory>
+</cisna>
+
+An instance is just a name that can be referred to in another instance e.g.
+
+<cisna>
+	<inventory instance=”Bob”>
+		<attributeValueType id=”STRING” shadowOfInstance=”Default” />
+	</inventory>
+</cisna>
+
+In this example, instance “Bob” is referring to the attributeValueType declared in instance “Default”. All the other references within instance “Bob” can then simply refer to attribubuteValueTypeid=”STRING”. So, using the attribute shadowOfInstance behaves like “extern” in C/C++ and “import” in Java. I chose to do it this way to make the XML more maintainable. Imagine the situation where you have created an extension to, say, Google’s website to make it more usable by users with low vision, and your patch was for instance “7.1” of the Google site, and then Google upgrades to “7.2”. In addition to any changes you may need to make because of the upgrade, all references to “7.1” in your XML are wrong. With my shadowOfInstance approach, it is only those few shadows that need amending, not every reference in the XML.
+
+shadowOfInstance is also used to allow modification of the attributes of an element. The example in “inventory example” is:
+
+<rawMediaElement id="Default.rawMaps" 
+shadowOfInstance="Default" value="Google Maps" />
+
+In this case, we are replacing the text “Maps” with “Google Maps” (the equivalent of the SQL “MODIFY” command).
+
+In the same way we can delete (in SQL, “DROP”) content:
+
+<rawMediaElement id="Default.rawTriangle" 
+shadowOfInstance="Default" 
+deleted="true" />
+
+The example application allows for multiple <cisna> … </cisna> fragments to be concatenated and executed in order. So to describe the text-to-speech (and fairly random deletes and modifies in the example), we pass “Default” then “TextToSpeech” then “TextToSpeech2” to the CISNA model builder application.
+
+You will notice in the example that there are two fragments of “TextToSpeech2” given; this is valid syntax for the model builder. I allow it because in practice, the <model> section of each layer would not be repeated in each document, but rather referred to in the same way that DTDs and Schemes are not described at the top of every XML/XTHML document. In the case of CISNA, they would be referred to using shadowOfInstance=”xxx” format. Note however that any instance can choose to add/modify/delete parts of the model. What a rendering tool would make of this is another matter.
+
+Rendering CISNA
+
+One thing noticeable in the in the limited example of the CISNA model created from Google Maps, is that there is nowhere within the CISNA model to describe look & feel. Colours, fonts, positioning are all missing (the style and font attributes in CISNA.pdf were a typo, and are replaced in the newer “inventory example”). There is good reason for this: presentational attributes are only appropriate to a specific interaction metaphor, selected in the case of my work according to the capabilities of the user and the device. The semantic meaning to expressed through the attributes exists in the Semantics Layer, mapping that to the screen/audio/haptic interface is properly the responsibility of the Runtime System (shown to the right of the layers on page 1 of CISNA.pdf) when rendering the document.
+
+The rendering process and associated models (the big domain chart from 3 years ago) is outside of the scope of this note, however there is one important aspect that is relevant here: the important of  <model> elements in the rendering process.
+
+My argument about existing approaches to accessible documents, particularly the approach to HTML and associated technologies, is that being presented with rendered content largely free of the underlying semantics hamstrings assistive technology. There is no way, for example, of knowing whether a <table> in HTML is a real table or a layout technique except by guessing. Screen reader tools are also presented with web pages, not the complete site, so the degree of adaptation of content for blind and visually impaired users is immediately hampered. 
+
+What I hope to get from the CISNA model is some visibility of the underlying document semantics in a form that supports automated selection of interaction modalities and metaphors based on user and device capability. I get the first of these requirements by clearly separating navigation and content grouping (a View in terms of my Navigation Layer), essentially defining an abstract user interface. The second I get from the structure of the Information Models that describe the layers and bridges. 
+
+Each Information Model breaks down into two subsystems: model and content. The (static) model subsystem provides the rendering system with a reference point. Taking the Inventory Layer as an example, the model subsystem has six elements:
+
+attributeValueType
+cueAttributeType
+formatAttributeType
+presentableMediaType
+rawAttributeType
+rawMediaType
+
+Any particular Runtime System would need to understand the meaning of those elements, and be able to support at least some of the values defined in the system/document, for example “STRING”, “SECONDS” etc. in attributeValueType.  A third party assistive technology tools such as a screen reader may well have additional model elements that it would add to the document. In any event, the rendering process needs to understand enough presentableMediaTypes to be able to find content to render.
+From an assistive technology perspective, it is the model subsystem of the Semantics Layer that is most interesting.  There are five elements in the subsystem:
+
+conceptOntology
+noun
+nounAttribute
+nounAttributeRange
+verb
+
+Any Runtime System will need to understand the basic conceptOntologies in use, and their relationship to the design spaces (visual, sonic, haptic) of the device(s) on which the document is rendered. In the Google Maps example from CISNA.pdf, MENU, COORDINATE SYSTEM and CONTAINER are suggested as possible  (you will find that slightly more are used in the XML source – it needs pulling in to line).  
+
+Associated with those ontologies are the nouns and verbs used to describe the syntax of the rules that govern document semantics. A relatively small number of nouns and verbs are required to describe the semantic rules many documents and web pages. Even with the limited set of nouns and verbs given in the Google Maps example, some complex document structures are possible. 
+
+By mapping nouns such as MENU and MENU ITEM, and related verbs such as FOLLOWS, to templates for presentation, and the physical properties required to execute the available templates to user capabilities, the Runtime System is able to tailor the user experience. My argument is that it is these missing nouns and verbs in HTML, the “accessibility layers” of windowing systems, UI programming tool-chains, and their ilk, that is at the root cause of poor usability and accessibility in user interfaces. And that could be the thesis statement, or something like it.
+
+Constructing CISNA (thinking aloud)
+
+Despite the CISNA model being human-readable in XML, no practical system would have developers typing their models into CISNA XML. Rather, I would expect document development to be with WYSIWYG development tools of the Dreamweaver/Visual Studio/Eclipse variety. 
+
+Certainly, the way I would expect the process to work would be for designers to prototype as now, and then feed their prototypes into a development system capable of parsing the prototype and populating a CISNA model with the results. Such a model would typically be sparsely populated, with probably no exception handling considered; the Navigation Layer would have only one (default) possible view. From this sparse model, the developer would be guided through the process of augmenting the model, and considering a more detailed and rounded semantic view of content. The system would also need to allow for the creation of additional runtime modalities and metaphors.
+
+Parsing the prototype would be much simpler if the prototyping environment provided templates pre-tagged to help syntax parsing. This could be additional attributes or naming conventions in HTML, or class wrappers for Java, C/C++ and ECMAscript/Ajax. Tighter integration within tools such as Eclipse and Visual Studio would also help matters, so that the prototyping process could be guided, helping designers make informed decisions that assist adaptation later. The “critics” approach of Jason Robbins (from his PhD) which is the basis of ArgoUML, (itself now a plug-in for Eclipse) would seem a useful direction to take, with “live” rule-based analysis of UML models as they are created, with the system presenting hints to the developer.
+
+I’m not suggesting I do any real work in this area, but I think it may get a section on “future work” in the thesis conclusion.
+ 
+Next Steps
+
+This note was written with only the Inventory Layer fully operational as executing code. It can load instances, resolve add/modify/delete requests, and validate the models, albeit perhaps not as rigorously as I would like.
+
+The next steps for me are to build the Semantics and Navigation Layers to the same level (they are part done), really just to ensure I haven’t missed anything, and then to attack the InvSem and SemNav bridges. I think the bridges are going to be interesting in reality. The 1:1 mapping of instances in the Google Maps example are straightforward, but really you need to be able to say “this notion here is like any one of these formatted media elements that have this formatAttribute”. I’ll probably code the 1:1 for my example, but there may be another note like this one on the more complex forms of counterpart mapping. 
+
+
+
+
+
+
+
+
+
+
