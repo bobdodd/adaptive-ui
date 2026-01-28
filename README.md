@@ -137,7 +137,8 @@ organized_phd/
 ├── 09-miscellaneous/              # Miscellaneous documents & references
 │   ├── metaphor.pdf/.txt          # Paper on metaphor in UI
 │   ├── on selfish memes.pdf/.txt  # Paper on selfish memes
-│   └── ttk-api.pdf/.txt           # TTK API reference
+│   └── ttk-api.pdf/.txt           # TTK API API reference
+├── referenced papers/           # External referenced papers (excluded from git – copyrighted)
 ├── LICENSE                      # CC-BY-4.0 license
 ├── .gitignore                   # Git ignore rules
 ├── README.md                    # This file

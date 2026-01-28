@@ -34,3 +34,6 @@ __pycache__/
 # System files
 Thumbs.db
 ehthumbs.db
+
+# Referenced papers (copyrighted material, not for publication)
+referenced papers/
