@@ -37,3 +37,10 @@ ehthumbs.db
 
 # Referenced papers (copyrighted material, not for publication)
 referenced papers/
+
+# Extracted text from referenced papers (derived from copyrighted material)
+paper_reviews/
+paper_inventory.csv
+paper_inventory.csv.backup
+clean_papers.txt
+garbled_papers.txt
