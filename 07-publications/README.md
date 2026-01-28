@@ -10,8 +10,10 @@ This directory contains conference papers, journal submissions, and proposed pub
 | `923-RobertDodd.pdf/.txt` | Conference paper | Unknown title (paper ID 923) | Unknown |
 | `A Vision of Future Accessible Mobile Technology.doc/.txt` | Vision paper | "A Vision of Future Accessible Mobile Technology" | Unknown |
 | `Accessibility Through Adaptation(1).doc/.txt` | Paper | "Accessibility Through Adaptation" | Unknown |
+| `AccessibilityThroughMVC.doc/.txt` | Conference paper | "Accessibility and Model-View-Controller" | W4A 2007 |
 | `User Capability in the Adaptive World.pdf/.txt` | Conference paper | "User Capability in an Adaptive World" | Unknown |
 | `User Profiles for the Mobile World.doc/.txt` | Conference paper | "User Capability in an Adaptive World" (similar title) | Unknown |
+| `User Interface as an Evolving Community of Practice.doc/.txt` | Paper | "User Interface as an Evolving Community of Practice" | Unknown |
 | `alt.doc/.txt` | Short paper | About alternative text? | Unknown |
 | `atnac-4.doc/.txt` | Conference paper | "Design for Accessible Handheld Devices" | ATNAC (Accessible Technology for Networked Applications Conference) |
 | `hoc.doc/.txt` & `hoc(1).doc/.txt` | Workshop abstract | "DO YOU HEAR WHAT I SEE? THE MULTI-SENSORY DESIGN SPACE IN ACCESSIBLE MOBILE DEVICES" | Hands on Computing (HOC) workshop |
@@ -66,6 +68,17 @@ This directory contains conference papers, journal submissions, and proposed pub
 **Title:** The CISNA Model of Accessible Adaptive Hypermedia
 **Conference:** W4A (Web for All)
 **Abstract:** Addresses problems with script-intensive web pages (AJAX) being opaque to screen readers. Proposes the CISNA five-layer document model (content, inventory, semantics, navigation, adaptation) as an extension of the Dexter Model. Includes a Google Maps fragment example.
+
+### AccessibilityThroughMVC.doc
+**Title:** Accessibility and Model-View-Controller
+**Authors:** Robert Dodd, Dr. Steve Green, Dr. Elaine Pearson
+**Conference:** W4A 2007 (co-located with WWW 2007)
+**Abstract:** Discusses adaptation in accessible user interface design, focusing on changes to physical characteristics of computing devices and changes to modalities used to communicate with users. Extends the Dexter/Amsterdam hypertext models and introduces the five-layer CISNA document model.
+
+### User Interface as an Evolving Community of Practice.doc
+**Title:** User Interface as an Evolving Community of Practice
+**Authors:** Robert Dodd
+**Content:** Theoretical paper exploring user interfaces as communities of practice, drawing on Wenger's communities of practice and memetic evolution. Discusses semantic decomposition of UI into role-playing entities and the evolution of user profiles through social replication.
 
 ## Notes
 
