@@ -284,6 +284,32 @@ Presents CyPhone, a prototype implementation of a future mobile phone designed t
 - How might adaptive transport protocols inform adaptation across varying network conditions for users with different bandwidth requirements?
 - Could augmented reality interfaces be adapted across sensory modalities (visual → auditory/haptic) for users with sensory impairments?
 
+### Mogensen, P., & Grønbæk, K. (2000?). Hypermedia in the Virtual Project Room - Toward Open 3D Spatial Hypermedia. In *Proceedings of Hypertext 2000*.
+
+**File:** `referenced papers/hypermedia/p113-mogensen.pdf`
+
+**Summary:**
+Discusses hypermedia aspects of designing a Virtual Project Room based on ethnographic and participatory design studies of landscape architects' and architects' work. Develops prototypes for virtual project rooms supporting remote collaboration. Since architects work with 3D objects and environments, the virtual project room is designed as a 3D virtual environment. The prototype, Manufaktur, utilizes open hypermedia technology to integrate documents with design models in the virtual project room. Provides hot‑linking of arbitrary MS Windows documents into the virtual project room, supports spatial arrangement and categorization of workspaces by proximity, and provides "classical" open hypermedia linking between document segments. Also supports two modes of tightly coupled collaboration through session management services. Combines experiences from Collaborative Virtual Environments (CVE), Open Hypermedia, Spatial Hypermedia, and CSCW.
+
+**Thesis Relevance:**
+- **Spatial hypermedia:** Extends hypermedia concepts to 3D spatial environments, relevant to multi‑sensory design space and spatial adaptation for mobile devices.
+- **Virtual workspace augmentation:** Proposes augmenting physical workspaces with virtual counterparts, connecting to adaptation between physical and digital presentation modalities.
+- **Collaborative virtual environments:** Addresses multi‑user collaboration in virtual spaces, relevant to social context dimension in adaptation framework.
+- **Open hypermedia integration:** Uses open hypermedia technology for document linking, connecting to thesis's use of hypermedia models (Dexter/Amsterdam/CISNA).
+- **Limitations:** Focuses on architectural design rather than accessibility; does not address impairment‑specific adaptations or mobile device constraints.
+
+**Cross‑references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses hypermedia and collaborative systems
+- Model connection: Spatial hypermedia vs. Amsterdam model's synchronization concepts
+- Context domain: Virtual project rooms as specific context type
+- Adaptation relevance: Spatial arrangement for cognitive organization vs. adaptation for cognitive impairments
+
+**Questions raised:**
+- How could spatial hypermedia concepts be adapted for mobile devices with small screens and limited 3D rendering capabilities?
+- What additional spatial organization techniques could support users with cognitive impairments in virtual workspaces?
+- How might virtual project rooms be made accessible to users with visual or motor impairments?
+- Could spatial hypermedia inform the spatial adaptation of content across sensory modalities (e.g., arranging auditory cues in 3D audio space)?
+
 ---
 
 ## Metaphor & Design Spaces
@@ -479,4 +505,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 17 / ~255 (across 9 categories)
+Total papers reviewed: 18 / ~255 (across 9 categories)
