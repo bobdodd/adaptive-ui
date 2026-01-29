@@ -181,6 +181,32 @@ Explores application of artificial intelligence techniques to aid hypermedia des
 - How might structural complexity metrics inform adaptation decisions (e.g., simplifying navigation for users with cognitive impairments)?
 - Could ANN‑based approaches learn adaptation mappings from examples of successful multi‑sensory transformations?
 
+### Sawhney, N., & Murphy, A. (1999?). ESPACE a: An experimental hyperaudio environment. In *Proceedings of the ...*.
+
+**File:** `referenced papers/p105-sawhney.pdf`
+
+**Summary:**
+Presents ESPACE a, a prototype system for navigation of hyper‑linked audio information in an immersive audio‑only environment. Proposes essential design concepts for audio‑only computing environments, describing a hyperaudio system based on prior design principles and discussing evaluation of a preliminary prototype. Introduces hyper‑linked audio navigation where audio content is conceived as nodes within a hypertextual framework, with audio nodes grouped within abstract containers and links established between audio content. Discusses contextual awareness through continuous audio indicating background activity or sense of location within an audio environment. Addresses challenges of representing temporal data and persistent objects in audio‑only interfaces.
+
+**Thesis Relevance:**
+- **Audio‑only hypermedia:** Extends hypertext/hypermedia concepts to audio‑only environments, relevant to multi‑sensory design space mapping and adaptation across modalities (visual → auditory).
+- **Hyperaudio navigation:** Proposes audio‑node‑based hypertext structure, connecting to thesis's hypermedia models (Dexter/Amsterdam) and their extension to non‑visual modalities.
+- **Contextual audio awareness:** Uses continuous audio for spatial awareness and context, informing adaptation techniques for users with visual impairments.
+- **Design principles for non‑visual interfaces:** Provides design concepts for audio‑only computing, relevant to accessibility adaptation for blind/low‑vision users.
+- **Limitations:** Focuses on desktop audio‑only environments rather than mobile devices; does not address multi‑modal (visual+auditory) adaptation.
+
+**Cross‑references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – discusses multi‑sensory design spaces including auditory
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses hypermedia models and non‑visual interfaces
+- Model connection: Hyperaudio nodes vs. Dexter/Amsterdam components
+- Mobile context: Paper's desktop audio‑focus vs. thesis's mobile‑device focus
+
+**Questions raised:**
+- How could hyperaudio concepts be adapted for mobile devices with limited audio capabilities and noisy environments?
+- What additional design principles are needed for combined visual‑auditory interfaces (rather than audio‑only)?
+- How might hyperaudio navigation inform adaptation of visual hypermedia for users with visual impairments?
+- Could audio‑node‑based hypertext structures be integrated with the CISNA model's adaptation layer?
+
 ---
 
 ## Metaphor & Design Spaces
@@ -376,4 +402,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 13 / ~255 (across 9 categories)
+Total papers reviewed: 14 / ~255 (across 9 categories)
