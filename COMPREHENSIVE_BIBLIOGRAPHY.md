@@ -258,6 +258,32 @@ Addresses reuse in hypermedia design as a strategic approach for reducing cost a
 - How might hypermedia design patterns inform the design of adaptation patterns for users with specific impairments?
 - Could template‑based approaches reduce complexity of authoring adaptation rules in CISNA model?
 
+### Pyssysalo, T., Repo, T., Turunen, T., Lankila, T., & Röning, J. (2000). CyPhone – Bringing Augmented Reality to Next Generation Mobile Phones. In *Proceedings of DARE 2000*.
+
+**File:** `referenced papers/p11-pyssysalo.pdf`
+
+**Summary:**
+Presents CyPhone, a prototype implementation of a future mobile phone designed to support context‑specific and multi‑user multimedia services in an augmented reality manner. Implements context‑awareness with GPS‑based navigation techniques and a registration algorithm capable of detecting predefined 3D models or landmarks in the environment. Develops a new adaptive transport protocol to support real‑time packet‑switched data transfer between concurrent users of mobile augmented reality applications. The prototype is based on PC/104 architecture and uses off‑the‑shelf hardware components. As a case example, describes an augmented reality‑based personal navigation service for cyclists using head‑mounted displays (HMDs). Addresses challenges of mobile networked augmented reality including efficient transmission, consistency, and multi‑user collaboration.
+
+**Thesis Relevance:**
+- **Mobile augmented reality:** Demonstrates context‑aware mobile services using augmented reality, directly relevant to thesis's focus on mobile device accessibility and adaptation.
+- **Context‑awareness implementation:** Uses GPS and computer vision for context detection, informing adaptation based on environmental context (location, objects).
+- **Adaptive transport protocol:** Develops protocol adapting to wireless link quality, relevant to adaptation across network conditions as part of device capacity constraints.
+- **Multi‑user mobile services:** Addresses collaborative applications (CSCW) on mobile devices, connecting to social context dimension in adaptation framework.
+- **Limitations:** Focuses on augmented reality rather than accessibility adaptation; does not address impairment‑specific adaptations or multi‑sensory design spaces.
+
+**Cross‑references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses mobile context‑aware systems
+- Thesis context domain: Environmental context detection and location‑based services
+- Mobile device constraints: Bandwidth, processing power, battery considerations
+- Adaptation relevance: Context‑aware adaptation for mobile augmented reality vs. accessibility adaptation
+
+**Questions raised:**
+- How could augmented reality techniques be adapted for users with visual impairments (e.g., audio‑based augmented reality)?
+- What additional context detection methods are needed for indoor environments where GPS is unavailable?
+- How might adaptive transport protocols inform adaptation across varying network conditions for users with different bandwidth requirements?
+- Could augmented reality interfaces be adapted across sensory modalities (visual → auditory/haptic) for users with sensory impairments?
+
 ---
 
 ## Metaphor & Design Spaces
@@ -453,4 +479,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 16 / ~255 (across 9 categories)
+Total papers reviewed: 17 / ~255 (across 9 categories)
