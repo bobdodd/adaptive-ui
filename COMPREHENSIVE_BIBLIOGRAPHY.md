@@ -233,6 +233,31 @@ Analyses potentials for use of hypermedia in homes based on empirical studies. C
 - How might spatial organization of physical materials inform spatial adaptation of digital content on small mobile screens?
 - Could ambient presentation techniques reduce cognitive load for users with cognitive impairments?
 
+### Nanard, M., Nanard, J., & Kahn, P. (1999?). Pushing reuse in hypermedia design: Golden rules, design patterns and constructive templates. In *Proceedings of the ...*.
+
+**File:** `referenced papers/hypermedia/p11-nanard.pdf`
+
+**Summary:**
+Addresses reuse in hypermedia design as a strategic approach for reducing cost and improving quality. Classifies and explores different types of reuse in hypermedia design, focusing on reuse of design experience. Introduces constructive templates as a practical technique for capturing specification of reusable structures and components during design process and populating target hypermedia. Templates act as a bridge for reuse from design to implementation. Discusses connections between constructive templates and design patterns, showing how templates help push reuse into action by capturing implementation of design patterns and automating their use. Based on design and development of a real hypermedia application, the paper explores reuse types through examples and discusses relationship of reuse types to design patterns.
+
+**Thesis Relevance:**
+- **Design methodology for hypermedia:** Provides structured approach to hypermedia design with reusable patterns and templates, relevant to thesis's need for systematic adaptation design methodologies.
+- **Constructive templates:** Introduces template‑based approach for capturing and reusing design structures, potentially applicable to adaptation rule templates in CISNA model.
+- **Design patterns in hypermedia:** Extends software engineering design pattern concepts to hypermedia, connecting to thesis's use of object‑oriented analysis (Shlaer‑Mellor) for modeling adaptation.
+- **Reuse classification:** Categorizes reuse types (data, software components, design experience), informing systematic approach to adaptation rule reuse across different user‑device‑context mappings.
+- **Limitations:** Focuses on hypermedia design rather than runtime adaptation; does not address accessibility or mobile‑specific constraints.
+
+**Cross‑references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses hypermedia design methodologies
+- Model connection: Constructive templates vs. CISNA action language templates for adaptation
+- Design pattern relevance: Paper's hypermedia design patterns vs. thesis's adaptation patterns
+
+**Questions raised:**
+- How could constructive templates be adapted for designing adaptation rules in mobile accessibility systems?
+- What additional template types are needed for multi‑sensory adaptation across design spaces?
+- How might hypermedia design patterns inform the design of adaptation patterns for users with specific impairments?
+- Could template‑based approaches reduce complexity of authoring adaptation rules in CISNA model?
+
 ---
 
 ## Metaphor & Design Spaces
@@ -428,4 +453,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 15 / ~255 (across 9 categories)
+Total papers reviewed: 16 / ~255 (across 9 categories)
