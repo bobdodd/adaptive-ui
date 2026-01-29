@@ -495,6 +495,32 @@ Addresses factors involved in designing user interfaces for elderly persons and 
 - How might hypertext models (Dexter/CISNA) support structural adaptation for diverse user capability profiles?
 - Could parameter acquisition methods be automated for runtime adaptation in mobile applications?
 
+### Petrie, H., Fisher, W., Weimann, K., & Weber, G. (2004?). Augmenting icons for deaf computer users. In *Proceedings of CHI 2004 Late Breaking Results* (pp. ?-?). ACM.
+
+**File:** `referenced papers/sign language/p1131-petrie.pdf`
+
+**Summary:**
+Investigates augmenting icons with tooltips (TTs) to make icons more understandable to deaf and hearing impaired users. Implements four types of TTs: Sign Language (video of sign), Picture (enlarged icon with text explanation), Human Mouth (video of mouth movements for lip reading), and Digital Lips (synthesized lip movements). Evaluation with 12 deaf users found Sign Language and Picture TTs were very positively rated on satisfaction and understanding and would be used again, while Human Mouth and Digital Lips were of no assistance in their current implementation for lip reading icon names. Discusses semiotic relationships between icons and their referents (iconic, indexical, symbolic signs) and how different augmentations strengthen these relationships. The research addresses the challenge of making graphical user interfaces accessible to users with print disabilities who cannot rely on text‑based tooltips.
+
+**Thesis Relevance:**
+- **Multi‑modal icon augmentation:** Demonstrates adaptation of visual icons through multiple modalities (sign language, pictures, lip reading), relevant to multi‑sensory design space mapping and adaptation across sensory channels.
+- **Deaf accessibility:** Addresses accessibility for deaf and hearing impaired users, expanding beyond visual impairment focus common in accessibility research.
+- **Semiotic analysis:** Applies semiotic theory (iconic, indexical, symbolic signs) to icon design, informing theoretical foundation for metaphor and representation in adaptive UI design.
+- **Evaluation methodology:** Provides example of user‑centered evaluation with deaf participants, relevant to thesis's methodology for validating adaptation approaches.
+- **Limitations:** Focuses on desktop icons rather than mobile interfaces; does not address dynamic adaptation or hypertext models.
+
+**Cross‑references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses multi‑modal interfaces and accessibility
+- Thesis Sign16 project: Related to sign language representation research
+- Design space connection: Visual → sign language/picture adaptation example
+- User capability domain: Deafness as specific user capability profile
+
+**Questions raised:**
+- How could icon augmentation techniques be adapted for mobile devices with smaller screens and touch‑based interaction?
+- What additional augmentation types are needed for users with combined impairments (e.g., deaf‑blind users)?
+- How might semiotic analysis inform the design of adaptive metaphors across sensory modalities?
+- Could sign language tooltips be integrated with the CISNA model's adaptation layer for dynamic content?
+
 ---
 
 ## Notes on Review Process
@@ -505,4 +531,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 18 / ~255 (across 9 categories)
+Total papers reviewed: 19 / ~255 (across 9 categories)
