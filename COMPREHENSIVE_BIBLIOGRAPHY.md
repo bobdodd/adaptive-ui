@@ -207,6 +207,32 @@ Presents ESPACE a, a prototype system for navigation of hyper‑linked audio inf
 - How might hyperaudio navigation inform adaptation of visual hypermedia for users with visual impairments?
 - Could audio‑node‑based hypertext structures be integrated with the CISNA model's adaptation layer?
 
+### Petersen, M. G., & Grønbæk, K. (2004?). Domestic hypermedia: Mixed media in the home. In *Proceedings of the ...*.
+
+**File:** `referenced papers/p108-petersen.pdf`
+
+**Summary:**
+Analyses potentials for use of hypermedia in homes based on empirical studies. Characterizes use of physical materials by collaborative spatial organization and persistent visual awareness—qualities not well supported for digital materials. Notes that domestic materials (photos, music, messages) become digitized but personal computers provide centralized, individualized access lacking spatial distribution, persistence, and visibility of physical material. Proposes a Domestic Hypermedia infrastructure combining spatial, context‑aware, and physical hypermedia to support collaborative structuring and ambient presentation of materials in homes. The research is grounded in studies of how homes use physical materials to coordinate and structure domestic information.
+
+**Thesis Relevance:**
+- **Context‑aware hypermedia:** Extends hypermedia to domestic environments with spatial and context‑aware properties, relevant to thesis's context domain in adaptation framework.
+- **Physical‑digital integration:** Addresses integration of physical and digital materials, informing adaptation between different presentation modalities (physical vs. digital).
+- **Spatial organization:** Highlights spatial distribution of materials in homes, connecting to multi‑sensory design space and spatial adaptation for mobile devices.
+- **Ambient presentation:** Proposes ambient presentation of materials, relevant to non‑intrusive adaptation for users with cognitive impairments.
+- **Limitations:** Focuses on home environments rather than mobile devices; does not address accessibility or impairment‑specific adaptation.
+
+**Cross‑references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses context‑aware hypermedia
+- Thesis context domain: Domestic environment as a specific context type
+- Model connection: Spatial hypermedia vs. Amsterdam model's synchronization concepts
+- Mobile context: Paper's home‑focus vs. thesis's mobile‑device focus
+
+**Questions raised:**
+- How could domestic hypermedia concepts be adapted for mobile devices used across different contexts (home, work, travel)?
+- What additional adaptation mechanisms are needed for users with impairments in domestic environments?
+- How might spatial organization of physical materials inform spatial adaptation of digital content on small mobile screens?
+- Could ambient presentation techniques reduce cognitive load for users with cognitive impairments?
+
 ---
 
 ## Metaphor & Design Spaces
@@ -402,4 +428,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 14 / ~255 (across 9 categories)
+Total papers reviewed: 15 / ~255 (across 9 categories)
