@@ -521,6 +521,32 @@ Investigates augmenting icons with tooltips (TTs) to make icons more understanda
 - How might semiotic analysis inform the design of adaptive metaphors across sensory modalities?
 - Could sign language tooltips be integrated with the CISNA model's adaptation layer for dynamic content?
 
+### ISO/IEC JTC 1 SC 36. (2005?). ISO/IEC 24751-1: Information technology for learning, education and training — Individualized adaptability and accessibility in e-learning, education and training — Part 1: Framework and reference model.
+
+**File:** `referenced papers/metamodel/36N1024.pdf`
+
+**Summary:**
+ISO/IEC 24751‑1 standard providing a common framework and reference model for matching learner accessibility needs and preferences with appropriate learning resources and user interfaces in e‑learning, education, and training. Defines key terms including accessibility, adaptability, access modality, alternative access system, and digital resource. The multi‑part standard consists of: Part 1 (Framework and Reference Model), Part 2 ("AccessForAll" Personal Needs and Preferences for digital delivery), and Part 3 ("AccessForAll" Digital Resource Description). The framework encompasses two complementary sets of information: description of learner's accessibility needs/preferences and description of digital resource accessibility characteristics. Aims to facilitate discovery and use of the most appropriate content components for each user without being judgmental about resource flaws. Based on IMS specifications and designed for interoperability across standards communities (Dublin Core, IEEE LOM, etc.).
+
+**Thesis Relevance:**
+- **Standards‑based accessibility framework:** Provides an international standard for accessibility and adaptability frameworks, relevant to thesis's need for formal, interoperable approaches to adaptation.
+- **Reference model structure:** Offers a structured reference model for matching user needs with resources, analogous to thesis's adaptation framework mapping user capability to device capacity.
+- **Terminology standardization:** Defines standardized terminology (accessibility, adaptability, access modality) that could inform thesis's glossary and conceptual definitions.
+- **Interoperability focus:** Emphasizes interoperability and consistent implementation, relevant to thesis's goal of creating widely applicable adaptation frameworks.
+- **Limitations:** Focuses on e‑learning/education context rather than general mobile device accessibility; framework is descriptive rather than prescriptive for implementation.
+
+**Cross‑references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses accessibility frameworks and standards
+- Thesis Glossary: potential alignment with standardized terminology
+- Model connection: ISO reference model vs. thesis's adaptation framework across user, device, content, context domains
+- Standards relevance: Demonstrates international standards approach to accessibility adaptation
+
+**Questions raised:**
+- How could the ISO 24751 framework be extended or adapted for mobile device accessibility beyond e‑learning contexts?
+- What additional concepts are needed in the reference model to handle real‑time adaptation (vs. resource discovery)?
+- How might the "AccessForAll" approach inform the CISNA model's adaptation layer and action language?
+- Could the standardized terminology improve interoperability between different adaptation systems?
+
 ---
 
 ## Notes on Review Process
@@ -531,4 +557,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 19 / ~255 (across 9 categories)
+Total papers reviewed: 20 / ~255 (across 9 categories)

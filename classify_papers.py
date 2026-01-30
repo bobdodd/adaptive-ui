@@ -54,8 +54,8 @@ def is_garbled_text(text):
         if re.search(pattern, text, re.IGNORECASE):
             substitution_count += 1
 
-    # If more than 3 distinct substitution patterns found, likely garbled
-    if substitution_count > 3:
+    # If more than 15 distinct substitution patterns found, likely garbled
+    if substitution_count > 15:
         return True
 
     # Pattern 4: Check for unusual word patterns that suggest garbling
@@ -70,7 +70,7 @@ def is_garbled_text(text):
         if re.search(r'ie[^aeiou]', word) and len(word) > 4:
             garbled_word_count += 1
 
-    if garbled_word_count > 5:
+    if garbled_word_count > 30:
         return True
 
     return False
