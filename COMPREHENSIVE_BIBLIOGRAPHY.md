@@ -598,6 +598,29 @@ Presents the Ubiquitous Interactor (UBI) framework for device‑independent serv
 - How to ensure UIs generated from a common interaction model are equally usable on all target devices?
 - Could the UBI framework be extended to incorporate user‑capability profiles (sensory, motor, cognitive)?
 
+### SIGACCESS Newsletter (January 2006). SIGACCESS Newsletter, (84), January 2006.
+
+**File:** `Jan06_all.pdf`
+
+**Summary:**
+The January 2006 issue of the ACM SIGACCESS Newsletter (Issue 84) features short contributions from the 2004 ASSETS Doctoral Consortium. The newsletter contains several accessibility‑research summaries including personal‑information‑management approaches for users with low vision (Brown & Robinson), CSS‑based web‑accessibility techniques, vision‑enhancement algorithms for refractive‑error correction, mobile‑health monitoring guidelines for older adults, haptic interfaces for blind users, conversational‑audio interfaces, heuristic evaluation of screen‑reader learnability, and robust text‑entry methods. The issue represents the state‑of‑the‑art in accessible‑computing research ca. 2005‑2006.
+
+**Thesis Relevance:**
+- **Historical perspective:** Provides a snapshot of the accessible‑computing field just before mobile/ubiquitous access became mainstream, offering a historical baseline for thesis context.
+- **Multimodal design examples:** Demonstrates how accessibility can be realized across sensory modalities (visual, auditory, haptic).
+- **Early‑stage research format:** Shows how doctoral‑level research in accessibility is framed, designed, and communicated.
+- **User‑centered validation:** Most contributions include some form of user‑centered evaluation, providing examples of how adaptation techniques can be validated.
+
+**Cross‑references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – many of the described systems could be mapped to CISNA's five‑layer model.
+- Chapter 2: "Design Spaces" – the articles collectively illustrate multi‑sensory design‑space concepts in practice.
+- Chapter 5: "Usability & Evaluation" – provides examples of empirical validation methods.
+
+**Questions raised:**
+- How have these 2006‑era solutions evolved with today's mobile/wearable platforms?
+- Could a unified adaptation model like CISNA accelerate progress across diverse accessibility domains?
+- What enduring lessons can be drawn from the research questions asked in 2005‑2006?
+
 ---
 
 ## Notes on Review Process
@@ -608,4 +631,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 22 / ~255 (across 9 categories)
+Total papers reviewed: 23 / ~255 (across 9 categories)
