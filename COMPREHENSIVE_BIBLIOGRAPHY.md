@@ -387,6 +387,31 @@ Explores non‑literal language ("metaphors") through a knowledge representation
 - How might metaphor comprehension models inform adaptive metaphor selection for users with different cognitive capabilities?
 - Could KL‑ONE or similar description logics represent mappings between design spaces?
 
+### Howell, M., Love, S., & Turner, M. (2005). Spatial metaphors for a speech-based mobile city guide service. *Personal and Ubiquitous Computing*, 9(1), 20–29.
+
+**File:** `referenced papers/metaphor/779_2004_Article_271.pdf`
+
+**Summary:**
+Investigates use of spatial interface metaphors for speech‑based automated mobile city guide services. Implements four services: non‑metaphor numbered menu, travel system metaphor, office filing system metaphor, and shopping metaphor. Measures participant performance and subjective evaluations across trials. Results show for first‑time users the non‑metaphor service was most usable, but after three trials the office filing system metaphor service was most usable. Demonstrates that navigational cues from spatial metaphors can improve user attitudes and interactions with automated phone services.
+
+**Thesis Relevance:**
+- **Spatial metaphors for mobile interfaces:** Directly addresses metaphor use in mobile speech interfaces, relevant to thesis's focus on mobile device accessibility and adaptation.
+- **Metaphor evaluation methodology:** Provides empirical evaluation of different metaphor types, informing methodology for testing adaptive metaphor selection.
+- **Speech‑based mobile services:** Focuses on speech interaction for mobile users, relevant to adaptation for users with visual impairments or situational disabilities.
+- **Metaphor learning curve:** Shows metaphor effectiveness improves with experience, suggesting adaptive systems may need to adjust metaphor selection based on user familiarity.
+
+**Cross‑references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – discusses metaphor selection and evaluation
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses mobile speech interfaces
+- Mobile context: Directly addresses mobile device constraints and speech interaction
+- Adaptation relevance: Metaphor selection as adaptation technique for user capabilities
+
+**Questions raised:**
+- How could spatial metaphors be adapted for users with cognitive impairments?
+- What metaphors are most effective for different user capabilities (e.g., users with visual vs. motor impairments)?
+- How might metaphor selection be automated based on user context and task?
+- Could spatial metaphor effectiveness inform the design of multi‑sensory adaptations?
+
 ---
 
 ## Accessibility & Assistive Technology
@@ -549,6 +574,32 @@ ISO/IEC 24751‑1 standard providing a common framework and reference model for 
 
 ---
 
+### Nylander, S., Bylund, M., & Waern, A. (2004?). Ubiquitous service access through adapted user interfaces on multiple devices. *Personal and Ubiquitous Computing, 9*(5-6), 20–29.
+
+**File:** `referenced papers/root/779_2004_Article_317.pdf`
+
+**Summary:**
+Presents the Ubiquitous Interactor (UBI) framework for device‑independent service access through adapted user interfaces. The system separates user‑service interaction from presentation, allowing services to adapt their user interfaces to diverse devices. Uses "interaction acts" (input, output, select, modify, create, destroy, start, stop) as abstract interaction units that can be rendered differently per device. Includes device profiles and customisation forms enabling UI adaptation to device capabilities and user preferences. Case studies: calendar and stock‑ticker services.
+
+**Thesis Relevance:**
+- **Device‑agnostic UI adaptation:** Demonstrates a framework for generating device‑tailored UIs from abstract interaction descriptions, relevant to CISNA's goal of device‑independent adaptation.
+- **Interaction‑act paradigm:** Shows how abstract interaction units can be implemented as concrete UI widgets, informing CISNA’s adaptation‑layer operations.
+- **Multi‑device context:** Addresses a core thesis challenge: delivering the same content/functionality across devices with different constraints.
+- **Limitations:** Focuses on cross‑device consistency, not accessibility or impairment‑specific adaptations.
+
+**Cross‑references:**
+- Thesis Chapter 4 (UI Modelling): model‑based UI generation
+- CISNA adaptation layer: mapping abstract interactions to concrete UIs
+- Mobile‑device context: adapting to screen, input, processing constraints
+
+**Questions raised:**
+- How could “interaction acts” be extended to support accessibility‑driven adaptations (e.g., replace graphical output with speech for visually impaired users)?
+- Could interaction‑act mappings be defined in CISNA’s adaptation‑rule language?
+- How to ensure UIs generated from a common interaction model are equally usable on all target devices?
+- Could the UBI framework be extended to incorporate user‑capability profiles (sensory, motor, cognitive)?
+
+---
+
 ## Notes on Review Process
 
 This bibliography will be built incrementally by reviewing each paper in the `referenced papers/` directory. Reviews focus on:
@@ -557,4 +608,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 20 / ~255 (across 9 categories)
+Total papers reviewed: 22 / ~255 (across 9 categories)
