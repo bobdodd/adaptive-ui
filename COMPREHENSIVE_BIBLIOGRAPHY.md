@@ -1565,6 +1565,40 @@ Presents Philadelphia Fullerine, a geodesic hypermedia sculpture about ethnic an
 - How could the exploratory, disorientation-positive approach inform adaptive exploration interfaces?
 - Could physical hypermedia sculptures inspire tangible adaptation interfaces for sensory impairments?
 
+### Rossi, G., Lyardet, F. D., & Schwabe, D. (1999). Developing Hypermedia Applications with Methods and Patterns. *ACM Computing Surveys*, 31(4es).
+
+**File:** `referenced papers/a8-rossi.pdf`
+
+**Summary:**
+Argues for software engineering practices in hypermedia application development, presenting the Object-Oriented Hypermedia Design Method (OOHDM) and hypermedia patterns. Key contributions include: (1) **OOHDM method** - four-phase approach: conceptual design (object-oriented domain model), navigation design (nodes, links, navigational contexts), abstract interface design, implementation; (2) **Hypermedia patterns** - classified as architectural, navigation, and interface patterns to capture design experience; (3) **Design reuse** - patterns as vehicles for recording and conveying design experience; (4) **Web engineering** - addresses complex web applications beyond simple websites. OOHDM uses object-oriented constructs (classes, objects, relationships, use scenarios) and provides a view definition language for customizing conceptual models to different user profiles. Navigation patterns include "Set-based Navigation" (connecting nodes opportunistically based on set membership) and "Node in Context" (different representations depending on access context). Interface patterns include "Information on Demand" (organizing interface objects to avoid cognitive overhead). The paper discusses integration of patterns with design methods, need for computer-aided environments supporting the entire lifecycle, and challenges in collaborative/participatory design, e-commerce applications, and application frameworks.
+
+**Thesis Relevance:**
+- **Software engineering approach:** OOHDM method for hypermedia development, informing adaptation system engineering.
+- **Four-phase design process:** Conceptual → navigation → interface → implementation, informing adaptation development methodology.
+- **Hypermedia patterns:** Architectural, navigation, and interface patterns, informing adaptation design patterns.
+- **Object-oriented modeling:** Uses classes, objects, relationships for domain modeling, informing adaptation object modeling.
+- **Navigation design:** Explicit focus on navigation architecture, relevant to adaptive navigation design.
+- **View definition language:** Customizes models to user profiles, informing adaptation personalization.
+- **Design reuse:** Patterns capture and convey design experience, informing adaptation pattern libraries.
+- **Web engineering:** Addresses complex web applications, relevant to web-based adaptation.
+- **Limitations:** Focuses on hypermedia/web applications rather than adaptation; method specific to OOHDM; does not address sensory capabilities.
+
+**Cross-references:**
+- Thesis methodology: Software engineering approaches to adaptation
+- Design methods: Systematic processes for adaptation development
+- Design patterns: Pattern-based approaches to adaptation design
+- Object-oriented modeling: Object-oriented approaches to adaptation modeling
+- Navigation design: Adaptive navigation structures and interfaces
+- Personalization: User profile-based adaptation
+- Web applications: Adaptation in web-based systems
+- Design reuse: Pattern libraries for adaptation
+
+**Questions raised:**
+- How could the OOHDM method be extended to support sensory adaptation design?
+- What additional patterns would be needed for multi-sensory adaptation interfaces?
+- How might the view definition language approach inform adaptation rule personalization?
+- Could hypermedia patterns inform adaptation pattern catalogues for common adaptation scenarios?
+
 ---
 
 ## Notes on Review Process
@@ -1575,4 +1609,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 55 / ~255 (across 9 categories)
+Total papers reviewed: 56 / ~255 (across 9 categories)
