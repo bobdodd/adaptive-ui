@@ -979,6 +979,35 @@ Presents a simulation framework for UML models based on mapping UML metamodel el
 - How might model simulation techniques inform validation of adaptation behaviors for users with different capabilities?
 - Could the multi-agent ASM approach model distributed adaptation across multiple devices or users?
 
+### Nesbitt, K. V. (2001). Modeling the Multi-Sensory Design Space. In *Proceedings of the Australian Symposium on Information Visualisation* (pp. 27-36). Australian Computer Society.
+
+**File:** `referenced papers/p27-nesbitt.pdf`
+
+**Summary:**
+Presents a comprehensive framework for modeling the multi-sensory design space by extending Card and Mackinlay's visual design space taxonomy to include auditory and haptic displays. The paper introduces a unified model where visual, auditory, and haptic structures share common components: spatial substrate, marks, properties, and temporal encoding. It uses UML notation to model these components across sensory modalities. The framework distinguishes between "direct properties" (perceptually direct encodings requiring automatic processing) and "abstract properties" (requiring controlled cognitive processing). The paper also correlates this extended design space with a metaphor-based classification, identifying nine metaphor categories (visual spatial, visual temporal, sight, auditory spatial, auditory temporal, sound, haptic spatial, haptic temporal, touch). The work provides a foundation for systematic design of multi-sensory information displays (perceptualization) that can represent abstract, multivariate data.
+
+**Thesis Relevance:**
+- **Multi-sensory design space framework:** Directly addresses thesis's core concept of multi-sensory design spaces for adaptation, providing a formal model for visual, auditory, and haptic modalities.
+- **Unified sensory structure model:** Shows how visual, auditory, and haptic displays share common structural components (spatial substrate, marks, properties, temporal encoding), informing cross-modal adaptation approaches.
+- **Direct vs. abstract properties:** Distinguishes between perceptually direct encodings (automatic processing) and abstract encodings (controlled processing), relevant to adaptation for users with different cognitive capabilities.
+- **Metaphor-based classification:** Provides metaphor-based organization of design space, connecting to thesis's use of metaphors in adaptation.
+- **UML modeling approach:** Uses UML notation for formal modeling, connecting to thesis's use of modeling languages.
+- **Perceptualization concept:** Introduces "perceptualization" as multi-sensory display of abstract information, directly relevant to multi-sensory adaptation.
+- **Limitations:** Focuses on information visualization/auditory/haptic displays rather than accessibility; does not address impairment-specific adaptations; conceptual framework without implementation.
+
+**Cross-references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – directly addresses multi-sensory design spaces and metaphor classification
+- Thesis core concept: Multi-sensory adaptation across design spaces
+- Methodology connection: UML modeling of design spaces
+- Sensory modalities: Visual, auditory, haptic design spaces
+- Metaphor connection: Metaphor-based classification of design space
+
+**Questions raised:**
+- How could the multi-sensory design space framework be extended to include impairment-specific adaptations (e.g., alternative encodings for sensory impairments)?
+- What additional components are needed to model cross-modal adaptation (mapping between sensory modalities)?
+- How might the direct vs. abstract properties distinction inform adaptation for users with cognitive impairments?
+- Could the metaphor classification guide the selection of appropriate adaptation metaphors for different user capabilities?
+
 ---
 
 ## Notes on Review Process
@@ -989,4 +1018,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 36 / ~255 (across 9 categories)
+Total papers reviewed: 37 / ~255 (across 9 categories)
