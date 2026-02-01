@@ -755,6 +755,34 @@ Investigates the use of non-speech sounds to enhance scanning input interfaces f
 - How might this approach scale to complex mobile applications beyond simple scanning grids?
 - Could rhythm-based auditory cues inform temporal sequencing in multi-sensory adaptations for users with different cognitive capabilities?
 
+### Kobayashi, M., & Schmandt, C. (1997). Dynamic Soundscape: mapping time to space for audio browsing. In *Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems (CHI '97)* (pp. 194-201). ACM.
+
+**File:** `referenced papers/p194-kobayashi.pdf`
+
+**Summary:**
+Presents Dynamic Soundscape, an audio browsing system that maps temporal audio data to spatial locations for more efficient navigation. The system addresses the challenge of browsing audio (which is inherently temporal) by creating a spatial interface where "Speakers" (moving sound sources) orbit the user's head, playing different portions of a single audio recording simultaneously. Users can navigate by switching attention between multiple Speakers, using spatial memory to recall where specific topics were heard. The paper describes an iterative design process that refined Speaker motion speed, developed head-leaning interfaces for selective listening, and created interaction techniques like "grab-and-move" and "audio cursor" for precise control. Evaluation shows that spatial mapping helps users remember audio content locations and browse more efficiently than traditional linear playback.
+
+**Thesis Relevance:**
+- **Temporal to spatial mapping:** Demonstrates mapping of temporal audio data to spatial locations, relevant to adaptation across temporal and spatial design spaces.
+- **Spatial audio navigation:** Uses spatialized audio for navigation and memory, connecting to auditory design space and spatial cognition in adaptation.
+- **Simultaneous listening:** Implements "cocktail party effect" for selective attention among multiple audio streams, informing multi-sensory attention management in adaptive interfaces.
+- **Iterative design methodology:** Shows systematic refinement of audio interface based on user testing, relevant to thesis's methodology for developing adaptation techniques.
+- **Audio-only interaction:** Provides example of comprehensive audio interface without visual display, relevant to adaptation for visually impaired users.
+- **Limitations:** Focuses on desktop audio browsing rather than mobile devices; complex hardware setup (head tracking, spatial audio); does not address integration with other sensory modalities.
+
+**Cross-references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – spatial audio, temporal-spatial mapping, auditory design space
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses audio interfaces and spatial navigation
+- Design space connection: Temporal audio → spatial auditory representation adaptation
+- User capability domain: Visual impairment and auditory adaptation
+- Methodology connection: Iterative design approach for refining adaptation techniques
+
+**Questions raised:**
+- How could Dynamic Soundscape concepts be adapted for mobile devices without head tracking or sophisticated spatial audio hardware?
+- What additional challenges arise when mapping complex hierarchical audio content (not just linear recordings) to spatial representations?
+- How might spatial audio navigation techniques inform adaptation of visual content for users with visual impairments?
+- Could the "cocktail party effect" and selective listening techniques be applied to multi-modal attention management in complex adaptive interfaces?
+
 ---
 
 ## Notes on Review Process
@@ -765,4 +793,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 28 / ~255 (across 9 categories)
+Total papers reviewed: 29 / ~255 (across 9 categories)
