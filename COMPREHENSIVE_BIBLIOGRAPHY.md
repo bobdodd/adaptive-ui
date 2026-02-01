@@ -1402,6 +1402,38 @@ Presents HyperReal, a generic hypermedia model for building context-aware mixed 
 - How might the history mechanisms be used to model user adaptation preferences over time?
 - Could the mixed reality approach inform adaptation across physical and virtual sensory channels?
 
+### Weißenberg, N., Voisard, A., & Gartmann, R. (2004). Using Ontologies in Personalized Mobile Applications. *Proceedings of the 12th ACM International Symposium on Advances in Geographic Information Systems*.
+
+**File:** `referenced papers/p2-weissenberg.pdf`
+
+**Summary:**
+Presents FLAME2008, a platform for personalized situation-aware mobile services using ontologies and inference engines. The system was developed for the Olympic Games 2008 in Beijing to support mobile users (athletes, journalists, spectators) with personalized information and services. Key contributions include: (1) **Three-level context abstraction** - sensor values → context → situation, where situations are invariant features during time intervals; (2) **Modular ontology architecture** - upper ontologies (time, location, content), domain ontologies (sports, tourism), task ontologies (service, situation), and application ontology; (3) **Situation detection** - derives logical situations from context using semantic matching; (4) **User modeling** - includes personal data, interests, preferences, and history; (5) **Semantic service matching** - matches service offers to user situations and profiles; (6) **Inference engine** - uses F-Logic and OntoBroker for deep inference; (7) **Profile-based approach** - structured attributes characterizing entities (user profiles, situation profiles, service profiles). The system distinguishes between location-based services (using location context) and situation-aware services (abstracting to logical situations like "being in a car" or "dining in a restaurant"). The ontology includes location ontology with logical/geographic layers, time ontology with physical/abstract layers, and content ontology based on Dublin Core.
+
+**Thesis Relevance:**
+- **Ontology-based personalization:** Uses ontologies for personalized mobile applications, relevant to adaptation rule representation.
+- **Three-level context abstraction:** Sensor → context → situation hierarchy, informing adaptation context modeling.
+- **Situation awareness:** Derives logical situations from context, relevant to adaptation rule triggering.
+- **Modular ontology architecture:** Separates upper, domain, task, and application ontologies, informing adaptation ontology design.
+- **Semantic matching:** Matches services to situations and profiles, relevant to adaptation rule selection.
+- **User modeling:** Comprehensive user profiles with interests, preferences, history, informing adaptation user modeling.
+- **Inference engine:** Uses F-Logic and OntoBroker for reasoning, informing adaptation rule inference.
+- **Limitations:** Focuses on mobile services rather than adaptation; complex ontology implementation; specific to Olympic Games scenario.
+
+**Cross-references:**
+- Thesis methodology: Ontology-based approaches to adaptation
+- Context modeling: Three-level abstraction from sensors to situations
+- User modeling: Comprehensive profile structures for personalization
+- Semantic matching: Matching adaptation rules to user contexts
+- Inference engines: Rule-based reasoning for adaptation decisions
+- Mobile applications: Adaptation in mobile and location-aware contexts
+- Service personalization: Tailoring services to individual needs
+
+**Questions raised:**
+- How could the three-level context abstraction be extended to model sensory capabilities and impairments?
+- What additional ontology modules would be needed for multi-sensory adaptation?
+- How might the semantic matching approach inform adaptation rule selection based on user capabilities?
+- Could the situation-aware approach be applied to sensory adaptation situations (e.g., "low-light environment", "noisy setting")?
+
 ---
 
 ## Notes on Review Process
@@ -1412,4 +1444,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 50 / ~255 (across 9 categories)
+Total papers reviewed: 51 / ~255 (across 9 categories)
