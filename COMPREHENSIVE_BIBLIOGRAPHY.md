@@ -951,6 +951,34 @@ Presents "The Mad Hatter's Cocktail Party," a mobile audio space designed for so
 - How might the conversation analysis methodology inform evaluation of adaptive systems for users with communication impairments?
 - Could the social audio space concept be extended to support multi-sensory social interactions for users with different sensory capabilities?
 
+### Cavarra, A., Riccobene, E., & Scandurra, P. (2003). A Framework to Simulate UML Models: Moving from a Semi-formal to a Formal Environment. In *Proceedings of the ACM Symposium on Applied Computing (SAC '03)* (pp. 1519-1526). ACM.
+
+**File:** `referenced papers/p1519-cavarra.pdf`
+
+**Summary:**
+Presents a simulation framework for UML models based on mapping UML metamodel elements into Abstract State Machines (ASMs). The approach translates structural model elements (classes, relationships) into ASM vocabulary as domains and functions, while dynamic behavior (state machines) is captured by multi-agent ASMs. The toolkit takes UML models from CASE tools in XMI format, automatically initializes the ASM model, and executes it symbolically using the AseGofer ASM programming system. The framework supports class diagrams, object diagrams, state diagrams, and sequence diagrams, with the stack-printer case study demonstrating simulation of interactions among state machines through signal exchange and operation calls. The work addresses the lack of precise semantics in UML by providing a formal executable semantics through ASMs, enabling model validation, verification, and early error detection.
+
+**Thesis Relevance:**
+- **Formal modeling of UML:** Provides formal semantics for UML models using Abstract State Machines, relevant to thesis's use of modeling languages (UML, Shlaer-Mellor) for adaptation specification.
+- **Model simulation and validation:** Enables simulation of behavioral models for validation and verification, informing approaches for validating adaptation rules and behaviors.
+- **Multi-agent ASMs:** Uses multi-agent ASMs to model concurrent behavior, connecting to distributed adaptation approaches and multi-user scenarios.
+- **XMI-based tool integration:** Uses standard XMI format for tool interoperability, relevant to thesis's need for standardized model representations.
+- **Formal verification foundation:** Provides basis for formal verification of models, informing approaches for verifying adaptation rule correctness.
+- **Model-driven development:** Supports model-driven approach from semi-formal UML to formal ASM specifications, relevant to thesis's model-driven adaptation framework.
+- **Limitations:** Technical paper focused on UML simulation rather than accessibility; does not address adaptive systems or user interface concerns; specialized formal methods approach.
+
+**Cross-references:**
+- Thesis methodology: Use of modeling languages (UML, Shlaer-Mellor) for system specification
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses modeling approaches and formal methods
+- Model connection: Formal semantics for behavioral models vs. CISNA adaptation rule semantics
+- Tool integration: XMI-based approach for tool interoperability
+
+**Questions raised:**
+- How could the UML-to-ASM mapping approach be extended to model adaptation rules in the CISNA framework?
+- What additional formal semantics are needed for modeling multi-sensory adaptation across design spaces?
+- How might model simulation techniques inform validation of adaptation behaviors for users with different capabilities?
+- Could the multi-agent ASM approach model distributed adaptation across multiple devices or users?
+
 ---
 
 ## Notes on Review Process
@@ -961,4 +989,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 35 / ~255 (across 9 categories)
+Total papers reviewed: 36 / ~255 (across 9 categories)
