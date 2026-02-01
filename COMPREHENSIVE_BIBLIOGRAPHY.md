@@ -1215,6 +1215,38 @@ Foundational specification defining the execution semantics for UML actions, pro
 - How might the data flow and control flow mechanisms inform adaptation rule composition and execution?
 - Could the formal semantics enable verification of adaptation rule properties (e.g., consistency, termination)?
 
+### Ceri, S., Daniel, F., Matera, M., & Facca, F. M. (2007). Model-Driven Development of Context-Aware Web Applications. *ACM Transactions on Internet Technology*, 7(2), Article 1.
+
+**File:** `referenced papers/p1-ceri.pdf`
+
+**Summary:**
+Presents a conceptual framework for model-driven development of context-aware, multichannel web applications using WebML (Web Modeling Language). The approach emphasizes user-independent, context-triggered adaptation actions where context plays a "first class" actor role, operating independently of users on the same hypertext. Key contributions include: (1) **Context modeling as data** - extending application data schema with context metadata (user profile, personalization, context model subschemas); (2) **Context-aware hypertext structuring** - introducing context-aware pages (C-pages) with context clouds for adaptation actions; (3) **Adaptivity policies** - immediate vs. deferred adaptivity with automatic polling mechanisms; (4) **Adaptivity specification** - new WebML constructs for context data management, condition evaluation, and adaptation actions (content, navigation, site view, presentation style adaptation); (5) **Specificity rules** - extended rules prioritizing context-triggered values over user choices; (6) **Implementation** - extension of WebRatio CASE tool with custom units for context-aware development. The framework supports both user-triggered and context-triggered adaptations, with conflict resolution mechanisms for concurrent actions.
+
+**Thesis Relevance:**
+- **Model-driven context-aware development:** Provides model-driven approach to context-aware adaptation, relevant to model-driven adaptation frameworks.
+- **Context as first-class actor:** Treats context as independent actor alongside users, informing multi-actor adaptation approaches.
+- **WebML extension:** Extends WebML for context-aware applications, showing model extension approaches for adaptation.
+- **Adaptivity policies:** Immediate vs. deferred adaptation policies, relevant to adaptation timing and user control.
+- **Context modeling as data:** Stores context metadata in data schema, informing adaptation rule and context modeling.
+- **Specificity rules:** Prioritization rules for context vs. user values, relevant to adaptation conflict resolution.
+- **Multichannel support:** Addresses multichannel applications, connecting to multi-sensory adaptation.
+- **Limitations:** Focuses on web applications rather than general UI adaptation; uses specific modeling language (WebML); does not address sensory impairment adaptations specifically.
+
+**Cross-references:**
+- Thesis methodology: Model-driven approaches to adaptation specification
+- Context-aware adaptation: Context as adaptation trigger and parameter
+- Multi-actor adaptation: Context and users as independent adaptation actors
+- Adaptation policies: Immediate vs. deferred adaptation timing
+- Conflict resolution: Specificity rules for adaptation value prioritization
+- Multichannel applications: Adaptation across different access channels
+- CASE tool support: Tool support for adaptation specification
+
+**Questions raised:**
+- How could the "context as first-class actor" concept be extended to "sensory capabilities as first-class actors" in multi-sensory adaptation?
+- What additional adaptivity policies would be needed for sensory impairment adaptations (e.g., progressive vs. compensatory adaptation)?
+- How might the specificity rules be extended to handle conflicts among multiple sensory capability constraints?
+- Could the WebML extension approach inform extension of other modeling languages for adaptation specification?
+
 ---
 
 ## Notes on Review Process
@@ -1225,4 +1257,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 44 / ~255 (across 9 categories)
+Total papers reviewed: 45 / ~255 (across 9 categories)
