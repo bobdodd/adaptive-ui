@@ -1531,6 +1531,40 @@ Presents Ariadne, a software engineering method for hypermedia development follo
 - How might the user-centered evaluation approach inform adaptation usability testing?
 - Could the security and roles modeling be applied to adaptation capability-based access control?
 
+### Matias, J. N. (2005). Philadelphia Fullerine: A Case Study in Three-Dimensional Hypermedia. *Proceedings of the Sixteenth ACM Conference on Hypertext and Hypermedia*.
+
+**File:** `referenced papers/p7-matias.pdf`
+
+**Summary:**
+Presents Philadelphia Fullerine, a geodesic hypermedia sculpture about ethnic and lower class life in mid-19th century Philadelphia, as a case study in three-dimensional hypermedia. The sculpture consists of a 60-faced geodesic sphere (1.4m tall, 67cm diameter) with triangular faces presenting primary image material and audio documentaries (2h20m total audio). Each face links to three adjacent faces conceptually, with full rotational freedom allowing viewers to begin anywhere and follow any path of adjacency. The paper examines design methods using spatial hypertext software (Tinderbox) and GZigZag for creating, storing, and navigating three-dimensional hyperstructures. Key contributions include: (1) **Geodesic hyperstructure** - 60 triangular nodes with 140 adjacency links (2.3 unique links per node); (2) **Sculptural hypertext methods** - link culling (removing links) from heavily-mapped initial structure; (3) **Spatial hypertext authoring** - using Tinderbox for research, planning, writing, and construction; (4) **Three-dimensional navigation** - challenges with directional vs. non-directional links in orthogonal software; (5) **Implicit structure** - adjacency-based linking without explicit directionality; (6) **User experience** - encourages exploration, disorientation as positive feature, no beginning/end points. The paper discusses challenges with representing geodesic structures in orthogonal software (Tinderbox, GZigZag), issues with link directionality, navigation strategies (path/distance vs. texture-based), and the role of disorientation in exploratory hypermedia.
+
+**Thesis Relevance:**
+- **Three-dimensional hypermedia:** Physical geodesic sculpture as hypermedia, relevant to spatial and tactile adaptation.
+- **Sculptural hypertext methods:** Link culling approach to hypertext authoring, informing adaptation rule refinement.
+- **Spatial hypertext tools:** Using Tinderbox for hypermedia design, relevant to adaptation authoring tools.
+- **Geometric hyperstructures:** Geodesic sphere structure with adjacency links, informing spatial adaptation structures.
+- **Implicit linking:** Adjacency-based connections without explicit directionality, relevant to context-based adaptation.
+- **Exploratory navigation:** No beginning/end, encourages free exploration, informing exploratory adaptation interfaces.
+- **Multi-sensory presentation:** Combines visual (images) and auditory (audio documentaries) media, relevant to multi-sensory adaptation.
+- **Disorientation as feature:** Embraces user disorientation as positive exploratory experience, challenging adaptation orientation assumptions.
+- **Limitations:** Artistic/creative focus rather than systematic adaptation; specific to sculpture medium; complex geometric structure.
+
+**Cross-references:**
+- Thesis methodology: Case studies in hypermedia/adaptation systems
+- Spatial adaptation: Three-dimensional and geometric structures
+- Authoring tools: Spatial hypertext tools for adaptation design
+- Navigation design: Exploratory vs. directed navigation strategies
+- Multi-sensory presentation: Combining visual and auditory media
+- User experience: Embracing disorientation in exploratory systems
+- Physical interfaces: Tangible hypermedia sculptures
+- Creative applications: Artistic approaches to hypermedia/adaptation
+
+**Questions raised:**
+- How could three-dimensional hypermedia structures inform spatial adaptation interfaces?
+- What role might sculptural hypertext methods (link culling) play in adaptation rule refinement?
+- How could the exploratory, disorientation-positive approach inform adaptive exploration interfaces?
+- Could physical hypermedia sculptures inspire tangible adaptation interfaces for sensory impairments?
+
 ---
 
 ## Notes on Review Process
@@ -1541,4 +1575,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 54 / ~255 (across 9 categories)
+Total papers reviewed: 55 / ~255 (across 9 categories)
