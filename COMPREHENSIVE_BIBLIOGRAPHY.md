@@ -1066,6 +1066,35 @@ Survey paper discussing the integration of temporal aspects of multimedia presen
 - How might the linking semantics with time inform adaptation of interactive multimedia content for different user capabilities?
 - Could SMIL's approach to temporal composition inform multi-sensory synchronization in adaptive interfaces?
 
+### Bieber, M., & Yoo, J. (2000). Hypermedia: A Design Philosophy. *ACM Computing Surveys*, 32(4es), Article 29.
+
+**File:** `referenced papers/a29-bieber.pdf`
+
+**Summary:**
+Presents Relationship-Navigation Analysis (RNA) as a design philosophy and analysis tool for hypermedia application development. RNA helps designers develop a "hypermedia mindset" by providing a systematic approach to thinking about information domains in terms of interrelationships. The approach includes a complete taxonomy of generic relationship types applicable to any application domain, with five analysis steps: stakeholder analysis, element of interest analysis, relationship analysis, navigation analysis, and feasibility analysis. The relationship taxonomy includes internal relationships (generalization/specialization, whole-part/composition, classification/instantiation) and external relationships (comparison, association/dependency, activity, influence, intentional, socio-organizational, temporal, spatial). RNA serves as a knowledge elicitation tool to help designers identify intuitive relationships and realize the full scope and interconnections within domains, with the goal of establishing new standards for application development and user interaction where users can point to any object of interest and access related information through hypermedia links.
+
+**Thesis Relevance:**
+- **Relationship-Navigation Analysis (RNA):** Provides systematic approach to analyzing relationships in information domains, relevant to modeling adaptation relationships.
+- **Hypermedia design philosophy:** Promotes "hypermedia mindset" for maximum access based on relationships, informing adaptation philosophy.
+- **Generic relationship taxonomy:** Comprehensive taxonomy of relationship types applicable to any domain, useful for modeling adaptation relationships.
+- **Stakeholder analysis:** Considers different user perspectives and needs, relevant to user modeling for adaptation.
+- **Systematic design approach:** Five-step analysis process (stakeholder, element, relationship, navigation, feasibility), providing structured methodology.
+- **Domain-independent relationships:** Generic relationship types that apply across domains, useful for cross-domain adaptation modeling.
+- **Limitations:** Conceptual paper focusing on hypermedia design philosophy rather than implementation; does not address accessibility or adaptation specifically.
+
+**Cross-references:**
+- Thesis methodology: Systematic analysis approaches for adaptation design
+- Relationship modeling: Taxonomy of relationships for adaptation rule specification
+- User-centered design: Stakeholder analysis for understanding different user needs
+- Hypermedia models: Connection to hypertext/hypermedia adaptation approaches
+- Design philosophy: Hypermedia mindset as approach to adaptive system design
+
+**Questions raised:**
+- How could the RNA relationship taxonomy be extended to model adaptation relationships (e.g., adaptation rules, capability mappings)?
+- What additional relationship types would be needed for modeling multi-sensory adaptation across design spaces?
+- How might stakeholder analysis inform the identification of different user capability profiles and adaptation needs?
+- Could the hypermedia design philosophy be extended to an "adaptive mindset" for systematic adaptation design?
+
 ---
 
 ## Notes on Review Process
@@ -1076,4 +1105,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 39 / ~255 (across 9 categories)
+Total papers reviewed: 40 / ~255 (across 9 categories)
