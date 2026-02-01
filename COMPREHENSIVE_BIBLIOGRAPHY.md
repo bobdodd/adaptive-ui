@@ -866,6 +866,34 @@ Presents an interactive visual debugging system that links dynamic program execu
 - How might focus+context techniques inform adaptation of content presentation for users with cognitive impairments?
 - Could UML-based visualization approaches be extended to represent user capability profiles and adaptation rules?
 
+### More, G., Yuille, J., Padgham, L., Sahani, A., & Burry, M. (2003). The Space and Sound of Intelligent Information Environments. In *Proceedings of the Australian Conference on Computer-Human Interaction (OZCHI '03)* (pp. 15-19). ACM.
+
+**File:** `referenced papers/p15-more.pdf`
+
+**Summary:**
+Presents Eureka, a Multi-Dimensional Presentation Environment (MPE) prototype that combines digital information spaces with spatial sound and intelligent agent support. Eureka is described as a "spatially adaptive hypermedia" system that allows users to arrange image-based information in 3D space for presentation scenarios, moving beyond linear slide sequences. The system features: (1) spatial navigation through 3D information spaces with different modes (library, history, presentation), (2) integrated spatial sound design using Max/MSP for navigation feedback and content representation, and (3) intelligent BDI (Belief-Desire-Intention) agents that monitor presentation timing and dynamically suggest content adjustments. The sound design applies electroacoustic composition strategies, using concepts like "reduced listening" and spatial sound objects to represent information hierarchies. Intelligent agents analyze XML-based presentation plans, monitor timing deviations, and suggest content deletions/additions to fit within scheduled time, communicating via PDA.
+
+**Thesis Relevance:**
+- **Spatially adaptive hypermedia:** Combines adaptive hypermedia with spatial organization, connecting to thesis's hypertext/hypermedia models and spatial adaptation techniques.
+- **Multi-sensory integration:** Integrates visual spatial presentation with spatial sound design, relevant to multi-sensory design space mapping and cross-modal adaptation.
+- **Intelligent agent adaptation:** Uses BDI agents for real-time adaptation based on context (timing, user behavior), informing rule-based adaptation approaches in CISNA model.
+- **3D information spaces:** Demonstrates spatial organization of content beyond linear structures, relevant to spatial cognition and navigation adaptation.
+- **XML-based representation:** Uses XML for presentation plans and agent reasoning, connecting to thesis's use of XML for adaptation rule representation.
+- **Limitations:** Focuses on presentation software rather than general UI adaptation; complex system requiring specialized hardware (multi-channel audio, PDA); limited evaluation of effectiveness.
+
+**Cross-references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – spatial design, multi-sensory integration, auditory design space
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses adaptive hypermedia and intelligent systems
+- Thesis Chapter 6: "Hypertext Models & Adaptation" – connects to adaptive hypermedia concepts
+- Model connection: BDI agent reasoning vs. CISNA adaptation rule execution
+- Design space connection: Visual spatial + auditory spatial integration
+
+**Questions raised:**
+- How could Eureka's spatial sound techniques be adapted for accessibility (e.g., auditory navigation for visually impaired users)?
+- What additional agent reasoning capabilities are needed for impairment-specific adaptation (beyond timing adjustments)?
+- How might 3D spatial organization concepts inform adaptation of content for users with different cognitive spatial abilities?
+- Could the BDI agent architecture be integrated with the CISNA model's adaptation layer for comprehensive multi-domain adaptation?
+
 ---
 
 ## Notes on Review Process
@@ -876,4 +904,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 32 / ~255 (across 9 categories)
+Total papers reviewed: 33 / ~255 (across 9 categories)
