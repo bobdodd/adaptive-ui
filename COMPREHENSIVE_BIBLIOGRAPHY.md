@@ -1008,6 +1008,35 @@ Presents a comprehensive framework for modeling the multi-sensory design space b
 - How might the direct vs. abstract properties distinction inform adaptation for users with cognitive impairments?
 - Could the metaphor classification guide the selection of appropriate adaptation metaphors for different user capabilities?
 
+### Bailey, C., Hall, W., Millard, D. E., & Weal, M. J. (2007). Adaptive Hypermedia Through Contextualized Open Hypermedia Structures. *ACM Transactions on Information Systems*, 25(4), Article 16.
+
+**File:** `referenced papers/a16-bailey.pdf`
+
+**Summary:**
+Presents an alternative view of adaptive hypermedia (AH) from a contextually-aware open hypermedia (OH) perspective, arguing that a wide range of AH techniques can be supported with a small number of OH structures. The work reexamines Brusilovsky's taxonomy of AH techniques from a structural OH perspective, identifying and modeling common structures across adaptive techniques. The paper introduces HASL (Hypermedia Adaptation using Agents and Auld Linky), an agent-based adaptive hypermedia system that uses OH structures to implement various adaptive hypermedia techniques. The approach uses the Fundamental Open Hypermedia Model (FOHM) with structures like links, tours, concepts, and level-of-detail associations, combined with context objects and behavior objects for adaptation. The system demonstrates that most AH behaviors can be implemented with simple OH data structures, simplifying development of new AH systems. The paper shows structural equivalence between many adaptive techniques and demonstrates advantages of the OH approach through reimplementation of the Jointzone medical education system.
+
+**Thesis Relevance:**
+- **Structural approach to adaptation:** Shows how adaptive techniques can be implemented through structural transformations, relevant to thesis's structural adaptation approaches.
+- **Open hypermedia model (FOHM):** Uses FOHM with context and behavior objects for adaptation, informing model-based adaptation frameworks.
+- **Contextual adaptation:** Demonstrates context-aware adaptation through context objects and matching functions, connecting to situation-aware adaptation.
+- **Agent-based architecture:** Uses multi-agent system (HASL) for adaptive hypermedia, informing distributed adaptation approaches.
+- **Brusilovsky taxonomy mapping:** Maps adaptive techniques to structural implementations, providing systematic approach to adaptation technique implementation.
+- **Level-of-detail structures:** Uses LoD structures for adaptive content presentation, relevant to multi-level adaptation approaches.
+- **Limitations:** Focuses on hypermedia/web adaptation rather than general UI adaptation; does not address multi-sensory or impairment-specific adaptations.
+
+**Cross-references:**
+- Thesis Chapter 6: "Hypertext Models & Adaptation" – directly addresses adaptive hypermedia and structural adaptation approaches
+- Thesis methodology: Model-based adaptation approaches
+- Adaptation techniques: Mapping of Brusilovsky's taxonomy to structural implementations
+- Context-aware adaptation: Use of context objects for situation-aware adaptation
+- Agent architecture: Multi-agent approach to adaptation
+
+**Questions raised:**
+- How could the FOHM model be extended to support multi-sensory adaptation across different design spaces?
+- What additional context objects would be needed for impairment-specific user capability modeling?
+- How might the structural equivalence of adaptive techniques inform cross-modal adaptation approaches?
+- Could the agent-based architecture be integrated with the CISNA model for distributed adaptation?
+
 ---
 
 ## Notes on Review Process
@@ -1018,4 +1047,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 37 / ~255 (across 9 categories)
+Total papers reviewed: 38 / ~255 (across 9 categories)
