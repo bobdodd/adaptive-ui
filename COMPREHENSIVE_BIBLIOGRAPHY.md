@@ -1498,6 +1498,39 @@ Presents a historical perspective and future vision for hypermedia technology su
 - How might the separation of data, structure, and behavior principles inform adaptation system design?
 - Could the work phase shifting concept inform adaptation across different sensory contexts?
 
+### Aedo, I., & Díaz, P. (2001). Applying software engineering methods for hypermedia systems. *Proceedings of the 6th Annual Conference on Innovation and Technology in Computer Science Education*.
+
+**File:** `referenced papers/p5-aedo.pdf`
+
+**Summary:**
+Presents Ariadne, a software engineering method for hypermedia development following a user-centered approach, and describes teaching experiences with Computer Science students. The method addresses the "hypermedia software crisis" - lack of discipline in hypermedia development due to scarce dissemination of design methods. Ariadne divides development into three phases: (1) **Conceptual Design** - high-level abstraction with nodes, contents, links; includes structural diagram (logical structure), navigation diagram (navigation paths), functional specification (non-navigational services), events catalogue (low-level functions), attributes catalogue (properties), internal diagrams (node/content details), users diagram (user roles), categorisation catalogue (security categories), access table (security policy); (2) **Detailed Design** - instantiates abstract entities into concrete elements: structure instances, specification of access structures, detailed specification of functions, detailed internal diagrams and presentation specifications; (3) **Evaluation** - user-centered iterative prototyping and evaluation using incremental approach. The method supports structural relationships (aggregation, generalization), n-ary and bidirectional links, virtual/event-based links, navigation tools (maps, guided tours), time/space-based relationships (alignments, synchronizations), security policies (browsing, personalizing, editing categories), and user roles. Teaching experience shows students can apply method to design and implement hypermedia systems, realizing utility of design methods that translate to implementation units.
+
+**Thesis Relevance:**
+- **Software engineering method:** Systematic approach to hypermedia development, informing adaptation system engineering.
+- **Three-phase process:** Conceptual design → detailed design → evaluation, informing adaptation development methodology.
+- **User-centered approach:** Iterative prototyping and evaluation, relevant to user-centered adaptation design.
+- **Structural modeling:** Supports nodes, contents, links, structural relationships, informing adaptation structure modeling.
+- **Navigation modeling:** Navigation diagrams, tools, virtual links, relevant to adaptive navigation design.
+- **Security and roles:** User roles and security policies, informing adaptation access control.
+- **Time/space relationships:** Alignments and synchronizations, relevant to temporal/spatial adaptation.
+- **Teaching experience:** Demonstrates method applicability in education, informing adaptation methodology teaching.
+- **Limitations:** Focuses on hypermedia rather than adaptation; method specific to Ariadne; does not address sensory capabilities.
+
+**Cross-references:**
+- Thesis methodology: Software engineering approaches to adaptation
+- Development processes: Systematic phases for adaptation system development
+- User-centered design: Iterative prototyping and evaluation for adaptation
+- Structural modeling: Modeling adaptation components and relationships
+- Navigation design: Adaptive navigation structures and tools
+- Security modeling: Adaptation access control and user roles
+- Educational applications: Teaching adaptation development methods
+
+**Questions raised:**
+- How could the Ariadne method be extended to support sensory adaptation design?
+- What additional design products would be needed for multi-sensory adaptation modeling?
+- How might the user-centered evaluation approach inform adaptation usability testing?
+- Could the security and roles modeling be applied to adaptation capability-based access control?
+
 ---
 
 ## Notes on Review Process
@@ -1508,4 +1541,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 53 / ~255 (across 9 categories)
+Total papers reviewed: 54 / ~255 (across 9 categories)
