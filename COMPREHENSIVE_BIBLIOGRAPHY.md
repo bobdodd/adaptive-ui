@@ -1308,6 +1308,37 @@ Presents HyperCafe, an experimental hypermedia prototype exploring narrative and
 - How might temporal link opportunities be adjusted based on user processing speeds or attention spans?
 - Could the video collage/simultaneity concept inform multi-modal adaptation where different sensory channels present complementary information?
 
+### Weiner, E. J. (1984). A Knowledge Representation Approach to Understanding Metaphors. *Computational Linguistics*, 10(1), 1-14.
+
+**File:** `referenced papers/p1-weiner.pdf`
+
+**Summary:**
+Presents a knowledge representation approach to understanding metaphors, extending Ortony's theories of salience and asymmetry in human metaphor processing. The approach uses KL-ONE as a knowledge representation system to model metaphor comprehension based on several interacting factors: (1) **Salience** - prominence of predicates with respect to concepts; (2) **Asymmetry** - metaphors are not reversible (e.g., "Billboards are like warts" ≠ "Warts are like billboards"); (3) **Incongruity** - categorical distance between topic and vehicle concepts; (4) **Hyperbolicity** - metaphors as exaggerations; (5) **Inexpressibility** - metaphors express what cannot be expressed literally; (6) **Prototypicality** - typical vs. atypical category members; (7) **Probable value range** - range of possible values for predicates. The paper proposes that metaphors work by raising the salience of predicates that have high salience in the vehicle (B) but low salience in the topic (A), with the additional requirement that there be high salient predicates of B that cannot apply to A. The KL-ONE representation includes concepts arranged in taxonomic hierarchies with inheritance, roles representing predicates, salience values (0-1), and probable value ranges. The approach handles novel metaphors through an algorithm that identifies shared predicates, checks for hyperbole via value ranges, and raises salience of relevant topic roles.
+
+**Thesis Relevance:**
+- **Metaphor comprehension:** Models understanding of figurative language, relevant to natural language adaptation.
+- **Knowledge representation:** Uses KL-ONE for conceptual representation, informing adaptation rule representation.
+- **Salience and asymmetry:** Key factors in metaphor processing, potentially applicable to adaptation prioritization.
+- **Prototypicality:** Distinguishes typical from atypical category members, relevant to user capability modeling.
+- **Incongruity:** Categorical distance between concepts, informing adaptation rule applicability conditions.
+- **Hyperbolicity:** Metaphors as exaggerations, connecting to adaptation intensity or degree.
+- **Inexpressibility:** Metaphors express what cannot be expressed literally, relevant to adaptation for expressing complex sensory experiences.
+- **Limitations:** Focuses on isolated "A is (like) B" sentences; does not address discourse context extensively; uses specific knowledge representation language (KL-ONE).
+
+**Cross-references:**
+- Thesis methodology: Knowledge representation approaches to adaptation
+- Natural language processing: Metaphor comprehension techniques
+- Conceptual modeling: Taxonomic hierarchies and inheritance
+- Adaptation rules: Salience-based prioritization of adaptation actions
+- User modeling: Prototypical vs. atypical user capability profiles
+- Rule applicability: Incongruity as condition for adaptation application
+
+**Questions raised:**
+- How could metaphor comprehension techniques inform the design of adaptation rules that use figurative or analogical reasoning?
+- What role might salience and asymmetry play in prioritizing adaptation actions for different sensory capabilities?
+- Could prototypicality concepts be applied to model typical vs. atypical sensory impairment profiles?
+- How might the inexpressibility factor inform adaptation for conveying complex multi-sensory experiences?
+
 ---
 
 ## Notes on Review Process
@@ -1318,4 +1349,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 47 / ~255 (across 9 categories)
+Total papers reviewed: 48 / ~255 (across 9 categories)
