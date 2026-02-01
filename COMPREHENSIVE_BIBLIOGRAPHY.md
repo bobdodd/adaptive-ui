@@ -1184,6 +1184,37 @@ Product brochure for Nucleus BridgePoint, a UML tool suite for developing real-t
 - How might model-level debugging techniques inform debugging of adaptation rule execution?
 - Could the three-phase process (model, mark, make) guide adaptation specification, parameterization, and implementation?
 
+### Object Management Group. (2002). UML Action Semantics Specification. *OMG Document Number: ptc/02-01-09*.
+
+**File:** `referenced papers/Action Semantics.pdf`
+
+**Summary:**
+Foundational specification defining the execution semantics for UML actions, providing the formal basis for executable UML models. The specification defines actions as fundamental units of behavior specification that take inputs and produce outputs, with pins as connection points for data flow. Key concepts include: (1) **Pins** - specify type and multiplicity of values held by actions, with input pins as connection points for delivering values and output pins for obtaining values; (2) **Data Flow** - carries values from source output pins to destination input pins, enabling value propagation between actions; (3) **Control Flow** - indicates ordering constraints between predecessor and successor actions; (4) **Primitive Actions** - indivisible actions including mathematical functions, object memory operations, and messaging actions; (5) **Procedures** - sets of actions attached as units to other model elements (e.g., method bodies). The specification defines action execution life cycle (waiting, ready, executing, complete) and procedure execution life cycle (ready, executing, returning, complete). It provides detailed semantics for action foundation classes including Action, ControlFlow, DataFlow, InputPin, and OutputPin, with well-formedness rules and operational semantics.
+
+**Thesis Relevance:**
+- **Executable UML foundation:** Provides formal semantics for UML actions, enabling executable adaptation models.
+- **Action specification:** Defines actions as fundamental behavior units, relevant to adaptation rule specification.
+- **Data flow modeling:** Uses pins and data flows for value propagation, informing adaptation data flow modeling.
+- **Control flow specification:** Defines control flow for ordering constraints, relevant to adaptation execution ordering.
+- **Formal semantics:** Provides precise execution semantics, enabling formal verification of adaptation behaviors.
+- **Model execution:** Defines action and procedure execution life cycles, informing adaptation rule execution.
+- **Platform-independent behavior:** Specifies behavior independently of implementation platforms, relevant to platform-independent adaptation.
+- **Limitations:** Technical specification document rather than research paper; focuses on UML semantics rather than adaptation; complex and detailed.
+
+**Cross-references:**
+- Thesis methodology: Use of UML and formal modeling approaches
+- Executable models: Action semantics for specifying executable adaptation behaviors
+- Formal semantics: Precise specification of adaptation rule execution
+- Data flow modeling: Pins and flows for adaptation data propagation
+- Control flow: Ordering of adaptation rule execution
+- Platform independence: Platform-independent behavior specification
+
+**Questions raised:**
+- How could the UML action semantics be applied to specify adaptation rules in the CISNA framework?
+- What additional action types would be needed for adaptation-specific behaviors (e.g., sensory modality mapping, capability assessment)?
+- How might the data flow and control flow mechanisms inform adaptation rule composition and execution?
+- Could the formal semantics enable verification of adaptation rule properties (e.g., consistency, termination)?
+
 ---
 
 ## Notes on Review Process
@@ -1194,4 +1225,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 43 / ~255 (across 9 categories)
+Total papers reviewed: 44 / ~255 (across 9 categories)
