@@ -1247,6 +1247,36 @@ Presents a conceptual framework for model-driven development of context-aware, m
 - How might the specificity rules be extended to handle conflicts among multiple sensory capability constraints?
 - Could the WebML extension approach inform extension of other modeling languages for adaptation specification?
 
+### Pruitt, J., & Grudin, J. (2003). Personas: Practice and Theory. *Proceedings of the 2003 Conference on Designing for User Experiences*.
+
+**File:** `referenced papers/p1-pruitt.pdf`
+
+**Summary:**
+Describes the use of personas as an interaction design technique, extending Alan Cooper's original approach based on experiences at Microsoft. Personas are fictional characters created to represent different user types, based on user research data, that help design teams understand and focus on target audiences. The paper outlines a refined persona creation process including: (1) starting with market segmentation studies and enriching segments with user research; (2) creating detailed foundation documents with goals, fears, activities, and explicit links to supporting data; (3) using photo shoots with real models (not stock photos) for visual representation; (4) conducting "sanity check" site visits to validate personas; (5) multifaceted communication through posters, flyers, websites, and promotional items; (6) integration into development processes via feature-persona weighted priority matrices and scenario-based specifications. The approach addresses four common problems with early persona efforts: believability, communication, usability across disciplines/stages, and organizational support. The paper also discusses the psychological theory behind personas, explaining how they engage "theory of mind" capabilities and why they are more engaging than design based primarily on scenarios.
+
+**Thesis Relevance:**
+- **Persona-based design:** Uses fictional characters to represent user types, relevant to user modeling for adaptation.
+- **Data-driven personas:** Based on market research, ethnographic studies, and user research, informing evidence-based user modeling.
+- **Explicit data links:** Foundation documents with footnotes linking persona characteristics to supporting data, promoting traceability.
+- **Multifaceted communication:** Various communication methods (posters, websites, promotional items) for team engagement.
+- **Integration into processes:** Feature-persona priority matrices and scenario-based specifications, showing integration into development.
+- **Theory of mind explanation:** Psychological basis for why personas engage teams more effectively than abstract scenarios.
+- **Limitations:** Focuses on general user representation rather than capability-based modeling; does not address sensory impairments or adaptation needs specifically.
+
+**Cross-references:**
+- Thesis methodology: User modeling approaches for adaptation design
+- Evidence-based design: Data-driven persona creation
+- Team communication: Methods for communicating user needs to development teams
+- Scenario-based design: Connection to scenario approaches
+- User-centered design: Personas as user-centered design technique
+- Traceability: Explicit links between design decisions and supporting data
+
+**Questions raised:**
+- How could personas be extended to represent users with different sensory capabilities and impairment profiles?
+- What additional data sources would be needed for capability-based personas (e.g., clinical assessments, assistive technology usage)?
+- How might persona-based approaches inform the design of adaptation rules targeting specific user capability profiles?
+- Could "adaptation personas" be created to represent common adaptation patterns or strategies?
+
 ---
 
 ## Notes on Review Process
@@ -1257,4 +1287,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 45 / ~255 (across 9 categories)
+Total papers reviewed: 46 / ~255 (across 9 categories)
