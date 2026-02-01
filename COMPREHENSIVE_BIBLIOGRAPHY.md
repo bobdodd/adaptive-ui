@@ -1339,6 +1339,37 @@ Presents a knowledge representation approach to understanding metaphors, extendi
 - Could prototypicality concepts be applied to model typical vs. atypical sensory impairment profiles?
 - How might the inexpressibility factor inform adaptation for conveying complex multi-sensory experiences?
 
+### Whitehead, E. J. (1997). An Architectural Model for Application Integration in Open Hypermedia Environments. *Proceedings of the Eighth ACM Conference on Hypertext*.
+
+**File:** `referenced papers/p1-whitehead.pdf`
+
+**Summary:**
+Presents an architectural framework for modeling third-party application integrations with open hypermedia systems, collecting and extending integration experience from the open hypermedia community. The framework characterizes applications prior to integration and describes qualities of complete integrations using three architectural elements: (1) **Artists** - code responsible for manipulating anchors, links, and native application objects (native artist, anchor artist, link artist); (2) **Communicators** - code managing information flow to/from the open hypermedia system (native, non-native, non-communicative); (3) **Containers** - grouping elements (application container, wrapper container, translator container). The paper identifies three common integration architectures: **Launch-only** (easiest, large-chunk hypermedia, link traversals end at application), **Wrapper** (intermediary process, uses application's external API), and **Custom** (most difficult, modifies source code or uses customization language). The framework provides guidance for selecting integration architecture based on application's pre-integration characteristics (existing artists and communicators) and estimates integration effort. Examples include XEmacs/Chimera (custom/wrapper combination) and Calendar/Microcosm (wrapper using Universal Viewer).
+
+**Thesis Relevance:**
+- **Application integration architecture:** Framework for integrating applications with hypermedia systems, relevant to adaptation system integration.
+- **Three-tier integration model:** Launch-only, wrapper, custom architectures with varying effort/functionality trade-offs.
+- **Artists concept:** Separates user interface responsibilities (native, anchor, link artists), informing adaptation interface component design.
+- **Communicators classification:** Native, non-native, non-communicative applications, relevant to adaptation system interoperability.
+- **Integration effort estimation:** Relates architecture choice to implementation difficulty, informing adaptation system design decisions.
+- **Open hypermedia principles:** Separation of storage, structure, and presentation, connecting to adaptation layer separation.
+- **Wrapper architectures:** Intermediary components for integrating non-cooperative applications, relevant to legacy system adaptation.
+- **Limitations:** Focuses on hypermedia system integration rather than adaptation; does not address sensory capabilities or accessibility.
+
+**Cross-references:**
+- Thesis methodology: Architectural frameworks for system integration
+- Adaptation system design: Integration architectures for adaptation components
+- Legacy system adaptation: Wrapper approaches for non-adaptive applications
+- Component separation: Artists and communicators as separate concerns
+- Integration effort: Trade-offs between implementation difficulty and functionality
+- Open systems: Principles of open hypermedia applied to adaptation systems
+
+**Questions raised:**
+- How could the artist/communicator/container model be extended for adaptation system integration?
+- What additional "adaptation artists" would be needed for multi-sensory adaptation interfaces?
+- How might wrapper architectures be used to add adaptation capabilities to legacy applications?
+- Could the integration effort estimation framework inform adaptation system implementation planning?
+
 ---
 
 ## Notes on Review Process
@@ -1349,4 +1380,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 48 / ~255 (across 9 categories)
+Total papers reviewed: 49 / ~255 (across 9 categories)
