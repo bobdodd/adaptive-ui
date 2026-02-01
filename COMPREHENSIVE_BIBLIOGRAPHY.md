@@ -783,6 +783,34 @@ Presents Dynamic Soundscape, an audio browsing system that maps temporal audio d
 - How might spatial audio navigation techniques inform adaptation of visual content for users with visual impairments?
 - Could the "cocktail party effect" and selective listening techniques be applied to multi-modal attention management in complex adaptive interfaces?
 
+### Lumbreras, M., & Sánchez, J. (1999). Interactive 3D Sound Hyperstories for Blind Children. In *Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems (CHI '99)* (pp. 318-325). ACM.
+
+**File:** `referenced papers/p318-lumbreras.pdf`
+
+**Summary:**
+Presents AudioDoom, an interactive 3D sound hyperstory system designed for blind children aged 8-12. The system creates acoustic virtual worlds where children navigate through spatialized sound environments, interact with virtual objects and characters, and engage in narrative-driven adventures. AudioDoom uses a "hyperstory" model combining navigable virtual worlds, dynamic objects, characters, and narrative plots. Children interact using an ultrasonic joystick (The Owl) with 3 degrees of freedom, coordinating haptic input with spatial audio output. The research explores whether 3D sound navigable environments can create cognitive spatial structures in blind children's minds. Evaluation with seven blind children showed they could construct accurate mental models of the virtual environment using LEGO blocks, demonstrating spatial understanding through audio-only interaction.
+
+**Thesis Relevance:**
+- **Audio-only virtual environments:** Demonstrates comprehensive virtual environments using only spatial audio, relevant to adaptation for visual impairments.
+- **Hyperstory model:** Presents a structured approach to interactive narratives in virtual environments, connecting to hypermedia/hypertext models and adaptation frameworks.
+- **Haptic-audio correlation:** Combines ultrasonic joystick input with spatial audio output, showing multi-modal interaction design for blind users.
+- **Spatial cognition development:** Investigates how audio interfaces can develop spatial understanding in blind children, relevant to cognitive adaptation techniques.
+- **Educational entertainment (edutainment):** Addresses both learning and entertainment needs of blind children, showing adaptive systems can serve multiple purposes.
+- **Limitations:** Focuses on specific age group (8-12 year old blind children); uses specialized hardware (ultrasonic joystick); does not address integration with visual interfaces or mobile devices.
+
+**Cross-references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – auditory design space, spatial audio, virtual environments
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses audio interfaces and accessibility for blind users
+- Thesis Chapter 3: "Capability Modelling & User Constraints" – visual impairment as user capability domain
+- Model connection: Hyperstory model vs. hypertext/hypermedia models (Dexter/Amsterdam)
+- User capability domain: Blind children and spatial cognition development
+
+**Questions raised:**
+- How could the hyperstory model be integrated with the CISNA adaptation framework for dynamic content adaptation?
+- What additional adaptation mechanisms are needed for users with combined visual and hearing impairments?
+- How might the haptic-audio correlation techniques be adapted for standard mobile device interfaces (touchscreens, vibration)?
+- Could the spatial cognition development approach inform adaptation techniques for users with cognitive impairments?
+
 ---
 
 ## Notes on Review Process
@@ -793,4 +821,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 29 / ~255 (across 9 categories)
+Total papers reviewed: 30 / ~255 (across 9 categories)
