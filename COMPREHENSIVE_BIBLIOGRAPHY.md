@@ -1037,6 +1037,35 @@ Presents an alternative view of adaptive hypermedia (AH) from a contextually-awa
 - How might the structural equivalence of adaptive techniques inform cross-modal adaptation approaches?
 - Could the agent-based architecture be integrated with the CISNA model for distributed adaptation?
 
+### Hardman, L., van Ossenbruggen, J., Rutledge, L., & Bulterman, D. C. A. (1999). Hypermedia: The Link with Time. *ACM Computing Surveys*, 31(4es), Article 23.
+
+**File:** `referenced papers/a23-hardman.pdf`
+
+**Summary:**
+Survey paper discussing the integration of temporal aspects of multimedia presentations with hypertext links, focusing on the World Wide Web Consortium's SMIL (Synchronized Multimedia Integration Language) specification. The paper addresses conceptual and technical challenges of adding time to hypermedia document models, building on the Dexter hypertext reference model. It describes three ways of combining linking with temporally synchronized components: (1) linking within linear multimedia presentations (fast-forward/reverse operations), (2) linking among multimedia presentations (navigation between scenes with control over source presentation behavior), and (3) linking within and among non-linear multimedia presentations (composing custom presentations through navigation). The paper discusses SMIL 1.0 features including temporal composition (par, seq elements), linking within and among temporal composites, and the show attribute for controlling source presentation behavior (replace, new, continue). It concludes with future directions including SMIL Boston extensions for atemporal composition and integration of temporal semantics with existing XML document formats.
+
+**Thesis Relevance:**
+- **Temporal hypermedia:** Addresses integration of time with hypermedia, relevant to temporal adaptation and synchronization in multi-sensory interfaces.
+- **SMIL specification:** Discusses W3C standard for synchronized multimedia, informing standards-based approaches to adaptive multimedia.
+- **Linking semantics with time:** Examines how link traversal affects temporal behavior of presentations, relevant to adaptation of time-based content.
+- **Non-linear multimedia presentations:** Discusses composition of custom presentations through navigation, connecting to user-controlled adaptation.
+- **Dexter model extension:** Builds on established hypertext reference model, showing evolution of hypermedia models to include temporal aspects.
+- **Standards-based approach:** Focuses on W3C standards (SMIL, XML), relevant to thesis's use of standards for interoperability.
+- **Limitations:** Survey paper rather than research contribution; focuses on multimedia/hypermedia rather than accessibility; does not address impairment-specific adaptations.
+
+**Cross-references:**
+- Thesis Chapter 6: "Hypertext Models & Adaptation" – directly addresses hypermedia models and temporal aspects
+- Standards connection: W3C SMIL specification for synchronized multimedia
+- Temporal adaptation: Time-based content adaptation and synchronization
+- Model evolution: Extension of Dexter hypertext model to include temporal aspects
+- Multimedia integration: Combining different media types with temporal constraints
+
+**Questions raised:**
+- How could SMIL's temporal composition features be adapted for accessibility (e.g., synchronization of captions with video for hearing-impaired users)?
+- What additional temporal adaptation mechanisms are needed for users with cognitive impairments affecting time perception?
+- How might the linking semantics with time inform adaptation of interactive multimedia content for different user capabilities?
+- Could SMIL's approach to temporal composition inform multi-sensory synchronization in adaptive interfaces?
+
 ---
 
 ## Notes on Review Process
@@ -1047,4 +1076,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 38 / ~255 (across 9 categories)
+Total papers reviewed: 39 / ~255 (across 9 categories)
