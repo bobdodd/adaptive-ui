@@ -1154,6 +1154,36 @@ Argues that complex hypermedia applications should be developed using software e
 - How might the navigation design phase inform adaptation of navigation structures for users with different capabilities?
 - Could hypermedia patterns be extended to "adaptation patterns" for common adaptation design problems?
 
+### Accelerated Technology. (2005). Nucleus BridgePoint: UML Suite for Embedded Systems Development. *Product Brochure*.
+
+**File:** `referenced papers/bridgepoint.pdf`
+
+**Summary:**
+Product brochure for Nucleus BridgePoint, a UML tool suite for developing real-time embedded systems using Executable and Translatable UML (xtUML). The tool supports the xtUML profile which provides clear execution semantics for UML symbols, enabling 100% code generation from platform-independent models. The development process follows three phases: "Model It!" (creating platform-independent UML models with class diagrams, state machine diagrams, and Object Action Language), "Mark It!" (adding implementation details through marks similar to compiler flags), and "Make It!" (generating, compiling, and linking executable code). Key features include model-level debugging with breakpoints on UML elements, execution trace logging in XML format, integration with Eclipse IDE, support for multiple targets without model changes, and marks for controlling translation (e.g., multi-tasking, persistence). The tool has been used for demanding systems including launch vehicles, medical systems, telecom systems, and consumer electronics.
+
+**Thesis Relevance:**
+- **Executable UML (xtUML):** Uses xtUML subset with defined execution semantics, relevant to executable adaptation models.
+- **Model-driven development:** Three-phase process (model, mark, make) for platform-independent development, informing model-driven adaptation approaches.
+- **100% code generation:** Generates complete source code from models, relevant to automatic adaptation implementation.
+- **Model-level debugging:** Debugging at UML level with breakpoints on model elements, useful for debugging adaptation rules.
+- **Platform-independent models:** Creates PIMs that can be translated to different targets, relevant to platform-independent adaptation specifications.
+- **Marks for translation control:** Uses marks to control how models translate to code, similar to adaptation parameters.
+- **Limitations:** Commercial product brochure rather than research paper; focuses on embedded systems rather than UI adaptation; does not address accessibility.
+
+**Cross-references:**
+- Thesis methodology: Use of UML and model-driven approaches
+- Executable models: xtUML for specifying executable adaptation behaviors
+- Platform independence: Platform-independent models for cross-platform adaptation
+- Code generation: Automatic implementation from adaptation specifications
+- Model debugging: Debugging adaptation rules at model level
+- Translation control: Marks as adaptation parameters
+
+**Questions raised:**
+- How could the xtUML approach be applied to specify executable adaptation rules in the CISNA framework?
+- What additional marks would be needed for controlling adaptation translation (e.g., sensory modality preferences, capability thresholds)?
+- How might model-level debugging techniques inform debugging of adaptation rule execution?
+- Could the three-phase process (model, mark, make) guide adaptation specification, parameterization, and implementation?
+
 ---
 
 ## Notes on Review Process
@@ -1164,4 +1194,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 42 / ~255 (across 9 categories)
+Total papers reviewed: 43 / ~255 (across 9 categories)
