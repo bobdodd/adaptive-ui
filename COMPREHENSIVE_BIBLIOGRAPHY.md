@@ -1095,6 +1095,35 @@ Presents Relationship-Navigation Analysis (RNA) as a design philosophy and analy
 - How might stakeholder analysis inform the identification of different user capability profiles and adaptation needs?
 - Could the hypermedia design philosophy be extended to an "adaptive mindset" for systematic adaptation design?
 
+### Gkotsis, G., Tzagarakis, M., & Vaitis, M. (2003). Towards Structural Computing Design. In *Proceedings of the Metainformatics Symposium* (pp. 5-15). ACM.
+
+**File:** `referenced papers/a5-gkotsis.pdf`
+
+**Summary:**
+Presents an approach to structural computing design using UML class diagrams to support Component-Based Open Hypermedia Systems (CB-OHS). The paper addresses the "structural crisis" in hypermedia system development, where current environments lack tools and methodologies for reducing real-life organization problems to hypermedia domains. It introduces structural computing as a discipline with "primacy of structure over data" and proposes a structure-oriented analysis and design approach using UML. The work examines popular hypertext systems (Callimachus, Dexter, KMS, Chimera) through UML class diagrams, comparing data-oriented and structure-oriented approaches. Key findings include: (1) structure-oriented UML diagrams use classes to represent all basic abstractions of a problem while associations remain problem-neutral, (2) relationships should be transformed into first-class entities (classes) rather than remaining as associations, and (3) structural computing properties (wholeness, transformation, self-regulation) should guide design. The paper provides guidelines for structural analysis and design within structural computing environments.
+
+**Thesis Relevance:**
+- **Structural computing approach:** Emphasizes "primacy of structure over data," relevant to structural adaptation approaches in thesis.
+- **UML modeling for hypermedia:** Uses UML class diagrams for structural analysis and design, connecting to thesis's use of modeling languages.
+- **Structure-oriented vs. data-oriented:** Distinguishes between structure-first and data-first approaches, informing adaptation framework design.
+- **Component-Based Open Hypermedia Systems (CB-OHS):** Examines CB-OHS architecture with structure servers, relevant to modular adaptation approaches.
+- **Structural properties:** Identifies wholeness, transformation, self-regulation as key structural properties, useful for adaptation system properties.
+- **Design guidelines:** Provides guidelines for transforming relationships into first-class entities, informing adaptation rule modeling.
+- **Limitations:** Technical paper focused on hypermedia system design rather than adaptation; does not address accessibility or user capabilities.
+
+**Cross-references:**
+- Thesis methodology: Use of UML and modeling approaches for system specification
+- Structural adaptation: Primacy of structure over data in adaptation frameworks
+- Modular architecture: Component-based approaches similar to CISNA model components
+- Design approaches: Structure-oriented vs. data-oriented design philosophies
+- Hypermedia models: Connection to hypertext/hypermedia adaptation approaches
+
+**Questions raised:**
+- How could the structure-oriented UML approach be applied to model adaptation rules and relationships in the CISNA framework?
+- What additional structural properties are needed for adaptive systems (beyond wholeness, transformation, self-regulation)?
+- How might the CB-OHS architecture with structure servers inform the design of adaptation service components?
+- Could the "primacy of structure over data" principle guide adaptation rule specification over content adaptation?
+
 ---
 
 ## Notes on Review Process
@@ -1105,4 +1134,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 40 / ~255 (across 9 categories)
+Total papers reviewed: 41 / ~255 (across 9 categories)
