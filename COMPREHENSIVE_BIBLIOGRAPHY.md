@@ -1466,6 +1466,38 @@ Addresses interoperability and reusability issues in adaptive hypermedia systems
 - How might semantic web technologies support interoperability between different adaptation systems?
 - Could the dynamic composition approach inform runtime adaptation rule selection based on sensory contexts?
 
+### Wiil, U. K. (2005). Hypermedia Technology for Knowledge Workers: A Vision of the Future. *Proceedings of the Sixteenth ACM Conference on Hypertext and Hypermedia*.
+
+**File:** `referenced papers/p4-wiil.pdf`
+
+**Summary:**
+Presents a historical perspective and future vision for hypermedia technology supporting knowledge workers, tracing developments from Vannevar Bush's Memex (1945) to contemporary systems. The paper identifies two major synchronization points in hypermedia research: (1) **Dexter model** (1988-1990) - community effort to gather experiences from diverse associative structure systems, becoming a de facto standard; (2) **Open Hypermedia Systems Working Group (OHSWG)** (mid-1990s) - defined standards for open hypermedia systems including the Open Hypermedia Protocol (OHP) and layered reference architecture. The paper critiques current work where domain experts build fancy applications with simplistic infrastructure, while infrastructure experts build fancy infrastructure with simplistic applications. The proposed vision includes: tight integration with basic computing environment; support for multiple structure domains (associative, spatial, taxonomic, workflow, trail, guided tour, annotation); seamless shifting between work phases using different structure types; support for individual work styles; open environment supporting separation of data, structure, and behavior; multi-user collaboration and versioning; adaptability to mobile platforms. The paper calls for a new community synchronization point where domain experts and infrastructure experts work together to fulfill a common vision of hypermedia technology that effectively supports knowledge workers.
+
+**Thesis Relevance:**
+- **Historical perspective:** Traces hypermedia technology evolution from Memex to contemporary systems, providing context for adaptation technology development.
+- **Synchronization points:** Identifies Dexter model and OHSWG as key community efforts, informing adaptation standards development.
+- **Structure domain diversity:** Multiple structure types (associative, spatial, taxonomic, workflow, etc.), relevant to adaptation structure modeling.
+- **Open hypermedia principles:** Separation of data, structure, and behavior, connecting to adaptation layer separation.
+- **Integration vision:** Tight integration with computing environment, informing adaptation system integration.
+- **Work phase support:** Seamless shifting between different structure types for different work phases, relevant to adaptive workflow support.
+- **Collaboration support:** Multi-user collaboration and versioning, informing collaborative adaptation.
+- **Limitations:** Focuses on knowledge workers rather than adaptation; vision paper rather than implementation; does not address sensory capabilities.
+
+**Cross-references:**
+- Thesis methodology: Historical perspectives on hypermedia/adaptation technology
+- Standards development: Community synchronization points for adaptation
+- Structure modeling: Multiple structure domains for adaptation representation
+- Open systems: Principles of open hypermedia applied to adaptation
+- System integration: Integration with computing environments
+- Workflow support: Adaptive support for different work phases
+- Collaboration: Multi-user adaptation systems
+
+**Questions raised:**
+- How could the vision of hypermedia for knowledge workers be extended to support sensory adaptation?
+- What additional structure domains would be needed for multi-sensory adaptation modeling?
+- How might the separation of data, structure, and behavior principles inform adaptation system design?
+- Could the work phase shifting concept inform adaptation across different sensory contexts?
+
 ---
 
 ## Notes on Review Process
@@ -1476,4 +1508,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 52 / ~255 (across 9 categories)
+Total papers reviewed: 53 / ~255 (across 9 categories)
