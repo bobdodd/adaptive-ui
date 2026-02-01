@@ -839,6 +839,33 @@ Presents a profiles-based architecture for situation-aware web applications that
 - How might situation-aware adaptation rules be integrated with the CISNA model's action language?
 - Could the trust/privacy framework be adapted for sensitive user capability data (e.g., medical impairment information)?
 
+### Jacobs, T., & Musial, B. (2003). Interactive Visual Debugging with UML. In *Proceedings of the ACM Symposium on Software Visualization* (pp. 115-122). ACM.
+
+**File:** `referenced papers/p115-jacobs.pdf`
+
+**Summary:**
+Presents an interactive visual debugging system that links dynamic program execution state to Unified Modeling Language (UML) object diagrams. The system addresses the cognitive challenges of software debugging by providing visual representations that facilitate comprehension of overall application behavior alongside detailed understanding of specific components. It enhances standard UML diagrams with focus+context techniques, graph layout algorithms, and color encoding to organize and present objects and events in ways that support system behavior analysis. The approach allows debugging using high-level design abstractions while maintaining access to low-level details through interactive displays. The system extracts execution state from Java programs using the Java Platform Debug Architecture and visualizes it through modified UML diagrams in ArgoUML, applying degree-of-interest transformations and selective aggregation to handle large-scale systems.
+
+**Thesis Relevance:**
+- **Visual representation of system state:** Demonstrates how visual techniques can represent complex system states and behaviors, relevant to visualizing adaptation processes in the CISNA model.
+- **Focus+context techniques:** Uses degree-of-interest transformations to manage information complexity, informing adaptation techniques for managing cognitive load in adaptive interfaces.
+- **UML as modeling language:** Shows practical application of UML for system representation, connecting to thesis's use of modeling languages (Shlaer-Mellor, UML) for adaptation specification.
+- **Multi-level abstraction:** Provides simultaneous access to high-level overviews and low-level details, relevant to adaptation across different granularity levels.
+- **Cognitive support for complex tasks:** Addresses cognitive challenges in complex system understanding, informing adaptation techniques for users with cognitive impairments.
+- **Limitations:** Focuses on software debugging rather than UI adaptation; does not address accessibility or multi-sensory design spaces; specialized for Java programming environment.
+
+**Cross-references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses modeling approaches and visual representations
+- Thesis methodology: Use of modeling languages (UML, Shlaer-Mellor) for system specification
+- Cognitive aspects: Managing complexity and cognitive load in adaptive systems
+- Model connection: Visual representation techniques vs. CISNA model visualization needs
+
+**Questions raised:**
+- How could visual debugging techniques be adapted to visualize adaptation processes in the CISNA model?
+- What additional visual representations are needed for multi-sensory adaptation across design spaces?
+- How might focus+context techniques inform adaptation of content presentation for users with cognitive impairments?
+- Could UML-based visualization approaches be extended to represent user capability profiles and adaptation rules?
+
 ---
 
 ## Notes on Review Process
@@ -849,4 +876,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 31 / ~255 (across 9 categories)
+Total papers reviewed: 32 / ~255 (across 9 categories)
