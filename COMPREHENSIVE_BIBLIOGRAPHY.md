@@ -1277,6 +1277,37 @@ Describes the use of personas as an interaction design technique, extending Alan
 - How might persona-based approaches inform the design of adaptation rules targeting specific user capability profiles?
 - Could "adaptation personas" be created to represent common adaptation patterns or strategies?
 
+### Sawhney, N., Balcom, D., & Smith, I. (1996). HyperCafe: Narrative and Aesthetic Properties of Hypervideo. *Proceedings of the Seventh ACM Conference on Hypertext*.
+
+**File:** `referenced papers/p1-sawhney.pdf`
+
+**Summary:**
+Presents HyperCafe, an experimental hypermedia prototype exploring narrative and aesthetic properties of hypervideo. The system places users in a virtual cafe composed of digital video clips of actors involved in fictional conversations, allowing users to follow different conversations through dynamic interaction opportunities. Key contributions include: (1) **Temporal link opportunities** - previews of destination video scenes that appear briefly (3-5 seconds) for user selection before disappearing; (2) **Spatio-temporal links** - references between video scenes where specific spatial locations in source video trigger destination videos at specific times; (3) **Interpretative textual links** - textual narration annotated to specific video scenes that appears scrolling horizontally; (4) **Video collage/simultaneity** - multiple colliding narratives that produce related narratives when video scenes semantically intersect; (5) **Framework for hypervideo** - defines scenes, narrative sequences, temporal/spatio-temporal links, and link opportunities; (6) **Aesthetic design** - black-and-white video for film-like quality, continuous video playback without user interruption, minimalist interface with cursor changes for navigation. The system explores how hypervideo can create multi-threaded narratives through spatial, temporal, and textual linking mechanisms.
+
+**Thesis Relevance:**
+- **Hypervideo navigation:** Explores navigation in video-based hypermedia, relevant to multi-sensory media adaptation.
+- **Temporal linking:** Time-based linking mechanisms, informing temporal aspects of adaptation.
+- **Spatio-temporal interaction:** Links based on spatial location and timing, relevant to spatial adaptation in multimedia.
+- **Multi-threaded narratives:** Support for alternative narrative paths, connecting to adaptive content delivery.
+- **Aesthetic considerations:** Design choices for user experience, informing adaptation aesthetics.
+- **Minimalist interface:** Cursor-based navigation without explicit controls, relevant to accessible interface design.
+- **Continuous playback:** Video never stops, maintaining cinematic experience, informing adaptation timing.
+- **Limitations:** Focuses on narrative fiction rather than practical applications; experimental prototype; does not address accessibility or sensory adaptation.
+
+**Cross-references:**
+- Thesis methodology: Hypermedia navigation and interaction techniques
+- Multi-sensory media: Video-based hypermedia with temporal/spatial linking
+- Adaptive narratives: Multi-threaded narrative structures
+- Interface design: Minimalist, cursor-based interaction
+- Temporal adaptation: Time-based linking and interaction opportunities
+- Spatial adaptation: Location-based linking in media
+
+**Questions raised:**
+- How could hypervideo navigation techniques be adapted for users with different sensory capabilities?
+- What additional linking mechanisms would be needed for multi-sensory adaptation (e.g., audio descriptions, tactile cues)?
+- How might temporal link opportunities be adjusted based on user processing speeds or attention spans?
+- Could the video collage/simultaneity concept inform multi-modal adaptation where different sensory channels present complementary information?
+
 ---
 
 ## Notes on Review Process
@@ -1287,4 +1318,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 46 / ~255 (across 9 categories)
+Total papers reviewed: 47 / ~255 (across 9 categories)
