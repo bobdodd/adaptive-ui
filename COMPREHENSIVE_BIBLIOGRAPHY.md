@@ -811,6 +811,34 @@ Presents AudioDoom, an interactive 3D sound hyperstory system designed for blind
 - How might the haptic-audio correlation techniques be adapted for standard mobile device interfaces (touchscreens, vibration)?
 - Could the spatial cognition development approach inform adaptation techniques for users with cognitive impairments?
 
+### Suryanarayana, L., & Hjelm, J. (2002). Situation-aware applications on the World Wide Web. In *Proceedings of the 11th International Conference on World Wide Web (WWW '02)* (pp. 200-209). ACM.
+
+**File:** `referenced papers/p200-suryanarayana.pdf`
+
+**Summary:**
+Presents a profiles-based architecture for situation-aware web applications that adapt content, interaction, and presentation based on user context. Distinguishes between customized (device capabilities), personalized (user preferences), and situated (immediate environment) applications. Introduces key concepts: user profiles (personal facts, device capabilities, situation data, permission preferences), application profiles (content metadata), and rules for processing profiles. Uses CC/PP (Composite Capabilities/Preferences Profile) framework with RDF/XML for profile representation. Discusses transport mechanisms (HTTP headers, SOAP), processing models (rules engines, XSLT transformations), and trust/privacy considerations. Argues that trusted frameworks with rich vocabularies describing users, applications, and processing rules are critical for situated web architectures.
+
+**Thesis Relevance:**
+- **Situation-aware adaptation framework:** Provides comprehensive framework for context-aware adaptation across content, interaction, and presentation dimensions, directly relevant to thesis's adaptation framework.
+- **Profiles-based architecture:** Distinguishes user profiles (capabilities, preferences, situation) from application profiles (content metadata), informing user capability and device capacity modeling.
+- **CC/PP framework:** Uses standardized profile framework (CC/PP) with RDF/XML representation, relevant to thesis's need for formal profile representations.
+- **Mobile context awareness:** Specifically addresses mobile devices and location-based services, connecting to thesis's focus on mobile accessibility.
+- **Trust and privacy considerations:** Discusses critical issues of profile security, integrity, and privacy in adaptive systems.
+- **Limitations:** Focuses on web applications rather than general mobile UI; conceptual framework with limited implementation details; does not address impairment-specific adaptations.
+
+**Cross-references:**
+- Thesis Chapter 3: "Capability Modelling & User Constraints" – user profiles and context modeling
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses context-aware systems and adaptation frameworks
+- Thesis Chapter 6: "Hypertext Models & Adaptation" – connects to web-based adaptation approaches
+- Model connection: CC/PP profile framework vs. thesis's user capability and device capacity models
+- Mobile context: Directly addresses mobile devices and location-based adaptation
+
+**Questions raised:**
+- How could the CC/PP framework be extended to include impairment-specific user capability profiles?
+- What additional profile elements are needed for multi-sensory adaptation across design spaces?
+- How might situation-aware adaptation rules be integrated with the CISNA model's action language?
+- Could the trust/privacy framework be adapted for sensitive user capability data (e.g., medical impairment information)?
+
 ---
 
 ## Notes on Review Process
@@ -821,4 +849,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 30 / ~255 (across 9 categories)
+Total papers reviewed: 31 / ~255 (across 9 categories)
