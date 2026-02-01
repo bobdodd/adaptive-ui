@@ -894,6 +894,34 @@ Presents Eureka, a Multi-Dimensional Presentation Environment (MPE) prototype th
 - How might 3D spatial organization concepts inform adaptation of content for users with different cognitive spatial abilities?
 - Could the BDI agent architecture be integrated with the CISNA model's adaptation layer for comprehensive multi-domain adaptation?
 
+### Tsingos, N., Gallo, E., & Drettakis, G. (2004). Perceptual Audio Rendering of Complex Virtual Environments. In *Proceedings of the ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games (I3D '04)* (pp. 249-258). ACM.
+
+**File:** `referenced papers/p249-tsingos.pdf`
+
+**Summary:**
+Presents a real-time 3D audio rendering pipeline for complex virtual scenes containing hundreds of moving sound sources. The approach combines auditory culling (eliminating inaudible sources based on psychoacoustic masking) with spatial level-of-detail clustering to handle more than ten times the number of sources available on consumer 3D audio hardware. The method dynamically eliminates inaudible sources using binaural masking models and groups remaining audible sources into a budget number of clusters, each represented by an "impostor" sound source positioned using perceptual criteria. Spatial audio processing is then performed only on the impostor sources rather than every original source, greatly reducing computational cost. The system includes pre-processing of audio signals to extract spectral features (power spectrum distribution, tonality index) used for perceptual saliency estimation. Evaluation shows the approach works well for both indoor and outdoor environments with minimal decrease in audio quality and limited localization impairment.
+
+**Thesis Relevance:**
+- **Perceptual audio rendering:** Uses psychoacoustic principles (masking, saliency) to optimize audio processing, relevant to efficient multi-sensory adaptation.
+- **Auditory culling and clustering:** Demonstrates techniques for managing complexity in multi-source audio environments, informing adaptation strategies for complex sensory scenes.
+- **Real-time performance optimization:** Shows how perceptual models can enable real-time processing of complex sensory data, relevant to mobile device constraints.
+- **Spatial audio level-of-detail:** Applies LOD concepts to audio rendering, similar to visual LOD techniques, connecting to multi-level adaptation approaches.
+- **Cross-modal considerations:** Discusses interaction between audio and visual rendering, relevant to multi-sensory integration in adaptive interfaces.
+- **Limitations:** Focuses on audio rendering for virtual environments rather than accessibility; technical paper with emphasis on performance optimization; does not address impairment-specific adaptations.
+
+**Cross-references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – auditory design space, perceptual models, spatial audio
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses audio rendering and performance optimization
+- Thesis mobile context: Performance optimization for resource-constrained devices
+- Design space connection: Perceptual optimization across sensory modalities
+- Methodology connection: Use of psychoacoustic models for efficient processing
+
+**Questions raised:**
+- How could auditory culling and clustering techniques be adapted for accessibility applications (e.g., prioritizing important audio cues for users with hearing impairments)?
+- What additional perceptual models are needed for impairment-specific audio adaptation (e.g., frequency shifting for hearing loss)?
+- How might spatial audio LOD concepts inform adaptation of visual content for users with visual impairments?
+- Could the perceptual saliency estimation approach be extended to multi-sensory importance weighting in adaptive interfaces?
+
 ---
 
 ## Notes on Review Process
@@ -904,4 +932,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 33 / ~255 (across 9 categories)
+Total papers reviewed: 34 / ~255 (across 9 categories)
