@@ -621,6 +621,140 @@ The January 2006 issue of the ACM SIGACCESS Newsletter (Issue 84) features s
 - Could a unified adaptation model like CISNA accelerate progress across diverse accessibility domains?
 - What enduring lessons can be drawn from the research questions asked in 2005‑2006?
 
+### Trewin, S., Keates, S., & Moffatt, K. (2006). Developing Steady Clicks: A Method of Cursor Assistance for People with Motor Impairments. In *Proceedings of the 8th International ACM SIGACCESS Conference on Computers and Accessibility (ASSETS '06)* (pp. 26-33). ACM.
+
+**File:** `referenced papers/p26-trewin.pdf`
+
+**Summary:**
+Presents "Steady Clicks," an assistance feature designed to help mouse users with motor impairments who experience slipping while clicking and accidental clicks. The system suppresses these errors by freezing the cursor during mouse clicks, preventing overlapping button presses, and suppressing clicks made while the mouse is moving at high velocity. The paper describes an empirical study with older adults and people with Parkinson's Disease that identified specific clicking problems, then evaluates Steady Clicks with eleven target users who have various motor impairments. Results show that Steady Clicks enabled participants to select targets using significantly fewer attempts, with overall task performance times significantly improved for the five participants with the highest slip rates. Nine of eleven participants preferred Steady Clicks to the unassisted condition.
+
+**Thesis Relevance:**
+- **Motor impairment adaptation:** Directly addresses adaptation for users with motor impairments, a key user capability domain in the thesis's adaptation framework.
+- **Error suppression techniques:** Demonstrates practical techniques for suppressing specific error types (slips, accidental clicks, overlapping presses), informing adaptation rule design for motor-impaired users.
+- **Empirical validation:** Provides example of empirical evaluation with target user population (people with motor impairments), relevant to thesis's methodology for validating adaptation approaches.
+- **Real-time adaptation:** Implements real-time adaptation based on cursor velocity and button state, demonstrating feasibility of runtime adaptation decisions.
+- **Limitations for critique:** Focuses specifically on mouse clicking rather than broader mobile device interaction; adaptation is limited to cursor/clicking behavior rather than comprehensive UI adaptation; does not address hypertext models or multi-sensory adaptation.
+
+**Cross-references:**
+- Thesis Chapter 3: "Capability Modelling & User Constraints" – motor impairment as specific user capability profile
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses adaptive input techniques
+- Thesis Chapter 5: "Usability & Simulation Experiences" – could reference evaluation methodology
+- User capability domain: Motor impairments and clicking strategies
+- Adaptation technique: Error suppression vs. transformation across design spaces
+
+**Questions raised:**
+- How could Steady Clicks techniques be adapted for touchscreen mobile devices where traditional mouse clicking doesn't apply?
+- What additional adaptation mechanisms are needed for users with combined motor and sensory impairments?
+- How might error suppression techniques be integrated with the CISNA model's adaptation layer for comprehensive UI adaptation?
+- Could velocity-based adaptation thresholds be personalized based on individual user capability profiles?
+
+### Ramakrishnan, I. V., Stent, A., & Yang, G. (2004). HearSay: Enabling Audio Browsing on Hypertext Content. In *Proceedings of the 13th International Conference on World Wide Web (WWW '04)* (pp. 80-89). ACM.
+
+**File:** `referenced papers/p80-ramakrishnan.pdf`
+
+**Summary:**
+Presents HearSay, a system for browsing hypertext web documents via audio, designed primarily for visually impaired users. The system automatically transforms HTML documents into audio-browsable content through novel partitioning techniques that combine structural and semantic analysis. HearSay analyzes HTML DOM trees to identify semantically related units, organizes them into concept hierarchies (partition trees), and automatically generates VoiceXML dialogs for interactive audio navigation. The system addresses the challenge of information overload in traditional screen readers by allowing users to selectively listen to relevant document parts based on semantic structure. Evaluation shows effective partitioning of news websites and promising usability for audio browsing tasks.
+
+**Thesis Relevance:**
+- **Hypertext to audio transformation:** Demonstrates automatic transformation of visual hypertext (HTML) to auditory interfaces, directly relevant to multi-sensory design space mapping (visual → auditory).
+- **Structural-semantic analysis:** Combines structural analysis (DOM tree patterns) with semantic analysis (ontologies, WordNet) to understand document organization, informing adaptation techniques for content understanding.
+- **Automatic dialog generation:** Uses templates to generate VoiceXML dialogs from partition trees, showing automated interface generation from content analysis.
+- **Accessibility for visual impairments:** Focuses on making web content accessible to blind/low-vision users, a core user capability domain.
+- **Limitations for critique:** Focuses on HTML documents rather than general hypertext models; transformation is document-specific rather than model-based; does not address mobile device constraints or multi-modal adaptation.
+
+**Cross-references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – auditory design space and semantic representation
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses hypertext accessibility and audio interfaces
+- Model connection: HTML to VoiceXML transformation vs. CISNA model's adaptation between design spaces
+- User capability domain: Visual impairment and auditory adaptation
+- Adaptation technique: Structural-semantic analysis for content understanding
+
+**Questions raised:**
+- How could HearSay's partitioning techniques be adapted for dynamic web content (AJAX) common in modern web applications?
+- What additional analysis is needed for mobile-optimized websites with different structural patterns?
+- How might the structural-semantic analysis approach inform the CISNA model's understanding of content semantics for adaptation?
+- Could VoiceXML dialog generation be generalized using the CISNA action language for broader adaptation scenarios?
+
+### Hatala, M., Kalantari, L., Wakkary, R., & Newby, K. (2004). Ontology and Rule based Retrieval of Sound Objects. In *Proceedings of the 13th International Conference on World Wide Web (WWW '04)* (pp. 1045-1046). ACM.
+
+**File:** `referenced papers/p1045-hatala.pdf`
+
+**Summary:**
+Proposes an ontology and rule-based approach for retrieving sound objects, focusing on creating "soundscapes" for various applications. The system uses semantic web technologies where sounds are annotated with metadata describing acoustic properties, semantic meaning, and contextual usage. An ontology defines concepts and relationships for sound classification, while rules enable intelligent retrieval based on user queries and context. The approach aims to support applications such as audio-enhanced learning environments, accessible interfaces, and multimedia presentations by providing structured access to sound resources. The paper discusses the conceptual framework and potential applications of semantic sound retrieval.
+
+**Thesis Relevance:**
+- **Semantic sound representation:** Uses ontologies to represent sound properties and meanings, relevant to formal representation of sensory properties in design spaces.
+- **Rule-based retrieval:** Implements rule-based reasoning for sound selection, connecting to thesis's use of rule-based adaptation in the CISNA model.
+- **Soundscape creation:** Addresses composition of auditory environments, relevant to multi-sensory design and adaptation across sensory modalities.
+- **Semantic web approach:** Applies semantic web technologies (ontologies, rules) to accessibility and multi-sensory design, demonstrating formal approaches that could inform thesis methodology.
+- **Limitations:** Focuses on sound retrieval rather than real-time adaptation; conceptual paper with limited implementation details; does not address integration with visual or haptic modalities.
+
+**Cross-references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – auditory design space and semantic representation of sensory properties
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses ontology-based approaches and rule-based systems
+- Model connection: Sound ontology vs. CISNA model's representation of design space properties
+- Adaptation relevance: Rule-based sound selection vs. adaptation rule execution in CISNA action language
+
+**Questions raised:**
+- How could this ontology and rule-based approach be extended to support real-time adaptation decisions in mobile accessibility systems?
+- What additional ontological concepts are needed to represent relationships between visual, auditory, and haptic properties for cross-modal adaptation?
+- How might sound retrieval rules be integrated with the CISNA model's action language for comprehensive multi-sensory adaptation?
+- Could this approach support personalized sound selection based on user capability profiles (e.g., hearing impairments, cognitive preferences)?
+
+### Schmandt, C., & Vallejo, G. (2003). Audio Hallway: A Virtual Acoustic Environment for Browsing. In *Proceedings of the 16th Annual ACM Symposium on User Interface Software and Technology (UIST '03)* (pp. 163-164). ACM.
+
+**File:** `referenced papers/p163-schmandt.pdf`
+
+**Summary:**
+Presents Audio Hallway, a virtual acoustic environment that allows users to browse audio content spatially using a hallway metaphor. The system creates a metaphorical "hallway" where different audio sources (radio stations, podcasts, music collections) are represented as rooms or doors along the hallway. Users navigate this space using spatial audio cues, moving forward/backward and selecting audio sources based on position. The interface provides intuitive browsing of large audio collections without visual display, using only auditory feedback. The paper discusses implementation details, user interaction techniques, and potential applications for visually impaired users or eyes-free interaction scenarios. Audio Hallway demonstrates how spatial audio and metaphor can create navigable auditory interfaces.
+
+**Thesis Relevance:**
+- **Spatial audio interfaces:** Demonstrates use of spatial audio for navigation and browsing, relevant to auditory design space and spatial adaptation techniques.
+- **Metaphor-based design:** Uses hallway/room metaphor for organizing content, connecting to thesis's discussion of metaphor in adaptive UI design.
+- **Eyes-free interaction:** Addresses interaction without visual display, important for mobile devices (glanceable interfaces) and users with visual impairments.
+- **Audio-only browsing:** Provides example of comprehensive audio interface, informing adaptation techniques for visual → auditory transformation.
+- **Limitations:** Focuses on audio content browsing rather than general UI adaptation; short paper with limited evaluation; does not address integration with visual or haptic modalities.
+
+**Cross-references:**
+- Thesis Chapter 2: "Design Spaces & Metaphor" – spatial audio, auditory metaphors, eyes-free interaction
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses non-visual interfaces and spatial navigation
+- Design space connection: Auditory spatial substrate and navigation techniques
+- User capability domain: Visual impairment and auditory adaptation
+- Metaphor relevance: Hallway metaphor as spatial organization technique
+
+**Questions raised:**
+- How could Audio Hallway concepts be adapted for mobile devices with limited audio spatialization capabilities?
+- What additional navigation techniques are needed for complex hierarchical content structures beyond linear hallways?
+- How might spatial audio browsing be combined with tactile feedback for users with combined visual and hearing impairments?
+- Could the hallway metaphor be extended to support multi-sensory browsing (visual + auditory + haptic representations)?
+
+### Brewster, S. A., & Ramloll, R. (2002). Enhancing Scanning Input with Non-Speech Sounds. In *Proceedings of the 4th International ACM Conference on Assistive Technologies (ASSETS '00)* (pp. 10-17). ACM.
+
+**File:** `referenced papers/p770-brewster.pdf`
+
+**Summary:**
+Investigates the use of non-speech sounds to enhance scanning input interfaces for people with severe motor impairments. Scanning input is a temporal task where users press a switch when a cursor is over the required target, typically presented as items laid out in a spatial grid. The research shows that the auditory modality is often better than visual for temporal tasks, and proposes adding structured non-speech sounds (Earcons) to visual scanning systems. The paper demonstrates how natural rhythm perception abilities can support the scanning process, with preliminary results indicating feasibility. The work is part of the TIDE ACCESS Project aiming to create mobile communication devices for speech-motor and/or language-cognitive impaired users.
+
+**Thesis Relevance:**
+- **Multi-modal scanning interfaces:** Combines visual scanning with auditory feedback, directly relevant to multi-sensory design space mapping and adaptation across modalities.
+- **Motor impairment adaptation:** Addresses severe motor impairments requiring alternative input methods, a key user capability domain.
+- **Earcons and temporal cues:** Uses structured audio (Earcons) and rhythm for conveying temporal information, relevant to sonic design space and temporal adaptation.
+- **Mobile assistive technology:** Part of project creating mobile communication devices for impaired users, aligning with thesis's mobile focus.
+- **Limitations:** Focuses on scanning input rather than general UI adaptation; preliminary results rather than comprehensive evaluation; does not address hypertext models or semantic adaptation.
+
+**Cross-references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses scanning interfaces and multi-modal feedback
+- Thesis Chapter 5: "Usability & Simulation Experiences" – could reference evaluation methodology
+- Mobile context: Directly addresses mobile communication devices for impaired users
+- Design space connection: Visual scanning + auditory feedback adaptation
+- User capability domain: Severe motor and speech-motor impairments
+
+**Questions raised:**
+- How could Earcons and rhythm-based cues be adapted for users with hearing impairments (e.g., through haptic/vibratory equivalents)?
+- What is the cognitive load of simultaneous visual scanning and auditory feedback for users with cognitive impairments?
+- How might this approach scale to complex mobile applications beyond simple scanning grids?
+- Could rhythm-based auditory cues inform temporal sequencing in multi-sensory adaptations for users with different cognitive capabilities?
+
 ---
 
 ## Notes on Review Process
@@ -631,4 +765,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 23 / ~255 (across 9 categories)
+Total papers reviewed: 28 / ~255 (across 9 categories)
