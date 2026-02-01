@@ -922,6 +922,35 @@ Presents a real-time 3D audio rendering pipeline for complex virtual scenes cont
 - How might spatial audio LOD concepts inform adaptation of visual content for users with visual impairments?
 - Could the perceptual saliency estimation approach be extended to multi-sensory importance weighting in adaptive interfaces?
 
+### Aoki, P. M., Romaine, M., Szymanski, M. H., Thornton, J. D., Wilson, D., & Woodruff, A. (2003). The Mad Hatter's Cocktail Party: A Social Mobile Audio Space Supporting Multiple Simultaneous Conversations. In *Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems (CHI '03)* (pp. 425-432). ACM.
+
+**File:** `referenced papers/p425-aoki.pdf`
+
+**Summary:**
+Presents "The Mad Hatter's Cocktail Party," a mobile audio space designed for social groups that supports multiple simultaneous conversations through automatic floor management. The system monitors participant turn-taking behavior using machine learning (Naïve Bayes classifier) to identify conversational floors as they emerge, then dynamically modifies audio delivery to enhance the salience of participants in the same conversational floor while reducing the salience of those in different floors. Unlike conventional audio spaces that require explicit floor specification or present all participants at equal volume, this system automatically detects conversational groupings based on temporal features (TRP positioning, simultaneous speech). Evaluation through conversation analysis shows that automatic audio enhancements effectively facilitate multiple simultaneous conversations, though incorrect inferences require repair strategies. The system runs on handheld computers with wireless networking, providing toll-quality audio with 150ms latency.
+
+**Thesis Relevance:**
+- **Social mobile audio spaces:** Addresses social communication needs in mobile contexts, relevant to thesis's focus on mobile accessibility and social interaction.
+- **Automatic floor management:** Uses machine learning to detect conversational structures, informing adaptation techniques for social interaction patterns.
+- **Conversation analysis methodology:** Applies conversation analytic methods to evaluate system effectiveness, demonstrating rigorous evaluation approaches for adaptive systems.
+- **Audio salience adaptation:** Dynamically adjusts audio volume based on conversational context, showing real-time adaptation based on interaction patterns.
+- **Mobile implementation:** Runs on handheld devices with wireless networking, demonstrating feasibility for mobile adaptive systems.
+- **Social group dynamics:** Focuses on gelled social groups and their communication patterns, relevant to social aspects of accessibility.
+- **Limitations:** Focuses on able-bodied social communication rather than accessibility; requires training data for machine learning; does not address impairment-specific adaptations.
+
+**Cross-references:**
+- Thesis Chapter 4: "User Interface Modelling & Assistive Technology" – discusses audio communication systems and social interaction support
+- Thesis mobile context: Directly addresses mobile audio communication systems
+- Methodology connection: Conversation analysis as evaluation method for adaptive systems
+- Social aspects: Addresses social group communication patterns relevant to social inclusion
+- Adaptation technique: Real-time audio adaptation based on conversational context
+
+**Questions raised:**
+- How could automatic floor management techniques be adapted for users with hearing impairments (e.g., prioritizing certain speakers or frequency ranges)?
+- What additional features would be needed to support users with speech impairments in conversational floor detection?
+- How might the conversation analysis methodology inform evaluation of adaptive systems for users with communication impairments?
+- Could the social audio space concept be extended to support multi-sensory social interactions for users with different sensory capabilities?
+
 ---
 
 ## Notes on Review Process
@@ -932,4 +961,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 34 / ~255 (across 9 categories)
+Total papers reviewed: 35 / ~255 (across 9 categories)
