@@ -1370,6 +1370,38 @@ Presents an architectural framework for modeling third-party application integra
 - How might wrapper architectures be used to add adaptation capabilities to legacy applications?
 - Could the integration effort estimation framework inform adaptation system implementation planning?
 
+### Romero, L., & Correia, N. (2002). HyperReal: A Hypermedia Model for Mixed Reality. *Proceedings of the Thirteenth ACM Conference on Hypertext and Hypermedia*.
+
+**File:** `referenced papers/p2-romero.pdf`
+
+**Summary:**
+Presents HyperReal, a generic hypermedia model for building context-aware mixed reality applications that integrates physical and virtual spaces. The model extends the Dexter Hypertext Reference Model with several key features: (1) **Space and location integration** - represents physical/virtual spaces as Map components with SpaceRelation links for hierarchical spatial relationships; (2) **Context representation** - uses Entity components as access portals between real/virtual spaces and hypermedia information; (3) **Presentation scheme** - tree-structured interfaces with dynamic spatial/temporal behavior using Composite components and Content links; (4) **Link awareness** - Navigation links with special anchor IDs for different states (selected/unselected) and dynamic representation; (5) **Contextual modes** - event-driven context activation through Entity components with semantic filtering; (6) **History mechanisms** - stores user experiences as sequences of Navigation/Entity component pairs for replay and repurposing. The model is tested in a mixed reality gaming and storytelling environment that integrates real world, media elements, and 3D virtual worlds, using ARToolkit for marker-based augmented reality. Applications include a gallery information assistant and a mystery game where users solve a robbery by navigating physical and virtual spaces.
+
+**Thesis Relevance:**
+- **Mixed reality hypermedia:** Integrates physical and virtual spaces in hypermedia model, relevant to multi-sensory adaptation environments.
+- **Context-aware applications:** Uses Entity components as context access portals, informing adaptation context modeling.
+- **Space representation:** Hierarchical spatial relationships with Map components and SpaceRelation links, relevant to spatial adaptation.
+- **Link awareness:** Dynamic link representation with different states, informing adaptive navigation interfaces.
+- **History mechanisms:** Stores and replays user experiences, relevant to adaptation history and user modeling.
+- **Presentation scheme:** Tree-structured interfaces with dynamic spatial/temporal behavior, informing adaptive presentation.
+- **Mixed reality gaming:** Application in gaming/storytelling environment, connecting to adaptive entertainment systems.
+- **Limitations:** Focuses on mixed reality rather than sensory adaptation; uses specific AR technology (ARToolkit); complex model implementation.
+
+**Cross-references:**
+- Thesis methodology: Hypermedia models for adaptive systems
+- Mixed reality: Integration of physical and virtual environments
+- Context-aware adaptation: Entity components as context access points
+- Spatial adaptation: Hierarchical space representation and navigation
+- Adaptive navigation: Link awareness and dynamic representation
+- User experience modeling: History mechanisms for experience storage
+- Gaming applications: Adaptive mixed reality environments
+
+**Questions raised:**
+- How could the HyperReal model be extended to support sensory capability-based adaptation?
+- What additional spatial relationships would be needed for multi-sensory spatial adaptation?
+- How might the history mechanisms be used to model user adaptation preferences over time?
+- Could the mixed reality approach inform adaptation across physical and virtual sensory channels?
+
 ---
 
 ## Notes on Review Process
@@ -1380,4 +1412,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 49 / ~255 (across 9 categories)
+Total papers reviewed: 50 / ~255 (across 9 categories)
