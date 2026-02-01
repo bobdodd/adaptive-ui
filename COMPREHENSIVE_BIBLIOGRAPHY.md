@@ -1434,6 +1434,38 @@ Presents FLAME2008, a platform for personalized situation-aware mobile services 
 - How might the semantic matching approach inform adaptation rule selection based on user capabilities?
 - Could the situation-aware approach be applied to sensory adaptation situations (e.g., "low-light environment", "noisy setting")?
 
+### Kravcik, M., & Gasevic, D. (2007). Adaptive Hypermedia for the Semantic Web. *Journal of Universal Computer Science*, 13(9), 1182-1203.
+
+**File:** `referenced papers/p3-kravcik.pdf`
+
+**Summary:**
+Addresses interoperability and reusability issues in adaptive hypermedia systems using semantic web technologies. The paper presents an enhanced adaptive hypermedia application model based on the Dexter Hypertext Reference Model, extended with several complementary models: (1) **Domain model** - describes information content structure (knowledge space and hyperspace); (2) **User model** - represents user characteristics (knowledge, preferences, goals); (3) **Context model** - captures environmental characteristics (location, time, device); (4) **Activity model** - specifies process structure and design; (5) **Adaptation model** - defines adaptation semantics and rules. The approach distinguishes essential knowledge types, makes them relatively independent but interoperable through specification languages, and enables dynamic composition based on current user and context. The paper discusses how semantic web technologies (ontologies, OWL, rule languages) can improve interoperability for each model component. Key challenges include: missing common standards for adaptivity/personalization, representation of various knowledge types driving adaptation, and interaction between knowledge types when generating adaptive experiences dynamically. The enhanced model separates procedural knowledge (activity/adaptation models) from declarative knowledge (domain/user/context models) and supports reuse at various levels through semantic technologies.
+
+**Thesis Relevance:**
+- **Enhanced adaptive hypermedia model:** Extends Dexter model with five complementary models, informing adaptation system architecture.
+- **Semantic web integration:** Uses ontologies and OWL for interoperability, relevant to adaptation rule representation.
+- **Knowledge type separation:** Distinguishes domain, user, context, activity, and adaptation knowledge, informing adaptation knowledge modeling.
+- **Interoperability focus:** Addresses standards and semantic web approaches for adaptive systems, relevant to adaptation system integration.
+- **Dynamic composition:** Composes model instances based on current user and context, informing dynamic adaptation.
+- **Rule-based adaptation:** Uses condition-action rules in adaptation model, connecting to adaptation rule specification.
+- **Learning domain application:** Applied to adaptive educational hypermedia, relevant to adaptive learning systems.
+- **Limitations:** Focuses on semantic web integration rather than sensory adaptation; complex multi-model architecture; learning domain specific.
+
+**Cross-references:**
+- Thesis methodology: Model-driven approaches to adaptation
+- Semantic web technologies: Ontologies and OWL for adaptation
+- Knowledge modeling: Separation of different knowledge types
+- Interoperability: Standards and semantic approaches for adaptive systems
+- Rule-based adaptation: Condition-action rules for adaptation decisions
+- Educational applications: Adaptive learning systems
+- System architecture: Multi-model adaptive system design
+
+**Questions raised:**
+- How could the five-model architecture be extended to include sensory capability modeling?
+- What additional knowledge types would be needed for multi-sensory adaptation?
+- How might semantic web technologies support interoperability between different adaptation systems?
+- Could the dynamic composition approach inform runtime adaptation rule selection based on sensory contexts?
+
 ---
 
 ## Notes on Review Process
@@ -1444,4 +1476,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 51 / ~255 (across 9 categories)
+Total papers reviewed: 52 / ~255 (across 9 categories)
