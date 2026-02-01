@@ -1124,6 +1124,36 @@ Presents an approach to structural computing design using UML class diagrams to 
 - How might the CB-OHS architecture with structure servers inform the design of adaptation service components?
 - Could the "primacy of structure over data" principle guide adaptation rule specification over content adaptation?
 
+### Rossi, G., Lyardet, F. D., & Schwabe, D. (2000). Developing Hypermedia Applications with Methods and Patterns. *ACM Computing Surveys*, 32(4es), Article 8.
+
+**File:** `referenced papers/a8-rossi.pdf`
+
+**Summary:**
+Argues that complex hypermedia applications should be developed using software engineering techniques and presents the Object-Oriented Hypermedia Design Method (OOHDM) combined with hypermedia patterns. OOHDM divides the design space into four activities: conceptual design (object-oriented model of problem domain), navigation design (specifying components users will explore), abstract interface design, and implementation. The method provides constructs for specifying navigation components (nodes, links, navigational contexts, composite nodes, hierarchical indexes) and supports customization for different user profiles. The paper also discusses hypermedia patterns as a way to capture and reuse design experience, classifying them as architectural patterns (connecting databases/legacy software with navigation front-ends), navigation patterns (building navigable information spaces), and interface patterns (organizing interface objects). Examples include "Set-based Navigation" (connecting nodes opportunistically based on set membership) and "Node in Context" (different representations depending on context). The approach emphasizes design reuse and systematic development of hypermedia applications.
+
+**Thesis Relevance:**
+- **OOHDM methodology:** Provides systematic object-oriented approach to hypermedia design, relevant to structured adaptation design methodologies.
+- **Navigation design:** Explicitly addresses navigation architecture design, connecting to navigation adaptation approaches.
+- **User profile customization:** Supports customization for different user profiles, relevant to user-adaptive systems.
+- **Hypermedia patterns:** Catalog of reusable design solutions for hypermedia, informing adaptation pattern approaches.
+- **Four-phase design process:** Conceptual, navigation, interface, implementation phases, providing structured design approach.
+- **Design reuse emphasis:** Focuses on capturing and reusing design experience, relevant to reusable adaptation solutions.
+- **Limitations:** Focuses on hypermedia/web application design rather than general UI adaptation; does not address accessibility or impairment-specific adaptations.
+
+**Cross-references:**
+- Thesis methodology: Systematic design approaches for adaptive systems
+- Navigation adaptation: Connection to navigation design and adaptation
+- User modeling: Customization for different user profiles
+- Design patterns: Reusable solutions for adaptation design problems
+- Object-oriented design: OOHDM's object-oriented approach to hypermedia
+- Software engineering: Application of software engineering to hypermedia/adaptation
+
+**Questions raised:**
+- How could the OOHDM methodology be extended to support multi-sensory adaptation design across different design spaces?
+- What additional patterns would be needed for adaptation-specific design problems (e.g., cross-modal mapping patterns)?
+- How might the navigation design phase inform adaptation of navigation structures for users with different capabilities?
+- Could hypermedia patterns be extended to "adaptation patterns" for common adaptation design problems?
+
 ---
 
 ## Notes on Review Process
@@ -1134,4 +1164,4 @@ This bibliography will be built incrementally by reviewing each paper in the `re
 3. **How it connects** (thesis chapters, models, publications)
 4. **Questions it raises** (limitations, open issues, research gaps)
 
-Total papers reviewed: 41 / ~255 (across 9 categories)
+Total papers reviewed: 42 / ~255 (across 9 categories)
